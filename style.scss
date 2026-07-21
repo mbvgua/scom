@@ -1,0 +1,298 @@
+// --- Variables ---
+$light-blue: #88c0d0;
+$dark-blue: #2b6cb0;
+$donate-accent: #e53e3e; // A soft but striking red for the massive button
+$white: #ffffff;
+$text-dark: #2d3748;
+
+// --- Navbar Base (Transparent & Spaced Out) ---
+#mainNav {
+  padding: 1.5rem 0;
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+
+  .navbar-brand {
+    color: $white;
+    font-size: 1.75rem;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link {
+    color: rgba($white, 0.9);
+    margin: 0 1rem;
+    font-weight: 500;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $light-blue;
+    }
+  }
+
+  // The Massive Donate Button
+  .btn-donate {
+    background-color: $donate-accent;
+    color: $white;
+    padding: 0.8rem 3rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.2s;
+
+    &:hover {
+      background-color: darken($donate-accent, 10%);
+      transform: translateY(-2px);
+      color: $white;
+    }
+  }
+}
+
+// --- Navbar Scrolled State (Triggered by JS) ---
+#mainNav.scrolled {
+  padding: 0.5rem 0; // Reduces size
+  background-color: $white; // No longer transparent
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  .navbar-brand {
+    color: $dark-blue; // Switch text color so it's visible on white
+  }
+
+  .nav-link {
+    color: $text-dark;
+
+    &:hover {
+      color: $dark-blue;
+    }
+  }
+}
+
+// --- Hero Section (Full Screen) ---
+// --- Hero Section Carousel (Update/Replace previous .hero-section block) ---
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  .hero-img {
+    object-fit: cover; // Ensures full screen coverage without stretching images
+  }
+
+  // Carousel Item Overlay & Content Styling
+  .carousel-item {
+    position: relative;
+
+    // Dark overlay on top of images for text contrast
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($dark-blue, 0.55); // Uses your dark-blue theme color as an overlay
+    }
+  }
+
+  .carousel-caption {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2; // Places text over the dark overlay
+    padding: 0 10%;
+  }
+
+  // Adjust arrow controls visibility/depth
+  .carousel-control-prev,
+  .carousel-control-next {
+    z-index: 3;
+  }
+}
+
+// --- Feature Sections (Problem & Solution) ---
+.feature-section {
+  background-color: $white;
+
+  .img-wrapper {
+    position: relative;
+    max-height: 450px;
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      min-height: 350px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.02); // Subtle hover zoom effect
+    }
+  }
+
+  // Custom badges matching your color theme
+  .bg-light-blue {
+    background-color: lighten($light-blue, 20%);
+    color: $dark-blue !important;
+  }
+
+  .bg-dark-blue {
+    background-color: $dark-blue;
+  }
+}
+
+// Alternate background color for the Solution section
+.bg-light-section {
+  background-color: #f8fafc;
+}
+
+
+// --- Newsletter Section ---
+.newsletter-section {
+  background-color: $dark-blue; // Uses your primary deep blue color
+
+  .form-control {
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    &:focus {
+      box-shadow: 0 0 0 0.25rem rgba($light-blue, 0.5);
+    }
+  }
+
+  // Leverages the massive donate button style from the navbar for consistency
+  .btn-donate {
+    background-color: $donate-accent;
+    color: $white;
+    border: none;
+    transition: transform 0.2s ease, background-color 0.2s;
+
+    &:hover {
+      background-color: darken($donate-accent, 10%);
+      transform: translateY(-2px);
+      color: $white;
+    }
+  }
+}
+
+// --- FAQ Section Styling ---
+.faq-section {
+  background-color: #f8fafc;
+
+  .accordion-item {
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  }
+
+  .accordion-button {
+    color: $dark-blue;
+    background-color: $white;
+
+    &:not(.collapsed) {
+      color: $dark-blue;
+      background-color: lighten($light-blue, 25%);
+      box-shadow: none;
+    }
+
+    &:focus {
+      box-shadow: none;
+      border-color: rgba($dark-blue, 0.1);
+    }
+  }
+}
+
+// --- Footer Styling ---
+.footer-section {
+  background-color: #1a202c !important;
+
+  .footer-links a {
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $light-blue !important;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+// programs.html
+// --- Subpage Banner Header (Like "Our Programs") ---
+.page-header {
+  height: 55vh; // Keeps it high enough for impact while allowing content below to show
+  min-height: 380px;
+  width: 100%;
+  position: relative;
+
+  // Background Image + Overlay matching your screenshot layout
+  background: linear-gradient(rgba($dark-blue, 0.55), rgba($dark-blue, 0.55)),
+    url('./static/images/programs-header.png') center/cover no-repeat;
+
+  .hero-content {
+    z-index: 2;
+    margin-top: 40px; // Gives visual offset due to fixed navbar
+  }
+}
+
+// --- Get Involved Section Styling ---
+// --- Get Involved Section (With Image Background) ---
+.get-involved-section {
+    position: relative;
+    background: linear-gradient(rgba($dark-blue, 0.75), rgba($dark-blue, 0.75)), 
+                url('./static/images/istockphoto-1350061210-1024x1024.jpg') center/cover no-repeat fixed; // 'fixed' gives a subtle parallax effect
+
+    .card {
+        background-color: rgba($white, 0.98); // Slightly translucent white card
+        backdrop-filter: blur(5px);
+    }
+
+    .form-control, .form-select {
+        border: 1px solid #cbd5e1;
+        font-size: 1rem;
+
+        &:focus {
+            border-color: $light-blue;
+            box-shadow: 0 0 0 0.25rem rgba($light-blue, 0.25);
+        }
+    }
+
+    .btn-donate {
+        background-color: $donate-accent;
+        color: $white;
+        border: none;
+        transition: transform 0.2s ease, background-color 0.2s;
+
+        &:hover {
+            background-color: darken($donate-accent, 10%);
+            transform: translateY(-2px);
+            color: $white;
+        }
+    }
+}
+
+// --- Contact Us Page Styles ---
+.contact-header {
+    background: linear-gradient(rgba($dark-blue, 0.55), rgba($dark-blue, 0.55)), 
+                url('./static/images/contact-header.png') center/cover no-repeat;
+}
+
+.map-container {
+    width: 100%;
+    min-height: 450px;
+    
+    iframe {
+        display: block;
+        width: 100%;
+        height: 450px;
+    }
+}
