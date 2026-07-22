@@ -87,23 +87,23 @@ body {
 
 }
 
-  // The Donate Button
-  .btn-donate {
-    background-color: $red;
-    color: $white;
-    padding: 0.8rem 2rem;
-    font-family: $font-plyful;
-    font-size: 1.2rem;
-    border-radius: 50px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, background-color 0.2s;
+// The Donate Button
+.btn-donate {
+  background-color: $red;
+  color: $white;
+  padding: 0.8rem 2rem;
+  font-family: $font-plyful;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.2s;
 
-    &:hover {
-      background-color: darken($red, 10%);
-      transform: translateY(-2px);
-      color: $white;
-    }
+  &:hover {
+    background-color: darken($red, 10%);
+    transform: translateY(-2px);
+    color: $white;
   }
+}
 
 // make hamburger menu have solid color on mobile screens
 @media (max-width: 991.98px) {
@@ -368,34 +368,10 @@ body {
  ***************************
 */
 
-
-
-/*
- ***************************
- * CONTACT-US.HTML PAGE
- ***************************
-*/
-
-
-
-/*
- ***************************
- * DONATE.HTML PAGE
- ***************************
-*/
-
-
-
-
-
-
-
 // --- Get Involved Section Styling ---
 // --- Get Involved Section (With Image Background) ---
 .get-involved-section {
   position: relative;
-  background: linear-gradient(rgba($dark-blue, 0.75), rgba($dark-blue, 0.75)),
-    url('./static/images/istockphoto-1350061210-1024x1024.jpg') center/cover no-repeat fixed; // 'fixed' gives a subtle parallax effect
 
   .card {
     background-color: rgba($white, 0.98); // Slightly translucent white card
@@ -426,6 +402,28 @@ body {
     }
   }
 }
+
+
+/*
+ ***************************
+ * CONTACT-US.HTML PAGE
+ ***************************
+*/
+
+
+
+/*
+ ***************************
+ * DONATE.HTML PAGE
+ ***************************
+*/
+
+
+
+
+
+
+
 
 // --- Contact Us Page Styles ---
 .contact-header {
