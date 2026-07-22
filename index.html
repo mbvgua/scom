@@ -12,7 +12,7 @@
   </head>
 
   <body>
-      <!-- START NAVBAR -->
+    <!-- START NAVBAR -->
     <nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid px-4 px-lg-5">
         <a class="navbar-brand fw-bold" href="index.html">SCOM</a>
@@ -30,302 +30,568 @@
         <!-- menu section -->
         <div class="collapse navbar-collapse" id="navbarContent">
           <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link fw-semibold" href="about.html">About</a>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle fw-semibold"
+                href="about-us.html"
+                id="aboutDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                About Us
+              </a>
+              <ul
+                class="dropdown-menu border-0 shadow-sm rounded-3 mt-0"
+                aria-labelledby="aboutDropdown"
+              >
+                <li>
+                  <a class="dropdown-item py-2" href="about-us.html#our-history"
+                    >Our History</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item py-2" href="about-us.html#our-journey"
+                    >Our Journey</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-2"
+                    href="about-us.html#board-of-directors"
+                    >Board of Directors</a
+                  >
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
               <a class="nav-link fw-semibold" href="programs.html">Programs</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-semibold" href="get-involved.html">Get Involved</a>
+              <a class="nav-link fw-semibold" href="get-involved.html"
+                >Get Involved</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-semibold" href="contact-us.html">Contact Us</a>
+              <a class="nav-link fw-semibold" href="contact-us.html"
+                >Contact Us</a
+              >
             </li>
           </ul>
 
           <!-- donate button -->
           <div class="d-flex">
-            <a href="#donate" class="btn btn-donate fw-bold">DONATE
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
-                </svg>
+            <a href="#donate" class="btn btn-donate fw-bold"
+              >DONATE
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-heart-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"
+                />
+              </svg>
             </a>
           </div>
-
         </div>
       </div>
     </nav>
     <!-- END NAVBAR -->
 
     <!-- START HERO SECTION -->
-<header id="heroCarousel" class="carousel slide carousel-fade hero-section" data-bs-ride="carousel" data-bs-interval="10000">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-    </div>
+    <header
+      id="heroCarousel"
+      class="carousel slide carousel-fade hero-section"
+      data-bs-ride="carousel"
+      data-bs-interval="10000"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
+      </div>
 
-    <div class="carousel-inner h-80">
+      <div class="carousel-inner h-80">
         <div class="carousel-item active h-100">
-            <img src="./static/images/slide1.jpg" class="d-block w-100 h-100 hero-img" alt="Slide 1 Placeholder">
-            <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
-                <h1 class="display-2 fw-bold text-white mb-3">Welcome to SCOM</h1>
-                <p class="lead text-white">Providing a safe, loving, and supportive home for children in need.</p>
-            </div>
+          <img
+            src="./static/images/slide1.jpg"
+            class="d-block w-100 h-100 hero-img"
+            alt="Slide 1 Placeholder"
+          />
+          <div
+            class="carousel-caption d-flex flex-column justify-content-center align-items-center"
+          >
+            <h1 class="display-2 fw-bold text-white mb-3">Welcome to SCOM</h1>
+            <p class="lead text-white">
+              Providing a safe, loving, and supportive home for children in
+              need.
+            </p>
+          </div>
         </div>
 
         <div class="carousel-item h-100">
-            <img src="./static/images/slide2.jpg" class="d-block w-100 h-100 hero-img" alt="Slide 2 Placeholder">
-            <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
-                <h1 class="display-2 fw-bold text-white mb-3">Empowering Young Minds</h1>
-                <p class="lead text-white">Ensuring quality education, healthcare, and lifelong support.</p>
-            </div>
+          <img
+            src="./static/images/slide2.jpg"
+            class="d-block w-100 h-100 hero-img"
+            alt="Slide 2 Placeholder"
+          />
+          <div
+            class="carousel-caption d-flex flex-column justify-content-center align-items-center"
+          >
+            <h1 class="display-2 fw-bold text-white mb-3">
+              Empowering Young Minds
+            </h1>
+            <p class="lead text-white">
+              Ensuring quality education, healthcare, and lifelong support.
+            </p>
+          </div>
         </div>
 
         <div class="carousel-item h-100">
-            <img src="./static/images/slide3.jpg" class="d-block w-100 h-100 hero-img" alt="Slide 3 Placeholder">
-            <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
-                <h1 class="display-2 fw-bold text-white mb-3">A Place Called Home</h1>
-                <p class="lead text-white">Creating strong bonds and a nurturing family environment.</p>
-            </div>
+          <img
+            src="./static/images/slide3.jpg"
+            class="d-block w-100 h-100 hero-img"
+            alt="Slide 3 Placeholder"
+          />
+          <div
+            class="carousel-caption d-flex flex-column justify-content-center align-items-center"
+          >
+            <h1 class="display-2 fw-bold text-white mb-3">
+              A Place Called Home
+            </h1>
+            <p class="lead text-white">
+              Creating strong bonds and a nurturing family environment.
+            </p>
+          </div>
         </div>
 
         <div class="carousel-item h-100">
-            <img src="./static/images/slide4.jpg" class="d-block w-100 h-100 hero-img" alt="Slide 4 Placeholder">
-            <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
-                <h1 class="display-2 fw-bold text-white mb-3">Join Our Cause</h1>
-                <p class="lead text-white">Your contributions help us build brighter futures every day.</p>
-            </div>
+          <img
+            src="./static/images/slide4.jpg"
+            class="d-block w-100 h-100 hero-img"
+            alt="Slide 4 Placeholder"
+          />
+          <div
+            class="carousel-caption d-flex flex-column justify-content-center align-items-center"
+          >
+            <h1 class="display-2 fw-bold text-white mb-3">Join Our Cause</h1>
+            <p class="lead text-white">
+              Your contributions help us build brighter futures every day.
+            </p>
+          </div>
         </div>
-    </div>
+      </div>
 
-        <!-- prev/next carousel image buttons -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <!-- prev/next carousel image buttons -->
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide="prev"
+      >
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide="next"
+      >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
-    </button>
+      </button>
+    </header>
+    <!-- END HERO SECTION -->
 
-</header>
-<!-- END HERO SECTION -->
-
-
-<!-- problem statement begin -->
-<section id="problem" class="py-5 feature-section">
-    <div class="container py-lg-4">
+    <!-- problem statement begin -->
+    <section id="problem" class="py-5 feature-section bg-light">
+      <div class="container py-lg-4">
         <div class="row align-items-center g-5">
-
-            <!-- image side -->
-            <div class="col-lg-6">
-                <div class="img-wrapper shadow rounded-4 overflow-hidden">
-                    <img src="./static/images/problem.jpg" class="img-fluid w-100 h-100" alt="The Challenge Placeholder">
-                </div>
+          <!-- image side -->
+          <div class="col-lg-6">
+            <div class="img-wrapper shadow rounded-4 overflow-hidden">
+              <img
+                src="./static/images/problem.jpg"
+                class="img-fluid w-100 h-100"
+                alt="The Challenge Placeholder"
+              />
             </div>
+          </div>
 
-            <!-- text side -->
-            <div class="col-lg-6">
-                <div class="pe-lg-3">
-                    <h2 class="display-5 fw-bold text-dark mb-3">The Challenge</h2>
-                    <p class="lead text-muted mb-3">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-                    </p>
-                </div>
+          <!-- text side -->
+          <div class="col-lg-6">
+            <div class="pe-lg-3">
+              <h2 class="display-5 fw-bold text-dark mb-3">The Challenge</h2>
+              <p class="lead text-muted mb-3">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident.
+              </p>
             </div>
+          </div>
         </div>
-    </div>
-</section>
-<!-- problem statement end -->
+      </div>
+    </section>
+    <!-- problem statement end -->
 
-<!-- solution section start -->
-<section id="solution" class="py-5 feature-section">
-    <div class="container py-lg-4">
+    <!-- solution section start -->
+    <section id="solution" class="py-5 feature-section">
+      <div class="container py-lg-4">
         <div class="row align-items-center g-5">
-
-            <!-- text side -->
-            <div class="col-lg-6 order-2 order-lg-1">
-                <div class="ps-lg-3">
-                    <h2 class="display-5 fw-bold text-dark mb-3">The Solution</h2>
-                    <p class="lead text-muted mb-3">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.
-                    </p>
-                </div>
+          <!-- text side -->
+          <div class="col-lg-6 order-2 order-lg-1">
+            <div class="ps-lg-3">
+              <h2 class="display-5 fw-bold text-dark mb-3">The Solution</h2>
+              <p class="lead text-muted mb-3">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed
+                ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae ab illo inventore veritatis et quasi architecto beatae
+                vitae dicta sunt explicabo. Nemo enim ipsam voluptatem. Sed ut
+                perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae ab illo inventore veritatis et quasi architecto beatae
+                vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.
+              </p>
             </div>
+          </div>
 
-            <!-- image side -->
-            <div class="col-lg-6 order-1 order-lg-2">
-                <div class="img-wrapper shadow rounded-4 overflow-hidden">
-                    <img src="./static/images/solution.jpg" class="img-fluid w-100" alt="The Solution Placeholder">
-                </div>
+          <!-- image side -->
+          <div class="col-lg-6 order-1 order-lg-2">
+            <div class="img-wrapper shadow rounded-4 overflow-hidden">
+              <img
+                src="./static/images/solution.jpg"
+                class="img-fluid w-100"
+                alt="The Solution Placeholder"
+              />
             </div>
+          </div>
         </div>
-    </div>
-</section>
-<!-- solution section end -->
+      </div>
+    </section>
+    <!-- solution section end -->
 
-
-<!-- faqs section -->
-<section id="faq" class="py-5 faq-section">
-    <div class="container py-lg-4">
+    <!-- faqs section -->
+    <section id="faq" class="py-5 faq-section bg-light">
+      <div class="container py-lg-4">
         <div class="text-center mb-5">
-            <h2 class="display-6 fw-semibold text-dark">What Makes Us Different</h2>
-            <p class="text-secondary">Learn more about our approach and why our care model stands out.</p>
+          <h2 class="display-6 fw-semibold text-dark">
+            What Makes Us Different
+          </h2>
+          <p class="text-secondary">
+            Learn more about our approach and why our care model stands out.
+          </p>
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="accordion" id="faqAccordion">
-                    <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
-                        <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                How do we provide family-style care?
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body text-secondary">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Where does my donation go?
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body text-secondary">
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Can I visit or volunteer in person?
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body text-secondary">
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
-                        <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                What long-term support do we offer to aging-out youth?
-                            </button>
-                        </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body text-secondary">
-                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-                            </div>
-                        </div>
-                    </div>
-
+          <div class="col-lg-8">
+            <div class="accordion" id="faqAccordion">
+              <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button fw-semibold"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    How do we provide family-style care?
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body text-secondary">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                  </div>
                 </div>
+              </div>
+
+              <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button
+                    class="accordion-button collapsed fw-semibold"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    Where does my donation go?
+                  </button>
+                </h2>
+                <div
+                  id="collapseTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingTwo"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body text-secondary">
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
+                <h2 class="accordion-header" id="headingThree">
+                  <button
+                    class="accordion-button collapsed fw-semibold"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    Can I visit or volunteer in person?
+                  </button>
+                </h2>
+                <div
+                  id="collapseThree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingThree"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body text-secondary">
+                    Sed ut perspiciatis unde omnis iste natus error sit
+                    voluptatem accusantium doloremque laudantium, totam rem
+                    aperiam, eaque ipsa quae ab illo inventore veritatis.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
+                <h2 class="accordion-header" id="headingFour">
+                  <button
+                    class="accordion-button collapsed fw-semibold"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour"
+                    aria-expanded="false"
+                    aria-controls="collapseFour"
+                  >
+                    What long-term support do we offer to aging-out youth?
+                  </button>
+                </h2>
+                <div
+                  id="collapseFour"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingFour"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body text-secondary">
+                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                    odit aut fugit, sed quia consequuntur magni dolores eos qui
+                    ratione voluptatem sequi nesciunt.
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+    </section>
+    <!-- faqs section end -->
 
-    </div>
-</section>
-<!-- faqs section end -->
-
-
-<!-- subscribe to newletter section start -->
-<section id="newsletter" class="py-5 newsletter-section bg-light">
-
-    <div class="container py-lg-4 text-center">
+    <!-- subscribe to newletter section start -->
+    <section id="newsletter" class="py-5 newsletter-section">
+      <div class="container py-lg-4 text-center">
         <div class="row justify-content-center">
-            <div class="col-lg-8 col-xl-6">
-                <h2 class="display-6 fw-bold mb-3">Subscribe to Our Newsletter</h2>
-                <p class="lead opacity-75 mb-4">
-                    Join our community to receive updates on our children, upcoming events, and stories of impact.
-                </p>
+          <div class="col-lg-8 col-xl-6">
+            <h2 class="display-6 fw-bold mb-3">Subscribe to Our Newsletter</h2>
+            <p class="lead opacity-75 mb-4">
+              Join our community to receive updates on our children, upcoming
+              events, and stories of impact.
+            </p>
 
-                <form class="newsletter-form row g-2 justify-content-center">
-                    <div class="col-12 col-sm-8">
-                        <input type="email" class="form-control form-control-lg rounded-pill px-4" placeholder="Enter your email address" required>
-                    </div>
-                    <div class="col-12 col-sm-4">
-                        <button type="submit" class="btn btn-donate w-100 fw-bold rounded-pill h-100">Subscribe</button>
-                    </div>
-                </form>
-                <small class="d-block mt-3 opacity-50">We respect your privacy. Unsubscribe at any time.</small>
-            </div>
+            <form class="newsletter-form row g-2 justify-content-center">
+              <div class="col-12 col-sm-8">
+                <input
+                  type="email"
+                  class="form-control form-control-lg rounded-pill px-4"
+                  placeholder="Enter your email address"
+                  required
+                />
+              </div>
+              <div class="col-12 col-sm-4">
+                <button
+                  type="submit"
+                  class="btn btn-donate w-100 fw-bold rounded-pill h-100"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </form>
+            <small class="d-block mt-3 opacity-50"
+              >We respect your privacy. Unsubscribe at any time.</small
+            >
+          </div>
         </div>
-    </div>
-</section>
-<!-- newsletter section end -->
+      </div>
+    </section>
+    <!-- newsletter section end -->
 
-
-<!-- footer section -->
-<footer class="footer-section text-white pt-5 pb-3 position-relative overflow-hidden">
-
-    <!-- concave inwards curve -->
-    <div class="position-absolute top-0 start-0 w-100 overflow-hidden" style="line-height: 0;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-100" style="height: 75px;" preserveAspectRatio="none">
-            <path fill="#ffffff" d="M 0,0 L 1440,0 L 1440,0 Q 720,120 0,0 Z"></path>
+    <!-- footer section -->
+    <footer
+      class="footer-section text-white pt-5 pb-3 position-relative overflow-hidden"
+    >
+      <!-- concave inwards curve -->
+      <div
+        class="position-absolute top-0 start-0 w-100 overflow-hidden"
+        style="line-height: 0"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 120"
+          class="w-100"
+          style="height: 75px"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="#ffffff"
+            d="M 0,0 L 1440,0 L 1440,0 Q 720,120 0,0 Z"
+          ></path>
         </svg>
-    </div>
+      </div>
 
-    <div class="container position-relative z-1">
+      <div class="container position-relative z-1">
         <div class="row g-4 pb-4 border-bottom border-white">
-            
-            <div class="col-lg-4 col-md-6">
-                <h4 class="fw-semibold text-white mb-3">SCOM Childrens Home</h4>
-                <p class="text-white opacity-80">
-                    Providing a safe, loving, and supportive home for children in need. Together, we can empower young minds to build a brighter tomorrow.
-                </p>
-            </div>
+          <div class="col-lg-4 col-md-6">
+            <h4 class="fw-semibold text-white mb-3">SCOM Childrens Home</h4>
+            <p class="text-white opacity-80">
+              Providing a safe, loving, and supportive home for children in
+              need. Together, we can empower young minds to build a brighter
+              tomorrow.
+            </p>
+          </div>
 
-            <div class="col-lg-2 col-md-6">
-                <h5 class="fw-semibold text-white opacity-80  mb-3">Quick Links</h5>
-                <ul class="list-unstyled footer-links">
-                    <li class="mb-2"><a href="#home" class="text-white opacity-80  text-decoration-none">Home</a></li>
-                    <li class="mb-2"><a href="#problem" class="text-white opacity-80  text-decoration-none">About Us</a></li>
-                    <li class="mb-2"><a href="#problem" class="text-white opacity-80  text-decoration-none">Programs</a></li>
-                    <li class="mb-2"><a href="#faq" class="text-white opacity-80  text-decoration-none">Get Involved</a></li>
-                    <li class="mb-2"><a href="#newsletter" class="text-white opacity-80  text-decoration-none">Contact Us</a></li>
-                </ul>
-            </div>
+          <div class="col-lg-2 col-md-6">
+            <h5 class="fw-semibold text-white opacity-80 mb-3">Quick Links</h5>
+            <ul class="list-unstyled footer-links">
+              <li class="mb-2">
+                <a
+                  href="#home"
+                  class="text-white opacity-80 text-decoration-none"
+                  >Home</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="#problem"
+                  class="text-white opacity-80 text-decoration-none"
+                  >About Us</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="#problem"
+                  class="text-white opacity-80 text-decoration-none"
+                  >Programs</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="#faq"
+                  class="text-white opacity-80 text-decoration-none"
+                  >Get Involved</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="#newsletter"
+                  class="text-white opacity-80 text-decoration-none"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
 
-            <div class="col-lg-3 col-md-6">
-                <h5 class="fw-semibold text-white opacity-80  mb-3">Get Involved</h5>
-                <ul class="list-unstyled footer-links">
-                    <li class="mb-2"><a href="#donate" class="text-white opacity-80  text-decoration-none">Make a Donation</a></li>
-                    <li class="mb-2"><a href="#" class="text-white opacity-80  text-decoration-none">Sponsor a Child</a></li>
-                    <li class="mb-2"><a href="#" class="text-white opacity-80  text-decoration-none">Volunteer Opportunities</a></li>
-                </ul>
-            </div>
+          <div class="col-lg-3 col-md-6">
+            <h5 class="fw-semibold text-white opacity-80 mb-3">Get Involved</h5>
+            <ul class="list-unstyled footer-links">
+              <li class="mb-2">
+                <a
+                  href="#donate"
+                  class="text-white opacity-80 text-decoration-none"
+                  >Make a Donation</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white opacity-80 text-decoration-none"
+                  >Sponsor a Child</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white opacity-80 text-decoration-none"
+                  >Volunteer Opportunities</a
+                >
+              </li>
+            </ul>
+          </div>
 
-            <div class="col-lg-3 col-md-6">
-                <h5 class="fw-semibold text-white opacity-80  mb-3">Contact Us</h5>
-                <p class="text-white opacity-80  mb-1">123 Care Street, Cityville</p>
-                <p class="text-white opacity-80  mb-1">info@hopehaven.org</p>
-                <p class="text-white opacity-80 ">+1 (555) 019-2834</p>
-            </div>
-
+          <div class="col-lg-3 col-md-6">
+            <h5 class="fw-semibold text-white opacity-80 mb-3">Contact Us</h5>
+            <p class="text-white opacity-80 mb-1">123 Care Street, Cityville</p>
+            <p class="text-white opacity-80 mb-1">info@hopehaven.org</p>
+            <p class="text-white opacity-80">+1 (555) 019-2834</p>
+          </div>
         </div>
 
-        <div class="text-center pt-3 text-white position-relative z-2 opacity-75">
-            <small>&copy; <span id="current-year"></span> Service for Christ Outreach Ministry(SCOM) Children's Home. All rights reserved.</small>
+        <div
+          class="text-center pt-3 text-white position-relative z-2 opacity-75"
+        >
+          <small
+            >&copy; <span id="current-year"></span> Service for Christ Outreach
+            Ministry(SCOM) Children's Home. All rights reserved.</small
+          >
         </div>
-    </div>
-</footer>
-
+      </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>

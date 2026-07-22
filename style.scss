@@ -85,6 +85,37 @@ body {
     }
   }
 
+  /* Hide the default Bootstrap dropdown arrow */
+  .nav-link.dropdown-toggle::after {
+    display: none !important;
+  }
+
+  // Hover dropdown trigger for desktop screens (min-width: 992px)
+  @media (min-width: 992px) {
+    .nav-item.dropdown {
+      &:hover .dropdown-menu {
+        display: block;
+        margin-top: 0; // Prevents gap where hover state drops off
+        animation: fadeIn 0.2s ease-in-out;
+      }
+    }
+  }
+
+
+  // Styling polish for dropdown link
+  .dropdown-menu {
+    .dropdown-item {
+      color: #333333;
+      font-weight: 500;
+      transition: background-color 0.2s ease, color 0.2s ease;
+
+      &:hover,
+      &:focus {
+        background-color: rgba(255, 107, 53, 0.1); // Light tint matching primary color
+        color: #ff6b35; // Highlight color
+      }
+    }
+  }
 }
 
 // The Donate Button
@@ -337,6 +368,110 @@ body {
   }
 }
 
+
+/*
+ ***************************
+ * ABOUT-US.HTML PAGE
+ ***************************
+*/
+.timeline {
+    position: relative;
+    
+    // The vertical line
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background-color: darkgrey; // Light gray line
+        transform: translateX(-50%);
+        z-index: 0; // <-- Pushed to the background
+
+        // Mobile: Move the line to the left
+        @media (max-width: 767px) {
+            left: 15px; 
+        }
+    }
+}
+
+.timeline-item {
+    position: relative;
+    z-index: 1; 
+    
+    // The dots on the timeline
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 24px;
+        height: 24px;
+        background-color: $red; // Primary color
+        border: 4px solid #ffffff;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10; // <-- Pulled to the foreground (on top of the line)
+        box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.2); 
+
+        // Mobile: Move the dots to the left, aligning with the line
+        @media (max-width: 767px) {
+            left: 30px; 
+            top: 24px; // Align the dot near the top of the text block
+            transform: translate(-50%, 0);
+        }
+    }
+
+    // Mobile: Push all content (text and images) to the right of the line
+    @media (max-width: 767px) {
+        padding-left: 70px; 
+        padding-right: 15px; // Add a little breathing room on the right
+    }
+}
+
+// --- Animation Classes (Keep these the same) ---
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.board-overlay {
+    // Creates a smooth gradient fade from transparent to dark black at the bottom
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+    transition: background 0.3s ease;
+
+}
+
+.board-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15) !important;
+        
+        // Optional subtle zoom effect on the image when hovering the card
+        img {
+            transform: scale(1.05);
+            transition: transform 0.5s ease;
+        }
+    }
+
+    img {
+        transition: transform 0.5s ease;
+    }
+}
 
 /*
  ***************************
