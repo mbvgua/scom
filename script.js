@@ -11,4 +11,10 @@ document.addEventListener("DOMContentLoaded", function() {
             navbar.classList.remove("scrolled");
         }
     });
+
+    // year for the footer.updates automatically!
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
 });
