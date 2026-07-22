@@ -9,11 +9,29 @@ $red: #e53e3e;
 $white: #ffffff;
 $text-dark: #2d3748;
 
+/*
+ ***************************
+ * GENERAL CONTENT SECTION
+ ***************************
+*/
 body {
   font-family: $font-text;
 }
 
-// --- Navbar Base (Transparent & Spaced Out) ---
+/* NAVBAR */
+// link arrow fade-in
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 #mainNav {
   padding: 1.5rem 0;
   transition: all 0.3s ease-in-out;
@@ -28,7 +46,6 @@ body {
     @media (max-width: 768px) {
       color: $text-dark;
     }
-
   }
 
   .nav-link {
@@ -68,13 +85,15 @@ body {
     }
   }
 
+}
+
   // The Donate Button
   .btn-donate {
     background-color: $red;
     color: $white;
     padding: 0.8rem 2rem;
     font-family: $font-plyful;
-    // font-size: 1.2rem;
+    font-size: 1.2rem;
     border-radius: 50px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, background-color 0.2s;
@@ -85,10 +104,8 @@ body {
       color: $white;
     }
   }
-}
 
 // make hamburger menu have solid color on mobile screens
-// --- Mobile Collapsible Navbar Dropdown Styling ---
 @media (max-width: 991.98px) {
   #navbarContent {
     background-color: #ffffff; // Solid white background on mobile
@@ -132,7 +149,45 @@ body {
   }
 }
 
-// --- Hero Section (Full Screen) ---
+// wrap all my images nicely
+.img-wrapper {
+  position: relative;
+  max-height: 800px; // Adjust this value to make it as tall as you like (e.g., 500px, 600px)
+
+  img {
+    height: 100%;
+    object-fit: cover; // Ensures the image crops nicely instead of stretching
+    min-height: 350px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.02); // Subtle hover zoom effect
+  }
+
+}
+
+
+/* FOOTER */
+.footer-section {
+  background-color: $dark-blue; // Uses your primary deep blue color
+  overflow: hidden;
+
+  .footer-links a {
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $text-dark !important;
+    }
+  }
+}
+
+/*
+ ***************************
+ * INDEX.HTML PAGE
+ ***************************
+*/
+
 // --- Hero Section Carousel (Update/Replace previous .hero-section block) ---
 .hero-section {
   width: 100%;
@@ -145,7 +200,6 @@ body {
   @media (max-width: 768px) {
     min-height: auto; // Allows section to grow with content instead of clipping
     padding-top: 5rem; // Gives room below fixed navbar
-    // padding-bottom: 4rem; // Ensures text stays inside image background
   }
 
   .hero-img {
@@ -186,7 +240,7 @@ body {
   }
 }
 
-// Keyframe for Pop-Up / Fade-Up Effect
+// Keyframe for Pop-Up / Fade-Up Effect animation in hero ection
 @keyframes popUpFromBelow {
   0% {
     opacity: 0;
@@ -221,24 +275,6 @@ body {
 
 .bg-light-section {
   background-color: #f8fafc;
-}
-
-// wrap all my images nicely
-.img-wrapper {
-  position: relative;
-  max-height: 800px; // Adjust this value to make it as tall as you like (e.g., 500px, 600px)
-
-  img {
-    height: 100%;
-    object-fit: cover; // Ensures the image crops nicely instead of stretching
-    min-height: 350px;
-    transition: transform 0.3s ease;
-  }
-
-  &:hover img {
-    transform: scale(1.02); // Subtle hover zoom effect
-  }
-
 }
 
 
@@ -302,50 +338,57 @@ body {
 }
 
 
-// --- Footer Styling ---
-.footer-section {
-  background-color: $dark-blue; // Uses your primary deep blue color
-  overflow: hidden;
+/*
+ ***************************
+ * PROGRAMS.HTML PAGE
+ ***************************
+*/
 
-  .footer-links a {
-    transition: color 0.2s ease;
-
-    &:hover {
-      color: $text-dark !important;
-    }
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-// programs.html
 // --- Subpage Banner Header (Like "Our Programs") ---
 .page-header {
-  height: 55vh; // Keeps it high enough for impact while allowing content below to show
+  height: 60vh; // Keeps it high enough for impact while allowing content below to show
   min-height: 380px;
   width: 100%;
   position: relative;
 
   // Background Image + Overlay matching your screenshot layout
-  background: linear-gradient(rgba($dark-blue, 0.55), rgba($dark-blue, 0.55)),
-    url('./static/images/programs-header.png') center/cover no-repeat;
+  background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)),
+    url('./static/images/slide4.jpg') center/cover no-repeat;
 
   .hero-content {
     z-index: 2;
     margin-top: 40px; // Gives visual offset due to fixed navbar
   }
 }
+
+
+/*
+ ***************************
+ * GET-INVOLVED.HTML PAGE
+ ***************************
+*/
+
+
+
+/*
+ ***************************
+ * CONTACT-US.HTML PAGE
+ ***************************
+*/
+
+
+
+/*
+ ***************************
+ * DONATE.HTML PAGE
+ ***************************
+*/
+
+
+
+
+
+
 
 // --- Get Involved Section Styling ---
 // --- Get Involved Section (With Image Background) ---

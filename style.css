@@ -1,8 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Patrick+Hand+SC&display=swap");
+/*
+ ***************************
+ * GENERAL CONTENT SECTION
+ ***************************
+*/
 body {
   font-family: "Fredoka", sans-serif;
 }
 
+/* NAVBAR */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 #mainNav {
   padding: 1.5rem 0;
   transition: all 0.3s ease-in-out;
@@ -45,16 +61,18 @@ body {
 #mainNav .nav-link.active::after {
   width: 100%;
 }
-#mainNav .btn-donate {
+
+.btn-donate {
   background-color: #e53e3e;
   color: #ffffff;
   padding: 0.8rem 2rem;
   font-family: "Patrick Hand SC", cursive, sans-serif;
+  font-size: 1.2rem;
   border-radius: 50px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, background-color 0.2s;
 }
-#mainNav .btn-donate:hover {
+.btn-donate:hover {
   background-color: rgb(211.5068493151, 28.4931506849, 28.4931506849);
   transform: translateY(-2px);
   color: #ffffff;
@@ -91,6 +109,37 @@ body {
   color: #2d3748;
 }
 
+.img-wrapper {
+  position: relative;
+  max-height: 800px;
+}
+.img-wrapper img {
+  height: 100%;
+  object-fit: cover;
+  min-height: 350px;
+  transition: transform 0.3s ease;
+}
+.img-wrapper:hover img {
+  transform: scale(1.02);
+}
+
+/* FOOTER */
+.footer-section {
+  background-color: #2b6cb0;
+  overflow: hidden;
+}
+.footer-section .footer-links a {
+  transition: color 0.2s ease;
+}
+.footer-section .footer-links a:hover {
+  color: #2d3748 !important;
+}
+
+/*
+ ***************************
+ * INDEX.HTML PAGE
+ ***************************
+*/
 .hero-section {
   width: 100%;
   position: relative;
@@ -163,20 +212,6 @@ body {
   background-color: #f8fafc;
 }
 
-.img-wrapper {
-  position: relative;
-  max-height: 800px;
-}
-.img-wrapper img {
-  height: 100%;
-  object-fit: cover;
-  min-height: 350px;
-  transition: transform 0.3s ease;
-}
-.img-wrapper:hover img {
-  transform: scale(1.02);
-}
-
 .faq-section {
   background-color: #f8fafc;
 }
@@ -222,39 +257,38 @@ body {
   color: #ffffff;
 }
 
-.footer-section {
-  background-color: #2b6cb0;
-  overflow: hidden;
-}
-.footer-section .footer-links a {
-  transition: color 0.2s ease;
-}
-.footer-section .footer-links a:hover {
-  color: #2d3748 !important;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/*
+ ***************************
+ * PROGRAMS.HTML PAGE
+ ***************************
+*/
 .page-header {
-  height: 55vh;
+  height: 60vh;
   min-height: 380px;
   width: 100%;
   position: relative;
-  background: linear-gradient(rgba(43, 108, 176, 0.55), rgba(43, 108, 176, 0.55)), url("./static/images/programs-header.png") center/cover no-repeat;
+  background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), url("./static/images/slide4.jpg") center/cover no-repeat;
 }
 .page-header .hero-content {
   z-index: 2;
   margin-top: 40px;
 }
 
+/*
+ ***************************
+ * GET-INVOLVED.HTML PAGE
+ ***************************
+*/
+/*
+ ***************************
+ * CONTACT-US.HTML PAGE
+ ***************************
+*/
+/*
+ ***************************
+ * DONATE.HTML PAGE
+ ***************************
+*/
 .get-involved-section {
   position: relative;
   background: linear-gradient(rgba(43, 108, 176, 0.75), rgba(43, 108, 176, 0.75)), url("./static/images/istockphoto-1350061210-1024x1024.jpg") center/cover no-repeat fixed;
