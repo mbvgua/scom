@@ -75,13 +75,11 @@ body {
   }
 }
 #mainNav .dropdown-menu .dropdown-item {
-  color: #333333;
-  font-weight: 500;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 #mainNav .dropdown-menu .dropdown-item:hover, #mainNav .dropdown-menu .dropdown-item:focus {
   background-color: rgba(255, 107, 53, 0.1);
-  color: #ff6b35;
+  color: #e53e3e;
 }
 
 .btn-donate {
@@ -122,13 +120,19 @@ body {
 #mainNav.scrolled {
   padding: 0.5rem 0;
   background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 #mainNav.scrolled .navbar-brand {
   color: #2d3748;
 }
 #mainNav.scrolled .nav-link {
   color: #2d3748;
+}
+#mainNav.scrolled .nav-link.active {
+  color: #e53e3e;
+}
+#mainNav.scrolled .nav-link.active::after {
+  width: 100%;
 }
 
 .img-wrapper {
@@ -147,14 +151,14 @@ body {
 
 /* FOOTER */
 .footer-section {
-  background-color: #2b6cb0;
+  background-color: #e53e3e;
   overflow: hidden;
 }
 .footer-section .footer-links a {
   transition: color 0.2s ease;
 }
 .footer-section .footer-links a:hover {
-  color: #2d3748 !important;
+  font-weight: 500;
 }
 
 /*
@@ -170,17 +174,20 @@ body {
 }
 @media (max-width: 768px) {
   .hero-section {
-    min-height: auto;
+    min-height: 520px;
     padding-top: 5rem;
   }
 }
-.hero-section .hero-img {
-  object-fit: cover;
+.hero-section .carousel-inner {
+  height: 100%;
+  min-height: inherit;
 }
-.hero-section .carousel-item {
+.hero-section .carousel-inner .carousel-item {
+  height: 100%;
+  min-height: inherit;
   position: relative;
 }
-.hero-section .carousel-item::after {
+.hero-section .carousel-inner .carousel-item::after {
   content: "";
   position: absolute;
   top: 0;
@@ -189,14 +196,30 @@ body {
   height: 100%;
   background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), center/cover no-repeat;
 }
+.hero-section .hero-img {
+  object-fit: cover;
+  min-height: inherit;
+}
 .hero-section .carousel-caption {
   opacity: 0;
   top: 0;
   bottom: 0;
-  left: 10%;
-  right: 10%;
+  left: 5%;
+  right: 5%;
+  padding: 0 5%;
   z-index: 2;
-  padding: 0 10%;
+}
+@media (min-width: 768px) {
+  .hero-section .carousel-caption {
+    left: 10%;
+    right: 10%;
+    padding: 0 10%;
+  }
+}
+@media (max-width: 768px) {
+  .hero-section .carousel-caption h1 {
+    font-size: 2.2rem !important;
+  }
 }
 .hero-section .carousel-control-prev,
 .hero-section .carousel-control-next {

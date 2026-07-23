@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Patrick+Hand+SC&display=swap');
 
 // --- Variables ---
-$font-plyful: 'Patrick Hand SC', cursive, sans-serif;
+$font-playful: 'Patrick Hand SC', cursive, sans-serif;
 $font-text: 'Fredoka', sans-serif;
 $light-blue: #88c0d0;
 $dark-blue: #2b6cb0;
@@ -19,7 +19,7 @@ body {
 }
 
 /* NAVBAR */
-// link arrow fade-in
+// navbar links underline arrow fade-in
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -105,14 +105,12 @@ body {
   // Styling polish for dropdown link
   .dropdown-menu {
     .dropdown-item {
-      color: #333333;
-      font-weight: 500;
       transition: background-color 0.2s ease, color 0.2s ease;
 
       &:hover,
       &:focus {
         background-color: rgba(255, 107, 53, 0.1); // Light tint matching primary color
-        color: #ff6b35; // Highlight color
+        color: $red; // Highlight color
       }
     }
   }
@@ -123,7 +121,7 @@ body {
   background-color: $red;
   color: $white;
   padding: 0.8rem 2rem;
-  font-family: $font-plyful;
+  font-family: $font-playful;
   font-size: 1.2rem;
   border-radius: 50px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -150,10 +148,6 @@ body {
       color: #212529 !important;
       padding: 0.5rem 0;
       font-weight: 500;
-
-      // &:hover {
-      // color: $ark-blue !important;
-      // }
     }
 
     // Center the DONATE button on mobile inside the white menu block
@@ -169,7 +163,7 @@ body {
 #mainNav.scrolled {
   padding: 0.5rem 0; // Reduces size
   background-color: $white; // No longer transparent
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 
   .navbar-brand {
     color: $text-dark; // Switch text color so it's visible on white
@@ -177,6 +171,15 @@ body {
 
   .nav-link {
     color: $text-dark;
+
+    // Active state (optional): Keeps the line visible on the active page link
+    &.active {
+      color: $red;
+
+      &::after {
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -201,14 +204,14 @@ body {
 
 /* FOOTER */
 .footer-section {
-  background-color: $dark-blue; // Uses your primary deep blue color
+  background-color: $red; // Uses your primary deep blue color
   overflow: hidden;
 
   .footer-links a {
     transition: color 0.2s ease;
 
     &:hover {
-      color: $text-dark !important;
+      font-weight: 500;
     }
   }
 }
@@ -227,41 +230,68 @@ body {
   // Desktop View
   min-height: 100vh;
 
-  // Mobile View Adjustments
+  // Mobile View Adjustments - give it a proper height box instead of auto-collapsing
   @media (max-width: 768px) {
-    min-height: auto; // Allows section to grow with content instead of clipping
-    padding-top: 5rem; // Gives room below fixed navbar
+    min-height: 520px;
+    padding-top: 5rem;
+  }
+
+  // Fix inner container height so images and background boxes expand properly
+  .carousel-inner {
+    height: 100%;
+    min-height: inherit;
+
+    .carousel-item {
+      height: 100%;
+      min-height: inherit;
+      position: relative;
+
+      // Dark overlay on top of images for text contrast
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), center/cover no-repeat;
+      }
+    }
   }
 
   .hero-img {
     object-fit: cover; // Ensures full screen coverage without stretching images
+    min-height: inherit;
   }
 
   // Carousel Item Overlay & Content Styling
-  .carousel-item {
-    position: relative;
-
-    // Dark overlay on top of images for text contrast
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      // Neutral greyish overlay (cool dark charcoal instead of vibrant blue)
-      background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), center/cover no-repeat;
-    }
-  }
-
   .carousel-caption {
     opacity: 0;
     top: 0;
     bottom: 0;
-    left: 10%;
-    right: 10%;
+
+    // Wider text bounds on mobile so it doesn't get squished into a narrow column
+    left: 5%;
+    right: 5%;
+    padding: 0 5%;
+
     z-index: 2; // Places text over the dark overlay
-    padding: 0 10%;
+
+    // Expand bounds back out on larger tablets/desktops
+    @media (min-width: 768px) {
+      left: 10%;
+      right: 10%;
+      padding: 0 10%;
+    }
+
+    // Optional: make the mobile heading size scale down slightly so it fits nicely
+    h1 {
+      // font-size.clamp: 2rem;
+
+      @media (max-width: 768px) {
+        font-size: 2.2rem !important;
+      }
+    }
   }
 
   // Adjust arrow controls visibility/depth
@@ -354,7 +384,7 @@ body {
 
   // Leverages the massive donate button style from the navbar for consistency
   .btn-donate {
-    font-family: $font-plyful;
+    font-family: $font-playful;
     background-color: $red;
     color: $white;
     border: none;
@@ -375,102 +405,102 @@ body {
  ***************************
 */
 .timeline {
-    position: relative;
-    
-    // The vertical line
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        width: 4px;
-        background-color: darkgrey; // Light gray line
-        transform: translateX(-50%);
-        z-index: 0; // <-- Pushed to the background
+  position: relative;
 
-        // Mobile: Move the line to the left
-        @media (max-width: 767px) {
-            left: 15px; 
-        }
+  // The vertical line
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background-color: darkgrey; // Light gray line
+    transform: translateX(-50%);
+    z-index: 0; // <-- Pushed to the background
+
+    // Mobile: Move the line to the left
+    @media (max-width: 767px) {
+      left: 15px;
     }
+  }
 }
 
 .timeline-item {
-    position: relative;
-    z-index: 1; 
-    
-    // The dots on the timeline
-    &::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 24px;
-        height: 24px;
-        background-color: $red; // Primary color
-        border: 4px solid #ffffff;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 10; // <-- Pulled to the foreground (on top of the line)
-        box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.2); 
+  position: relative;
+  z-index: 1;
 
-        // Mobile: Move the dots to the left, aligning with the line
-        @media (max-width: 767px) {
-            left: 30px; 
-            top: 24px; // Align the dot near the top of the text block
-            transform: translate(-50%, 0);
-        }
-    }
+  // The dots on the timeline
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    background-color: $red; // Primary color
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; // <-- Pulled to the foreground (on top of the line)
+    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.2);
 
-    // Mobile: Push all content (text and images) to the right of the line
+    // Mobile: Move the dots to the left, aligning with the line
     @media (max-width: 767px) {
-        padding-left: 70px; 
-        padding-right: 15px; // Add a little breathing room on the right
+      left: 30px;
+      top: 24px; // Align the dot near the top of the text block
+      transform: translate(-50%, 0);
     }
+  }
+
+  // Mobile: Push all content (text and images) to the right of the line
+  @media (max-width: 767px) {
+    padding-left: 70px;
+    padding-right: 15px; // Add a little breathing room on the right
+  }
 }
 
 // --- Animation Classes (Keep these the same) ---
 .fade-in-left {
-    opacity: 0;
-    transform: translateX(-60px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .fade-in-right {
-    opacity: 0;
-    transform: translateX(60px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .timeline-item.visible {
-    opacity: 1;
-    transform: translateX(0);
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .board-overlay {
-    // Creates a smooth gradient fade from transparent to dark black at the bottom
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
-    transition: background 0.3s ease;
+  // Creates a smooth gradient fade from transparent to dark black at the bottom
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  transition: background 0.3s ease;
 
 }
 
 .board-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-    &:hover {
-        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15) !important;
-        
-        // Optional subtle zoom effect on the image when hovering the card
-        img {
-            transform: scale(1.05);
-            transition: transform 0.5s ease;
-        }
-    }
+  &:hover {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15) !important;
 
+    // Optional subtle zoom effect on the image when hovering the card
     img {
-        transition: transform 0.5s ease;
+      transform: scale(1.05);
+      transition: transform 0.5s ease;
     }
+  }
+
+  img {
+    transition: transform 0.5s ease;
+  }
 }
 
 /*
