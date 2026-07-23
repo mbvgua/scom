@@ -203,17 +203,248 @@ body {
 
 
 /* FOOTER */
-.footer-section {
-  background-color: $red; // Uses your primary deep blue color
+// Color Variables
+$sky-top: #87ceeb;
+$sky-mid: #b0e0f7;
+$sky-bottom: #d6f0fb;
+$grass-green: #3a7d44;
+$sun-inner: #ffe066;
+$sun-outer: #ffd700;
+
+$text-light: #f0faf2;
+$text-muted: #b6e8c0;
+$text-bottom: #a8d5b0;
+$link-color: #c8f5a0;
+
+// Dedicated Top Transition Block
+.footer-transition {
+  width: 100%;
+  min-height: 2rem;
+  display: block;
+  
+  /* Matches the top sky blue color (#87ceeb) */
+  /* Blends smoothly from white (or your section bg) at the top into solid sky blue at the bottom */
+  background: linear-gradient(180deg, #ffffff 0%, #87ceeb 100%);
+
+  /* Prevents any unwanted whitespace/gaps between this div and the footer */
+  margin-bottom: 0;
+}
+
+// Footer Base
+.footer-landscape {
+  position: relative;
+  padding-top: 0;
   overflow: hidden;
 
-  .footer-links a {
-    transition: color 0.2s ease;
 
-    &:hover {
-      font-weight: 500;
+  // 1. DEDICATED SKY BACKGROUND WITH SOFT TOP FADE
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; // Sits behind clouds and SVG
+
+    // Gradient sky background
+    background: linear-gradient(180deg, #87ceeb 0%, #b0e0f7 55%, #d6f0fb 100%);
+
+    // Mask ONLY the sky background so it fades out smoothly at the very top (first 50px)
+    // -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 50px);
+    // mask-image: linear-gradient(180deg, transparent 0%, black 50px);
+  }
+
+  // 2. SUN (Elevated z-index above sky)
+  &::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 12%;
+    width: 64px;
+    height: 64px;
+    background: radial-gradient(circle, #ffe066 60%, #ffd700 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 30px 10px rgba(255, 224, 80, 0.35);
+    z-index: 1; // Above sky background
+  }
+}
+
+// 3. CLOUDS (Set z-index: 2 so they sit above sky & fade without being cut off)
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50px;
+  z-index: 2; // Keeps clouds completely sharp and unmasked!
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+  }
+
+  /* Cloud A */
+  &-a {
+    width: 80px;
+    height: 24px;
+    top: 38px;
+    left: 8%;
+
+    &::before {
+      width: 36px;
+      height: 36px;
+      top: -18px;
+      left: 10px;
+    }
+
+    &::after {
+      width: 26px;
+      height: 26px;
+      top: -12px;
+      left: 34px;
     }
   }
+
+  /* Cloud B */
+  &-b {
+    width: 60px;
+    height: 18px;
+    top: 24px;
+    left: 30%;
+
+    &::before {
+      width: 28px;
+      height: 28px;
+      top: -14px;
+      left: 8px;
+    }
+
+    &::after {
+      width: 20px;
+      height: 20px;
+      top: -10px;
+      left: 28px;
+    }
+  }
+
+  /* Cloud C */
+  &-c {
+    width: 70px;
+    height: 20px;
+    top: 45px;
+    left: 58%;
+
+    &::before {
+      width: 32px;
+      height: 32px;
+      top: -16px;
+      left: 8px;
+    }
+
+    &::after {
+      width: 22px;
+      height: 22px;
+      top: -11px;
+      left: 32px;
+    }
+  }
+}
+
+/* SVG landscape strip (Ensure it stays above sky) */
+.footer-hills {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  margin-bottom: -4px;
+}
+
+/* Content area sits on top of the hills */
+.footer-content {
+  position: relative;
+  z-index: 2;
+  background: $grass-green;
+  color: $text-light;
+  padding: 2.5rem 0 1.5rem;
+
+  a,
+  p {
+    color: $link-color;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
+.footer-logo-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #fff;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: $text-muted;
+  font-style: italic;
+}
+
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.footer-bottom {
+  font-size: 0.82rem;
+  color: $text-bottom;
+}
+
+/* Base link styles */
+.footer-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* Hover effects targeting inner SVG */
+.footer-icon-link--facebook:hover {
+  background-color: #1877f2;
+  color: #ffffff;
+}
+
+.footer-icon-link--instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #ffffff;
+}
+//
+// .footer-icon-link--twitter:hover,
+// .footer-icon-link--x:hover {
+//   background-color: #000000;
+//   color: #ffffff;
+//   transform: translateY(-3px);
+// }
+//
+// .footer-icon-link--youtube:hover {
+//   background-color: #ff0000;
+//   color: #ffffff;
+//   transform: translateY(-3px);
+// }
+
+/* Little house icon in footer */
+.footer-house {
+  font-size: 2rem;
+  color: $sun-outer;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.18));
 }
 
 /*
