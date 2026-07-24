@@ -740,7 +740,6 @@ $link-color: #c8f5a0;
  * PROGRAMS.HTML PAGE
  ***************************
 */
-
 // --- Subpage Banner Header (Like "Our Programs") ---
 .page-header {
   height: 60vh; // Keeps it high enough for impact while allowing content below to show
@@ -764,9 +763,6 @@ $link-color: #c8f5a0;
  * GET-INVOLVED.HTML PAGE
  ***************************
 */
-
-// --- Get Involved Section Styling ---
-// --- Get Involved Section (With Image Background) ---
 .get-involved-section {
   position: relative;
 
@@ -806,15 +802,6 @@ $link-color: #c8f5a0;
  * CONTACT-US.HTML PAGE
  ***************************
 */
-
-
-
-/*
- ***************************
- * DONATE.HTML PAGE
- ***************************
-*/
-// --- Contact Us Page Styles ---
 .contact-header {
   background: linear-gradient(rgba($dark-blue, 0.55), rgba($dark-blue, 0.55)),
     url('/static/images/contact-header.png') center/cover no-repeat;
@@ -830,3 +817,10 @@ $link-color: #c8f5a0;
     height: 450px;
   }
 }
+
+
+/*
+ ***************************
+ * DONATE.HTML PAGE
+ ***************************
+*/
