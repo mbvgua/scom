@@ -30,7 +30,7 @@ def about_us(request: Request, response_class=HTMLResponse):
 
 
 @router.get("/programs")
-def programs(request: Request, response_class=HTMLResponse):
+def programs(request: Request):
     """
     "/programs" page
     """
@@ -41,7 +41,7 @@ def programs(request: Request, response_class=HTMLResponse):
 
 
 @router.get("/get-involved")
-def get_involved(request: Request, response_class=HTMLResponse):
+def get_involved(request: Request):
     """
     "/get-involved" page
     """
@@ -52,7 +52,7 @@ def get_involved(request: Request, response_class=HTMLResponse):
 
 
 @router.get("/contact-us")
-def contact_us(request: Request, response_class=HTMLResponse):
+def contact_us(request: Request):
     """
     "/contact-us" page
     """
@@ -63,7 +63,7 @@ def contact_us(request: Request, response_class=HTMLResponse):
 
 
 @router.get("/donate")
-def donate(request: Request, response_class=HTMLResponse):
+def donate(request: Request):
     """
     "/donate" page
     """
