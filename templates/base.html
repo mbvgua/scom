@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% if title %}
+            <title>{{ title }}</title>
+        {% else %}
+            <title>SCOM Children's Home</title>
+        {% endif %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{url_for('static', path='css/style.css')}}" />
+  </head>
+
+  <body>
+    <!-- START NAVBAR -->
+    <nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
+      <div class="container-fluid px-4 px-lg-5">
+          <a class="navbar-brand fw-bold" href="{{url_for('home')}}">SCOM</a>
+
+        <!-- open/close hamburger menu on small screens -->
+        <button
+          class="navbar-toggler bg-light"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- menu section -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle fw-semibold {% if request.url.path == '/about-us' %}active{% endif %}"
+                href="{{url_for('about_us')}}"
+                id="aboutDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                About Us
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  class="bi bi-chevron-down bold-icon"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                  />
+                </svg>
+              </a>
+              <ul
+                class="dropdown-menu border-0 shadow-sm rounded-3 mt-0 bg-light"
+                aria-labelledby="aboutDropdown"
+              >
+                <li>
+                  <a
+                    class="dropdown-item py-2 fw-medium"
+                    href="{{url_for('about_us')}}#our-history"
+                    >Our History</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-2 fw-medium"
+                    href="{{url_for('about_us')}}#our-journey"
+                    >Our Journey</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-2 fw-medium"
+                    href="{{url_for('about_us')}}#board-of-directors"
+                    >Board of Directors</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link fw-semibold {% if request.url.path == '/programs' %}active{% endif %}"
+                    href="{{url_for('programs')}}"
+                        >Programs
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link fw-semibold {% if request.url.path == '/get-involved' %}active{% endif %}"
+                   href="{{url_for('get_involved')}}"
+                >Get Involved</a
+              >
+            </li>
+            <li class="nav-item">
+                <a class="nav-link fw-semibold {% if request.url.path == '/contact-us' %}active{% endif %}"
+                   href="{{url_for('contact_us')}}"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+
+          <!-- donate button -->
+          <div class="d-flex">
+              <a href="{{url_for('donate')}}" class="btn btn-donate fw-bold"
+              >DONATE
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-heart-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- END NAVBAR -->
+
+    <main>
+        {% block content%}
+
+        {% endblock content%}
+    </main>
+
+    <!-- transition section -->
+    <div class="footer-transition"></div>
+
+    <!-- footer section -->
+    <footer class="footer-landscape mt-auto">
+      <!-- Decorative clouds -->
+      <div class="cloud cloud-a"></div>
+      <div class="cloud cloud-b"></div>
+      <div class="cloud cloud-c"></div>
+
+      <!-- SVG rolling hills / countryside landscape -->
+      <svg
+        class="footer-hills"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 220"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <!-- Back hills – lighter green -->
+        <path
+          d="
+      M0,180
+      C80,120 160,90 260,115
+      C340,135 400,105 500,90
+      C600,75 660,110 760,100
+      C860,90 940,60 1040,80
+      C1120,95 1200,70 1300,88
+      C1360,98 1400,115 1440,110
+      L1440,220 L0,220 Z"
+          fill="#5cad6f"
+          opacity="0.6"
+        />
+
+        <!-- Mid hills – medium green -->
+        <path
+          d="
+      M0,200
+      C60,155 140,130 220,145
+      C310,162 370,138 460,128
+      C550,118 620,145 720,135
+      C820,125 890,100 990,118
+      C1070,132 1150,108 1250,122
+      C1320,133 1390,148 1440,145
+      L1440,220 L0,220 Z"
+          fill="#4a9e5c"
+          opacity="0.8"
+        />
+
+        <!-- Front hills – rich grass green (matches footer-content bg) -->
+        <path
+          d="
+      M0,210
+      C90,175 180,158 270,168
+      C360,178 430,160 530,155
+      C640,150 710,168 810,162
+      C910,156 990,138 1090,150
+      C1170,160 1270,148 1360,158
+      C1400,163 1425,170 1440,168
+      L1440,220 L0,220 Z"
+          fill="#3a7d44"
+        />
+
+        <!-- A tiny tree (left) -->
+        <g transform="translate(160,145)">
+          <rect x="-3" y="18" width="6" height="14" fill="#2d6035" />
+          <ellipse cx="0" cy="14" rx="14" ry="16" fill="#2d6035" />
+          <ellipse cx="0" cy="8" rx="10" ry="12" fill="#3a8048" />
+        </g>
+
+        <!-- A tiny tree (right) -->
+        <g transform="translate(1280,138)">
+          <rect x="-3" y="18" width="6" height="14" fill="#2d6035" />
+          <ellipse cx="0" cy="14" rx="14" ry="16" fill="#2d6035" />
+          <ellipse cx="0" cy="8" rx="10" ry="12" fill="#3a8048" />
+        </g>
+
+        <!-- A tiny house in the distance (centre-right) -->
+        <g transform="translate(880,120)">
+          <!-- body -->
+          <rect
+            x="0"
+            y="14"
+            width="28"
+            height="20"
+            fill="#e8d5b0"
+            opacity="0.9"
+          />
+          <!-- roof -->
+          <polygon points="14,0 -4,16 32,16" fill="#c0392b" opacity="0.85" />
+          <!-- door -->
+          <rect
+            x="10"
+            y="24"
+            width="8"
+            height="10"
+            fill="#7a5230"
+            opacity="0.9"
+          />
+          <!-- window -->
+          <rect
+            x="2"
+            y="18"
+            width="6"
+            height="6"
+            fill="#87ceeb"
+            opacity="0.9"
+          />
+          <rect
+            x="20"
+            y="18"
+            width="6"
+            height="6"
+            fill="#87ceeb"
+            opacity="0.9"
+          />
+        </g>
+
+        <!-- A second tiny house (far left) -->
+        <g transform="translate(350,148)">
+          <rect
+            x="0"
+            y="14"
+            width="22"
+            height="16"
+            fill="#e8d5b0"
+            opacity="0.75"
+          />
+          <polygon points="11,0 -3,16 25,16" fill="#8e44ad" opacity="0.7" />
+          <rect
+            x="8"
+            y="20"
+            width="6"
+            height="10"
+            fill="#7a5230"
+            opacity="0.75"
+          />
+        </g>
+
+        <!-- Birds (simple V shapes) -->
+        <g fill="none" stroke="#444" stroke-width="1.5" opacity="0.5">
+          <path d="M640,55 Q645,50 650,55" />
+          <path d="M655,48 Q661,43 667,48" />
+          <path d="M700,40 Q706,35 712,40" />
+        </g>
+      </svg>
+
+      <!-- Footer content on the green ground -->
+      <div class="footer-content border-bottom border-white">
+        <div class="container">
+          <div class="row gy-4 justify-content-between align-items-start">
+            <div class="col-lg-4 col-md-5">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="footer-house"
+                  ><i class="bi bi-house-heart-fill"></i
+                ></span>
+                <span class="footer-logo-text">SCOM Children's Home</span>
+              </div>
+              <p class="footer-tagline mb-2">
+                "Every child deserves a place to bloom."
+              </p>
+              <p class="small mb-3" style="color: #b6e8c0; line-height: 1.7">
+                We provide a safe, loving, and nurturing environment for
+                children to grow, learn, and thrive. Your support makes it all
+                possible.
+              </p>
+
+              <!-- social icons -->
+              <div class="d-flex gap-2 flex-wrap pt-1">
+                <a
+                  href="#"
+                  class="footer-icon-link footer-icon-link--facebook"
+                  aria-label="Facebook"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-facebook"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+                    />
+                  </svg>
+                </a>
+
+                <a
+                  href="#"
+                  class="footer-icon-link footer-icon-link--instagram"
+                  aria-label="Instagram"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-instagram"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-7 ms-auto">
+              <div class="row gy-4 justify-content-end">
+                <div class="col-sm-5 col-6">
+                  <h6
+                    class="text-white fw-semibold mb-3 text-uppercase"
+                    style="letter-spacing: 0.06em; font-size: 0.8rem"
+                  >
+                    Quick Links
+                  </h6>
+                  <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Programs</a></li>
+                    <li><a href="#">Get Involved</a></li>
+                  </ul>
+                </div>
+
+                <div class="col-sm-7 col-6">
+                  <h6
+                    class="text-white fw-semibold mb-3 text-uppercase"
+                    style="letter-spacing: 0.06em; font-size: 0.8rem"
+                  >
+                    Get in Touch
+                  </h6>
+                  <ul
+                    class="list-unstyled mb-0 d-flex flex-column gap-2"
+                    style="color: #c8f5a0"
+                  >
+                    <li class="d-flex align-items-center gap-2">
+                      <i class="bi bi-geo-alt-fill"></i>
+                      <a href="#">123 NowhereVille, Here</a>
+                    </li>
+                    <li class="d-flex align-items-center gap-2">
+                      <i class="bi bi-telephone-fill"></i>
+                      <a href="tel:+(254)712345678">+(254) 71 234 5678</a>
+                    </li>
+                    <li class="d-flex align-items-center gap-2">
+                      <i class="bi bi-envelope-fill"></i>
+                      <a href="mailto:hello@scomchildrenshome.org"
+                        >hello@scomchildrenshome.org</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="footer-divider my-4" />
+
+          <div
+            class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 footer-bottom"
+          >
+            <span
+              >&copy; <span id="current-year"></span> Service for Christ
+              Outreach Ministry(SCOM) Children's Home. All rights reserved.
+            </span>
+            <span>
+              <a href="#" class="me-3">Privacy Policy</a>
+              <a href="#">Terms of Use</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer section end -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{url_for('static', path='js/script.js')}}"></script>
+
+    <!-- anny additional page specific scripts -->
+    {% block scripts %}
+
+    {% endblock scripts %}
+
+  </body>
+</html>

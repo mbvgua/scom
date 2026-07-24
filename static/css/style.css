@@ -590,7 +590,7 @@ body {
   min-height: 380px;
   width: 100%;
   position: relative;
-  background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), url("./static/images/slide4.jpg") center/cover no-repeat;
+  background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), url("/static/images/slide4.jpg") center/cover no-repeat;
 }
 .page-header .hero-content {
   z-index: 2;
@@ -642,7 +642,7 @@ body {
  ***************************
 */
 .contact-header {
-  background: linear-gradient(rgba(43, 108, 176, 0.55), rgba(43, 108, 176, 0.55)), url("./static/images/contact-header.png") center/cover no-repeat;
+  background: linear-gradient(rgba(43, 108, 176, 0.55), rgba(43, 108, 176, 0.55)), url("/static/images/contact-header.png") center/cover no-repeat;
 }
 
 .map-container {

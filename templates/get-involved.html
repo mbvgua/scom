@@ -1,107 +1,12 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SCOM Children's Home</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
+{% extends 'base.html' %}
 
-  <body>
-    <!-- START NAVBAR -->
-    <nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
-      <div class="container-fluid px-4 px-lg-5">
-        <a class="navbar-brand fw-bold" href="index.html">SCOM</a>
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% endif%}
+{% endblock title %}
 
-        <!-- open/close hamburger menu on small screens -->
-        <button
-          class="navbar-toggler bg-light"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarContent"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- menu section -->
-        <div class="collapse navbar-collapse" id="navbarContent">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle fw-semibold"
-                href="about-us.html"
-                id="aboutDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                About Us
-              </a>
-              <ul
-                class="dropdown-menu border-0 shadow-sm rounded-3 mt-0"
-                aria-labelledby="aboutDropdown"
-              >
-                <li>
-                  <a class="dropdown-item py-2" href="about-us.html#our-history"
-                    >Our History</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item py-2" href="about-us.html#our-journey"
-                    >Our Journey</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item py-2"
-                    href="about-us.html#board-of-directors"
-                    >Board of Directors</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-semibold" href="programs.html">Programs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-semibold active" href="get-involved.html"
-                >Get Involved</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-semibold" href="contact-us.html"
-                >Contact Us</a
-              >
-            </li>
-          </ul>
-
-          <!-- donate button -->
-          <div class="d-flex">
-            <a href="#donate" class="btn btn-donate fw-bold"
-              >DONATE
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                class="bi bi-heart-fill"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <!-- END NAVBAR -->
+{% block content %}
 
     <!-- START MINI HEADER SECTION -->
     <header
@@ -113,7 +18,6 @@
     </header>
     <!-- END MINI HEADER SECTION -->
 
-    <main class="bg-white">
       <!-- desc of whyto get involved -->
       <section class="py-5 feature-section">
         <div class="container py-lg-4">
@@ -786,126 +690,9 @@
           </div>
         </div>
       </section>
-    </main>
 
-    <!-- FOOTER SECTION -->
-    <footer
-      class="footer-section text-white pt-5 pb-3 position-relative overflow-hidden"
-    >
-      <!-- concave inwards curve -->
-      <div
-        class="position-absolute top-0 start-0 w-100 overflow-hidden"
-        style="line-height: 0"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 120"
-          class="w-100"
-          style="height: 75px"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#ffffff"
-            d="M 0,0 L 1440,0 L 1440,0 Q 720,120 0,0 Z"
-          ></path>
-        </svg>
-      </div>
+{% endblock content %}
 
-      <div class="container position-relative z-1">
-        <div class="row g-4 pb-4 border-bottom border-white">
-          <div class="col-lg-4 col-md-6">
-            <h4 class="fw-semibold text-white mb-3">SCOM Childrens Home</h4>
-            <p class="text-white opacity-80">
-              Providing a safe, loving, and supportive home for children in
-              need. Together, we can empower young minds to build a brighter
-              tomorrow.
-            </p>
-          </div>
+{% block scripts %}
 
-          <div class="col-lg-2 col-md-6">
-            <h5 class="fw-semibold text-white opacity-80 mb-3">Quick Links</h5>
-            <ul class="list-unstyled footer-links">
-              <li class="mb-2">
-                <a
-                  href="#home"
-                  class="text-white opacity-80 text-decoration-none"
-                  >Home</a
-                >
-              </li>
-              <li class="mb-2">
-                <a
-                  href="#problem"
-                  class="text-white opacity-80 text-decoration-none"
-                  >About Us</a
-                >
-              </li>
-              <li class="mb-2">
-                <a
-                  href="#problem"
-                  class="text-white opacity-80 text-decoration-none"
-                  >Programs</a
-                >
-              </li>
-              <li class="mb-2">
-                <a
-                  href="#faq"
-                  class="text-white opacity-80 text-decoration-none"
-                  >Get Involved</a
-                >
-              </li>
-              <li class="mb-2">
-                <a
-                  href="#newsletter"
-                  class="text-white opacity-80 text-decoration-none"
-                  >Contact Us</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <h5 class="fw-semibold text-white opacity-80 mb-3">Get Involved</h5>
-            <ul class="list-unstyled footer-links">
-              <li class="mb-2">
-                <a
-                  href="#donate"
-                  class="text-white opacity-80 text-decoration-none"
-                  >Make a Donation</a
-                >
-              </li>
-              <li class="mb-2">
-                <a href="#" class="text-white opacity-80 text-decoration-none"
-                  >Sponsor a Child</a
-                >
-              </li>
-              <li class="mb-2">
-                <a href="#" class="text-white opacity-80 text-decoration-none"
-                  >Volunteer Opportunities</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <h5 class="fw-semibold text-white opacity-80 mb-3">Contact Us</h5>
-            <p class="text-white opacity-80 mb-1">123 Care Street, Cityville</p>
-            <p class="text-white opacity-80 mb-1">info@hopehaven.org</p>
-            <p class="text-white opacity-80">+1 (555) 019-2834</p>
-          </div>
-        </div>
-
-        <div
-          class="text-center pt-3 text-white position-relative z-2 opacity-75"
-        >
-          <small
-            >&copy; <span id="current-year"></span> Service for Christ Outreach
-            Ministry(SCOM) Children's Home. All rights reserved.</small
-          >
-        </div>
-      </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-  </body>
-</html>
+{% endblock scripts %}
