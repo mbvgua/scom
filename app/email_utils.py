@@ -2,9 +2,7 @@ from email.message import EmailMessage
 from pathlib import Path
 
 import aiosmtplib
-from fastapi import Form
 from fastapi.templating import Jinja2Templates
-from pydantic import BaseModel, EmailStr
 
 from app.config import settings
 
@@ -53,7 +51,9 @@ async def send_contact_us_email(
     message: str,
 ) -> None:
     template = templates.env.get_template("contact-us-email.html")
-    html_content = template.render(username=username)
+    html_content = template.render(
+        username=username, email=reply_to, phone_number=phone_number, message=message
+    )
 
     plain_text = f"""
     Hi SCOM,
@@ -85,10 +85,17 @@ async def send_get_involved_email(
     subject: str,
     username: str,
     phone_number: str | None,
+    interest: str,
     message: str,
 ) -> None:
     template = templates.env.get_template("get-involved-email.html")
-    html_content = template.render(username=username)
+    html_content = template.render(
+        username=username,
+        email=reply_to,
+        phone_number=phone_number,
+        interest=interest,
+        message=message,
+    )
 
     plain_text = f"""
     Hi SCOM,

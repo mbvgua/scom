@@ -1,35 +1,181 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>New Contact Form Submission</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Contact Message – SCOM Children's Home</title>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px;">
+<body style="margin:0; padding:0; background-color:#f4f4f4; font-family: Georgia, 'Times New Roman', serif;">
 
-  <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; padding: 24px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-    
-    <h2 style="color: #2c3e50; margin-top: 0; border-bottom: 2px solid #3498db; padding-bottom: 10px;">
-      New Website Inquiry
-    </h2>
+  <!-- Outer wrapper -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+         style="background-color:#f4f4f4; padding: 32px 16px;">
+    <tr>
+      <td align="center">
 
-    <p style="font-size: 15px; color: #555555; line-height: 1.5;">
-      Hello Admin,
-    </p>
-    <p style="font-size: 15px; color: #555555; line-height: 1.5;">
-      You have received a new contact form message from <strong>{{ username }}</strong>.
-    </p>
+        <!-- Email card -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+               style="max-width:600px; background-color:#ffffff; border-radius:8px;
+                      overflow:hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.10);">
 
-    <div style="background-color: #f8f9fa; border-left: 4px solid #3498db; padding: 15px; margin: 20px 0; border-radius: 4px;">
-      <p style="margin: 0; font-size: 14px; color: #333333; line-height: 1.6;">
-        Please check your admin panel or hit <strong>Reply</strong> in your email client to respond directly to <strong>{{ username }}</strong>.
-      </p>
-    </div>
+          <!-- Header band -->
+          <tr>
+            <td style="background-color:#dc3545; padding: 32px 40px; text-align:center;">
+              <p style="margin:0 0 6px 0; font-size:11px; letter-spacing:3px; text-transform:uppercase;
+                        color:rgba(255,255,255,0.75); font-family: Arial, sans-serif;">
+                SCOM Children's Home
+              </p>
+              <h1 style="margin:0; font-size:26px; font-weight:700; color:#ffffff;
+                         font-family: Georgia, serif;">
+                New Contact Message
+              </h1>
+              <p style="margin:10px 0 0 0; font-size:13px; color:rgba(255,255,255,0.85);
+                         font-family: Arial, sans-serif;">
+                Someone has reached out through your website contact form.
+              </p>
+            </td>
+          </tr>
 
-    <p style="font-size: 12px; color: #888888; text-align: center; margin-top: 30px; border-top: 1px solid #eeeeee; padding-top: 15px;">
-      This is an automated notification from your website's contact form.
-    </p>
+          <!-- Accent strip -->
+          <tr>
+            <td style="height:4px;
+                       background: linear-gradient(to right, #dc3545, #ff6b6b, #dc3545);">
+            </td>
+          </tr>
 
-  </div>
+          <!-- Body -->
+          <tr>
+            <td style="padding: 36px 40px 20px 40px;">
+
+              <!-- Greeting -->
+              <p style="margin:0 0 24px 0; font-size:15px; color:#555555;
+                         font-family: Arial, sans-serif; line-height:1.6;">
+                Hello, a new message has been submitted via the <strong>Contact Us</strong> form.
+                Please review the details below and respond at your earliest convenience.
+              </p>
+
+              <!-- Sender info block -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                     style="background-color:#fff5f5; border-left: 4px solid #dc3545;
+                            border-radius: 0 6px 6px 0; margin-bottom:24px;">
+                <tr>
+                  <td style="padding: 20px 24px;">
+                    <p style="margin:0 0 4px 0; font-size:11px; letter-spacing:2px;
+                               text-transform:uppercase; color:#dc3545;
+                               font-family: Arial, sans-serif; font-weight:700;">
+                      Sender Details
+                    </p>
+                    <h2 style="margin:0 0 16px 0; font-size:20px; color:#1a1a1a;
+                               font-family: Georgia, serif;">
+                      {{ username }}
+                    </h2>
+
+                    <!-- Email row -->
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+                           style="margin-bottom:8px;">
+                      <tr>
+                        <td style="width:20px; vertical-align:top; padding-top:2px;">
+                          <span style="font-size:14px;">✉</span>
+                        </td>
+                        <td style="font-family: Arial, sans-serif; font-size:14px; color:#333333;">
+                          <a href="mailto:{{ email }}"
+                             style="color:#dc3545; text-decoration:none;">{{ email }}</a>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- Phone row -->
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="width:20px; vertical-align:top; padding-top:2px;">
+                          <span style="font-size:14px;">📞</span>
+                        </td>
+                        <td style="font-family: Arial, sans-serif; font-size:14px; color:#333333;">
+                          <a href="tel:{{ phone_number }}"
+                             style="color:#dc3545; text-decoration:none;">{{ phone_number }}</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Message block -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                     style="margin-bottom:28px;">
+                <tr>
+                  <td>
+                    <p style="margin:0 0 8px 0; font-size:11px; letter-spacing:2px;
+                               text-transform:uppercase; color:#dc3545;
+                               font-family: Arial, sans-serif; font-weight:700;">
+                      Their Message
+                    </p>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                           style="background-color:#f9f9f9; border: 1px solid #e8e8e8;
+                                  border-radius:6px;">
+                      <tr>
+                        <td style="padding: 20px 24px;">
+                          <p style="margin:0; font-size:15px; color:#333333;
+                                     font-family: Georgia, serif; line-height:1.8;
+                                     white-space: pre-wrap;">{{ message }}</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Reply CTA -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+                     style="margin: 0 auto 8px auto;">
+                <tr>
+                  <td style="background-color:#dc3545; border-radius:6px;">
+                    <a href="mailto:{{ email }}"
+                       style="display:inline-block; padding: 14px 32px; font-size:14px;
+                              font-weight:700; color:#ffffff; text-decoration:none;
+                              font-family: Arial, sans-serif; letter-spacing:0.5px;">
+                      Reply to {{ username }} &rarr;
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- Divider -->
+          <tr>
+            <td style="padding: 0 40px;">
+              <hr style="border:none; border-top: 1px dashed #e0e0e0; margin:8px 0;">
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding: 20px 40px 32px 40px; text-align:center;">
+              <p style="margin:0 0 4px 0; font-size:12px; color:#999999;
+                         font-family: Arial, sans-serif; line-height:1.6;">
+                This message was submitted via the contact form on your website.
+              </p>
+              <p style="margin:0; font-size:12px; color:#cccccc; font-family: Arial, sans-serif;">
+                &copy; SCOM Children's Home &bull; Ole Saguda Road, Cityville &bull;
+                <a href="mailto:info@scom.org"
+                   style="color:#dc3545; text-decoration:none;">info@scom.org</a>
+              </p>
+            </td>
+          </tr>
+
+          <!-- Bottom colour band -->
+          <tr>
+            <td style="background-color:#dc3545; height:6px;"></td>
+          </tr>
+
+        </table>
+        <!-- end email card -->
+
+      </td>
+    </tr>
+  </table>
 
 </body>
 </html>

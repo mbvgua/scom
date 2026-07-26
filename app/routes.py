@@ -1,5 +1,4 @@
 from fastapi import APIRouter, Request, status
-from fastapi.responses import HTMLResponse
 
 from app.main import templates
 
@@ -70,4 +69,15 @@ def donate(request: Request):
     title: str = "Donate"
     return templates.TemplateResponse(
         request, "donate.html", {"title": title}, status.HTTP_200_OK
+    )
+
+
+@router.get("/privacy-policy")
+def privacy_policy(request: Request):
+    """
+    "/privacy-policy" page
+    """
+    title: str = "Privacy Policy"
+    return templates.TemplateResponse(
+        request, "privacy_policy.html", {"title": title}, status.HTTP_200_OK
     )

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% endif%}
+{% endblock title %}
+
+{% block content %}
+
+    <header
+      class="page-header d-flex align-items-center justify-content-center text-center"
+    >
+      <div class="container hero-content">
+        <h1 class="display-1 fw-bold text-white">Privacy Policy</h1>
+      </div>
+    </header>
+
+    <main class="container privacy-content">
+        <div class="row g-4 py-5">
+
+            <aside class="col-lg-3 d-none d-lg-block">
+                <div class="card privacy-nav-card">
+                    <div class="card-header">
+                        Quick Navigation
+                    </div>
+                    <nav class="nav fw-medium flex-column py-2">
+                        <a class="nav-link" href="#child-safeguarding">1. Child & Media Safeguarding</a>
+                        <a class="nav-link" href="#data-collection">2. Information Collection</a>
+                        <a class="nav-link" href="#donations">3. Donation Security</a>
+                        <a class="nav-link" href="#data-sharing">4. Data Sharing & Selling Policy</a>
+                        <a class="nav-link" href="#contact-us">5. Contact Safeguarding Officer</a>
+                    </nav>
+                </div>
+            </aside>
+
+            <article class="col-lg-9">
+                <div class="privacy-body">
+
+                    <section id="child-safeguarding">
+                        <h2><i class="fa-solid fa-shield-heart text-danger me-2"></i>1. Child Protection & Media Safeguarding</h2>
+                        <p>At SCOM Children's Home, the safety, privacy, and psychological well-being of the children in our care are our absolute priorities. Our digital representation of minors strictly adheres to child protection standards.</p>
+                        
+                        <ul>
+                            <li><span class="fw-semibold">Informed Consent:</span> All photographs, videos, and stories published on this website or associated media channels are displayed strictly with verified authorization from legal guardians or home administration.</li>
+                            <li><span class="fw-semibold">Dignity First:</span> We ensure that all published media reflects the children with dignity, respect, and joy, avoiding exploitative or degrading imagery.</li>
+                            <li><span class="fw-semibold">Identity Safeguards:</span> Full legal names, sensitive legal histories, specific health statuses, or family background files are never published alongside photographs.</li>
+                            <li><span class="fw-semibold">Sensitive Care:</span> Special care is applied to children with special needs to ensure empowering representation.</li>
+                        </ul>
+
+                        <div class="warning-box">
+                            <h4 class="fw-semibold"> Strictly Prohibited</h4>
+                            <p>Downloading, cropping, taking screenshots, or republishing photos or media of the children from this website for personal, public, or commercial use without express written consent from SCOM Children's Home is illegal and strictly forbidden.</p>
+                        </div>
+                    </section>
+
+                    <section id="data-collection">
+                        <h2>2. User Data & Email Collection</h2>
+                        <p>We collect personal information through voluntary form submissions (Contact Forms, Sponsorship Inquiries, Mentorship Applications, and Wishlist Signups) to serve you better.</p>
+                        <p>This information includes:</p>
+                        <ul>
+                            <li>Full Name and Email Address</li>
+                            <li>Phone Number / WhatsApp Contact</li>
+                            <li>Selected Areas of Interest (e.g., Child Sponsorship, Volunteering, In-kind Donations)</li>
+                            <li>Inquiry messages or comments sent directly to our administrative team</li>
+                        </ul>
+                    </section>
+
+                    <section id="donations">
+                        <h2><i class="fa-solid fa-hand-holding-dollar text-danger me-2"></i>3. Financial & Donation Security</h2>
+                        <p>We facilitate secure financial support tailored to local and international channels:</p>
+                        <ul>
+                            <li><span class="fw-semibold">M-Pesa Support:</span> Payments routed via official Paybill/Till numbers are processed via Safaricom's encrypted protocols.</li>
+                            <li><span class="fw-semibold">Direct Bank Transfers:</span> Official bank credentials are provided directly; we do not log or store donor bank account security tokens or passwords.</li>
+                            <li><span class="fw-semibold">Card Payments:</span> Online donations via credit or debit cards are handled strictly via PCI-DSS compliant third-party payment gateways.</li>
+                        </ul>
+                    </section>
+
+                    <section id="data-sharing">
+                        <h2>4. Zero Data Selling Commitment</h2>
+                        <p>We respect your commitment to SCOM. We guarantee that your email address, phone number, and personal details will never be sold, rented, leased, or traded to third-party marketers or commercial databases.</p>
+                        <p>Your data is strictly utilized by SCOM administration to respond to your inquiries, issue donation receipts, and send occasional news updates regarding our home's progress.</p>
+                    </section>
+
+                    <section id="contact-us">
+                        <h2>5. Contact Safeguarding Officer</h2>
+                        <p>If you have questions regarding this Privacy Policy or wish to request the removal of any photo or personal details, please reach out to us:</p>
+                        <ul>
+                            <li><span>Email:</span> privacy@scomchildrenshome.org</li>
+                            <li><span>Location:</span> SCOM Children's Home Administration Office</li>
+                        </ul>
+                    </section>
+
+                </div>
+            </article>
+
+        </div>
+    </main>
+{% endblock content %}
