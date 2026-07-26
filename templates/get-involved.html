@@ -555,7 +555,6 @@
 
       <!-- get involved form -->
       <section
-        id="get-involved"
         class="py-5 get-involved-section position-relative"
       >
         <div class="container py-lg-4 position-relative z-2">
@@ -570,51 +569,36 @@
           <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-7">
               <div class="card shadow-lg border-0 rounded-4 p-4 p-md-5">
-                <form id="getInvolvedForm" action="#" method="POST">
+                <form id="getInvolvedForm">
                   <div class="row g-3">
-                    <div class="col-md-6">
-                      <label
-                        for="firstName"
-                        class="form-label fw-semibold text-dark"
-                        >First Name <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="text"
-                        class="form-control form-control-lg rounded-3"
-                        id="firstName"
-                        name="firstName"
-                        placeholder="John"
-                        required
-                      />
-                    </div>
+
+                  <div class="col-12">
+                    <label
+                      for="username"
+                      class="form-label fw-semibold text-dark"
+                      >Name <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control form-control-lg rounded-3"
+                      id="username"
+                      name="username"
+                      placeholder="Jane Doe"
+                      required
+                    />
+                  </div>
 
                     <div class="col-md-6">
                       <label
-                        for="lastName"
-                        class="form-label fw-semibold text-dark"
-                        >Last Name <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="text"
-                        class="form-control form-control-lg rounded-3"
-                        id="lastName"
-                        name="lastName"
-                        placeholder="Doe"
-                        required
-                      />
-                    </div>
-
-                    <div class="col-md-6">
-                      <label
-                        for="email"
+                        for="from_email"
                         class="form-label fw-semibold text-dark"
                         >Email Address <span class="text-danger">*</span></label
                       >
                       <input
-                        type="email"
+                        type="from_email"
                         class="form-control form-control-lg rounded-3"
-                        id="email"
-                        name="email"
+                        id="from_email"
+                        name="from_email"
                         placeholder="john.doe@example.com"
                         required
                       />
@@ -622,17 +606,16 @@
 
                     <div class="col-md-6">
                       <label
-                        for="phone"
+                        for="phone_number"
                         class="form-label fw-semibold text-dark"
                         >Phone Number (Optional)</label
                       >
                       <input
                         type="tel"
                         class="form-control form-control-lg rounded-3"
-                        id="phone"
-                        name="phone"
+                        id="phone_number"
+                        name="phone_number"
                         placeholder="+1 (555) 000-0000"
-                        required
                       />
                     </div>
 
@@ -662,14 +645,14 @@
 
                     <div class="col-12 mt-3">
                       <label
-                        for="notes"
+                        for="message"
                         class="form-label fw-semibold text-dark"
-                        >Additional Notes (Optional)</label
+                        >Additional Notes <span class="text-danger">*</span></label
                       >
                       <textarea
                         class="form-control rounded-3"
-                        id="notes"
-                        name="notes"
+                        id="message"
+                        name="message"
                         rows="3"
                         placeholder="Tell us a little about yourself or any specific questions you have..."
                       ></textarea>
@@ -695,4 +678,68 @@
 
 {% block scripts %}
 
+    <script type="module">
+
+        import { showToast, hideToast, getErrorMessage, } from "/static/js/toast_utils.js";
+
+        const getInvolvedForm =document.getElementById("getInvolvedForm")
+
+        getInvolvedForm.addEventListener("submit", async (event) => {
+            // Stop default form submission - we'll handle it with JavaScript
+            event.preventDefault();
+
+            // automatically grab all fields based on their 'name' attributes
+            const formData = new FormData(getInvolvedForm);
+            console.log(formData)
+
+            try {
+                let response;       // declared here to persist after if...else ends
+
+                // dont POST to our API as JSON. major boundary bug
+                if (window.location.pathname === "/get-involved") {
+                    response = await fetch("/api/get-involved", {
+                        method: "POST",
+                        body: formData,
+                    });
+                }
+
+                if (!response){
+                    // incase pathname is not valid
+                    return "An error occurred"
+                }
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data)
+
+                // show success toast & clear form
+                document.getElementById("toastNotification").classList.remove("text-bg-danger", "text-bg-warning");
+                document.getElementById("toastNotification").classList.add("show", "text-bg-success");
+                document.getElementById("toastMessage").textContent = `Your message has been successfully received. We'll get back to you soon!`;
+
+                showToast("toastNotification");
+                getInvolvedForm.reset();
+            } else {
+                const error = await response.json();
+                console.log(error)
+                document.getElementById("toastMessage").textContent = getErrorMessage(error);
+
+                // show error toast & clear form
+                document.getElementById("toastNotification").classList.remove("text-bg-success", "text-bg-warning");
+                document.getElementById("toastNotification").classList.add("show", "text-bg-danger");
+                document.getElementById("toastMessage").textContent = `We encountered an issue sending your message: ${error}. Please try again!`;
+
+                // show error toast
+                showToast("toastNotification");
+            }
+            } catch (error) {
+                // incase of any unprecedentederror
+                document.getElementById("toastNotification").classList.remove("text-bg-success", "text-bg-danger");
+                document.getElementById("toastNotification").classList.add("show", "text-bg-warning");
+                document.getElementById("toastMessage").textContent = `An error occurred: ${error}. Please try again.`;
+
+                showToast("toastNotification");
+            }
+        });
+    </script>
 {% endblock scripts %}

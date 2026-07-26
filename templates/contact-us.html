@@ -54,19 +54,19 @@
             <div class="card shadow-lg border-0 rounded-4 p-4 p-md-5">
               <h3 class="fw-semibold text-dark mb-4">Send Us a Message</h3>
 
-              <form id="contactForm" action="#" method="POST">
+            <form id="contactUsForm">
                 <div class="row g-3">
                   <div class="col-12">
                     <label
-                      for="fullName"
+                      for="username"
                       class="form-label fw-semibold text-dark"
                       >Name <span class="text-danger">*</span></label
                     >
                     <input
                       type="text"
                       class="form-control form-control-lg rounded-3"
-                      id="fullName"
-                      name="fullName"
+                      id="username"
+                      name="username"
                       placeholder="Jane Doe"
                       required
                     />
@@ -74,15 +74,15 @@
 
                   <div class="col-12">
                     <label
-                      for="contactEmail"
+                      for="from_email"
                       class="form-label fw-semibold text-dark"
                       >Email <span class="text-danger">*</span></label
                     >
                     <input
-                      type="email"
+                      type="from_email"
                       class="form-control form-control-lg rounded-3"
-                      id="contactEmail"
-                      name="contactEmail"
+                      id="from_email"
+                      name="from_email"
                       placeholder="jane.doe@example.com"
                       required
                     />
@@ -90,7 +90,7 @@
 
                   <div class="col-12">
                     <label
-                      for="contactPhone"
+                      for="phone_number"
                       class="form-label fw-semibold text-dark"
                       >Phone Number (Optional)
                       </label
@@ -98,22 +98,22 @@
                     <input
                       type="tel"
                       class="form-control form-control-lg rounded-3"
-                      id="contactPhone"
-                      name="contactPhone"
+                      id="phone_number"
+                      name="phone_number"
                       placeholder="+1 (555) 000-0000"
                     />
                   </div>
 
                   <div class="col-12">
                     <label
-                      for="contactMessage"
+                      for="message"
                       class="form-label fw-semibold text-dark"
                       >Message <span class="text-danger">*</span></label
                     >
                     <textarea
                       class="form-control rounded-3"
-                      id="contactMessage"
-                      name="contactMessage"
+                      id="message"
+                      name="message"
                       rows="4"
                       placeholder="How can we help you?"
                       required
@@ -168,5 +168,68 @@
 {% endblock content %}
 
 {% block scripts %}
+    <script type="module">
+
+        import { showToast, hideToast, getErrorMessage, } from "/static/js/toast_utils.js";
+
+        const contactUsForm =document.getElementById("contactUsForm")
+
+        contactUsForm.addEventListener("submit", async (event) => {
+            // Stop default form submission - we'll handle it with JavaScript
+            event.preventDefault();
+
+            // automatically grab all fields based on their 'name' attributes
+            const formData = new FormData(contactUsForm);
+
+            try {
+                let response;       // declared here to persist after if...else ends
+
+                // dont POST to our API as JSON. major boundary bug
+                if (window.location.pathname === "/contact-us") {
+                    response = await fetch("/api/contact-us", {
+                        method: "POST",
+                        body: formData,
+                    });
+                }
+
+                if (!response){
+                    // incase pathname is not valid
+                    return "An error occurred"
+                }
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data)
+
+                // show success toast & clear form
+                document.getElementById("toastNotification").classList.remove("text-bg-danger", "text-bg-warning");
+                document.getElementById("toastNotification").classList.add("show", "text-bg-success");
+                document.getElementById("toastMessage").textContent = `Your message has been successfully received. We'll get back to you soon!`;
+
+                showToast("toastNotification");
+                contactUsForm.reset();
+            } else {
+                const error = await response.json();
+                console.log(error)
+                document.getElementById("toastMessage").textContent = getErrorMessage(error);
+
+                // show error toast & clear form
+                document.getElementById("toastNotification").classList.remove("text-bg-success", "text-bg-warning");
+                document.getElementById("toastNotification").classList.add("show", "text-bg-danger");
+                document.getElementById("toastMessage").textContent = `We encountered an issue sending your message: ${error}. Please try again!`;
+
+                // show error toast
+                showToast("toastNotification");
+            }
+            } catch (error) {
+                // incase of any unprecedentederror
+                document.getElementById("toastNotification").classList.remove("text-bg-success", "text-bg-danger");
+                document.getElementById("toastNotification").classList.add("show", "text-bg-warning");
+                document.getElementById("toastMessage").textContent = `An error occurred: ${error}. Please try again.`;
+
+                showToast("toastNotification");
+            }
+        });
+    </script>
 
 {% endblock scripts %}

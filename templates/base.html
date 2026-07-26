@@ -131,6 +131,69 @@
     </nav>
     <!-- END NAVBAR -->
 
+    <!-- success/error toast notification -->
+    <div id="toastNotification" class="toast position-fixed top-0 end-0 my-5 mx-4 align-items-center fw-medium border-0" style="z-index:1100;" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div id="toastMessage" class="toast-body">
+                <!-- to be filled by js script -->
+                ayppp
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+
+
+
+    <!-- Success Modal -->
+    <div class="modal fade"
+            id="successModal"
+            tabindex="-1"
+            aria-labelledby="successModalLabel"
+            aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="successModalLabel">Success</h5>
+                    <button type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="successMessage" class="fs-5"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div class="modal fade"
+            id="errorModal"
+            tabindex="-1"
+            aria-labelledby="errorModalLabel"
+            aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="errorModalLabel">Error</h5>
+                    <button type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="errorMessage" class="fs-5"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <main>
         {% block content%}
 
@@ -418,6 +481,83 @@
     <!-- anny additional page specific scripts -->
     {% block scripts %}
 
+    <script type="module">
+    //     import { showToast, hideToast, getErrorMessage, } from "/static/js/toast_utils.js";
+
+    //     const userForm = document.getElementById("contactUsForm") || document.getElementById("getInvolvedForm");
+
+    //     if (userForm) {
+    //     userForm.addEventListener("submit", async (event) => {
+    //         // Stop default form submission - we'll handle it with JavaScript
+    //         event.preventDefault();
+
+    //         // Gather form values into a plain js object {title: "...", content: "..."}
+    //         const formData = new FormData(this);
+    //         const contactData = Object.fromEntries(formData.entries());
+
+    //         try {
+    //             let response;       // declared here to persist after if...else ends
+
+    //             // POST to our API as JSON, depending on current page
+    //             if (window.location.pathname === "/contact-us") {
+    //                 response = await fetch("/api/contact-us", {
+    //                     method: "POST",
+    //                     headers: { "Content-Type": "application/json" },
+    //                     body: JSON.stringify(contactData),
+    //                 });
+    //             } else if (window.location.pathname === "/get-involved") {
+    //                 response = await fetch("/api/get-involved", {
+    //                     method: "POST",
+    //                     headers: { "Content-Type": "application/json" },
+    //                     body: JSON.stringify(contactData),
+    //                 });
+    //             }
+
+    //             if (!response){
+    //                 // incase pathnameisnot in above
+    //                 return
+    //             }
+
+    //         // // 401 response(invalid token) check, redirect to login
+    //         // if (response.status == 401) {
+    //         //   window.location.href = "/login";
+    //         //   return;
+    //         // }
+
+    //         if (response.ok) {
+    //             const data = await response.json();
+    //             console.log(data)
+    //             // document.getElementById("successMessage").textContent = `Post "${data.title}" created successfully!`;
+
+    //             // hideToast("createPostToast");
+    //             showToast("successToast");
+
+    //             // Clear form
+    //             userForm.reset();
+
+    //             // // Reload page after modal is hidden to show new post
+    //             // document.getElementById("successToast").addEventListener(
+    //             //   "hidden.bs.modal",
+    //             //   () => {
+    //             //     window.location.reload();
+    //             //   },
+    //             //   { once: true },
+    //             // );
+    //         } else {
+    //             const error = await response.json();
+    //             // document.getElementById("errorMessage").textContent = getErrorMessage(error);
+
+    //             // hideToast("createPostToast");
+    //             showToast("errorToast");
+    //         }
+    //         } catch (error) {
+    //         //document.getElementById("errorMessage").textContent = "Network error. Please check your connection and try again.";
+    //         showToast("errorToast");
+    //         }
+    //     });
+    //     }
+
+    </script>
     {% endblock scripts %}
 
   </body>

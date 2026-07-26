@@ -7,7 +7,7 @@ router = APIRouter(tags=["views"])
 
 
 @router.get("/")
-def home(request: Request, response_class=HTMLResponse):
+def home(request: Request):
     """
     "/" the main application endpoint
     """
@@ -19,7 +19,7 @@ def home(request: Request, response_class=HTMLResponse):
 
 
 @router.get("/about-us")
-def about_us(request: Request, response_class=HTMLResponse):
+def about_us(request: Request):
     """
     "/about-us" page
     """

@@ -18,6 +18,8 @@ templates: Jinja2Templates = Jinja2Templates(directory=BASE_DIR / "templates")
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 
 # import and register the routes
-from app.routes import router
+from app.routes import router as app_router
+from app.api import router as api_router
 
-app.include_router(router)
+app.include_router(app_router)
+app.include_router(api_router)
