@@ -8,5 +8,5 @@ main website for scom children's home
 - [x] add framework afterwards, maybe backend based(fastAPI)
     - for donate.html page
     - for contact forms
-- [ ] work around getting a domain
+- [ ] work around getting a domain from porkbun
 - [ ] containerize and deploy the application
