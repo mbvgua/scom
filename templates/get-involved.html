@@ -26,12 +26,11 @@
               <h2 class="display-5 fw-bold text-dark mb-4">
                 Stand Beside an Extraordinary Child
               </h2>
-              <p class="lead text-muted mb-4">
+              <p class="lead text-muted mb-4 text-start">
                 Every child deserves a champion who sees their potential. For
                 children living with special needs, having compassionate support
                 tailored to their unique strengths changes everything.
-              </p>
-              <p class="lead text-muted">
+                <br/>
                 Whether you have a single afternoon to spend playing, a skill to
                 share, or a long-term dedication to give, your presence creates
                 a world of difference in their daily care and growth.
@@ -192,7 +191,7 @@
 
                 <div class="mt-4">
                   <a
-                    href="get-involved.html#get-involved"
+                    href="{{url_for('get_involved')}}#get-involved-form-section"
                     class="btn btn-donate px-4 py-2 align-self-center"
                     >Learn More & Apply &rarr;
                   </a>
@@ -373,7 +372,7 @@
 
                 <div class="mt-4">
                   <a
-                    href="get-involved.html#get-involved"
+                    href="{{url_for('get_involved')}}#get-involved-form-section"
                     class="btn btn-donate px-4 py-2 align-self-center"
                     >Learn More & Apply &rarr;
                   </a>
@@ -532,7 +531,7 @@
 
                 <div class="mt-4">
                   <a
-                    href="get-involved.html#get-involved"
+                    href="{{url_for('get_involved')}}#get-involved-form-section"
                     class="btn btn-donate px-4 py-2 align-self-center"
                     >Learn More & Apply &rarr;
                   </a>
@@ -555,6 +554,7 @@
 
       <!-- get involved form -->
       <section
+        id="get-involved-form-section"
         class="py-5 get-involved-section position-relative"
       >
         <div class="container py-lg-4 position-relative z-2">

@@ -957,11 +957,13 @@ $link-color: #c8f5a0;
 .error-page-section {
 
   min-height: 70vh;
-  background-color: #f8f9fa; /* Gives the whole section a soft, light-gray background */
-  padding-top: 80px; /* Adjust this value to exactly match the height of your navbar */
+  background-color: #f8f9fa;
+  /* Gives the whole section a soft, light-gray background */
+  padding-top: 80px;
+  /* Adjust this value to exactly match the height of your navbar */
 
   .error-card {
-        background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), center/cover no-repeat;
+    background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), center/cover no-repeat;
     border: 1px solid rgba(220, 53, 69, 0.15); // subtle bs-danger border accent
     transition: transform 0.2s ease-in-out;
 
@@ -998,8 +1000,354 @@ $link-color: #c8f5a0;
   }
 }
 
+// blog section
+.blog-section {
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.blog-card {
+  position: relative;
+  height: 450px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  background-color: $white;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover {
+    // transform: translateY(-5px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+
+    // .blog-card__image {
+    //   transform: scale(1.08);
+    // }
+
+    .blog-card__content {
+      transform: translateY(0);
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    .blog-card__details {
+      opacity: 1;
+      visibility: visible;
+    }
+
+  }
+
+  // Cover Image Setup
+  &__image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.1) 0%,
+          rgba(0, 0, 0, 0.6) 100%);
+      z-index: 1;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    // transition: transform 0.5s ease;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    background-color: $red;
+    color: $white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    // Glassmorphism
+    background-color: rgba(108, 117, 125, 0.35) !important;
+
+    // Blur effect for whatever passes behind the badge
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); // Safari support
+
+    // Subtle frosted border and text styling
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    // Optional extra polish
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  // Expanding Bottom Content Box
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    padding: 1.5rem;
+    background: $white;
+
+    /* * Initial position pushes extra content down.
+     * On hover, transform becomes translateY(0) to expose everything smoothly.
+     */
+    transform: translateY(calc(100% - 200px));
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &__title {
+    margin: 0 0 0.5rem 0;
+    overflow: hidden;
+    // white-space: nowrap;
+    // text-overflow: ellipsis;
+  }
+
+  &__meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.95rem;
+    color: lighten($text-dark, 25%);
+    margin-bottom: 0.75rem;
+  }
+
+  &__details {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease 0.1s, visibility 0.3s ease 0.1s;
+  }
+
+  &__excerpt {
+    color: $text-dark;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    background-color: $red;
+    color: $white;
+    font-family: $font-playful;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: darken($red, 10%);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+
 /*
  ***************************
- * DONATE.HTML PAGE
+ * blog_post.HTML PAGE
  ***************************
 */
+// Blog Listing Section below the Hero
+.blog-main {
+  background-color: #f8fafc;
+  padding: 3rem 1.5rem 5rem;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+}
+
+.blog-hero {
+
+  // Category Filter Pills
+  &__categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__category-btn {
+    font-family: $font-text;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    border: 1.5px solid rgba($white, 0.4);
+    background: transparent;
+    color: $white;
+    text-decoration: none;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background-color: rgba($white, 0.15);
+      border-color: $white;
+      color: $white;
+    }
+
+    &--active {
+      background-color: $red;
+      border-color: $red;
+      color: $white;
+      font-weight: 600;
+
+      &:hover {
+        background-color: darken($red, 8%);
+        border-color: darken($red, 8%);
+      }
+    }
+  }
+}
+
+
+// blog post
+.blog-post {
+  // background-color: #f8fafc;
+  padding: 3rem 1.5rem 5rem;
+
+  &__container {
+    max-width: 75%;
+    margin: 0 auto;
+    background-color: $white;
+    // border-radius: 16px;
+    // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    padding: 2rem;
+
+    @media (min-width: 768px) {
+      padding: 3.5rem;
+      margin-top: -3rem; // Slight overlap effect with header
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 500px) {
+      max-width: 100%;
+      padding: 0;
+    }
+  }
+
+  &__featured-image {
+    width: 100%;
+    margin-bottom: 2.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  blockquote {
+    border-left: 4px solid $light-blue;
+    background-color: lighten($dark-blue, 52%);
+    margin: 2rem 0;
+    padding: 1.25rem 1.75rem;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+    font-weight: 500;
+
+    .said-by {
+      justify-content: right;
+      color: red;
+
+    }
+  }
+
+  &__footer {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @media (min-width: 600px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+
+    .tags-label {
+      font-weight: 600;
+    }
+
+    .tag-pill {
+      font-size: 0.85rem;
+      background-color: lighten($light-blue, 28%);
+      color: $dark-blue;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background-color: $red;
+        color: $white;
+      }
+    }
+  }
+}
+
+.btn--outline {
+  display: inline-block;
+  font-family: $font-text;
+  font-weight: 600;
+  color: $red;
+  border: 2px solid $red;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background-color: $red;
+    color: $white;
+  }
+}

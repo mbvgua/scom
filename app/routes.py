@@ -72,6 +72,28 @@ def donate(request: Request):
     )
 
 
+# incomplete route, add the "slug" URL, and categories filter
+@router.get("/blog-list")
+def blog_list(request: Request):
+    """
+    "/blog-list" page
+    """
+    title: str = "Blog List"
+    return templates.TemplateResponse(
+        request, "blog_list.html", {"title": title}, status.HTTP_200_OK
+    )
+
+
+@router.get("/blog-post")
+def blog_post(request: Request):
+    """
+    "/blog-post" page
+    """
+    title: str = "Blog Post"
+    return templates.TemplateResponse(
+        request, "blog_post.html", {"title": title}, status.HTTP_200_OK
+    )
+
 @router.get("/privacy-policy")
 def privacy_policy(request: Request):
     """

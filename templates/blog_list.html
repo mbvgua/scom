@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% endif%}
+{% endblock title %}
+
+{% block content %}
+
+
+    <!-- START MINI HEADER SECTION -->
+    <header
+      class="page-header d-flex align-items-center justify-content-center text-center"
+    >
+      <div class="container hero-content">
+        <h1 class="display-1 fw-bold text-white">Blog</h1>
+
+        <div class="blog-hero__categories">
+            <a href="#"
+            {#<a href="{{ url_for('blog_list') }}" #}
+            class="blog-hero__category-btn {% if not current_category %}blog-hero__category-btn--active{% endif %}">
+            All
+        </a>
+            <a href="#"
+            {#<a href="{{ url_for('blog_list') }}?category=stories" #}
+            class="blog-hero__category-btn {% if current_category == 'stories' %}blog-hero__category-btn--active{% endif %}">
+            Stories
+        </a>
+            <a href="#"
+            {#<a href="{{ url_for('blog_list') }}?category=updates" #}
+            class="blog-hero__category-btn {% if current_category == 'updates' %}blog-hero__category-btn--active{% endif %}">
+            Updates
+        </a>
+            <a href="#"
+            {#<a href="{{ url_for('blog_list') }}?category=events" #}
+            class="blog-hero__category-btn {% if current_category == 'events' %}blog-hero__category-btn--active{% endif %}">
+            Events
+        </a>
+            <a href="#"
+            {#<a href="{{ url_for('blog_list') }}?category=impact" #}
+            class="blog-hero__category-btn {% if current_category == 'impact' %}blog-hero__category-btn--active{% endif %}">
+            Impact
+        </a>
+        </div>
+
+      </div>
+    </header>
+    <!-- END MINI HEADER SECTION -->
+
+    <!-- start blog list section -->
+    <main class="blog-main">
+        <div class="blog-main__container">
+            <div class="blog-main__grid">
+
+                <article class="blog-card">
+                <div class="blog-card__image-wrapper">
+                    <span class="blog-card__badge">Events</span>
+                    <img src="/static/images/slide2.jpg" alt="Annual Sports Day" class="blog-card__image" />
+                </div>
+
+                <div class="blog-card__content">
+                    <h4 class="blog-card__title ">Our Annual Sports Day Highlights</h4>
+                    <div class="blog-card__meta">
+                    <span class="text-muted">📅 July 20, 2026</span>
+                    </div>
+
+                    <div class="blog-card__details">
+                    <p class="blog-card__excerpt">
+                        The children had an exciting time competing in track races, fun games, and teamwork activities. See how the day unfolded!
+                    </p>
+                    <a href="#" class="blog-card__btn">
+                        Read More <span>&rarr;</span>
+                    </a>
+                    </div>
+                </div>
+                </article>
+
+                <article class="blog-card">
+                <div class="blog-card__image-wrapper">
+                    <span class="blog-card__badge bg-secondary">Events</span>
+                    <img src="/static/images/slide3.jpg" alt="Annual Sports Day" class="blog-card__image" />
+                </div>
+
+                <div class="blog-card__content">
+                    <h4 class="blog-card__title ">Our Annual Sports Day Highlights</h4>
+                    <div class="blog-card__meta">
+                    <span class="text-muted">📅 July 20, 2026</span>
+                    </div>
+
+                    <div class="blog-card__details">
+                    <p class="blog-card__excerpt">
+                        The children had an exciting time competing in track races, fun games, and teamwork activities. See how the day unfolded!
+                    </p>
+                    <a href="#" class="blog-card__btn">
+                        Read More <span>&rarr;</span>
+                    </a>
+                    </div>
+                </div>
+                </article>
+
+                <article class="blog-card">
+                <div class="blog-card__image-wrapper">
+                    <span class="blog-card__badge bg-secondary">Community</span>
+                    <img src="/static/images/slide4.jpg" alt="Annual Sports Day" class="blog-card__image" />
+                </div>
+
+                <div class="blog-card__content">
+                    <h4 class="blog-card__title ">Our Annual Sports Day Highlights</h4>
+                    <div class="blog-card__meta">
+                    <span class="text-muted">📅 July 20, 2026</span>
+                    <!-- <span class="text-muted">Admin</span> -->
+                    </div>
+
+                    <div class="blog-card__details">
+                    <p class="blog-card__excerpt">
+                        The children had an exciting time competing in track races, fun games, and teamwork activities. See how the day unfolded!
+                    </p>
+                    <a href="#" class="blog-card__btn">
+                        Read More <span>&rarr;</span>
+                    </a>
+                    </div>
+                </div>
+                </article>
+
+            </div>
+        </div>
+    </main>
+    <!-- end blog list section -->
+
+{% endblock content %}
