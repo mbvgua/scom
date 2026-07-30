@@ -1,3 +1,12 @@
+"""
+setup the application API routes
+
+these routes do not render any pages,but instead interact with data in JSON
+format, and mostly return JSONResponse. contains 2 routes:
+    - contact_us_form
+    - get_involved_form
+"""
+
 from typing import Annotated
 
 from fastapi import APIRouter, Form, Request, BackgroundTasks, status
@@ -15,12 +24,19 @@ def contact_us_form(
     form: Annotated[ContactForm, Form()],
     background_tasks: BackgroundTasks,
 ):
+    """
+    endpoint receives the data contained in the contact form, rendered in the
+    "/contact-us" URL, and delivers it to the admins email. form data is
+    validated in the "ContactForm" schema.
+
+    appropriate success/error messages and codes are returned as JSON
+    """
 
     try:
         background_tasks.add_task(
             send_contact_us_email,
             reply_to=form.from_email,
-            subject=f"New Contact form inquiry",
+            subject=f"Contact Form Inquisition by {form.username}",
             username=form.username,
             phone_number=form.phone_number if form.phone_number else None,
             message=form.message,
@@ -51,12 +67,19 @@ def get_involved_form(
     form: Annotated[GetInvolvedForm, Form()],
     background_tasks: BackgroundTasks,
 ):
+    """
+    endpoint receives the data contained in the get involved form, rendered in the
+    "/get-involved" URL, and delivers it to the admins email. form data is
+    validated in the "GetInvolvedForm" schema.
+
+    appropriate success/error messages and codes are returned as JSON
+    """
 
     try:
         background_tasks.add_task(
             send_get_involved_email,
             reply_to=form.from_email,
-            subject=f"New Get Involved inquiry form",
+            subject=f"Get Involved Form Inquisition by {form.username}",
             username=form.username,
             phone_number=form.phone_number if form.phone_number else None,
             interest=form.interest,

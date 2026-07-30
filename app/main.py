@@ -72,6 +72,7 @@ async def validation_exception_handler(
 ):
     """
     handle validation errors asynchronously
+    mostly via forms, or invalid data types while making requests
     """
 
     # if url starts with "/api/..." return JSON response
@@ -82,9 +83,9 @@ async def validation_exception_handler(
         request,
         "error.html",
         {
-            "title": f"Error {exception.status_code}",
+            "title": f"Error {status.HTTP_422_UNPROCESSABLE_CONTENT}",
             "error_code": status.HTTP_422_UNPROCESSABLE_CONTENT,
-            "error_message": "Invalid request, please check your input and try again.",
+            "error_message": f"Error: {exception.errors()}",
         },
         status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
     )

@@ -8,7 +8,8 @@ router = APIRouter(tags=["views"])
 @router.get("/")
 def home(request: Request):
     """
-    "/" the main application endpoint
+    the main application endpoint
+    renders the "home.html" template on the "/" URL
     """
 
     title: str = "Homepage"
@@ -20,18 +21,18 @@ def home(request: Request):
 @router.get("/about-us")
 def about_us(request: Request):
     """
-    "/about-us" page
+    renders the "abouts_us.html" template on the "/about-us" URL
     """
     title: str = "About Us"
     return templates.TemplateResponse(
-        request, "about-us.html", {"title": title}, status.HTTP_200_OK
+        request, "about_us.html", {"title": title}, status.HTTP_200_OK
     )
 
 
 @router.get("/programs")
 def programs(request: Request):
     """
-    "/programs" page
+    renders the "programs.html" template on the "/programs" URL
     """
     title: str = "Programs"
     return templates.TemplateResponse(
@@ -42,29 +43,29 @@ def programs(request: Request):
 @router.get("/get-involved")
 def get_involved(request: Request):
     """
-    "/get-involved" page
+    renders the "get_involved.html" on the "/get-involved" URL
     """
     title: str = "Get Involved"
     return templates.TemplateResponse(
-        request, "get-involved.html", {"title": title}, status.HTTP_200_OK
+        request, "get_involved.html", {"title": title}, status.HTTP_200_OK
     )
 
 
 @router.get("/contact-us")
 def contact_us(request: Request):
     """
-    "/contact-us" page
+    renders the "contact_us.html" on the "/contact-us" URL
     """
     title: str = "Contact Us"
     return templates.TemplateResponse(
-        request, "contact-us.html", {"title": title}, status.HTTP_200_OK
+        request, "contact_us.html", {"title": title}, status.HTTP_200_OK
     )
 
 
 @router.get("/donate")
 def donate(request: Request):
     """
-    "/donate" page
+    renders the "donate.html" on the "/donate" URL
     """
     title: str = "Donate"
     return templates.TemplateResponse(
@@ -94,10 +95,11 @@ def blog_post(request: Request):
         request, "blog_post.html", {"title": title}, status.HTTP_200_OK
     )
 
+
 @router.get("/privacy-policy")
 def privacy_policy(request: Request):
     """
-    "/privacy-policy" page
+    renders the "privacy_policy.html" on the "/privacy-policy" URL
     """
     title: str = "Privacy Policy"
     return templates.TemplateResponse(
