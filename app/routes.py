@@ -1,5 +1,10 @@
-from fastapi import APIRouter, Request, status
+from typing import Annotated, Optional
 
+from fastapi import APIRouter, Depends, Request, status
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.database import Blog, get_db
 from app.main import templates
 from app.schemas import PostCategory
 
@@ -74,19 +79,39 @@ def donate(request: Request):
     )
 
 
-# incomplete route, add the "slug" URL, and categories filter
 @router.get("/blog-list")
-def blog_list(request: Request):
+async def blog_list(
+    request: Request,
+    db: Annotated[AsyncSession, Depends(get_db)],
+    category: Optional[PostCategory] = None,
+):
     """
-    "/blog-list" page
+    renders the "blog_list.html" on the "/blog-list" URL.
+    it takes in an optional, "category" filter, that shows blogs matching the
+    selected category
     """
     title: str = "Blog List"
 
+    data = await db.execute(select(Blog))
+    blogs = data.scalars().all()
+
+    if category:
+        data = await db.execute(select(Blog).where(Blog.tags == category))
+        blogs = data.scalars().all()
+
+        return templates.TemplateResponse(
+            request,
+            "blog_list.html",
+            {"title": title, "blogs": blogs, "current_category": category},
+            status.HTTP_200_OK,
+        )
+
     return templates.TemplateResponse(
-            request, "blog_list.html", {"title": title}, status.HTTP_200_OK
+        request, "blog_list.html", {"title": title, "blogs": blogs}, status.HTTP_200_OK
     )
 
 
+# incomplete route, add the "slug" URL
 @router.get("/blog-post")
 def blog_post(request: Request):
     """

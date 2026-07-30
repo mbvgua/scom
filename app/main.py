@@ -1,3 +1,6 @@
+from contextlib import asynccontextmanager
+from pathlib import Path
+
 from fastapi import FastAPI, Request, status
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -8,12 +11,31 @@ from fastapi.exception_handlers import (
     request_validation_exception_handler,
 )
 
-from pathlib import Path
+from app.database import engine, Base, User, Blog
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """
+    elegently handle startup/shutdown events.
+    this is an idempotent action that creates the database models imported.
+    also has automatic cleanup
+    """
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+
+    yield
+
+    await engine.dispose()
+
 
 app: FastAPI = FastAPI(
     title="scom",
     description="main scom website",
     version="0.0.1",
+    lifespan=lifespan,
+    # enable this once the project goes live, to disable the api docs
+    # openapi_url=None,
 )
 
 # ensure paths are absolute for vercel

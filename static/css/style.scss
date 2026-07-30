@@ -1303,11 +1303,8 @@ $link-color: #c8f5a0;
 .blog-main {
   background-color: #f8fafc;
   padding: 3rem 1.5rem 5rem;
-
-  &__container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  max-width: 1200px;
+  margin: 0 auto;
 
   &__grid {
     display: grid;
@@ -1339,6 +1336,21 @@ $link-color: #c8f5a0;
     color: $white;
     text-decoration: none;
     transition: all 0.25s ease;
+
+    // glass morphism
+    background-color: rgba(108, 117, 125, 0.35);
+
+    // Blur effect for whatever passes behind the badge
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); // Safari support
+
+    // Subtle frosted border and text styling
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    // Optional extra polish
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 
     &:hover {
       background-color: rgba($white, 0.15);
@@ -1399,6 +1411,34 @@ $link-color: #c8f5a0;
       max-height: 420px;
       object-fit: cover;
       display: block;
+    }
+  }
+
+  .post-icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    color: #2d3748;
+    transition: all 0.3s ease;
+
+    /* Hover effects targeting inner SVG */
+    &--facebook:hover {
+      background-color: #1877f2;
+      color: #ffffff;
+    }
+
+    &--instagram:hover {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #ffffff;
+    }
+
+    &--whatsapp:hover {
+      background: #25d366;
+      color: #ffffff;
     }
   }
 
