@@ -33,9 +33,9 @@
     <!-- END MINI HEADER SECTION -->
 
     <!-- start blog list section -->
-    <main class="blog-main">
+    <main class="blog-main bg-white">
         {% if blogs %}
-            <div class="blog-main__grid  bg-light">
+            <div class="blog-main__grid">
             {% for blog in blogs %}
 
                 <article class="blog-card">
@@ -47,7 +47,7 @@
                     <div class="blog-card__content">
                         <h4 class="blog-card__title ">{{ blog.title }}</h4>
                         <div class="blog-card__meta">
-                        <span class="text-muted">📅 {{ blog.last_updated }}</span>
+                        <span class="text-muted">📅 {{ blog.last_updated.strftime("%B %d, %Y")}}</span>
                         <!-- <span class="text-muted">Admin</span> -->
                         </div>
 
@@ -55,7 +55,7 @@
                             <p class="blog-card__excerpt">
                                 {{ blog.content }}
                             </p>
-                            <a href="#" class="blog-card__btn">
+                            <a href="{{ url_for('blog_post', blog_id=blog.id) }}" class="blog-card__btn">
                                 Read More <span>&rarr;</span>
                             </a>
                         </div>

@@ -1054,8 +1054,8 @@ body {
 }
 .blog-main__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1rem;
 }
 
 .blog-hero__categories {
@@ -1102,6 +1102,9 @@ body {
 
 .blog-post {
   padding: 3rem 1.5rem 5rem;
+  font-family: "Fredoka", sans-serif;
+  color: #2d3748;
+  line-height: 1.8;
 }
 .blog-post__container {
   max-width: 75%;
@@ -1112,7 +1115,6 @@ body {
 }
 @media (min-width: 768px) {
   .blog-post__container {
-    padding: 3.5rem;
     margin-top: -3rem;
     position: relative;
     z-index: 2;
@@ -1124,17 +1126,39 @@ body {
     padding: 0;
   }
 }
-.blog-post__featured-image {
-  width: 100%;
-  margin-bottom: 2.5rem;
-  border-radius: 12px;
-  overflow: hidden;
+.blog-post h1,
+.blog-post h2,
+.blog-post h3,
+.blog-post h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
 }
-.blog-post__featured-image img {
-  width: 100%;
-  max-height: 420px;
-  object-fit: cover;
-  display: block;
+.blog-post p {
+  margin-bottom: 1.2rem;
+}
+.blog-post ul,
+.blog-post ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+.blog-post ul li,
+.blog-post ol li {
+  margin-bottom: 0.4rem;
+}
+.blog-post blockquote {
+  border-left: 4px solid #e53e3e;
+  background-color: rgba(136, 192, 208, 0.1);
+  padding: 1rem 1.5rem;
+  font-style: italic;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+}
+.blog-post img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 .blog-post .post-icon-link {
   display: inline-flex;
@@ -1159,19 +1183,6 @@ body {
 .blog-post .post-icon-link--whatsapp:hover {
   background: #25d366;
   color: #ffffff;
-}
-.blog-post blockquote {
-  border-left: 4px solid #88c0d0;
-  background-color: rgb(234.2657534247, 241.9232876712, 249.9342465753);
-  margin: 2rem 0;
-  padding: 1.25rem 1.75rem;
-  font-style: italic;
-  border-radius: 0 12px 12px 0;
-  font-weight: 500;
-}
-.blog-post blockquote .said-by {
-  justify-content: right;
-  color: red;
 }
 .blog-post__footer {
   margin-top: 3.5rem;

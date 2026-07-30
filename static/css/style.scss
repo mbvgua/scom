@@ -1308,8 +1308,8 @@ $link-color: #c8f5a0;
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1rem;
   }
 
 }
@@ -1377,6 +1377,9 @@ $link-color: #c8f5a0;
 .blog-post {
   // background-color: #f8fafc;
   padding: 3rem 1.5rem 5rem;
+  font-family: $font-text;
+  color: $text-dark;
+  line-height: 1.8;
 
   &__container {
     max-width: 75%;
@@ -1388,7 +1391,6 @@ $link-color: #c8f5a0;
     padding: 2rem;
 
     @media (min-width: 768px) {
-      padding: 3.5rem;
       margin-top: -3rem; // Slight overlap effect with header
       position: relative;
       z-index: 2;
@@ -1400,18 +1402,45 @@ $link-color: #c8f5a0;
     }
   }
 
-  &__featured-image {
-    width: 100%;
-    margin-bottom: 2.5rem;
-    border-radius: 12px;
-    overflow: hidden;
+  h1,
+  h2,
+  h3,
+  h4 {
+    // font-family: $font-playful;
+    // color: $dark-blue;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
 
-    img {
-      width: 100%;
-      max-height: 420px;
-      object-fit: cover;
-      display: block;
+  p {
+    margin-bottom: 1.2rem;
+  }
+
+  ul,
+  ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.2rem;
+
+    li {
+      margin-bottom: 0.4rem;
     }
+  }
+
+  blockquote {
+    border-left: 4px solid $red;
+    background-color: rgba($light-blue, 0.1);
+    padding: 1rem 1.5rem;
+    font-style: italic;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
   .post-icon-link {
@@ -1439,22 +1468,6 @@ $link-color: #c8f5a0;
     &--whatsapp:hover {
       background: #25d366;
       color: #ffffff;
-    }
-  }
-
-  blockquote {
-    border-left: 4px solid $light-blue;
-    background-color: lighten($dark-blue, 52%);
-    margin: 2rem 0;
-    padding: 1.25rem 1.75rem;
-    font-style: italic;
-    border-radius: 0 12px 12px 0;
-    font-weight: 500;
-
-    .said-by {
-      justify-content: right;
-      color: red;
-
     }
   }
 

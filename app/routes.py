@@ -3,6 +3,7 @@ from typing import Annotated, Optional
 from fastapi import APIRouter, Depends, Request, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
 
 from app.database import Blog, get_db
 from app.main import templates
@@ -12,15 +13,26 @@ router = APIRouter(tags=["views"])
 
 
 @router.get("/")
-def home(request: Request):
+async def home(request: Request, db: Annotated[AsyncSession, Depends(get_db)]):
     """
     the main application endpoint
     renders the "home.html" template on the "/" URL
+    asynchronous so that it can interact with the database using dependency
+    injection
+
+    NOTE:
+    - "order_by()": arranges them in descending order such that newest posts
+      come first.
     """
 
     title: str = "Homepage"
+
+    # get blogs from the db. 3 only
+    data = await db.execute(select(Blog).order_by(Blog.last_updated.desc()))
+    blog = data.scalars().all()
+
     return templates.TemplateResponse(
-        request, "home.html", {"title": title}, status.HTTP_200_OK
+        request, "home.html", {"title": title, "blogs": blog[:3]}, status.HTTP_200_OK
     )
 
 
@@ -89,6 +101,7 @@ async def blog_list(
     renders the "blog_list.html" on the "/blog-list" URL.
     it takes in an optional, "category" filter, that shows blogs matching the
     selected category
+    this data is fetched asynchronously from the database, using dependency injection
     """
     title: str = "Blog List"
 
@@ -112,14 +125,31 @@ async def blog_list(
 
 
 # incomplete route, add the "slug" URL
-@router.get("/blog-post")
-def blog_post(request: Request):
+@router.get("/blog-post/{blog_id}")
+async def blog_post(
+    request: Request, db: Annotated[AsyncSession, Depends(get_db)], blog_id: int
+):
     """
-    "/blog-post" page
+    renders the "blog_post.html" on the "/blog-post" URL.
+    this data is fetched asynchronously from the database, using dependency injection
+
+    NOTE:
+    - "selectinload()": allows for eargely loading in the async sqlite session,
+      hence the request is able to access therelated table "Blog.author", lest
+      it would return a "missing greenlet error": https://sqlalche.me/e/20/xd2s
     """
     title: str = "Blog Post"
+
+    data = await db.execute(
+        select(Blog).options(selectinload(Blog.author)).where(Blog.id == blog_id)
+    )
+    blog = data.scalars().first()
+
     return templates.TemplateResponse(
-        request, "blog_post.html", {"title": title}, status.HTTP_200_OK
+        request,
+        "blog_post.html",
+        {"title": title, "blog": blog, "author": blog.author.name},
+        status.HTTP_200_OK,
     )
 
 
