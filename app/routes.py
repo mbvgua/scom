@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Request, status
 
 from app.main import templates
+from app.schemas import PostCategory
 
 router = APIRouter(tags=["views"])
 
@@ -80,8 +81,9 @@ def blog_list(request: Request):
     "/blog-list" page
     """
     title: str = "Blog List"
+
     return templates.TemplateResponse(
-        request, "blog_list.html", {"title": title}, status.HTTP_200_OK
+            request, "blog_list.html", {"title": title}, status.HTTP_200_OK
     )
 
 

@@ -65,6 +65,27 @@ async def general_http_exception_handler(
     )
 
 
+# Catch ANY unhandled exception (500 Internal Server Error)
+@app.exception_handler(Exception)
+async def custom_500_handler(request: Request, exception: Exception):
+    """
+    handle all the other server crashes not handled above.this is aimed at 5xx
+    server codes, that mean an issue with the internal server. will most
+    definetly not be present in a prod ennvironement(after deploying), but you
+    never know ;)
+    """
+    return templates.TemplateResponse(
+        request,
+        "error.html",
+        {
+            "title": "Error 500",
+            "error_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+            "error_message": "Internal Server",
+        },
+        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+    )
+
+
 # Validation Error Handling
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(

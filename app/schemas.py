@@ -7,6 +7,8 @@ currently 2 schemas:
     - GetInvolvedForm
 """
 
+from enum import Enum
+
 from pydantic import BaseModel, EmailStr
 
 
@@ -42,3 +44,14 @@ class GetInvolvedForm(ContactForm):
     """
 
     interest: str
+
+
+class PostCategory(str, Enum):
+    """
+    defines the categories of posts to beused in the application
+    """
+
+    stories = "stories"
+    events = "events"
+    updates = "updates"
+    impact = "impact"

@@ -768,7 +768,8 @@ body {
 */
 .error-page-section {
   min-height: 75vh;
-  padding-top: 80px; /* Navbar height offset */
+  padding-top: 80px;
+  /* Navbar height offset */
   position: relative;
   /* The Transition Gradient: Starts #f8f9fa at the bottom (footer), fades to Pitch Black at the top (navbar) */
   background: linear-gradient(to top, #f8f9fa 0%, #1b2745 30%, #0b1021 65%, #000000 100%);
@@ -787,7 +788,8 @@ body {
   width: 100%;
   height: 100%;
   z-index: 0;
-  pointer-events: none; /* Prevents emojis from blocking button clicks */
+  pointer-events: none;
+  /* Prevents emojis from blocking button clicks */
   overflow: hidden;
 }
 .error-page-section {
@@ -816,7 +818,8 @@ body {
   top: 25%;
   left: 10%;
   font-size: 3rem;
-  opacity: 0.4; /* Faded sun in the distance */
+  opacity: 0.4;
+  /* Faded sun in the distance */
   filter: blur(2px);
 }
 .error-page-section .floating-entity {
@@ -831,7 +834,8 @@ body {
 .error-page-section .space-cat {
   bottom: 50%;
   right: 20%;
-  font-size: 2.5rem; /* slightly smaller than astronaut */
+  font-size: 2.5rem;
+  /* slightly smaller than astronaut */
   animation: floatSpaceReverse 24s infinite linear;
 }
 .error-page-section {

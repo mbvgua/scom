@@ -17,28 +17,23 @@
         <h1 class="display-1 fw-bold text-white">Blog</h1>
 
         <div class="blog-hero__categories">
-            <a href="#"
-            {#<a href="{{ url_for('blog_list') }}" #}
+            <a href="{{ url_for('blog_list') }}"
             class="blog-hero__category-btn {% if not current_category %}blog-hero__category-btn--active{% endif %}">
             All
         </a>
-            <a href="#"
-            {#<a href="{{ url_for('blog_list') }}?category=stories" #}
+            <a href="{{ url_for('blog_list') }}?category=stories"
             class="blog-hero__category-btn {% if current_category == 'stories' %}blog-hero__category-btn--active{% endif %}">
             Stories
         </a>
-            <a href="#"
-            {#<a href="{{ url_for('blog_list') }}?category=updates" #}
+            <a href="{{ url_for('blog_list') }}?category=updates"
             class="blog-hero__category-btn {% if current_category == 'updates' %}blog-hero__category-btn--active{% endif %}">
             Updates
         </a>
-            <a href="#"
-            {#<a href="{{ url_for('blog_list') }}?category=events" #}
+            <a href="{{ url_for('blog_list') }}?category=events"
             class="blog-hero__category-btn {% if current_category == 'events' %}blog-hero__category-btn--active{% endif %}">
             Events
         </a>
-            <a href="#"
-            {#<a href="{{ url_for('blog_list') }}?category=impact" #}
+            <a href="{{ url_for('blog_list') }}?category=impact"
             class="blog-hero__category-btn {% if current_category == 'impact' %}blog-hero__category-btn--active{% endif %}">
             Impact
         </a>

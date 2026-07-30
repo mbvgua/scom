@@ -11,7 +11,6 @@ will ineherit from. Hence has 3 functions:
 from email.message import EmailMessage
 
 import aiosmtplib
-from fastapi.templating import Jinja2Templates
 
 from app.config import settings
 from app.main import templates
