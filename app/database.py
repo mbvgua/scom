@@ -82,7 +82,7 @@ class User(Base):
     password_hash: Mapped[str] = mapped_column(String(300), nullable=False)
     role: Mapped[UserRoles] = mapped_column(String(50), nullable=False)
     avatar: Mapped[str] = mapped_column(String(200), nullable=True)
-    blogs: Mapped[list[Blog]] = relationship(
+    blogs: Mapped[list["Blog"]] = relationship(
         back_populates="author", cascade="all, delete-orphan"
     )
 
@@ -120,4 +120,4 @@ class Blog(Base):
     # images: how toupload a list of images
     tags: Mapped[List[str]] = mapped_column(String, nullable=False)
     content: Mapped[str] = mapped_column(Text, nullable=False)
-    author: Mapped[User] = relationship(back_populates="blogs")
+    author: Mapped["User"] = relationship(back_populates="blogs")
