@@ -86,6 +86,9 @@ class User(Base):
         back_populates="author", cascade="all, delete-orphan"
     )
 
+    def __str_(self)-> str:
+        return f"{self.name} ({self.email})"
+
 
 class Blog(Base):
     """
@@ -121,3 +124,6 @@ class Blog(Base):
     tags: Mapped[List[str]] = mapped_column(String, nullable=False)
     content: Mapped[str] = mapped_column(Text, nullable=False)
     author: Mapped["User"] = relationship(back_populates="blogs")
+
+    def __str__(self) -> str:
+        return self.title

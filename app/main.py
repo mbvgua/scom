@@ -5,12 +5,14 @@ from fastapi import FastAPI, Request, status
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.exceptions import RequestValidationError
+from sqladmin import Admin
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from fastapi.exception_handlers import (
     http_exception_handler,
     request_validation_exception_handler,
 )
 
+from app.admin import BlogAdmin, UserAdmin
 from app.database import engine, Base, User, Blog
 
 
@@ -37,6 +39,7 @@ app: FastAPI = FastAPI(
     # enable this once the project goes live, to disable the api docs
     # openapi_url=None,
 )
+admin = Admin(app, engine, title="Admin Dashboard")
 
 # ensure paths are absolute for vercel
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -51,6 +54,8 @@ from app.api import router as api_router
 
 app.include_router(app_router)
 app.include_router(api_router)
+admin.add_view(UserAdmin)
+admin.add_view(BlogAdmin)
 
 
 # error handling
