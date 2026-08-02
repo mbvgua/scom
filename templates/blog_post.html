@@ -108,7 +108,7 @@
 
                         <!-- POST BODY -->
                         <article class="blog-post-body fs-5 text-dark lh-lg">
-                            <p> {{ blog.content }} </p>
+                            <p> {{ blog.content | markdown }} </p>
 
                                 <img src="/static/images/problem.jpg" alt="Featured Article Image" />
                         </article>

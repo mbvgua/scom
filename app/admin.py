@@ -6,14 +6,6 @@ from sqlalchemy.orm import selectinload
 from app.database import Blog, User
 
 
-def format_datetime(value: datetime.datetime) -> str:
-    """
-    format the date, to be human readable. this allows formatting in both the
-    list view and the detail view
-    """
-    return value.strftime("%b %d, %Y - %H:%M UTC") if value else "N/A"
-
-
 class UserAdmin(ModelView, model=User):
     """
     define the "Users" admin page
@@ -60,11 +52,24 @@ class BlogAdmin(ModelView, model=Blog):
     - when creating new blogs, allows creation using markdown
     - blog.author still show a memory address in detailed view, make it show
       the author.name instead
+    - details_template: allows me to add a custom, templatefor the blog
+      editing/updating, where I can now embedd a simple js based markdown
+      editotr into it allowingfor much easier content addition/modification
     """
+
+    @staticmethod
+    def format_datetime(value: datetime.datetime) -> str:
+        """
+        format the date, to be human readable. this allows formatting in both the
+        list view and the detail view
+        """
+        return value.strftime("%b %d, %Y - %H:%M UTC") if value else "N/A"
 
     name = "Blog"
     name_plural = "Blogs"
     icon = "fa-solid fa-file-text"
+
+    details_template = "sqladmin/layout.html"
 
     column_list = [Blog.id, Blog.title, Blog.author, Blog.user_id, Blog.last_updated]
     column_searchable_list = [Blog.tags, Blog.title, Blog.author]
@@ -77,6 +82,6 @@ class BlogAdmin(ModelView, model=Blog):
     # Explicitly format how the 'author' column renders in the main table
     column_formatters = {
         Blog.author: lambda model, a: (
-            model.author.name if model.author else "No Author"
+            model.author.name[:100] + "..." if model.author else "No Author"
         ),
     }

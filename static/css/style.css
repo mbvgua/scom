@@ -93,7 +93,7 @@ body {
   transition: transform 0.2s ease, background-color 0.2s;
 }
 .btn-donate:hover {
-  background-color: rgb(211.5068493151, 28.4931506849, 28.4931506849);
+  background-color: rgb(82.9438624765%, 11.1737845823%, 11.1737845823%);
   transform: translateY(-2px);
   color: #ffffff;
 }
@@ -432,7 +432,7 @@ body {
 }
 
 .bg-light-blue {
-  background-color: rgb(209.1204819277, 230.7108433735, 236.8795180723);
+  background-color: rgb(82.0080321285%, 90.4748405386%, 92.8939286558%);
   color: #2b6cb0 !important;
 }
 
@@ -457,7 +457,7 @@ body {
 }
 .faq-section .accordion-button:not(.collapsed) {
   color: #2b6cb0;
-  background-color: rgb(227.4006024096, 240.3885542169, 244.0993975904);
+  background-color: rgb(89.1767068273%, 94.2700212615%, 95.725253957%);
   box-shadow: none;
 }
 .faq-section .accordion-button:focus {
@@ -484,7 +484,7 @@ body {
   transition: transform 0.2s ease, background-color 0.2s;
 }
 .newsletter-section .btn-donate:hover {
-  background-color: rgb(211.5068493151, 28.4931506849, 28.4931506849);
+  background-color: rgb(82.9438624765%, 11.1737845823%, 11.1737845823%);
   transform: translateY(-2px);
   color: #ffffff;
 }
@@ -628,7 +628,7 @@ body {
   transition: transform 0.2s ease, background-color 0.2s;
 }
 .get-involved-section .btn-donate:hover {
-  background-color: rgb(211.5068493151, 28.4931506849, 28.4931506849);
+  background-color: rgb(82.9438624765%, 11.1737845823%, 11.1737845823%);
   transform: translateY(-2px);
   color: #ffffff;
 }
@@ -1004,7 +1004,7 @@ body {
   display: flex;
   gap: 1rem;
   font-size: 0.95rem;
-  color: rgb(94.0384615385, 114.9358974359, 150.4615384615);
+  color: rgb(36.8778280543%, 45.0729009553%, 59.0045248869%);
   margin-bottom: 0.75rem;
 }
 .blog-card__details {
@@ -1037,7 +1037,7 @@ body {
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 .blog-card__btn:hover {
-  background-color: rgb(211.5068493151, 28.4931506849, 28.4931506849);
+  background-color: rgb(82.9438624765%, 11.1737845823%, 11.1737845823%);
   transform: translateY(-2px);
 }
 
@@ -1096,8 +1096,8 @@ body {
   font-weight: 600;
 }
 .blog-hero__category-btn--active:hover {
-  background-color: rgb(220.495890411, 29.704109589, 29.704109589);
-  border-color: rgb(220.495890411, 29.704109589, 29.704109589);
+  background-color: rgb(86.4689766317%, 11.6486704271%, 11.6486704271%);
+  border-color: rgb(86.4689766317%, 11.6486704271%, 11.6486704271%);
 }
 
 .blog-post {
@@ -1210,7 +1210,7 @@ body {
 }
 .blog-post__tags .tag-pill {
   font-size: 0.85rem;
-  background-color: rgb(238.3686746988, 246.1951807229, 248.4313253012);
+  background-color: rgb(93.4779116466%, 96.5471296953%, 97.4240491377%);
   color: #2b6cb0;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;

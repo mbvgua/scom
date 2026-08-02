@@ -13,7 +13,8 @@ from fastapi.exception_handlers import (
 )
 
 from app.admin import BlogAdmin, UserAdmin
-from app.database import engine, Base, User, Blog
+from app.database import engine, Base, User, Blog   # dont remove User/Blog
+from app.utils.markdown import format_markdown_to_html
 
 
 @asynccontextmanager
@@ -46,6 +47,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # define styling and templates to use
 templates: Jinja2Templates = Jinja2Templates(directory=BASE_DIR / "templates")
+templates.env.filters["markdown"] = format_markdown_to_html  # custom filter to format .md to .html
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 
 # import and register the routes

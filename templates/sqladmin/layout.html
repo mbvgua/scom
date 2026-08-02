@@ -1,0 +1,21 @@
+{% extends "sqladmin_original/layout.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+    <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+{% endblock %}
+
+{% block tail %}
+    {{ super() }}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Find the textarea for the 'content' field in your Blog model
+            var contentField = document.getElementById('content');
+            if(contentField) {
+                // Initialize the Markdown editor on that field
+                new EasyMDE({ element: contentField });
+            }
+        });
+    </script>
+{% endblock %}

@@ -45,7 +45,11 @@
                     </div>
 
                     <div class="blog-card__content">
-                        <h4 class="blog-card__title ">{{ blog.title }}</h4>
+                        <h4 class="blog-card__title ">
+                            <a class="text-dark"
+                               href="{{ url_for('blog_post', blog_id=blog.id) }}"
+                               style="text-decoration:none;">{{ blog.title }}</a>
+                        </h4>
                         <div class="blog-card__meta">
                         <span class="text-muted">📅 {{ blog.last_updated.strftime("%B %d, %Y")}}</span>
                         <!-- <span class="text-muted">Admin</span> -->
@@ -53,7 +57,7 @@
 
                         <div class="blog-card__details">
                             <p class="blog-card__excerpt">
-                                {{ blog.content }}
+                                {{ blog.content | lower() | truncate(length=200, ) | markdown }}
                             </p>
                             <a href="{{ url_for('blog_post', blog_id=blog.id) }}" class="blog-card__btn">
                                 Read More <span>&rarr;</span>
