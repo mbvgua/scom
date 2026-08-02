@@ -5,9 +5,10 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from app.database import Blog, get_db
+from app.database.config import get_db
+from app.database.models import Blog
 from app.main import templates
-from app.schemas import PostCategory
+from app.schemas.posts import PostCategory
 
 router = APIRouter(tags=["views"])
 
@@ -27,7 +28,7 @@ async def home(request: Request, db: Annotated[AsyncSession, Depends(get_db)]):
 
     title: str = "Homepage"
 
-    # get blogs from the db. 3 only
+    # get latest 3 blogs from the db
     data = await db.execute(select(Blog).order_by(Blog.last_updated.desc()))
     blog = data.scalars().all()
 
@@ -124,7 +125,6 @@ async def blog_list(
     )
 
 
-# incomplete route, add the "slug" URL
 @router.get("/blog-post/{blog_id}")
 async def blog_post(
     request: Request, db: Annotated[AsyncSession, Depends(get_db)], blog_id: int
@@ -137,6 +137,9 @@ async def blog_post(
     - "selectinload()": allows for eargely loading in the async sqlite session,
       hence the request is able to access therelated table "Blog.author", lest
       it would return a "missing greenlet error": https://sqlalche.me/e/20/xd2s
+
+    TODO:
+    - incomplete route, add the "slug" section for urls
     """
     title: str = "Blog Post"
 

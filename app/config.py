@@ -27,6 +27,7 @@ class Settings(BaseSettings):
         extra="ignore",  # ignore extra vars not defined here
     )
 
+    # emails
     mail_server: str = "smtp.gmail.com"
     mail_port: int = 587
     mail_username: str
@@ -35,7 +36,8 @@ class Settings(BaseSettings):
     mail_use_tls: bool
     official_home_mail: str
 
-    sqlalchemy_database_url:str
+    # database
+    sqlalchemy_database_url: str
 
 
 # instantiate the settings object

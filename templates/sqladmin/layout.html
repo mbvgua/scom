@@ -11,7 +11,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Find the textarea for the 'content' field in your Blog model
-            var contentField = document.getElementById('content');
+            let contentField = document.getElementById('content');
             if(contentField) {
                 // Initialize the Markdown editor on that field
                 new EasyMDE({ element: contentField });

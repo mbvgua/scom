@@ -9,6 +9,7 @@ $red: #e53e3e;
 $white: #ffffff;
 $text-dark: #2d3748;
 
+
 /*
  ***************************
  * GENERAL CONTENT SECTION
@@ -201,8 +202,1106 @@ body {
 
 }
 
+/*
+ ***************************
+ * INDEX.HTML PAGE
+ ***************************
+*/
 
-/* FOOTER */
+// --- Hero Section Carousel (Update/Replace previous .hero-section block) ---
+.hero-section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  // Desktop View
+  max-height: 100vh;
+
+  // Mobile View Adjustments - give it a proper height box instead of auto-collapsing
+  @media (max-width: 768px) {
+    min-height: 520px;
+    padding-top: 5rem;
+  }
+
+  // Fix inner container height so images and background boxes expand properly
+  .carousel-inner {
+    height: 100%;
+    min-height: inherit;
+
+    .carousel-item {
+      height: 100%;
+      min-height: inherit;
+      position: relative;
+
+      // Dark overlay on top of images for text contrast
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), center/cover no-repeat;
+      }
+    }
+  }
+
+  .hero-img {
+    object-fit: cover; // Ensures full screen coverage without stretching images
+    min-height: inherit;
+  }
+
+  // Carousel Item Overlay & Content Styling
+  .carousel-caption {
+    opacity: 0;
+    top: 0;
+    bottom: 40%;
+
+    // Wider text bounds on mobile so it doesn't get squished into a narrow column
+    left: 5%;
+    right: 5%;
+    padding: 0 5%;
+
+    z-index: 2; // Places text over the dark overlay
+
+    // Expand bounds back out on larger tablets/desktops
+    @media (min-width: 768px) {
+      left: 10%;
+      right: 10%;
+      padding: 0 10%;
+    }
+
+    // Optional: make the mobile heading size scale down slightly so it fits nicely
+    h1 {
+      // font-size.clamp: 2rem;
+
+      @media (max-width: 768px) {
+        font-size: 2.2rem !important;
+      }
+    }
+  }
+
+  // Adjust arrow controls visibility/depth
+  .carousel-control-prev,
+  .carousel-control-next {
+    z-index: 3;
+  }
+}
+
+// Keyframe for Pop-Up / Fade-Up Effect animation in hero ection
+@keyframes popUpFromBelow {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Apply animation to caption content when slide active
+.carousel-item.active .carousel-caption {
+  animation: popUpFromBelow 0.8s ease-out forwards;
+}
+
+// --- Feature Sections (Problem & Solution) ---
+.feature-section {
+  background-color: $white;
+}
+
+// Custom badges matching your color theme
+.bg-light-blue {
+  background-color: lighten($light-blue, 20%);
+  color: $dark-blue !important;
+}
+
+.bg-dark-blue {
+  background-color: $dark-blue;
+}
+
+.bg-light-section {
+  background-color: #f8fafc;
+}
+
+
+// --- FAQ Section Styling ---
+.faq-section {
+  background-color: #f8fafc;
+
+  .accordion-item {
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  }
+
+  .accordion-button {
+    color: $dark-blue;
+    background-color: $white;
+
+    &:not(.collapsed) {
+      color: $dark-blue;
+      background-color: lighten($light-blue, 25%);
+      box-shadow: none;
+    }
+
+    &:focus {
+      box-shadow: none;
+      border-color: rgba($dark-blue, 0.1);
+    }
+  }
+}
+
+
+// blog section
+.blog-section {
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.blog-card {
+  position: relative;
+  height: 450px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  background-color: $white;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover {
+    // transform: translateY(-5px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+
+    // .blog-card__image {
+    //   transform: scale(1.08);
+    // }
+
+    .blog-card__content {
+      transform: translateY(0);
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    .blog-card__details {
+      opacity: 1;
+      visibility: visible;
+    }
+
+  }
+
+  // Cover Image Setup
+  &__image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.1) 0%,
+          rgba(0, 0, 0, 0.6) 100%);
+      z-index: 1;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    // transition: transform 0.5s ease;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    background-color: $red;
+    color: $white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    // Glassmorphism
+    background-color: rgba(108, 117, 125, 0.35) !important;
+
+    // Blur effect for whatever passes behind the badge
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); // Safari support
+
+    // Subtle frosted border and text styling
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    // Optional extra polish
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  // Expanding Bottom Content Box
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    padding: 1.5rem;
+    background: $white;
+
+    /* * Initial position pushes extra content down.
+     * On hover, transform becomes translateY(0) to expose everything smoothly.
+     */
+    transform: translateY(calc(100% - 200px));
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &__title {
+    margin: 0 0 0.5rem 0;
+    overflow: hidden;
+    // white-space: nowrap;
+    // text-overflow: ellipsis;
+  }
+
+  &__meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.95rem;
+    color: lighten($text-dark, 25%);
+    margin-bottom: 0.75rem;
+  }
+
+  &__details {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease 0.1s, visibility 0.3s ease 0.1s;
+  }
+
+  &__excerpt {
+    color: $text-dark;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    background-color: $red;
+    color: $white;
+    font-family: $font-playful;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: darken($red, 10%);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+
+
+// --- Newsletter Section ---
+.newsletter-section {
+  position: relative;
+  overflow: hidden;
+  // Slits an inward curve into the top of the element
+  // clip-path: ellipse(120% 100% at 50% 100%);
+
+  .form-control {
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    &:focus {
+      box-shadow: 0 0 0 0.25rem rgba($light-blue, 0.5);
+    }
+  }
+
+  // Leverages the massive donate button style from the navbar for consistency
+  .btn-donate {
+    font-family: $font-playful;
+    background-color: $red;
+    color: $white;
+    border: none;
+    transition: transform 0.2s ease, background-color 0.2s;
+
+    &:hover {
+      background-color: darken($red, 10%);
+      transform: translateY(-2px);
+      color: $white;
+    }
+  }
+}
+
+
+/*
+ ***************************
+ * PROGRAMS.HTML PAGE
+ ***************************
+*/
+// --- Subpage Banner Header (Like "Our Programs") ---
+.page-header {
+  height: 60vh; // Keeps it high enough for impact while allowing content below to show
+  min-height: 380px;
+  width: 100%;
+  position: relative;
+
+  // Background Image + Overlay matching your screenshot layout
+  background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)),
+    url('/static/images/slide4.jpg') center/cover no-repeat;
+
+  .hero-content {
+    z-index: 2;
+    margin-top: 40px; // Gives visual offset due to fixed navbar
+  }
+}
+
+
+
+/*
+ ***************************
+ * PRIVACY_POLICY.HTML PAGE
+ ***************************
+*/
+// --- Subpage Header ---
+.page-header {
+  // background: linear-gradient(135deg, $dark-blue, darken($dark-blue, 10%));
+  color: $white;
+  margin-bottom: 2.5rem;
+
+  h1 {
+    font-family: $font-text;
+    // font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+}
+
+// --- Layout & Content ---
+.privacy-content {
+  padding-bottom: 4rem;
+
+  // Sticky Navigation Card
+  .privacy-nav-card {
+    position: sticky;
+    top: 2rem;
+    border: 2px solid $red;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    .card-header {
+      background-color: $red;
+      color: $white;
+      font-family: $font-text;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 1rem 1.25rem;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .nav-link {
+      color: $text-dark;
+      font-size: 0.95rem;
+      padding: 0.60rem 1.25rem;
+      border-left: 3px solid transparent;
+      transition: all 0.2s ease-in-out;
+
+      &:hover,
+      &.active {
+        color: $red;
+        background-color: rgba($red, 0.1);
+        border-left-color: $red;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // Article Content Sections
+  .privacy-body {
+    background: $white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba($light-blue, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    section {
+      margin-bottom: 2.5rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h2 {
+      font-family: $font-text;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba($light-blue, 0.4);
+
+      i {
+        color: $red;
+      }
+    }
+
+    p,
+    li {
+      line-height: 1.7;
+      color: $text-dark;
+      font-size: 1rem;
+    }
+
+    ul {
+      padding-left: 1.25rem;
+      margin-bottom: 1rem;
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    // Safeguarding / Warning Callout Box
+    .warning-box {
+      background-color: rgba($red, 0.08);
+      border-left: 4px solid $red;
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+
+      h4 {
+        font-family: $font-text;
+        color: $red;
+        font-size: 1.15rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.95rem;
+        // font-weight: 500;
+        color: $text-dark;
+      }
+    }
+  }
+}
+
+
+/*
+ ***************************
+ * GET-INVOLVED.HTML PAGE
+ ***************************
+*/
+.get-involved-section {
+  position: relative;
+
+  .card {
+    background-color: rgba($white, 0.98); // Slightly translucent white card
+    backdrop-filter: blur(5px);
+  }
+
+  .form-control,
+  .form-select {
+    border: 1px solid #cbd5e1;
+    font-size: 1rem;
+
+    &:focus {
+      border-color: $light-blue;
+      box-shadow: 0 0 0 0.25rem rgba($light-blue, 0.25);
+    }
+  }
+
+  .btn-donate {
+    background-color: $red;
+    color: $white;
+    border: none;
+    transition: transform 0.2s ease, background-color 0.2s;
+
+    &:hover {
+      background-color: darken($red, 10%);
+      transform: translateY(-2px);
+      color: $white;
+    }
+  }
+}
+
+
+
+/*
+ ***************************
+ * CONTACT-US.HTML PAGE
+ ***************************
+*/
+.contact-header {
+  background: linear-gradient(rgba($dark-blue, 0.55), rgba($dark-blue, 0.55)),
+    url('/static/images/contact-header.png') center/cover no-repeat;
+}
+
+.map-container {
+  width: 100%;
+  min-height: 450px;
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: 450px;
+  }
+}
+
+
+/*
+ ***************************
+ * blog_post.HTML PAGE
+ ***************************
+*/
+// Blog Listing Section below the Hero
+.blog-main {
+  background-color: #f8fafc;
+  padding: 3rem 1.5rem 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1rem;
+  }
+
+}
+
+.blog-hero {
+
+  // Category Filter Pills
+  &__categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__category-btn {
+    font-family: $font-text;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    border: 1.5px solid rgba($white, 0.4);
+    background: transparent;
+    color: $white;
+    text-decoration: none;
+    transition: all 0.25s ease;
+
+    // glass morphism
+    background-color: rgba(108, 117, 125, 0.35);
+
+    // Blur effect for whatever passes behind the badge
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); // Safari support
+
+    // Subtle frosted border and text styling
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    // Optional extra polish
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      background-color: rgba($white, 0.15);
+      border-color: $white;
+      color: $white;
+    }
+
+    &--active {
+      background-color: $red;
+      border-color: $red;
+      color: $white;
+      font-weight: 600;
+
+      &:hover {
+        background-color: darken($red, 8%);
+        border-color: darken($red, 8%);
+      }
+    }
+  }
+}
+
+
+// blog post
+.blog-post {
+  // background-color: #f8fafc;
+  padding: 3rem 1.5rem 5rem;
+  font-family: $font-text;
+  color: $text-dark;
+  line-height: 1.8;
+
+  &__container {
+    max-width: 75%;
+    margin: 0 auto;
+    background-color: $white;
+    // border-radius: 16px;
+    // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    padding: 2rem;
+
+    @media (min-width: 768px) {
+      margin-top: -3rem; // Slight overlap effect with header
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 500px) {
+      max-width: 100%;
+      padding: 0;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    // font-family: $font-playful;
+    // color: $dark-blue;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    margin-bottom: 1.2rem;
+  }
+
+  ul,
+  ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.2rem;
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+  }
+
+  blockquote {
+    border-left: 4px solid $red;
+    background-color: rgba($light-blue, 0.1);
+    padding: 1rem 1.5rem;
+    font-style: italic;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .post-icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    color: #2d3748;
+    transition: all 0.3s ease;
+
+    /* Hover effects targeting inner SVG */
+    &--facebook:hover {
+      background-color: #1877f2;
+      color: #ffffff;
+    }
+
+    &--instagram:hover {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #ffffff;
+    }
+
+    &--whatsapp:hover {
+      background: #25d366;
+      color: #ffffff;
+    }
+  }
+
+  &__footer {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @media (min-width: 600px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+
+    .tags-label {
+      font-weight: 600;
+    }
+
+    .tag-pill {
+      font-size: 0.85rem;
+      background-color: lighten($light-blue, 28%);
+      color: $dark-blue;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background-color: $red;
+        color: $white;
+      }
+    }
+  }
+}
+
+.btn--outline {
+  display: inline-block;
+  font-family: $font-text;
+  font-weight: 600;
+  color: $red;
+  border: 2px solid $red;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background-color: $red;
+    color: $white;
+  }
+}
+
+
+/*
+ ***************************
+ * ABOUT-US.HTML PAGE
+ ***************************
+*/
+.timeline {
+  position: relative;
+
+  // The vertical line
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background-color: darkgrey; // Light gray line
+    transform: translateX(-50%);
+    z-index: 0; // <-- Pushed to the background
+
+    // Mobile: Move the line to the left
+    @media (max-width: 767px) {
+      left: 15px;
+    }
+  }
+}
+
+.timeline-item {
+  position: relative;
+  z-index: 1;
+
+  // The dots on the timeline
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    background-color: $red; // Primary color
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; // <-- Pulled to the foreground (on top of the line)
+    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.2);
+
+    // Mobile: Move the dots to the left, aligning with the line
+    @media (max-width: 767px) {
+      left: 30px;
+      top: 24px; // Align the dot near the top of the text block
+      transform: translate(-50%, 0);
+    }
+  }
+
+  // Mobile: Push all content (text and images) to the right of the line
+  @media (max-width: 767px) {
+    padding-left: 70px;
+    padding-right: 15px; // Add a little breathing room on the right
+  }
+}
+
+// --- Animation Classes (Keep these the same) ---
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.board-overlay {
+  // Creates a smooth gradient fade from transparent to dark black at the bottom
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  transition: background 0.3s ease;
+
+}
+
+.board-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15) !important;
+
+    // Optional subtle zoom effect on the image when hovering the card
+    img {
+      transform: scale(1.05);
+      transition: transform 0.5s ease;
+    }
+  }
+
+  img {
+    transition: transform 0.5s ease;
+  }
+}
+
+
+/*
+ ***************************
+ * ERROR.HTML PAGE
+ ***************************
+*/
+// --- Error Page Custom SCSS ---
+
+.error-page-section {
+  min-height: 75vh;
+  padding-top: 80px;
+  /* Navbar height offset */
+  position: relative;
+
+  /* The Transition Gradient: Starts #f8f9fa at the bottom (footer), fades to Pitch Black at the top (navbar) */
+  background: linear-gradient(to top, #f8f9fa 0%, #1b2745 30%, #0b1021 65%, #000000 100%);
+
+  /* Overrides to make your original text visible on the dark background */
+  .text-secondary {
+    color: #e2e8f0 !important;
+  }
+
+  /* --- Space Background Elements --- */
+  .space-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    /* Prevents emojis from blocking button clicks */
+    overflow: hidden;
+  }
+
+  /* CSS Stars via Box-Shadow */
+  .stars {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow:
+      10vw 20vh #fff, 25vw 15vh #fff, 40vw 35vh #fff, 60vw 10vh #fff,
+      80vw 25vh #fff, 90vw 15vh #fff, 15vw 50vh #fff, 35vw 60vh #fff,
+      55vw 45vh #fff, 75vw 55vh #fff, 85vw 40vh #fff, 50vw 20vh #fff;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: twinkle 4s infinite alternate;
+  }
+
+  .celestial {
+    position: absolute;
+    opacity: 0.9;
+  }
+
+  .moon {
+    top: 15%;
+    right: 10%;
+    font-size: 5rem;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+  }
+
+  .sun {
+    top: 25%;
+    left: 10%;
+    font-size: 3rem;
+    opacity: 0.4;
+    /* Faded sun in the distance */
+    filter: blur(2px);
+  }
+
+  .floating-entity {
+    position: absolute;
+    font-size: 3.5rem;
+  }
+
+  .astronaut {
+    bottom: 30%;
+    left: 20%;
+    animation: floatSpace 18s infinite linear;
+  }
+
+  .space-cat {
+    bottom: 50%;
+    right: 20%;
+    font-size: 2.5rem;
+    /* slightly smaller than astronaut */
+    animation: floatSpaceReverse 24s infinite linear;
+  }
+
+  /* --- Keyframe Animations --- */
+  @keyframes floatSpace {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+      transform: translate(15px, -30px) rotate(10deg);
+    }
+
+    50% {
+      transform: translate(30px, 0px) rotate(20deg);
+    }
+
+    75% {
+      transform: translate(15px, 30px) rotate(10deg);
+    }
+
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+  }
+
+  @keyframes floatSpaceReverse {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+      transform: translate(-25px, -40px) rotate(-15deg);
+    }
+
+    66% {
+      transform: translate(10px, -20px) rotate(5deg);
+    }
+
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+  }
+
+  @keyframes twinkle {
+    0% {
+      opacity: 0.3;
+    }
+
+    100% {
+      opacity: 0.9;
+    }
+  }
+
+  /* --- Original Component Styles --- */
+  .error-card {
+    background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), center/cover no-repeat;
+    border: 1px solid rgba(220, 53, 69, 0.15);
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+
+    &:hover,
+    &:focus {
+      background-color: #bb2d3b;
+      border-color: #b02a37;
+    }
+  }
+
+  .btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+
+    &:hover,
+    &:focus {
+      background-color: #dc3545;
+      color: #ffffff;
+    }
+  }
+
+  .hover-underline:hover {
+    text-decoration: underline !important;
+    color: #dc3545 !important;
+  }
+}
+
+/*
+ ***************************
+ * FOOTER
+ ***************************
+*/
 // Color Variables
 $sky-top: #87ceeb;
 $sky-mid: #b0e0f7;
@@ -439,1093 +1538,4 @@ $link-color: #c8f5a0;
   font-size: 2rem;
   color: $sun-outer;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.18));
-}
-
-/*
- ***************************
- * INDEX.HTML PAGE
- ***************************
-*/
-
-// --- Hero Section Carousel (Update/Replace previous .hero-section block) ---
-.hero-section {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  // Desktop View
-  min-height: 100vh;
-
-  // Mobile View Adjustments - give it a proper height box instead of auto-collapsing
-  @media (max-width: 768px) {
-    min-height: 520px;
-    padding-top: 5rem;
-  }
-
-  // Fix inner container height so images and background boxes expand properly
-  .carousel-inner {
-    height: 100%;
-    min-height: inherit;
-
-    .carousel-item {
-      height: 100%;
-      min-height: inherit;
-      position: relative;
-
-      // Dark overlay on top of images for text contrast
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), center/cover no-repeat;
-      }
-    }
-  }
-
-  .hero-img {
-    object-fit: cover; // Ensures full screen coverage without stretching images
-    min-height: inherit;
-  }
-
-  // Carousel Item Overlay & Content Styling
-  .carousel-caption {
-    opacity: 0;
-    top: 0;
-    bottom: 0;
-
-    // Wider text bounds on mobile so it doesn't get squished into a narrow column
-    left: 5%;
-    right: 5%;
-    padding: 0 5%;
-
-    z-index: 2; // Places text over the dark overlay
-
-    // Expand bounds back out on larger tablets/desktops
-    @media (min-width: 768px) {
-      left: 10%;
-      right: 10%;
-      padding: 0 10%;
-    }
-
-    // Optional: make the mobile heading size scale down slightly so it fits nicely
-    h1 {
-      // font-size.clamp: 2rem;
-
-      @media (max-width: 768px) {
-        font-size: 2.2rem !important;
-      }
-    }
-  }
-
-  // Adjust arrow controls visibility/depth
-  .carousel-control-prev,
-  .carousel-control-next {
-    z-index: 3;
-  }
-}
-
-// Keyframe for Pop-Up / Fade-Up Effect animation in hero ection
-@keyframes popUpFromBelow {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-// Apply animation to caption content when slide active
-.carousel-item.active .carousel-caption {
-  animation: popUpFromBelow 0.8s ease-out forwards;
-}
-
-// --- Feature Sections (Problem & Solution) ---
-.feature-section {
-  background-color: $white;
-}
-
-// Custom badges matching your color theme
-.bg-light-blue {
-  background-color: lighten($light-blue, 20%);
-  color: $dark-blue !important;
-}
-
-.bg-dark-blue {
-  background-color: $dark-blue;
-}
-
-.bg-light-section {
-  background-color: #f8fafc;
-}
-
-
-// --- FAQ Section Styling ---
-.faq-section {
-  background-color: #f8fafc;
-
-  .accordion-item {
-    border: 1px solid #e2e8f0 !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-  }
-
-  .accordion-button {
-    color: $dark-blue;
-    background-color: $white;
-
-    &:not(.collapsed) {
-      color: $dark-blue;
-      background-color: lighten($light-blue, 25%);
-      box-shadow: none;
-    }
-
-    &:focus {
-      box-shadow: none;
-      border-color: rgba($dark-blue, 0.1);
-    }
-  }
-}
-
-
-// --- Newsletter Section ---
-.newsletter-section {
-  position: relative;
-  overflow: hidden;
-  // Slits an inward curve into the top of the element
-  // clip-path: ellipse(120% 100% at 50% 100%);
-
-  .form-control {
-    border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-    &:focus {
-      box-shadow: 0 0 0 0.25rem rgba($light-blue, 0.5);
-    }
-  }
-
-  // Leverages the massive donate button style from the navbar for consistency
-  .btn-donate {
-    font-family: $font-playful;
-    background-color: $red;
-    color: $white;
-    border: none;
-    transition: transform 0.2s ease, background-color 0.2s;
-
-    &:hover {
-      background-color: darken($red, 10%);
-      transform: translateY(-2px);
-      color: $white;
-    }
-  }
-}
-
-
-/*
- ***************************
- * ABOUT-US.HTML PAGE
- ***************************
-*/
-.timeline {
-  position: relative;
-
-  // The vertical line
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 4px;
-    background-color: darkgrey; // Light gray line
-    transform: translateX(-50%);
-    z-index: 0; // <-- Pushed to the background
-
-    // Mobile: Move the line to the left
-    @media (max-width: 767px) {
-      left: 15px;
-    }
-  }
-}
-
-.timeline-item {
-  position: relative;
-  z-index: 1;
-
-  // The dots on the timeline
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 24px;
-    height: 24px;
-    background-color: $red; // Primary color
-    border: 4px solid #ffffff;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10; // <-- Pulled to the foreground (on top of the line)
-    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.2);
-
-    // Mobile: Move the dots to the left, aligning with the line
-    @media (max-width: 767px) {
-      left: 30px;
-      top: 24px; // Align the dot near the top of the text block
-      transform: translate(-50%, 0);
-    }
-  }
-
-  // Mobile: Push all content (text and images) to the right of the line
-  @media (max-width: 767px) {
-    padding-left: 70px;
-    padding-right: 15px; // Add a little breathing room on the right
-  }
-}
-
-// --- Animation Classes (Keep these the same) ---
-.fade-in-left {
-  opacity: 0;
-  transform: translateX(-60px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in-right {
-  opacity: 0;
-  transform: translateX(60px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.timeline-item.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.board-overlay {
-  // Creates a smooth gradient fade from transparent to dark black at the bottom
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
-  transition: background 0.3s ease;
-
-}
-
-.board-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15) !important;
-
-    // Optional subtle zoom effect on the image when hovering the card
-    img {
-      transform: scale(1.05);
-      transition: transform 0.5s ease;
-    }
-  }
-
-  img {
-    transition: transform 0.5s ease;
-  }
-}
-
-/*
- ***************************
- * PROGRAMS.HTML PAGE
- ***************************
-*/
-// --- Subpage Banner Header (Like "Our Programs") ---
-.page-header {
-  height: 60vh; // Keeps it high enough for impact while allowing content below to show
-  min-height: 380px;
-  width: 100%;
-  position: relative;
-
-  // Background Image + Overlay matching your screenshot layout
-  background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)),
-    url('/static/images/slide4.jpg') center/cover no-repeat;
-
-  .hero-content {
-    z-index: 2;
-    margin-top: 40px; // Gives visual offset due to fixed navbar
-  }
-}
-
-
-/*
- ***************************
- * GET-INVOLVED.HTML PAGE
- ***************************
-*/
-.get-involved-section {
-  position: relative;
-
-  .card {
-    background-color: rgba($white, 0.98); // Slightly translucent white card
-    backdrop-filter: blur(5px);
-  }
-
-  .form-control,
-  .form-select {
-    border: 1px solid #cbd5e1;
-    font-size: 1rem;
-
-    &:focus {
-      border-color: $light-blue;
-      box-shadow: 0 0 0 0.25rem rgba($light-blue, 0.25);
-    }
-  }
-
-  .btn-donate {
-    background-color: $red;
-    color: $white;
-    border: none;
-    transition: transform 0.2s ease, background-color 0.2s;
-
-    &:hover {
-      background-color: darken($red, 10%);
-      transform: translateY(-2px);
-      color: $white;
-    }
-  }
-}
-
-
-/*
- ***************************
- * CONTACT-US.HTML PAGE
- ***************************
-*/
-.contact-header {
-  background: linear-gradient(rgba($dark-blue, 0.55), rgba($dark-blue, 0.55)),
-    url('/static/images/contact-header.png') center/cover no-repeat;
-}
-
-.map-container {
-  width: 100%;
-  min-height: 450px;
-
-  iframe {
-    display: block;
-    width: 100%;
-    height: 450px;
-  }
-}
-
-/*
- ***************************
- * PRIVACY_POLICY.HTML PAGE
- ***************************
-*/
-// --- Subpage Header ---
-.page-header {
-  // background: linear-gradient(135deg, $dark-blue, darken($dark-blue, 10%));
-  color: $white;
-  margin-bottom: 2.5rem;
-
-  h1 {
-    font-family: $font-text;
-    // font-size: 2.75rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    font-size: 1.4rem;
-    margin: 0;
-  }
-}
-
-// --- Layout & Content ---
-.privacy-content {
-  padding-bottom: 4rem;
-
-  // Sticky Navigation Card
-  .privacy-nav-card {
-    position: sticky;
-    top: 2rem;
-    border: 2px solid $red;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-
-    .card-header {
-      background-color: $red;
-      color: $white;
-      font-family: $font-text;
-      font-weight: 600;
-      font-size: 1.1rem;
-      padding: 1rem 1.25rem;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-    }
-
-    .nav-link {
-      color: $text-dark;
-      font-size: 0.95rem;
-      padding: 0.60rem 1.25rem;
-      border-left: 3px solid transparent;
-      transition: all 0.2s ease-in-out;
-
-      &:hover,
-      &.active {
-        color: $red;
-        background-color: rgba($red, 0.1);
-        border-left-color: $red;
-        font-weight: 600;
-      }
-    }
-  }
-
-  // Article Content Sections
-  .privacy-body {
-    background: $white;
-    padding: 2.5rem;
-    border-radius: 12px;
-    border: 1px solid rgba($light-blue, 0.4);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-
-    section {
-      margin-bottom: 2.5rem;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    h2 {
-      font-family: $font-text;
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid rgba($light-blue, 0.4);
-
-      i {
-        color: $red;
-      }
-    }
-
-    p,
-    li {
-      line-height: 1.7;
-      color: $text-dark;
-      font-size: 1rem;
-    }
-
-    ul {
-      padding-left: 1.25rem;
-      margin-bottom: 1rem;
-
-      li {
-        margin-bottom: 0.5rem;
-      }
-    }
-
-    // Safeguarding / Warning Callout Box
-    .warning-box {
-      background-color: rgba($red, 0.08);
-      border-left: 4px solid $red;
-      padding: 1.25rem 1.5rem;
-      border-radius: 0 8px 8px 0;
-      margin: 1.5rem 0;
-
-      h4 {
-        font-family: $font-text;
-        color: $red;
-        font-size: 1.15rem;
-        margin-bottom: 0.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      p {
-        margin: 0;
-        font-size: 0.95rem;
-        // font-weight: 500;
-        color: $text-dark;
-      }
-    }
-  }
-}
-
-
-/*
- ***************************
- * ERROR.HTML PAGE
- ***************************
-*/
-// --- Error Page Custom SCSS ---
-
-.error-page-section {
-  min-height: 75vh;
-  padding-top: 80px;
-  /* Navbar height offset */
-  position: relative;
-
-  /* The Transition Gradient: Starts #f8f9fa at the bottom (footer), fades to Pitch Black at the top (navbar) */
-  background: linear-gradient(to top, #f8f9fa 0%, #1b2745 30%, #0b1021 65%, #000000 100%);
-
-  /* Overrides to make your original text visible on the dark background */
-  .text-secondary {
-    color: #e2e8f0 !important;
-  }
-
-  /* --- Space Background Elements --- */
-  .space-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-    /* Prevents emojis from blocking button clicks */
-    overflow: hidden;
-  }
-
-  /* CSS Stars via Box-Shadow */
-  .stars {
-    width: 2px;
-    height: 2px;
-    background: transparent;
-    box-shadow:
-      10vw 20vh #fff, 25vw 15vh #fff, 40vw 35vh #fff, 60vw 10vh #fff,
-      80vw 25vh #fff, 90vw 15vh #fff, 15vw 50vh #fff, 35vw 60vh #fff,
-      55vw 45vh #fff, 75vw 55vh #fff, 85vw 40vh #fff, 50vw 20vh #fff;
-    border-radius: 50%;
-    opacity: 0.6;
-    animation: twinkle 4s infinite alternate;
-  }
-
-  .celestial {
-    position: absolute;
-    opacity: 0.9;
-  }
-
-  .moon {
-    top: 15%;
-    right: 10%;
-    font-size: 5rem;
-    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
-  }
-
-  .sun {
-    top: 25%;
-    left: 10%;
-    font-size: 3rem;
-    opacity: 0.4;
-    /* Faded sun in the distance */
-    filter: blur(2px);
-  }
-
-  .floating-entity {
-    position: absolute;
-    font-size: 3.5rem;
-  }
-
-  .astronaut {
-    bottom: 30%;
-    left: 20%;
-    animation: floatSpace 18s infinite linear;
-  }
-
-  .space-cat {
-    bottom: 50%;
-    right: 20%;
-    font-size: 2.5rem;
-    /* slightly smaller than astronaut */
-    animation: floatSpaceReverse 24s infinite linear;
-  }
-
-  /* --- Keyframe Animations --- */
-  @keyframes floatSpace {
-    0% {
-      transform: translate(0, 0) rotate(0deg);
-    }
-
-    25% {
-      transform: translate(15px, -30px) rotate(10deg);
-    }
-
-    50% {
-      transform: translate(30px, 0px) rotate(20deg);
-    }
-
-    75% {
-      transform: translate(15px, 30px) rotate(10deg);
-    }
-
-    100% {
-      transform: translate(0, 0) rotate(0deg);
-    }
-  }
-
-  @keyframes floatSpaceReverse {
-    0% {
-      transform: translate(0, 0) rotate(0deg);
-    }
-
-    33% {
-      transform: translate(-25px, -40px) rotate(-15deg);
-    }
-
-    66% {
-      transform: translate(10px, -20px) rotate(5deg);
-    }
-
-    100% {
-      transform: translate(0, 0) rotate(0deg);
-    }
-  }
-
-  @keyframes twinkle {
-    0% {
-      opacity: 0.3;
-    }
-
-    100% {
-      opacity: 0.9;
-    }
-  }
-
-  /* --- Original Component Styles --- */
-  .error-card {
-    background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), center/cover no-repeat;
-    border: 1px solid rgba(220, 53, 69, 0.15);
-    transition: transform 0.2s ease-in-out;
-
-    &:hover {
-      transform: translateY(-2px);
-    }
-  }
-
-  .btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
-
-    &:hover,
-    &:focus {
-      background-color: #bb2d3b;
-      border-color: #b02a37;
-    }
-  }
-
-  .btn-outline-danger {
-    color: #dc3545;
-    border-color: #dc3545;
-
-    &:hover,
-    &:focus {
-      background-color: #dc3545;
-      color: #ffffff;
-    }
-  }
-
-  .hover-underline:hover {
-    text-decoration: underline !important;
-    color: #dc3545 !important;
-  }
-}
-
-// blog section
-.blog-section {
-  .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 1.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-}
-
-.blog-card {
-  position: relative;
-  height: 450px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  background-color: $white;
-  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
-    box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-
-  &:hover {
-    // transform: translateY(-5px);
-    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
-
-    // .blog-card__image {
-    //   transform: scale(1.08);
-    // }
-
-    .blog-card__content {
-      transform: translateY(0);
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-    }
-
-    .blog-card__details {
-      opacity: 1;
-      visibility: visible;
-    }
-
-  }
-
-  // Cover Image Setup
-  &__image-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 75%;
-    overflow: hidden;
-
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom,
-          rgba(0, 0, 0, 0.1) 0%,
-          rgba(0, 0, 0, 0.6) 100%);
-      z-index: 1;
-    }
-  }
-
-  &__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    // transition: transform 0.5s ease;
-  }
-
-  &__badge {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    z-index: 2;
-    background-color: $red;
-    color: $white;
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 0.35rem 0.85rem;
-    border-radius: 50px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    // Glassmorphism
-    background-color: rgba(108, 117, 125, 0.35) !important;
-
-    // Blur effect for whatever passes behind the badge
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); // Safari support
-
-    // Subtle frosted border and text styling
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-    // Optional extra polish
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  }
-
-  // Expanding Bottom Content Box
-  &__content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 3;
-    padding: 1.5rem;
-    background: $white;
-
-    /* * Initial position pushes extra content down.
-     * On hover, transform becomes translateY(0) to expose everything smoothly.
-     */
-    transform: translateY(calc(100% - 200px));
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  &__title {
-    margin: 0 0 0.5rem 0;
-    overflow: hidden;
-    // white-space: nowrap;
-    // text-overflow: ellipsis;
-  }
-
-  &__meta {
-    display: flex;
-    gap: 1rem;
-    font-size: 0.95rem;
-    color: lighten($text-dark, 25%);
-    margin-bottom: 0.75rem;
-  }
-
-  &__details {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease 0.1s, visibility 0.3s ease 0.1s;
-  }
-
-  &__excerpt {
-    color: $text-dark;
-    line-height: 1.5;
-    margin-bottom: 1.25rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  &__btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    width: 100%;
-    padding: 0.5rem 0.5rem;
-    background-color: $red;
-    color: $white;
-    font-family: $font-playful;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 30px;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-
-    &:hover {
-      background-color: darken($red, 10%);
-      transform: translateY(-2px);
-    }
-  }
-}
-
-
-/*
- ***************************
- * blog_post.HTML PAGE
- ***************************
-*/
-// Blog Listing Section below the Hero
-.blog-main {
-  background-color: #f8fafc;
-  padding: 3rem 1.5rem 5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1rem;
-  }
-
-}
-
-.blog-hero {
-
-  // Category Filter Pills
-  &__categories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  &__category-btn {
-    font-family: $font-text;
-    font-size: 0.95rem;
-    font-weight: 500;
-    padding: 0.5rem 1.25rem;
-    border-radius: 50px;
-    border: 1.5px solid rgba($white, 0.4);
-    background: transparent;
-    color: $white;
-    text-decoration: none;
-    transition: all 0.25s ease;
-
-    // glass morphism
-    background-color: rgba(108, 117, 125, 0.35);
-
-    // Blur effect for whatever passes behind the badge
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); // Safari support
-
-    // Subtle frosted border and text styling
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-    // Optional extra polish
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-
-    &:hover {
-      background-color: rgba($white, 0.15);
-      border-color: $white;
-      color: $white;
-    }
-
-    &--active {
-      background-color: $red;
-      border-color: $red;
-      color: $white;
-      font-weight: 600;
-
-      &:hover {
-        background-color: darken($red, 8%);
-        border-color: darken($red, 8%);
-      }
-    }
-  }
-}
-
-
-// blog post
-.blog-post {
-  // background-color: #f8fafc;
-  padding: 3rem 1.5rem 5rem;
-  font-family: $font-text;
-  color: $text-dark;
-  line-height: 1.8;
-
-  &__container {
-    max-width: 75%;
-    margin: 0 auto;
-    background-color: $white;
-    // border-radius: 16px;
-    // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    padding: 2rem;
-
-    @media (min-width: 768px) {
-      margin-top: -3rem; // Slight overlap effect with header
-      position: relative;
-      z-index: 2;
-    }
-
-    @media (max-width: 500px) {
-      max-width: 100%;
-      padding: 0;
-    }
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    // font-family: $font-playful;
-    // color: $dark-blue;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  p {
-    margin-bottom: 1.2rem;
-  }
-
-  ul,
-  ol {
-    margin-left: 1.5rem;
-    margin-bottom: 1.2rem;
-
-    li {
-      margin-bottom: 0.4rem;
-    }
-  }
-
-  blockquote {
-    border-left: 4px solid $red;
-    background-color: rgba($light-blue, 0.1);
-    padding: 1rem 1.5rem;
-    font-style: italic;
-    margin: 1.5rem 0;
-    border-radius: 0 8px 8px 0;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    margin: 1.5rem 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  }
-
-  .post-icon-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    color: #2d3748;
-    transition: all 0.3s ease;
-
-    /* Hover effects targeting inner SVG */
-    &--facebook:hover {
-      background-color: #1877f2;
-      color: #ffffff;
-    }
-
-    &--instagram:hover {
-      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-      color: #ffffff;
-    }
-
-    &--whatsapp:hover {
-      background: #25d366;
-      color: #ffffff;
-    }
-  }
-
-  &__footer {
-    margin-top: 3.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid #e2e8f0;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-
-    @media (min-width: 600px) {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-
-  &__tags {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-
-    .tags-label {
-      font-weight: 600;
-    }
-
-    .tag-pill {
-      font-size: 0.85rem;
-      background-color: lighten($light-blue, 28%);
-      color: $dark-blue;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      text-decoration: none;
-      transition: background 0.2s ease;
-
-      &:hover {
-        background-color: $red;
-        color: $white;
-      }
-    }
-  }
-}
-
-.btn--outline {
-  display: inline-block;
-  font-family: $font-text;
-  font-weight: 600;
-  color: $red;
-  border: 2px solid $red;
-  padding: 0.5rem 1.25rem;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-
-  &:hover {
-    background-color: $red;
-    color: $white;
-  }
 }

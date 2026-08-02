@@ -1,9 +1,19 @@
+"""
+this defines the admin page settings. it mainly uses the sqladmin module to
+easily setup and create the admin dashboard page. here one can perform all
+manner of CRUD operations onthe models defined in our database.
+
+currently 2 modules for the panel:
+    - users
+    - blogs
+"""
+
 import datetime
 
-from sqladmin import Admin, ModelView
+from sqladmin import ModelView
 from sqlalchemy.orm import selectinload
 
-from app.database import Blog, User
+from app.database.models import Blog, User
 
 
 class UserAdmin(ModelView, model=User):
@@ -49,7 +59,6 @@ class BlogAdmin(ModelView, model=Blog):
     - column_filterable_list: columns to filter with
 
     TODO:
-    - when creating new blogs, allows creation using markdown
     - blog.author still show a memory address in detailed view, make it show
       the author.name instead
     - details_template: allows me to add a custom, templatefor the blog

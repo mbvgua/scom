@@ -12,8 +12,9 @@ from fastapi.exception_handlers import (
     request_validation_exception_handler,
 )
 
-from app.admin import BlogAdmin, UserAdmin
-from app.database import engine, Base, User, Blog   # dont remove User/Blog
+from app.routes.admin import BlogAdmin, UserAdmin
+from app.database.config import engine, Base
+from app.database.models import User, Blog  # dont remove User/Blog
 from app.utils.markdown import format_markdown_to_html
 
 
@@ -22,7 +23,7 @@ async def lifespan(app: FastAPI):
     """
     elegently handle startup/shutdown events.
     this is an idempotent action that creates the database models imported.
-    also has automatic cleanup
+    also has automatic cleanup hence idempotent
     """
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
@@ -47,11 +48,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # define styling and templates to use
 templates: Jinja2Templates = Jinja2Templates(directory=BASE_DIR / "templates")
-templates.env.filters["markdown"] = format_markdown_to_html  # custom filter to format .md to .html
+templates.env.filters["markdown"] = (
+    format_markdown_to_html  # custom jinja2 filter to format .md to .html
+)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 
 # import and register the routes
-from app.routes import router as app_router
+from app.routes.user import router as app_router
 from app.api import router as api_router
 
 app.include_router(app_router)
@@ -72,6 +75,8 @@ async def general_http_exception_handler(
     fastapi is built on top of starlette, hence why its execptions are also imported
     alongside those of fastapi, lest some will be missed.
     """
+    print(f"Error: {exception}")
+
     # if url starts with "/api/..."
     if request.url.path.startswith("/api"):
         return await http_exception_handler(request, exception)
@@ -103,6 +108,8 @@ async def custom_500_handler(request: Request, exception: Exception):
     definetly not be present in a prod ennvironement(after deploying), but you
     never know ;)
     """
+    print(f"Error: {exception}")
+
     return templates.TemplateResponse(
         request,
         "error.html",
@@ -124,6 +131,7 @@ async def validation_exception_handler(
     handle validation errors asynchronously
     mostly via forms, or invalid data types while making requests
     """
+    print(f"Error: {exception}")
 
     # if url starts with "/api/..." return JSON response
     if request.url.path.startswith("/api"):
