@@ -357,7 +357,7 @@
                     <article class="blog-card">
                         <div class="blog-card__image-wrapper">
                             <span class="blog-card__badge bg-secondary">{{blog.tags}}</span>
-                            <img src="/static/images/slide4.jpg" alt="Annual Sports Day" class="blog-card__image" />
+                            <img src="{{ blog.image }}" alt="{{ blog.title }}" class="blog-card__image" />
                         </div>
 
                         <div class="blog-card__content">
@@ -367,13 +367,19 @@
                                 style="text-decoration:none;">{{ blog.title }}</a>
                             </h4>
                             <div class="blog-card__meta">
-                            <span class="text-muted">📅 {{ blog.last_updated.strftime("%B %d, %Y")}}</span>
+                            <span class="text-muted">📅 {{ blog.date_modified.strftime("%B %d, %Y")}}</span>
                             <!-- <span class="text-muted">Admin</span> -->
                             </div>
 
                             <div class="blog-card__details">
                                 <p class="blog-card__excerpt">
-                                    {{ blog.content | lower() | truncate(length=200, killwords=False ) | markdown }}
+                                {#
+                                    lower() - > makes everything lowercase
+                                    truncate - > ensures max text displayed in 200 chars long
+                                    markdown -> converts it to clean markdown
+                                    striptags -> removes html tags, e.g <img> <p> <h1>
+                                #}
+                                    {{ blog.content | lower() | truncate(length=200, killwords=False ) | markdown | striptags}}
                                 </p>
                                 <a href="{{ url_for('blog_post', blog_id=blog.id) }}" class="blog-card__btn">
                                     Read More <span>&rarr;</span>

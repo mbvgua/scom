@@ -36,9 +36,6 @@ class Settings(BaseSettings):
     mail_use_tls: bool
     official_home_mail: str
 
-    # database
-    sqlalchemy_database_url: str
-
 
 # instantiate the settings object
 settings = Settings()
