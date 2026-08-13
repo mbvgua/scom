@@ -1,20 +1,19 @@
 media:
-  - input: static/images/blogs    # path for images added
-  - output: /static/images/blogs   # path for images in markdown
-  - extensions: [png, jpg, webp]
+  input: static/images/blogs    # path for images added
+  output: /static/images/blogs   # path for images in markdown
+
 content:
   - name: posts
     label: Blog Posts
     type: collection
     path: content
-    extension: md
     filename: "{primary}.md"    # filename. dont save with dates and what not
     format: yaml-frontmatter
     fields:
       - name: id
         label: Post ID
-        type: number
-        required: true
+        type: uuid
+        hidden: true
       - name: title
         label: Title
         type: string
@@ -39,11 +38,13 @@ content:
         type: date
       - name: tags
         label: Tags
-        type: string
-        default: updates
+        type: select
+        options:
+          values: [stories, updates, events, impact]
       - name: body
         label: Post Content
         type: rich-text
+
 settings:
   commit:
     # Uses the logged-in user's name & email for the Git author field

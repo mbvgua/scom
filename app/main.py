@@ -36,7 +36,7 @@ templates.env.filters["markdown"] = (
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 
 # import and register the routes
-from app.routes.user import router as app_router
+from app.routes import router as app_router
 from app.api import router as api_router
 
 app.include_router(app_router)

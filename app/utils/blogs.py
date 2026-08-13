@@ -61,7 +61,7 @@ def get_blog_by_id(blog_id: int):
     blogs = get_all_blogs()
 
     for blog in blogs:
-        if str(blog["id"] == str(blog_id)):
+        if str(blog["id"]) == str(blog_id):
             return blog
 
     return None

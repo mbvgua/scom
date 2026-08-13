@@ -16,18 +16,17 @@
       <div class="container hero-content">
         <h1 class="display-1 fw-bold text-white">Blog</h1>
 
-        {% if blogs %}
+
+        <div class="blog-hero__categories">
+                <a href="{{ url_for('blog_list') }}" class="blog-hero__category-btn {% if not current_category %}blog-hero__category-btn--active{% endif %}"> All </a>
+
             {# also defined in the forms schemas.py #}
             {% set tags = ["stories","updates","events","impact"]%}
 
-            <div class="blog-hero__categories">
-                    <a href="{{ url_for('blog_list') }}" class="blog-hero__category-btn {% if not current_category %}blog-hero__category-btn--active{% endif %}"> All </a>
-
-                {% for tag in tags %}
-                    <a href="{{ url_for('blog_list') }}?category={{tag}}" class="blog-hero__category-btn {% if current_category == tag %} blog-hero__category-btn--active{% endif %}">{{ tag.title() }}</a>
-                {% endfor %}
-            </div>
-        {% endif %}
+            {% for tag in tags %}
+                <a href="{{ url_for('blog_list') }}?category={{tag}}" class="blog-hero__category-btn {% if current_category == tag %} blog-hero__category-btn--active{% endif %}">{{ tag.title() }}</a>
+            {% endfor %}
+        </div>
 
       </div>
     </header>
