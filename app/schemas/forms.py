@@ -44,24 +44,3 @@ class GetInvolvedForm(ContactForm):
     """
 
     interest: str
-
-
-class PostCategory(str, Enum):
-    """
-    defines the categories of posts to beused in the application
-    """
-
-    stories = "stories"
-    events = "events"
-    updates = "updates"
-    impact = "impact"
-
-
-class UserRoles(str, Enum):
-    """
-    defines user roles in the app, which in turn dictates the users permission
-    authorization
-    """
-
-    admin = "admin"
-    user = "user"

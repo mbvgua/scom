@@ -12,8 +12,8 @@ from typing import Annotated
 from fastapi import APIRouter, Form, Request, BackgroundTasks, status
 from fastapi.responses import JSONResponse
 
-from app.schemas import ContactForm, GetInvolvedForm
-from app.email_utils import send_contact_us_email, send_get_involved_email
+from app.schemas.forms import ContactForm, GetInvolvedForm
+from app.utils.emails import send_contact_us_email, send_get_involved_email
 
 router = APIRouter(prefix="/api", tags=["api"])
 
@@ -26,9 +26,8 @@ def contact_us_form(
 ):
     """
     endpoint receives the data contained in the contact form, rendered in the
-    "/contact-us" URL, and delivers it to the admins email. form data is
-    validated in the "ContactForm" schema.
-
+    "/contact-us" URL, and delivers it to the admin email thats configured in
+    the ".env"file. form data is validated via the "ContactForm" schema.
     appropriate success/error messages and codes are returned as JSON
     """
 
@@ -69,9 +68,8 @@ def get_involved_form(
 ):
     """
     endpoint receives the data contained in the get involved form, rendered in the
-    "/get-involved" URL, and delivers it to the admins email. form data is
-    validated in the "GetInvolvedForm" schema.
-
+    "/get-involved" URL, and delivers it to the admin email set in the ".env"
+    file. form data is validated in the "GetInvolvedForm" schema.
     appropriate success/error messages and codes are returned as JSON
     """
 

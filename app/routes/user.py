@@ -1,38 +1,28 @@
 from typing import Annotated, Optional
 
-from fastapi import APIRouter, Depends, Request, status
-from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.orm import selectinload
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 
-from app.database import Blog, get_db
 from app.main import templates
-from app.schemas import PostCategory
+from app.schemas.posts import PostCategory
+from app.utils.blogs import get_all_blogs, get_blog_by_id
 
 router = APIRouter(tags=["views"])
 
 
 @router.get("/")
-async def home(request: Request, db: Annotated[AsyncSession, Depends(get_db)]):
+async def home(request: Request):
     """
-    the main application endpoint
     renders the "home.html" template on the "/" URL
-    asynchronous so that it can interact with the database using dependency
-    injection
-
-    NOTE:
-    - "order_by()": arranges them in descending order such that newest posts
-      come first.
+    landing page where users view the application
     """
 
     title: str = "Homepage"
 
-    # get blogs from the db. 3 only
-    data = await db.execute(select(Blog).order_by(Blog.last_updated.desc()))
-    blog = data.scalars().all()
+    # get latest 3 blogs from the db
+    blogs = get_all_blogs()
 
     return templates.TemplateResponse(
-        request, "home.html", {"title": title, "blogs": blog[:3]}, status.HTTP_200_OK
+        request, "home.html", {"title": title, "blogs": blogs[:3]}, status.HTTP_200_OK
     )
 
 
@@ -94,23 +84,18 @@ def donate(request: Request):
 @router.get("/blog-list")
 async def blog_list(
     request: Request,
-    db: Annotated[AsyncSession, Depends(get_db)],
     category: Optional[PostCategory] = None,
 ):
     """
     renders the "blog_list.html" on the "/blog-list" URL.
     it takes in an optional, "category" filter, that shows blogs matching the
     selected category
-    this data is fetched asynchronously from the database, using dependency injection
     """
     title: str = "Blog List"
 
-    data = await db.execute(select(Blog))
-    blogs = data.scalars().all()
-
+    blogs = get_all_blogs()
     if category:
-        data = await db.execute(select(Blog).where(Blog.tags == category))
-        blogs = data.scalars().all()
+        blogs = [b for b in blogs if category.lower() in b.get("tags", "").lower()]
 
         return templates.TemplateResponse(
             request,
@@ -124,32 +109,25 @@ async def blog_list(
     )
 
 
-# incomplete route, add the "slug" URL
 @router.get("/blog-post/{blog_id}")
-async def blog_post(
-    request: Request, db: Annotated[AsyncSession, Depends(get_db)], blog_id: int
-):
+async def blog_post(request: Request, blog_id: int):
     """
     renders the "blog_post.html" on the "/blog-post" URL.
-    this data is fetched asynchronously from the database, using dependency injection
 
-    NOTE:
-    - "selectinload()": allows for eargely loading in the async sqlite session,
-      hence the request is able to access therelated table "Blog.author", lest
-      it would return a "missing greenlet error": https://sqlalche.me/e/20/xd2s
+    TODO:
+    - incomplete route, add the "slug" section for urls
     """
     title: str = "Blog Post"
 
-    data = await db.execute(
-        select(Blog).options(selectinload(Blog.author)).where(Blog.id == blog_id)
-    )
-    blog = data.scalars().first()
+    blog = get_blog_by_id(blog_id)
+    if not blog:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Oh no! Blog post not found... try again?",
+        )
 
     return templates.TemplateResponse(
-        request,
-        "blog_post.html",
-        {"title": title, "blog": blog, "author": blog.author.name},
-        status.HTTP_200_OK,
+        request, "blog_post.html", {"title": title, "blog": blog}, status.HTTP_200_OK
     )
 
 
@@ -159,6 +137,7 @@ def privacy_policy(request: Request):
     renders the "privacy_policy.html" on the "/privacy-policy" URL
     """
     title: str = "Privacy Policy"
+
     return templates.TemplateResponse(
         request, "privacy_policy.html", {"title": title}, status.HTTP_200_OK
     )

@@ -11,8 +11,9 @@
 
     <!-- START MINI HEADER SECTION -->
     <header
-      class="page-header d-flex align-items-center justify-content-center text-center"
-    >
+        class="page-header d-flex align-items-center justify-content-center text-center"
+        {% if blog and blog.image %} style="--bg-image: url('{{ blog.image }}');" {% endif %}
+        >
       <div class="container hero-content">
         <h1 class="display-3 fw-semibold text-white"> {{ blog.title }}</h1>
       </div>
@@ -32,14 +33,14 @@
                         <!-- AUTHOR & SHARE BAR -->
                         <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
                             <div class="d-flex align-items-center">
-                                <img src="{{ blog.author.avatar }}" class="rounded-circle me-3" width="60" height="60" alt="Author avatar">
+                                <img src="{{ blog.avatar }}" class="rounded-circle me-3" width="60" height="60" alt="Author avatar">
                             <div>
-                                <h6 class="mb-0 fw-semibold text-dark"> {{ author }}</h6>
+                                <h6 class="mb-0 fw-semibold text-dark"> {{ blog.author }}</h6>
                                 {# how long it takes to read blog #}
                                 {% set words= blog.content | wordcount %}
                                 {% set reading_time=(words/200) %}
                                 {% if reading_time<1 %} {% set reading_time=1 %} {% endif %}
-                                <small class="text-muted fw-normal"> {{ blog.last_updated.strftime("%A %d %B %Y") }} · {{ reading_time }} min read</small>
+                                <small class="text-muted fw-normal"> {{ blog.date_modified.strftime("%A %d %B %Y") }} · {{ reading_time }} min read</small>
                             </div>
                             </div>
                             <!-- Social Share Links -->
@@ -108,9 +109,8 @@
 
                         <!-- POST BODY -->
                         <article class="blog-post-body fs-5 text-dark lh-lg">
-                            <p> {{ blog.content }} </p>
-
-                                <img src="/static/images/problem.jpg" alt="Featured Article Image" />
+                            <p> {{ blog.content | markdown }} </p>
+                            {# <img src="{{ blog.image }}" alt="Featured Article Image" /> #}
                         </article>
 
 
