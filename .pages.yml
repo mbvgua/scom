@@ -1,6 +1,6 @@
 media:
   - input: static/images/blogs    # path for images added
-  - output: static/images/blogs   # path for rich-text images
+  - output: /static/images/blogs   # path for images in markdown
   - extensions: [png, jpg, webp]
 content:
   - name: posts
@@ -8,6 +8,7 @@ content:
     type: collection
     path: content
     extension: md
+    filename: "{primary}.md"    # filename. dont save with dates and what not
     format: yaml-frontmatter
     fields:
       - name: id
@@ -46,40 +47,9 @@ content:
 settings:
   commit:
     # Uses the logged-in user's name & email for the Git author field
-    identity: user  
+    identity: user
     templates:
-      create: |
-        feat(content): add {path}
-
-        CHANGES:
-        - Created new content file at {path}
-
-        CONTEXT:
-        - Created by {author.name} (@{author.username}) <{author.email}> via Pages CMS
-
-      update: |
-        docs(content): update {path}
-
-        CHANGES:
-        - Updated content in {path}
-
-        CONTEXT:
-        - Modified by {author.name} (@{author.username}) <{author.email}> via Pages CMS
-
-      delete: |
-        chore(content): delete {path}
-
-        CHANGES:
-        - Removed content file at {path}
-
-        CONTEXT:
-        - Deleted by {author.name} (@{author.username}) <{author.email}> via Pages CMS
-
-      rename: |
-        refactor(content): move {oldPath} to {newPath}
-
-        CHANGES:
-        - Renamed content file from {oldPath} to {newPath}
-
-        CONTEXT:
-        - Renamed by {author.name} (@{author.username}) <{author.email}> via Pages CMS
+      create: "feat(create): add {path}"
+      update: "feat(update): update {path}"
+      delete: "chore(delete): delete {path}"
+      rename: "refactor(rename): move {oldPath} to {newPath}"
