@@ -40,7 +40,7 @@ def get_all_blogs():
                     "slug": post.get("slug", ""),
                     "author": post.get("author", "Unknown"),
                     # yeah its hard-coded. whoops!
-                    "avatar": f"/static/images/{post.get("author")}.png",
+                    "avatar": f"/static/images/profile_pics/{post.get("author")}.png",
                     "image": f"/static/images/blogs/{post.get("image")}",
                     "date_posted": post.get("date_posted"),
                     "date_modified": post.get("date_modified", datetime.now()),

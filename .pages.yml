@@ -1,0 +1,85 @@
+media:
+  - input: static/images/blogs    # path for images added
+  - output: static/images/blogs   # path for rich-text images
+  - extensions: [png, jpg, webp]
+content:
+  - name: posts
+    label: Blog Posts
+    type: collection
+    path: content
+    extension: md
+    format: yaml-frontmatter
+    fields:
+      - name: id
+        label: Post ID
+        type: number
+        required: true
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+      - name: author
+        label: Author
+        type: string
+        default: Admin
+      - name: image
+        label: Featured Image
+        type: image
+      - name: date_posted
+        label: Date Posted
+        type: date
+        required: true
+      - name: date_modified
+        label: Date Modified
+        type: date
+      - name: tags
+        label: Tags
+        type: string
+        default: updates
+      - name: body
+        label: Post Content
+        type: rich-text
+settings:
+  commit:
+    # Uses the logged-in user's name & email for the Git author field
+    identity: user  
+    templates:
+      create: |
+        feat(content): add {path}
+
+        CHANGES:
+        - Created new content file at {path}
+
+        CONTEXT:
+        - Created by {author.name} (@{author.username}) <{author.email}> via Pages CMS
+
+      update: |
+        docs(content): update {path}
+
+        CHANGES:
+        - Updated content in {path}
+
+        CONTEXT:
+        - Modified by {author.name} (@{author.username}) <{author.email}> via Pages CMS
+
+      delete: |
+        chore(content): delete {path}
+
+        CHANGES:
+        - Removed content file at {path}
+
+        CONTEXT:
+        - Deleted by {author.name} (@{author.username}) <{author.email}> via Pages CMS
+
+      rename: |
+        refactor(content): move {oldPath} to {newPath}
+
+        CHANGES:
+        - Renamed content file from {oldPath} to {newPath}
+
+        CONTEXT:
+        - Renamed by {author.name} (@{author.username}) <{author.email}> via Pages CMS

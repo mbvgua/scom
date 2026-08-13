@@ -11,4 +11,4 @@ tags: "updates"
 
 Welcome to my new blog! This content is being loaded **directly** from a Markdown file, bypassing the database entirely.
 
-![image](/static/images/slide1.jpg)
+![image](/static/images/blogs/slide1.jpg)
