@@ -1,7 +1,6 @@
 media:
   - input: static/images/blogs    # path for images added
   - output: /static/images/blogs   # path for images in markdown
-  - extensions: [png, jpg, webp]
 content:
   - name: posts
     label: Blog Posts

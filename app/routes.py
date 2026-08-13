@@ -1,4 +1,4 @@
-from typing import Annotated, Optional
+from typing import Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 
@@ -123,7 +123,7 @@ async def blog_post(request: Request, blog_id: int):
     if not blog:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Oh no! Blog post not found... try again?",
+            detail="Looks like the blog does not exists... try again?",
         )
 
     return templates.TemplateResponse(
