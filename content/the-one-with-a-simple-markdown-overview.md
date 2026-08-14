@@ -1,13 +1,13 @@
 ---
 id: d52122a6-41b0-4f04-b47e-e7731bed9706
 title: The one with a simple markdown overview!
-slug: basic-overview
+slug: basic-markdown-overview
 author: Admin
+cover: /static/images/blogs/2026-06-0815-44.png
 date_posted: 2026-08-13
 date_modified: 2026-08-13
 tags: events
 ---
-
 Lorem ipsum[^1] dolor sit amet, consectetur adipiscing elit. Pellentesque vel lacinia neque. Praesent nulla quam, ullamcorper in sollicitudin ac, molestie sed justo. Cras aliquam, sapien id consectetur accumsan, augue magna faucibus ex, ut ultricies turpis tortor vel ante. In at rutrum tellus.
 
 # Sample heading 1
@@ -31,19 +31,14 @@ Mauris viverra dictum ultricies. Vestibulum quis ipsum euismod, facilisis metus 
 Unordered:
 
 - Fusce non velit cursus ligula mattis convallis vel at metus[^2].
-
 - Sed pharetra tellus massa, non elementum eros vulputate non.
-
 - Suspendisse potenti.
 
 Ordered:
 
 1. Quisque arcu felis, laoreet vel accumsan sit amet, fermentum at nunc.
-
 2. Sed massa quam, auctor in eros quis, porttitor tincidunt orci.
-
 3. Nulla convallis id sapien ornare viverra.
-
 4. Nam a est eget ligula pellentesque posuere.
 
 ## Blockquote
@@ -52,7 +47,7 @@ The following is a blockquote:
 
 > Suspendisse tempus dolor nec risus sodales posuere. Proin dui dui, mollis a consectetur molestie, lobortis vitae tellus.
 
-## Thematic breaks (<hr>)
+## Thematic breaks (---)
 
 Mauris viverra dictum ultricies[^3]. Vestibulum quis ipsum euismod, facilisis metus sed, varius ipsum. Donec scelerisque lacus libero, eu dignissim sem venenatis at. Etiam id nisl ut lorem gravida euismod. **You can put some text inside the horizontal rule like so.**
 
@@ -94,7 +89,7 @@ Now a table:
 
 ## Images
 
-![theme logo]([https:/raw.githubusercontent.com/riggraz/no-style-please/master/logo.png){:.ioda](https://raw.githubusercontent.com/riggraz/no-style-please/master/logo.png){:.ioda)}
+![theme logo]([https:/raw.githubusercontent.com/riggraz/no-style-please/master/logo.png){:.ioda]([https://raw.githubusercontent.com/riggraz/no-style-please/master/logo.png){:.ioda)}](https://raw.githubusercontent.com/riggraz/no-style-please/master/logo.png){:.ioda)})
 
 Logo of *no style, please!* theme[^4]
 
