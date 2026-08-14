@@ -41,31 +41,36 @@ def get_all_blogs():
                     "author": post.get("author", "Unknown"),
                     # yeah its hard-coded. whoops!
                     "avatar": f"/static/images/profile_pics/{post.get("author")}.png",
-                    "image": f"{post.get("image")}",
+                    "image": f"{post.get("cover")}",
                     "date_posted": post.get("date_posted"),
                     "date_modified": post.get("date_modified", datetime.now()),
                     "tags": post.get("tags"),
+                    "draft": post.get("draft"),
                     "content": post.content,
                 }
                 blogs.append(blog_data)
 
-    # sort blogs in descending order, newest first
-    blogs.sort(key=lambda x: x["date_posted"], reverse=True)
-    return blogs
+    # keep posts where draft is not True / "true"
+    published_blogs = [
+        blog
+        for blog in blogs
+        if not blog.get("draft") or str(blog.get("draft")).lower() == "false"
+    ]
+
+    # return sorted list in descending order, newest first
+    published_blogs.sort(key=lambda x: x["date_posted"], reverse=True)
+    return published_blogs
 
 
-def get_blog_by_id(blog_id: str):
+def get_blog_by_slug(slug: str):
     """
-    function that gets a specific blog by its id
+    function that gets a specific blog by its slug
     """
     blogs = get_all_blogs()
 
     for blog in blogs:
-        # Check if blog has an 'id' and compare as lowercase strings
-        if (
-            blog.get("id")
-            and str(blog["id"]).strip().lower() == str(blog_id).strip().lower()
-        ):
+        # Check if blog has an 'slug' and compare as lowercase strings
+        if blog.get("slug") and blog["slug"].strip().lower() == slug.strip().lower():
             return blog
 
     return None

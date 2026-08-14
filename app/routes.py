@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException, Request, status
 
 from app.main import templates
 from app.schemas.posts import PostCategory
-from app.utils.blogs import get_all_blogs, get_blog_by_id
+from app.utils.blogs import get_all_blogs, get_blog_by_slug
 
 router = APIRouter(tags=["views"])
 
@@ -109,17 +109,14 @@ async def blog_list(
     )
 
 
-@router.get("/blog-post/{blog_id}")
-async def blog_post(request: Request, blog_id: str):
+@router.get("/blog-post/{slug}")
+async def blog_post(request: Request, slug: str):
     """
     renders the "blog_post.html" on the "/blog-post" URL.
-
-    TODO:
-    - incomplete route, add the "slug" section for urls
     """
     title: str = "Blog Post"
 
-    blog = get_blog_by_id(blog_id)
+    blog = get_blog_by_slug(slug)
     if not blog:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,

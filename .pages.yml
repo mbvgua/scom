@@ -34,9 +34,13 @@ content:
         label: Date Posted
         type: date
         required: true
-      - name: date_modified
-        label: Date Modified
-        type: date
+      - name: draft
+        label: Draft
+        type: boolean
+        default: false
+      # - name: date_modified
+      #   label: Date Modified
+      #   type: date
       - name: tags
         label: Tags
         type: select
