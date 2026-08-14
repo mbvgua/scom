@@ -110,7 +110,7 @@ async def blog_list(
 
 
 @router.get("/blog-post/{blog_id}")
-async def blog_post(request: Request, blog_id: int):
+async def blog_post(request: Request, blog_id: str):
     """
     renders the "blog_post.html" on the "/blog-post" URL.
 

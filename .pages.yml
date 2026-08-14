@@ -1,6 +1,7 @@
 media:
-  input: static/images/blogs    # path for images added
-  output: /static/images/blogs   # path for images in markdown
+  - name: images
+    input: static/images/blogs    # path for images added
+    output: /static/images/blogs   # path for images in markdown
 
 content:
   - name: posts
@@ -29,6 +30,7 @@ content:
       - name: image
         label: Featured Image
         type: image
+        media: images
       - name: date_posted
         label: Date Posted
         type: date

@@ -41,7 +41,7 @@ def get_all_blogs():
                     "author": post.get("author", "Unknown"),
                     # yeah its hard-coded. whoops!
                     "avatar": f"/static/images/profile_pics/{post.get("author")}.png",
-                    "image": f"/static/images/blogs/{post.get("image")}",
+                    "image": f"{post.get("image")}",
                     "date_posted": post.get("date_posted"),
                     "date_modified": post.get("date_modified", datetime.now()),
                     "tags": post.get("tags"),
@@ -54,14 +54,18 @@ def get_all_blogs():
     return blogs
 
 
-def get_blog_by_id(blog_id: int):
+def get_blog_by_id(blog_id: str):
     """
     function that gets a specific blog by its id
     """
     blogs = get_all_blogs()
 
     for blog in blogs:
-        if str(blog["id"]) == str(blog_id):
+        # Check if blog has an 'id' and compare as lowercase strings
+        if (
+            blog.get("id")
+            and str(blog["id"]).strip().lower() == str(blog_id).strip().lower()
+        ):
             return blog
 
     return None
