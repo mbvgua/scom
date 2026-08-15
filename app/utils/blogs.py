@@ -42,8 +42,8 @@ def get_all_blogs():
                     # yeah its hard-coded. whoops!
                     "avatar": f"/static/images/profile_pics/{post.get("author")}.png",
                     "image": f"{post.get("cover")}",
-                    "date_posted": post.get("date_posted"),
-                    "date_modified": post.get("date_modified", datetime.now()),
+                    "date_posted": datetime.now(),  # cant touch this. wowowowo..
+                    "last_modified": post.get("last_modified", datetime.now()),
                     "tags": post.get("tags"),
                     "draft": post.get("draft"),
                     "content": post.content,

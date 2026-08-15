@@ -3,6 +3,10 @@
 // --- Variables ---
 $font-playful: 'Patrick Hand SC', cursive, sans-serif;
 $font-text: 'Fredoka', sans-serif;
+$font-code: 'JetBrains Mono', monospace;
+$bg-secondary: #3e3d32;
+/* For code blocks, blockquotes, or card backgrounds */
+$fg-colour: #f8f8f2;
 $light-blue: #88c0d0;
 $dark-blue: #2b6cb0;
 $red: #e53e3e;
@@ -363,6 +367,7 @@ body {
   }
 }
 
+
 .blog-card {
   position: relative;
   height: 450px;
@@ -476,8 +481,10 @@ body {
 
   &__meta {
     display: flex;
-    gap: 1rem;
-    font-size: 0.95rem;
+    flex-direction: column;
+    // justify-content: space-evenly;
+    // gap: 2rem;
+    line-height: 2rem;
     color: lighten($text-dark, 25%);
     margin-bottom: 0.75rem;
   }
@@ -582,142 +589,6 @@ body {
 
 /*
  ***************************
- * PRIVACY_POLICY.HTML PAGE
- ***************************
-*/
-// --- Subpage Header ---
-.page-header {
-  // background: linear-gradient(135deg, $dark-blue, darken($dark-blue, 10%));
-  color: $white;
-  margin-bottom: 2.5rem;
-
-  h1 {
-    font-family: $font-text;
-    // font-size: 2.75rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    font-size: 1.4rem;
-    margin: 0;
-  }
-}
-
-// --- Layout & Content ---
-.privacy-content {
-  padding-bottom: 4rem;
-
-  // Sticky Navigation Card
-  .privacy-nav-card {
-    position: sticky;
-    top: 2rem;
-    border: 2px solid $red;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-
-    .card-header {
-      background-color: $red;
-      color: $white;
-      font-family: $font-text;
-      font-weight: 600;
-      font-size: 1.1rem;
-      padding: 1rem 1.25rem;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-    }
-
-    .nav-link {
-      color: $text-dark;
-      font-size: 0.95rem;
-      padding: 0.60rem 1.25rem;
-      border-left: 3px solid transparent;
-      transition: all 0.2s ease-in-out;
-
-      &:hover,
-      &.active {
-        color: $red;
-        background-color: rgba($red, 0.1);
-        border-left-color: $red;
-        font-weight: 600;
-      }
-    }
-  }
-
-  // Article Content Sections
-  .privacy-body {
-    background: $white;
-    padding: 2.5rem;
-    border-radius: 12px;
-    border: 1px solid rgba($light-blue, 0.4);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-
-    section {
-      margin-bottom: 2.5rem;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    h2 {
-      font-family: $font-text;
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid rgba($light-blue, 0.4);
-
-      i {
-        color: $red;
-      }
-    }
-
-    p,
-    li {
-      line-height: 1.7;
-      color: $text-dark;
-      font-size: 1rem;
-    }
-
-    ul {
-      padding-left: 1.25rem;
-      margin-bottom: 1rem;
-
-      li {
-        margin-bottom: 0.5rem;
-      }
-    }
-
-    // Safeguarding / Warning Callout Box
-    .warning-box {
-      background-color: rgba($red, 0.08);
-      border-left: 4px solid $red;
-      padding: 1.25rem 1.5rem;
-      border-radius: 0 8px 8px 0;
-      margin: 1.5rem 0;
-
-      h4 {
-        font-family: $font-text;
-        color: $red;
-        font-size: 1.15rem;
-        margin-bottom: 0.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      p {
-        margin: 0;
-        font-size: 0.95rem;
-        // font-weight: 500;
-        color: $text-dark;
-      }
-    }
-  }
-}
-
-
-/*
- ***************************
  * GET-INVOLVED.HTML PAGE
  ***************************
 */
@@ -764,6 +635,18 @@ body {
 .contact-header {
   background: linear-gradient(rgba($dark-blue, 0.55), rgba($dark-blue, 0.55)),
     url('/static/images/contact-header.png') center/cover no-repeat;
+}
+
+#contact-form {
+
+  a,
+  a:hover,
+  a:focus,
+  a:active {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+  }
 }
 
 .map-container {
@@ -860,7 +743,7 @@ body {
 // blog post
 .blog-post {
   // background-color: #f8fafc;
-  padding: 3rem 1.5rem 5rem;
+  padding: 1.5rem 5rem;
   font-family: $font-text;
   color: $text-dark;
   line-height: 1.8;
@@ -919,6 +802,18 @@ body {
     border-radius: 0 8px 8px 0;
   }
 
+  .codehilite {
+    // NOTE: for code blocks only, not inline code
+    display: block;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    padding: 1rem;
+    font-family: $font-code;
+
+    background-color: $bg-secondary;
+    color: $fg-colour;
+  }
+
   img {
     max-width: 100%;
     height: auto;
@@ -951,6 +846,11 @@ body {
 
     &--whatsapp:hover {
       background: #25d366;
+      color: #ffffff;
+    }
+
+    &--twitter:hover {
+      background-color: #1877f2;
       color: #ffffff;
     }
   }
@@ -1119,6 +1019,141 @@ body {
   }
 }
 
+
+/*
+ ***************************
+ * PRIVACY_POLICY.HTML PAGE
+ ***************************
+*/
+// --- Subpage Header ---
+.page-header {
+  // background: linear-gradient(135deg, $dark-blue, darken($dark-blue, 10%));
+  color: $white;
+  margin-bottom: 2.5rem;
+
+  h1 {
+    font-family: $font-text;
+    // font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+}
+
+// --- Layout & Content ---
+.privacy-content {
+  padding-bottom: 4rem;
+
+  // Sticky Navigation Card
+  .privacy-nav-card {
+    position: sticky;
+    top: 2rem;
+    border: 2px solid $red;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    .card-header {
+      background-color: $red;
+      color: $white;
+      font-family: $font-text;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 1rem 1.25rem;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .nav-link {
+      color: $text-dark;
+      font-size: 0.95rem;
+      padding: 0.60rem 1.25rem;
+      border-left: 3px solid transparent;
+      transition: all 0.2s ease-in-out;
+
+      &:hover,
+      &.active {
+        color: $red;
+        background-color: rgba($red, 0.1);
+        border-left-color: $red;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // Article Content Sections
+  .privacy-body {
+    background: $white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba($light-blue, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    section {
+      margin-bottom: 2.5rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h2 {
+      font-family: $font-text;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba($light-blue, 0.4);
+
+      i {
+        color: $red;
+      }
+    }
+
+    p,
+    li {
+      line-height: 1.7;
+      color: $text-dark;
+      font-size: 1rem;
+    }
+
+    ul {
+      padding-left: 1.25rem;
+      margin-bottom: 1rem;
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    // Safeguarding / Warning Callout Box
+    .warning-box {
+      background-color: rgba($red, 0.08);
+      border-left: 4px solid $red;
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+
+      h4 {
+        font-family: $font-text;
+        color: $red;
+        font-size: 1.15rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.95rem;
+        // font-weight: 500;
+        color: $text-dark;
+      }
+    }
+  }
+}
 
 /*
  ***************************
@@ -1529,6 +1564,11 @@ $link-color: #c8f5a0;
 
   &--whatsapp:hover {
     background: #25d366;
+    color: #ffffff;
+  }
+
+  &--twitter:hover {
+    background-color: #1877f2;
     color: #ffffff;
   }
 }

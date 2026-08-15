@@ -15,7 +15,7 @@ from fastapi.exception_handlers import (
     request_validation_exception_handler,
 )
 
-from app.utils.markdown import format_markdown_to_html
+from app.utils.jinja2 import format_markdown_to_html
 
 app: FastAPI = FastAPI(
     title="scom",

@@ -33,18 +33,22 @@
             <div class="card border-0 bg-light-section rounded-4 p-4 mb-3">
               <h5 class="fw-semibold text-dark mb-2">Our Physical Location</h5>
               <p class="text-secondary mb-0">
-                123 Care Street, Cityville, State 12345
+                {{location}}
               </p>
             </div>
 
             <div class="card border-0 bg-light-section rounded-4 p-4 mb-3">
               <h5 class="fw-semibold text-dark mb-2">Email Us</h5>
-              <p class="text-secondary mb-0">info@hopehaven.org</p>
+              <p class="text-secondary mb-0">
+                <a href="tel:{{email}}"> {{email}} </a>
+              </p>
             </div>
 
             <div class="card border-0 bg-light-section rounded-4 p-4">
               <h5 class="fw-semibold text-dark mb-2">Call Us</h5>
-              <p class="text-secondary mb-0">+1 (555) 019-2834</p>
+              <p class="text-secondary mb-0">
+                <a href="tel:{{phone_number}}"> {{phone_number}} </a>
+              </p>
             </div>
           </div>
 

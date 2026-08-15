@@ -1,5 +1,6 @@
 from typing import Optional
 
+from app.utils.jinja2 import calculate_reading_time
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 
 from app.main import templates
@@ -123,8 +124,13 @@ async def blog_post(request: Request, slug: str):
             detail="Looks like the blog does not exists... try again?",
         )
 
+    reading_time = calculate_reading_time(blog.get("content", ""))
+
     return templates.TemplateResponse(
-        request, "blog_post.html", {"title": title, "blog": blog}, status.HTTP_200_OK
+        request,
+        "blog_post.html",
+        {"title": title, "blog": blog, "reading_time": reading_time},
+        status.HTTP_200_OK,
     )
 
 

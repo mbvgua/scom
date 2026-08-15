@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Patrick+Hand+SC&display=swap");
+/* For code blocks, blockquotes, or card backgrounds */
 /*
  ***************************
  * GENERAL CONTENT SECTION
@@ -356,8 +357,8 @@ body {
 }
 .blog-card__meta {
   display: flex;
-  gap: 1rem;
-  font-size: 0.95rem;
+  flex-direction: column;
+  line-height: 2rem;
   color: rgb(36.8778280543%, 45.0729009553%, 59.0045248869%);
   margin-bottom: 0.75rem;
 }
@@ -438,115 +439,6 @@ body {
 
 /*
  ***************************
- * PRIVACY_POLICY.HTML PAGE
- ***************************
-*/
-.page-header {
-  color: #ffffff;
-  margin-bottom: 2.5rem;
-}
-.page-header h1 {
-  font-family: "Fredoka", sans-serif;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-.page-header p {
-  font-size: 1.4rem;
-  margin: 0;
-}
-
-.privacy-content {
-  padding-bottom: 4rem;
-}
-.privacy-content .privacy-nav-card {
-  position: sticky;
-  top: 2rem;
-  border: 2px solid #e53e3e;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-.privacy-content .privacy-nav-card .card-header {
-  background-color: #e53e3e;
-  color: #ffffff;
-  font-family: "Fredoka", sans-serif;
-  font-weight: 600;
-  font-size: 1.1rem;
-  padding: 1rem 1.25rem;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-.privacy-content .privacy-nav-card .nav-link {
-  color: #2d3748;
-  font-size: 0.95rem;
-  padding: 0.6rem 1.25rem;
-  border-left: 3px solid transparent;
-  transition: all 0.2s ease-in-out;
-}
-.privacy-content .privacy-nav-card .nav-link:hover, .privacy-content .privacy-nav-card .nav-link.active {
-  color: #e53e3e;
-  background-color: rgba(229, 62, 62, 0.1);
-  border-left-color: #e53e3e;
-  font-weight: 600;
-}
-.privacy-content .privacy-body {
-  background: #ffffff;
-  padding: 2.5rem;
-  border-radius: 12px;
-  border: 1px solid rgba(136, 192, 208, 0.4);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-.privacy-content .privacy-body section {
-  margin-bottom: 2.5rem;
-}
-.privacy-content .privacy-body section:last-child {
-  margin-bottom: 0;
-}
-.privacy-content .privacy-body h2 {
-  font-family: "Fredoka", sans-serif;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid rgba(136, 192, 208, 0.4);
-}
-.privacy-content .privacy-body h2 i {
-  color: #e53e3e;
-}
-.privacy-content .privacy-body p,
-.privacy-content .privacy-body li {
-  line-height: 1.7;
-  color: #2d3748;
-  font-size: 1rem;
-}
-.privacy-content .privacy-body ul {
-  padding-left: 1.25rem;
-  margin-bottom: 1rem;
-}
-.privacy-content .privacy-body ul li {
-  margin-bottom: 0.5rem;
-}
-.privacy-content .privacy-body .warning-box {
-  background-color: rgba(229, 62, 62, 0.08);
-  border-left: 4px solid #e53e3e;
-  padding: 1.25rem 1.5rem;
-  border-radius: 0 8px 8px 0;
-  margin: 1.5rem 0;
-}
-.privacy-content .privacy-body .warning-box h4 {
-  font-family: "Fredoka", sans-serif;
-  color: #e53e3e;
-  font-size: 1.15rem;
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.privacy-content .privacy-body .warning-box p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #2d3748;
-}
-
-/*
- ***************************
  * GET-INVOLVED.HTML PAGE
  ***************************
 */
@@ -586,6 +478,15 @@ body {
 */
 .contact-header {
   background: linear-gradient(rgba(43, 108, 176, 0.55), rgba(43, 108, 176, 0.55)), url("/static/images/contact-header.png") center/cover no-repeat;
+}
+
+#contact-form a,
+#contact-form a:hover,
+#contact-form a:focus,
+#contact-form a:active {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
 }
 
 .map-container {
@@ -658,7 +559,7 @@ body {
 }
 
 .blog-post {
-  padding: 3rem 1.5rem 5rem;
+  padding: 1.5rem 5rem;
   font-family: "Fredoka", sans-serif;
   color: #2d3748;
   line-height: 1.8;
@@ -710,6 +611,15 @@ body {
   margin: 1.5rem 0;
   border-radius: 0 8px 8px 0;
 }
+.blog-post .codehilite {
+  display: block;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  padding: 1rem;
+  font-family: "JetBrains Mono", monospace;
+  background-color: #3e3d32;
+  color: #f8f8f2;
+}
 .blog-post img {
   max-width: 100%;
   height: auto;
@@ -739,6 +649,10 @@ body {
 }
 .blog-post .post-icon-link--whatsapp:hover {
   background: #25d366;
+  color: #ffffff;
+}
+.blog-post .post-icon-link--twitter:hover {
+  background-color: #1877f2;
   color: #ffffff;
 }
 .blog-post__footer {
@@ -886,6 +800,115 @@ body {
 }
 .board-card img {
   transition: transform 0.5s ease;
+}
+
+/*
+ ***************************
+ * PRIVACY_POLICY.HTML PAGE
+ ***************************
+*/
+.page-header {
+  color: #ffffff;
+  margin-bottom: 2.5rem;
+}
+.page-header h1 {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.page-header p {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.privacy-content {
+  padding-bottom: 4rem;
+}
+.privacy-content .privacy-nav-card {
+  position: sticky;
+  top: 2rem;
+  border: 2px solid #e53e3e;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.privacy-content .privacy-nav-card .card-header {
+  background-color: #e53e3e;
+  color: #ffffff;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 1rem 1.25rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.privacy-content .privacy-nav-card .nav-link {
+  color: #2d3748;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.25rem;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+.privacy-content .privacy-nav-card .nav-link:hover, .privacy-content .privacy-nav-card .nav-link.active {
+  color: #e53e3e;
+  background-color: rgba(229, 62, 62, 0.1);
+  border-left-color: #e53e3e;
+  font-weight: 600;
+}
+.privacy-content .privacy-body {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(136, 192, 208, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.privacy-content .privacy-body section {
+  margin-bottom: 2.5rem;
+}
+.privacy-content .privacy-body section:last-child {
+  margin-bottom: 0;
+}
+.privacy-content .privacy-body h2 {
+  font-family: "Fredoka", sans-serif;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(136, 192, 208, 0.4);
+}
+.privacy-content .privacy-body h2 i {
+  color: #e53e3e;
+}
+.privacy-content .privacy-body p,
+.privacy-content .privacy-body li {
+  line-height: 1.7;
+  color: #2d3748;
+  font-size: 1rem;
+}
+.privacy-content .privacy-body ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+.privacy-content .privacy-body ul li {
+  margin-bottom: 0.5rem;
+}
+.privacy-content .privacy-body .warning-box {
+  background-color: rgba(229, 62, 62, 0.08);
+  border-left: 4px solid #e53e3e;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.5rem 0;
+}
+.privacy-content .privacy-body .warning-box h4 {
+  font-family: "Fredoka", sans-serif;
+  color: #e53e3e;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.privacy-content .privacy-body .warning-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #2d3748;
 }
 
 /*
@@ -1232,6 +1255,10 @@ body {
 }
 .footer-icon-link--whatsapp:hover {
   background: #25d366;
+  color: #ffffff;
+}
+.footer-icon-link--twitter:hover {
+  background-color: #1877f2;
   color: #ffffff;
 }
 

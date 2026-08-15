@@ -367,8 +367,12 @@
                                 style="text-decoration:none;">{{ blog.title }}</a>
                             </h4>
                             <div class="blog-card__meta">
-                            <span class="text-muted">📅 {{ blog.date_modified.strftime("%B %d, %Y")}}</span>
-                            <!-- <span class="text-muted">Admin</span> -->
+                                <span class="text-muted">
+                                    <i class="bi bi-calendar-week"></i> {{ blog.last_modified.strftime("%B %d, %Y")}}
+                                </span>
+                                <span class="text-muted">
+                                    <i class="bi bi-pen"></i> {{ blog.author }}
+                                </span>
                             </div>
 
                             <div class="blog-card__details">
