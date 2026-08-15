@@ -43,13 +43,59 @@ body {
   background-color: transparent;
 
   .navbar-brand {
+    display: flex;
+    align-items: center; // Centers the logo and the text group vertically
     color: $white;
-    font-size: 1.75rem;
     transition: color 0.3s ease;
+    padding: 0;
 
-    // dark on small screens
+    /* Initial large logo height */
+    img {
+      height: 85px;
+      width: auto;
+      // transition: height 0.3s ease;
+    }
+
+    // Dark on small screens
     @media (max-width: 768px) {
-      color: $text-dark;
+      img {
+        height: 55px;
+      }
+    }
+
+    /* Right-side text container */
+    .navbar-logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .brand-title {
+        text-decoration: none;
+        color: inherit;
+        outline: none;
+        font-weight: 1000;
+        text-transform: uppercase;
+        width: 14rem; // Constrains the width so it wraps below SCOM
+        word-wrap: break-word;
+        white-space: normal;
+        line-height: 1.2;
+        margin-top: 2px; // Gives a tiny bit of breathing room from the initials
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: inherit;
+        }
+      }
+
+      // Responsive scaling for the text
+      @media (max-width: 768px) {
+        .brand-title {
+          font-size: 1rem; // Scale down initials on mobile
+          width: 11rem; // Constrain width further on mobile
+        }
+
+      }
     }
   }
 
@@ -206,6 +252,12 @@ body {
 
 }
 
+/* selecting backlinks. mostly from the footnotes and such */
+*:target {
+  padding-left: 0.75rem;
+  scroll-margin-top: 5rem;
+}
+
 /*
  ***************************
  * INDEX.HTML PAGE
@@ -217,14 +269,7 @@ body {
   width: 100%;
   position: relative;
   overflow: hidden;
-  // Desktop View
   max-height: 100vh;
-
-  // Mobile View Adjustments - give it a proper height box instead of auto-collapsing
-  @media (max-width: 768px) {
-    min-height: 520px;
-    padding-top: 5rem;
-  }
 
   // Fix inner container height so images and background boxes expand properly
   .carousel-inner {
@@ -258,7 +303,7 @@ body {
   .carousel-caption {
     opacity: 0;
     top: 0;
-    bottom: 40%;
+    bottom: 20%;
 
     // Wider text bounds on mobile so it doesn't get squished into a narrow column
     left: 5%;
@@ -289,6 +334,17 @@ body {
   .carousel-control-next {
     z-index: 3;
   }
+
+  // Mobile View Adjustments - give it a proper height box instead of auto-collapsing
+  @media (max-width: 768px) {
+    min-height: 520px;
+    // padding-top: 5rem;
+
+    .carousel-caption {
+      bottom: 0;
+    }
+  }
+
 }
 
 // Keyframe for Pop-Up / Fade-Up Effect animation in hero ection

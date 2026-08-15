@@ -3,7 +3,7 @@ id: d52122a6-41b0-4f04-b47e-e7731bed9706
 title: A simple markdown overview!
 slug: simple-markdown-overview
 author: Admin
-cover: /static/images/blogs/2026-06-0815-44.png
+cover: /static/images/blogs/suzuki.png
 draft: false
 date_posted: 2026-08-13
 last_modified: 2026-08-13
@@ -87,7 +87,7 @@ Ordered:
 
 ## Images
 
-![](/static/images/blogs/2026-08-13_11-42.png)
+![](/static/images/blogs/llama.png)
 
 ## CodeBlocks & Inline Code
 

@@ -8,14 +8,8 @@
         {% else %}
             <title>SCOM Children's Home</title>
         {% endif %}
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-        rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{url_for('static', path='css/style.css')}}" />
   </head>
 
@@ -29,7 +23,16 @@
     <!-- START NAVBAR -->
     <nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid px-4 px-lg-5">
-          <a class="navbar-brand fw-bold" href="{{url_for('home')}}">SCOM</a>
+
+        <!-- entire left section for branding -->
+        <div class="navbar-brand d-flex align-items-center gap-3">
+            <img src="{{ url_for('static', path='images/logo-bg.png') }}" alt="SCOM Logo">
+
+            <div class="navbar-logo d-flex flex-column justify-content-center">
+                <a class="brand-title fw-bold" href="{{url_for('home')}}"> Service for Christ Outreach Ministry </a>
+            </div>
+        </div>
+
 
         <!-- open/close hamburger menu on small screens -->
         <button
@@ -43,7 +46,7 @@
 
         <!-- menu section -->
         <div class="collapse navbar-collapse" id="navbarContent">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fs-5">
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle fw-semibold {% if request.url.path == '/about-us' %}active{% endif %}"
@@ -53,22 +56,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                About Us
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  fill="currentColor"
-                  class="bi bi-chevron-down bold-icon"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
-                  />
-                </svg>
+                About Us <i class="bi bi-chevron-down fw-bold"></i>
               </a>
               <ul
                 class="dropdown-menu border-0 shadow-sm rounded-3 mt-0 bg-light"
@@ -127,20 +115,7 @@
           <!-- donate button -->
           <div class="d-flex">
               <a href="{{url_for('donate')}}" class="btn btn-donate fw-bold"
-              >DONATE
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                class="bi bi-heart-fill"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"
-                />
-              </svg>
+              >DONATE <i class="bi bi-heart-fill"></i>
             </a>
           </div>
         </div>
@@ -373,7 +348,7 @@
                 <span class="footer-house"
                   ><i class="bi bi-house-heart-fill"></i
                 ></span>
-                <span class="footer-logo-text">SCOM Children's Home</span>
+                <span class="footer-logo-text">Service for Christ Outreach Ministry Children's Home</span>
               </div>
               <p class="footer-tagline mb-2">
                 "Every child deserves a place to bloom."

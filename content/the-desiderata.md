@@ -2,8 +2,8 @@
 id: 1
 title: The Desiderata
 slug: the-desiderata
-author: Admin
-cover: /static/images/blogs/2026-08-13_11-42.png
+author: Hurd
+cover: /static/images/blogs/llama.png
 draft: false
 date_posted: 2026-05-01
 last_modified: 2026-08-10

@@ -26,13 +26,49 @@ body {
   background-color: transparent;
 }
 #mainNav .navbar-brand {
+  display: flex;
+  align-items: center;
   color: #ffffff;
-  font-size: 1.75rem;
   transition: color 0.3s ease;
+  padding: 0;
+  /* Initial large logo height */
+}
+#mainNav .navbar-brand img {
+  height: 85px;
+  width: auto;
 }
 @media (max-width: 768px) {
-  #mainNav .navbar-brand {
-    color: #2d3748;
+  #mainNav .navbar-brand img {
+    height: 55px;
+  }
+}
+#mainNav .navbar-brand {
+  /* Right-side text container */
+}
+#mainNav .navbar-brand .navbar-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#mainNav .navbar-brand .navbar-logo .brand-title {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  font-weight: 1000;
+  text-transform: uppercase;
+  width: 14rem;
+  word-wrap: break-word;
+  white-space: normal;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+#mainNav .navbar-brand .navbar-logo .brand-title:hover, #mainNav .navbar-brand .navbar-logo .brand-title:focus, #mainNav .navbar-brand .navbar-logo .brand-title:active {
+  color: inherit;
+}
+@media (max-width: 768px) {
+  #mainNav .navbar-brand .navbar-logo .brand-title {
+    font-size: 1rem;
+    width: 11rem;
   }
 }
 #mainNav .nav-link {
@@ -150,6 +186,12 @@ body {
   transform: scale(1.02);
 }
 
+/* selecting backlinks. mostly from the footnotes and such */
+*:target {
+  padding-left: 0.75rem;
+  scroll-margin-top: 5rem;
+}
+
 /*
  ***************************
  * INDEX.HTML PAGE
@@ -160,12 +202,6 @@ body {
   position: relative;
   overflow: hidden;
   max-height: 100vh;
-}
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 520px;
-    padding-top: 5rem;
-  }
 }
 .hero-section .carousel-inner {
   height: 100%;
@@ -192,7 +228,7 @@ body {
 .hero-section .carousel-caption {
   opacity: 0;
   top: 0;
-  bottom: 40%;
+  bottom: 20%;
   left: 5%;
   right: 5%;
   padding: 0 5%;
@@ -213,6 +249,14 @@ body {
 .hero-section .carousel-control-prev,
 .hero-section .carousel-control-next {
   z-index: 3;
+}
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 520px;
+  }
+  .hero-section .carousel-caption {
+    bottom: 0;
+  }
 }
 
 @keyframes popUpFromBelow {

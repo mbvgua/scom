@@ -33,6 +33,10 @@ content:
       - name: date_posted
         label: Date Posted
         type: date
+        hidden: true
+      - name: last_modified
+        label: Last Modified
+        type: date
         required: true
       - name: draft
         label: Draft
