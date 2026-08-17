@@ -74,7 +74,7 @@ body {
 }
 @media (max-width: 567px) {
   #mainNav .navbar-brand {
-    width: 12rem;
+    max-width: 12rem;
   }
   #mainNav img {
     display: none;
@@ -620,6 +620,11 @@ body {
   color: #2d3748;
   line-height: 1.8;
 }
+@media (max-width: 768px) {
+  .blog-post {
+    padding: 1.5rem 0.5rem;
+  }
+}
 .blog-post__container {
   max-width: 75%;
   margin: 0 auto;
@@ -634,10 +639,10 @@ body {
     z-index: 2;
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .blog-post__container {
     max-width: 100%;
-    padding: 0;
+    padding: 1.25rem 1rem;
   }
 }
 .blog-post h1,
@@ -647,6 +652,14 @@ body {
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
 }
+@media (max-width: 576px) {
+  .blog-post h1,
+  .blog-post h2,
+  .blog-post h3,
+  .blog-post h4 {
+    word-break: break-word;
+  }
+}
 .blog-post p {
   margin-bottom: 1.2rem;
 }
@@ -654,6 +667,12 @@ body {
 .blog-post ol {
   margin-left: 1.5rem;
   margin-bottom: 1.2rem;
+}
+@media (max-width: 576px) {
+  .blog-post ul,
+  .blog-post ol {
+    margin-left: 1rem;
+  }
 }
 .blog-post ul li,
 .blog-post ol li {
@@ -666,6 +685,11 @@ body {
   font-style: italic;
   margin: 1.5rem 0;
   border-radius: 0 8px 8px 0;
+}
+@media (max-width: 576px) {
+  .blog-post blockquote {
+    padding: 0.75rem 1rem;
+  }
 }
 .blog-post .codehilite {
   display: block;
@@ -693,14 +717,9 @@ body {
   background: rgba(255, 255, 255, 0.2);
   color: #2d3748;
   transition: all 0.3s ease;
-  /* Hover effects targeting inner SVG */
 }
 .blog-post .post-icon-link--facebook:hover {
   background-color: #1877f2;
-  color: #ffffff;
-}
-.blog-post .post-icon-link--instagram:hover {
-  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
   color: #ffffff;
 }
 .blog-post .post-icon-link--whatsapp:hover {

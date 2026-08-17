@@ -105,16 +105,18 @@ body {
   @media(max-width:567px) {
 
     .navbar-brand {
-      width: 12rem;
+      max-width: 12rem;
+      // border: 1px solid red;
     }
 
     img {
-      display: none;
+      // height: 20px;
+      display: none; // remove image in phone screens. illegible anyways
     }
 
     .brand-title {
       width: 8rem; // Constrain width further on mobile
-      // border: 1px solid red;
+      // border: 1px solid yellow;
     }
   }
 
@@ -817,18 +819,21 @@ body {
 
 // blog post
 .blog-post {
-  // background-color: #f8fafc;
+  // Desktop Default Padding
   padding: 1.5rem 5rem;
   font-family: $font-text;
   color: $text-dark;
   line-height: 1.8;
 
+  // Mobile Padding Overrides (Prevents text from being squeezed sideways)
+  @media (max-width: 768px) {
+    padding: 1.5rem 0.5rem;
+  }
+
   &__container {
     max-width: 75%;
     margin: 0 auto;
     background-color: $white;
-    // border-radius: 16px;
-    // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     padding: 2rem;
 
@@ -838,9 +843,10 @@ body {
       z-index: 2;
     }
 
-    @media (max-width: 500px) {
+    // Tablet & Mobile Responsiveness
+    @media (max-width: 768px) {
       max-width: 100%;
-      padding: 0;
+      padding: 1.25rem 1rem; // Keeps breathing room inside the post container
     }
   }
 
@@ -848,10 +854,12 @@ body {
   h2,
   h3,
   h4 {
-    // font-family: $font-playful;
-    // color: $dark-blue;
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
+
+    @media (max-width: 576px) {
+      word-break: break-word; // Prevents long headings from overflowing the screen
+    }
   }
 
   p {
@@ -862,6 +870,10 @@ body {
   ol {
     margin-left: 1.5rem;
     margin-bottom: 1.2rem;
+
+    @media (max-width: 576px) {
+      margin-left: 1rem; // Tightens list indent on small screens
+    }
 
     li {
       margin-bottom: 0.4rem;
@@ -875,16 +887,18 @@ body {
     font-style: italic;
     margin: 1.5rem 0;
     border-radius: 0 8px 8px 0;
+
+    @media (max-width: 576px) {
+      padding: 0.75rem 1rem;
+    }
   }
 
   .codehilite {
-    // NOTE: for code blocks only, not inline code
     display: block;
     overflow-x: auto;
     white-space: pre-wrap;
     padding: 1rem;
     font-family: $font-code;
-
     background-color: $bg-secondary;
     color: $fg-colour;
   }
@@ -908,14 +922,8 @@ body {
     color: #2d3748;
     transition: all 0.3s ease;
 
-    /* Hover effects targeting inner SVG */
     &--facebook:hover {
       background-color: #1877f2;
-      color: #ffffff;
-    }
-
-    &--instagram:hover {
-      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
       color: #ffffff;
     }
 
