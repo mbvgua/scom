@@ -1,0 +1,24 @@
+/*
+ ***************************
+ * PROGRAMS.HTML PAGE
+ ***************************
+*/
+// --- Subpage Banner Header (Like "Our Programs") ---
+.page-header {
+  height: 60vh; // Keeps it high enough for impact while allowing content below to show
+  min-height: 380px;
+  width: 100%;
+  position: relative;
+
+  // Background Image + Overlay matching your screenshot layout
+  // Uses --bg-image if provided in HTML, otherwise defaults to slide4.jpg
+  background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)),
+    var(--bg-image, url('/static/images/slide4.jpg')) center/cover no-repeat;
+
+  .hero-content {
+    z-index: 2;
+    margin-top: 40px; // Gives visual offset due to fixed navbar
+  }
+}
+
+

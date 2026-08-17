@@ -133,39 +133,45 @@
     </header>
     <!-- END HERO SECTION -->
 
+    {#
     <!-- PROBLEM STATEMENT BEGIN -->
     <section id="problem" class="py-5 feature-section bg-light">
         <div class="container py-lg-4">
-            <h2 class="text-center display-5 fw-bold text-dark mb-3">The Challenge</h2>
-            <div class="row align-items-center g-5">
-            <!-- image side -->
-            <div class="col-lg-6">
-                <div class="img-wrapper shadow rounded-4 overflow-hidden">
-                <img
-                    src="./static/images/problem.jpg"
-                    class="img-fluid w-100 h-100"
-                    alt="The Challenge Placeholder"
-                />
-                </div>
-            </div>
 
-            <!-- text side -->
-            <div class="col-lg-6">
-                <div class="pe-lg-3">
-                <p class="lead text-muted mb-3">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Excepteur sint occaecat cupidatat non proident. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Excepteur sint occaecat cupidatat non proident.
-                </p>
+            <!-- header section -->
+            <h2 class="text-center display-4 fw-bold text-dark mb-3">The Challenge</h2>
+
+            <!-- NOTE: the flex-column-reverse here switches the layout for mobile devices,
+            pushing the image behind the content -->
+            <div class="row align-items-center g-5 flex-column-reverse flex-lg-row">
+                <!-- image side -->
+                <div class="col-lg-6">
+                    <div class="img-wrapper shadow rounded-4 overflow-hidden">
+                    <img
+                        src="./static/images/problem.jpg"
+                        class="img-fluid w-100 h-100"
+                        alt="The Challenge Placeholder"
+                    />
+                    </div>
                 </div>
-            </div>
+
+                <!-- text side -->
+                <div class="col-lg-6">
+                    <div class="pe-lg-3">
+                    <p class="lead text-muted mb-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident.
+                    </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -174,46 +180,138 @@
     <!-- SOLUTION SECTION START -->
     <section id="solution" class="py-5 feature-section">
         <div class="container py-lg-4">
-            <h2 class="text-center display-5 fw-bold text-dark mb-3">The Solution</h2>
-            <div class="row align-items-center g-5">
-            <!-- text side -->
-            <div class="col-lg-6 order-2 order-lg-1">
-                <div class="ps-lg-3">
-                <p class="lead text-muted mb-3">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed ut
-                    perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-                    inventore veritatis et quasi architecto beatae vitae dicta sunt
-                    explicabo. Nemo enim ipsam voluptatem. Sed ut perspiciatis unde
-                    omnis iste natus error sit voluptatem accusantium doloremque
-                    laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                    veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                    Nemo enim ipsam voluptatem.
-                </p>
-                </div>
-            </div>
 
-            <!-- image side -->
-            <div class="col-lg-6 order-1 order-lg-2">
-                <div class="img-wrapper shadow rounded-4 overflow-hidden">
-                <img
-                    src="./static/images/solution.jpg"
-                    class="img-fluid w-100"
-                    alt="The Solution Placeholder"
-                />
+            <!-- header section -->
+            <h2 class="text-center display-4 fw-bold text-dark mb-3">The Solution</h2>
+
+            <!-- NOTE: the flex-column-reverse here switches the layout for mobile devices,
+            pushing the image behind the content -->
+            <div class="row align-items-center g-5 flex-column-reverse flex-lg-row">
+                <!-- text side -->
+                <div class="col-lg-6 order-2 order-lg-1">
+                    <div class="ps-lg-3">
+                    <p class="lead text-muted mb-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed ut
+                        perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
+                        inventore veritatis et quasi architecto beatae vitae dicta sunt
+                        explicabo. Nemo enim ipsam voluptatem. Sed ut perspiciatis unde
+                        omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+                        veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                        Nemo enim ipsam voluptatem.
+                    </p>
+                    </div>
                 </div>
-            </div>
+
+                <!-- image side -->
+                <div class="col-lg-6 order-1 order-lg-2">
+                    <div class="img-wrapper shadow rounded-4 overflow-hidden">
+                    <img
+                        src="./static/images/problem.jpg"
+                        class="img-fluid w-100"
+                        alt="The Solution Placeholder"
+                    />
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     <!-- solution section end -->
+    #}
+
+    <!-- start our mission section -->
+    <section id="mission" class="py-5 feature-section bg-light">
+        <div class="container py-lg-4">
+
+            <!-- header section -->
+            <h2 class="text-center display-4 fw-bold text-dark mb-3">Our Mission</h2>
+
+            <!-- NOTE: the flex-column-reverse here switches the layout for mobile devices,
+            pushing the image behind the content -->
+            <div class="row align-items-center g-5 flex-column-reverse flex-lg-row">
+                <!-- image side -->
+                <div class="col-lg-6">
+                    <div class="img-wrapper shadow rounded-4 overflow-hidden">
+                    <img
+                        src="./static/images/problem.jpg"
+                        class="img-fluid w-100 h-100"
+                        alt="The Challenge Placeholder"
+                    />
+                    </div>
+                </div>
+
+                <!-- text side -->
+                <div class="col-lg-6">
+                    <div class="pe-lg-3">
+                    <p class="lead text-muted mb-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident.
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end our mission section -->
+
+    <!-- start our vision section -->
+    <section id="vision" class="py-5 feature-section">
+        <div class="container py-lg-4">
+
+            <!-- header section -->
+            <h2 class="text-center display-4 fw-bold text-dark mb-3">Our Vision</h2>
+
+            <div class="row align-items-center g-5">
+                <!-- text side -->
+                <div class="col-lg-6">
+                    <div class="pe-lg-3">
+                    <p class="lead text-muted mb-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident.
+                    </p>
+                    </div>
+                </div>
+
+                <!-- image side -->
+                <div class="col-lg-6">
+                    <div class="img-wrapper shadow rounded-4 overflow-hidden">
+                    <img
+                        src="./static/images/problem.jpg"
+                        class="img-fluid w-100 h-100"
+                        alt="The Challenge Placeholder"
+                    />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- end our vision section -->
+
 
     <!-- faqs section -->
     <section id="faq" class="py-5 faq-section bg-light">
         <div class="container py-lg-4">
-            <div class="text-center mb-5">
-            <h2 class="display-6 fw-semibold text-dark">What Makes Us Different</h2>
+            <div class="text-center mb-3">
+            <h2 class="display-4 fw-semibold text-dark">FAQ</h2>
             <p class="text-secondary">
                 Learn more about our approach and why our care model stands out.
             </p>
@@ -354,43 +452,43 @@
 
             <div class="blog-grid">
                 {% for blog in blogs %}
-                    <article class="blog-card">
-                        <div class="blog-card__image-wrapper">
-                            <span class="blog-card__badge bg-secondary">{{blog.tags}}</span>
-                            <img src="{{ blog.image }}" alt="{{ blog.title }}" class="blog-card__image" />
+                <article class="blog-card">
+                    <div class="blog-card__image-wrapper">
+                        <span class="blog-card__badge">{{blog.tags}}</span>
+                        <img src="{{ blog.image }}" alt="{{ blog.title }}" class="blog-card__image" />
+                    </div>
+
+                    <div class="blog-card__content">
+                        <h4 class="blog-card__title ">
+                            <a class="text-dark" href="{{ url_for('blog_post', slug=blog.slug) }}" style="text-decoration:none;">
+                                {{ blog.title }}
+                            </a>
+                        </h4>
+                        <div class="blog-card__meta">
+                            <span class="text-muted">
+                                <i class="bi bi-calendar-week"></i> {{ blog.last_modified.strftime("%B %d, %Y")}}
+                            </span>
+                            <span class="text-muted">
+                                <i class="bi bi-pen"></i> {{ blog.author }}
+                            </span>
                         </div>
 
-                        <div class="blog-card__content">
-                            <h4 class="blog-card__title ">
-                                <a class="text-dark"
-                                href="{{ url_for('blog_post', slug=blog.slug) }}"
-                                style="text-decoration:none;">{{ blog.title }}</a>
-                            </h4>
-                            <div class="blog-card__meta">
-                                <span class="text-muted">
-                                    <i class="bi bi-calendar-week"></i> {{ blog.last_modified.strftime("%B %d, %Y")}}
-                                </span>
-                                <span class="text-muted">
-                                    <i class="bi bi-pen"></i> {{ blog.author }}
-                                </span>
-                            </div>
-
-                            <div class="blog-card__details">
-                                <p class="blog-card__excerpt">
-                                {#
-                                    lower() - > makes everything lowercase
-                                    truncate - > ensures max text displayed in 200 chars long
-                                    markdown -> converts it to clean markdown
-                                    striptags -> removes html tags, e.g <img> <p> <h1>
-                                #}
-                                    {{ blog.content | lower() | truncate(length=200, killwords=False ) | markdown | striptags}}
-                                </p>
-                                <a href="{{ url_for('blog_post', slug=blog.slug) }}" class="blog-card__btn">
-                                    Read More <span>&rarr;</span>
-                                </a>
-                            </div>
+                        <div class="blog-card__details">
+                            <p class="blog-card__excerpt">
+                            {#
+                                lower() - > makes everything lowercase
+                                truncate - > ensures max text displayed in 200 chars long
+                                markdown -> converts it to clean markdown
+                                striptags -> removes html tags, e.g <img> <p> <h1>
+                            #}
+                                {{ blog.content | lower() | truncate(length=200, ) | markdown | striptags}}
+                            </p>
+                            <a href="{{ url_for('blog_post', slug=blog.slug) }}" class="blog-card__btn">
+                                Read More <span>&rarr;</span>
+                            </a>
                         </div>
-                    </article>
+                    </div>
+                </article>
 
                 {% endfor %}
                 </div>

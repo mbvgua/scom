@@ -1,7 +1,9 @@
 from typing import Optional
 
+from fastapi.responses import RedirectResponse
+
 from app.utils.jinja2 import calculate_reading_time
-from fastapi import APIRouter, Depends, HTTPException, Request, status
+from fastapi import APIRouter, HTTPException, Request, status
 
 from app.main import templates
 from app.schemas.posts import PostCategory
@@ -11,7 +13,7 @@ router = APIRouter(tags=["views"])
 
 
 @router.get("/")
-async def home(request: Request):
+def home(request: Request):
     """
     renders the "home.html" template on the "/" URL
     landing page where users view the application
@@ -80,10 +82,11 @@ def donate(request: Request):
     return templates.TemplateResponse(
         request, "donate.html", {"title": title}, status.HTTP_200_OK
     )
+    # return RedirectResponse (url="/", status=status.HTTP_302_FOUND)
 
 
 @router.get("/blog-list")
-async def blog_list(
+def blog_list(
     request: Request,
     category: Optional[PostCategory] = None,
 ):
@@ -111,7 +114,7 @@ async def blog_list(
 
 
 @router.get("/blog-post/{slug}")
-async def blog_post(request: Request, slug: str):
+def blog_post(request: Request, slug: str):
     """
     renders the "blog_post.html" on the "/blog-post" URL.
     """

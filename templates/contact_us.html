@@ -30,21 +30,21 @@
               location below.
             </p>
 
-            <div class="card border-0 bg-light-section rounded-4 p-4 mb-3">
+            <div class="card border-0 bg-light-section rounded-4 p-3">
               <h5 class="fw-semibold text-dark mb-2">Our Physical Location</h5>
               <p class="text-secondary mb-0">
                 {{location}}
               </p>
             </div>
 
-            <div class="card border-0 bg-light-section rounded-4 p-4 mb-3">
+            <div class="card border-0 bg-light-section rounded-4 p-3">
               <h5 class="fw-semibold text-dark mb-2">Email Us</h5>
               <p class="text-secondary mb-0">
                 <a href="mailto:{{email}}"> {{email}} </a>
               </p>
             </div>
 
-            <div class="card border-0 bg-light-section rounded-4 p-4">
+            <div class="card border-0 bg-light-section rounded-4 p-3">
               <h5 class="fw-semibold text-dark mb-2">Call Us</h5>
               <p class="text-secondary mb-0">
                 <a href="tel:{{phone_number}}"> {{phone_number}} </a>
@@ -147,13 +147,8 @@
         <!-- iframe -->
         <div class="map-container shadow rounded-4 overflow-hidden">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.6464083899236!2d36.7226401749777!3d-1.3887343985981395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f052b8258c8d3%3A0x1a06c7c177614fc7!2sSCOM%20Disabled%20Children&#39;s%20home%20Centre%20Rongai!5e0!3m2!1sen!2ske!4v1784633078672!5m2!1sen!2ske"
-            width="600"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin"
+            id="googleMapIframe"
+            data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.6464083899236!2d36.7226401749777!3d-1.3887343985981395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f052b8258c8d3%3A0x1a06c7c177614fc7!2sSCOM%20Disabled%20Children&#39;s%20home%20Centre%20Rongai!5e0!3m2!1sen!2ske!4v1784633078672!5m2!1sen!2ske"
             width="100%"
             height="450"
             style="border: 0"
@@ -233,5 +228,8 @@
             }
         });
     </script>
+
+    <!-- js script for lazy loading map -->
+    <script src="{{url_for('static', path='js/map_loading_utils.js')}}"></script>
 
 {% endblock scripts %}

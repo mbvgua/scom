@@ -1,0 +1,33 @@
+/*
+ ***************************
+ * CONTACT-US.HTML PAGE
+ ***************************
+*/
+.contact-header {
+  background: linear-gradient(rgba($dark-blue, 0.55), rgba($dark-blue, 0.55)),
+    url('/static/images/contact-header.png') center/cover no-repeat;
+}
+
+#contact-form {
+
+  a,
+  a:hover,
+  a:focus,
+  a:active {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+  }
+}
+
+.map-container {
+  width: 100%;
+  min-height: 450px;
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: 450px;
+  }
+}
+

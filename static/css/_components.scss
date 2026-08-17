@@ -1,0 +1,33 @@
+/*
+ ***************************
+ * GENERAL CONTENT SECTION
+ ***************************
+*/
+body {
+  font-family: $font-text;
+}
+
+
+// wrap all my images nicely
+.img-wrapper {
+  position: relative;
+  max-height: 800px; // Adjust this value to make it as tall as you like (e.g., 500px, 600px)
+
+  img {
+    height: 100%;
+    object-fit: cover; // Ensures the image crops nicely instead of stretching
+    min-height: 350px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.02); // Subtle hover zoom effect
+  }
+
+}
+
+/* selecting backlinks. mostly from the footnotes and such */
+*:target {
+  padding-left: 0.75rem;
+  scroll-margin-top: 5rem;
+}
