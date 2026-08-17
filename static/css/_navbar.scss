@@ -1,0 +1,231 @@
+/* NAVBAR */
+// navbar links underline arrow fade-in
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#mainNav {
+  padding: 1.5rem 0;
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+
+  .navbar-brand {
+    display: flex;
+    align-items: center; // Centers the logo and the text group vertically
+    color: $white;
+    transition: color 0.3s ease;
+    padding: 0;
+
+    /* Initial large logo height */
+    img {
+      height: 85px;
+      width: auto;
+      // transition: height 0.3s ease;
+    }
+
+    /* Right-side text container */
+    .navbar-logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .brand-title {
+        text-decoration: none;
+        color: inherit;
+        outline: none;
+        font-weight: 1000;
+        text-transform: uppercase;
+        width: 14rem; // Constrains the width so it wraps below SCOM
+        word-wrap: break-word;
+        white-space: normal;
+        line-height: 1.2;
+        margin-top: 2px; // Gives a tiny bit of breathing room from the initials
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: inherit;
+        }
+      }
+
+    }
+  }
+
+  // Responsive scaling for the text
+  @media (max-width: 768px) {
+    .navbar-brand {
+      max-width: 14rem;
+      // border: 1px solid red;
+    }
+
+    img {
+      height: 55px;
+    }
+
+    .brand-title {
+      font-size: 1rem; // Scale down initials on mobile
+      width: 11rem; // Constrain width further on mobile
+    }
+
+  }
+
+  @media(max-width:567px) {
+
+    .navbar-brand {
+      max-width: 12rem;
+      // border: 1px solid red;
+    }
+
+    img {
+      // height: 20px;
+      display: none; // remove image in phone screens. illegible anyways
+    }
+
+    .brand-title {
+      width: 8rem; // Constrain width further on mobile
+      // border: 1px solid yellow;
+    }
+  }
+
+  .nav-link {
+    color: rgba($white, 0.9);
+    margin: 0 1rem;
+    position: relative; // Required to position the absolute underline beneath the link
+    padding-bottom: 4px; // Gives space between text and the animated underline
+    transition: color 0.3s ease;
+
+    // The animated underline line
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%; // Starts hidden (zero width)
+      height: 2px; // Thickness of the underline
+      background-color: $red; // Matches sky-blue text hover color
+      border-radius: 2px;
+      transition: width 0.3s ease-in-out; // Smooth animation
+    }
+
+    // Hover state: expands line and changes text color to sky-blue
+    &:hover {
+      &::after {
+        width: 100%; // Expands full width beneath the link
+      }
+    }
+
+    // Active state (optional): Keeps the line visible on the active page link
+    &.active {
+      color: $red;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  /* Hide the default Bootstrap dropdown arrow */
+  .nav-link.dropdown-toggle::after {
+    display: none !important;
+  }
+
+  // Hover dropdown trigger for desktop screens (min-width: 992px)
+  @media (min-width: 992px) {
+    .nav-item.dropdown {
+      &:hover .dropdown-menu {
+        display: block;
+        margin-top: 0; // Prevents gap where hover state drops off
+        animation: fadeIn 0.2s ease-in-out;
+      }
+    }
+  }
+
+
+  // Styling polish for dropdown link
+  .dropdown-menu {
+    .dropdown-item {
+      transition: background-color 0.2s ease, color 0.2s ease;
+
+      &:hover,
+      &:focus {
+        background-color: rgba(255, 107, 53, 0.1); // Light tint matching primary color
+        color: $red; // Highlight color
+      }
+    }
+  }
+}
+
+// The Donate Button
+.btn-donate {
+  background-color: $red;
+  color: $white;
+  padding: 0.8rem 2rem;
+  font-family: $font-playful;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.2s;
+
+  &:hover {
+    background-color: darken($red, 10%);
+    transform: translateY(-2px);
+    color: $white;
+  }
+}
+
+// make hamburger menu have solid color on mobile screens
+@media (max-width: 991.98px) {
+  #navbarContent {
+    background-color: #ffffff; // Solid white background on mobile
+    padding: 1.25rem;
+    margin-top: 0.75rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); // Adds a nice shadow pop
+
+    // Ensure nav links turn dark grey/black on mobile so they stand out on white
+    .nav-link {
+      color: #212529 !important;
+      padding: 0.5rem 0;
+      font-weight: 500;
+    }
+
+    // Center the DONATE button on mobile inside the white menu block
+    .btn-donate {
+      width: 100%;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+  }
+}
+
+// --- Navbar Scrolled State (Triggered by JS) ---
+#mainNav.scrolled {
+  padding: 0.5rem 0; // Reduces size
+  background-color: $white; // No longer transparent
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+
+  .navbar-brand {
+    color: $text-dark; // Switch text color so it's visible on white
+  }
+
+  .nav-link {
+    color: $text-dark;
+
+    // Active state (optional): Keeps the line visible on the active page link
+    &.active {
+      color: $red;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}

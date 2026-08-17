@@ -1,0 +1,364 @@
+/*
+ ***************************
+ * INDEX.HTML PAGE
+ ***************************
+*/
+
+// --- Hero Section Carousel (Update/Replace previous .hero-section block) ---
+.hero-section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  max-height: 100vh;
+
+  // Fix inner container height so images and background boxes expand properly
+  .carousel-inner {
+    height: 100%;
+    min-height: inherit;
+
+    .carousel-item {
+      height: 100%;
+      min-height: inherit;
+      position: relative;
+
+      // Dark overlay on top of images for text contrast
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), center/cover no-repeat;
+      }
+    }
+  }
+
+  .hero-img {
+    object-fit: cover; // Ensures full screen coverage without stretching images
+    min-height: inherit;
+  }
+
+  // Carousel Item Overlay & Content Styling
+  .carousel-caption {
+    opacity: 0;
+    top: 0;
+    bottom: 20%;
+
+    // Wider text bounds on mobile so it doesn't get squished into a narrow column
+    left: 5%;
+    right: 5%;
+    padding: 0 5%;
+
+    z-index: 2; // Places text over the dark overlay
+
+    // Expand bounds back out on larger tablets/desktops
+    @media (min-width: 768px) {
+      left: 10%;
+      right: 10%;
+      padding: 0 10%;
+    }
+
+    // Optional: make the mobile heading size scale down slightly so it fits nicely
+    h1 {
+      // font-size.clamp: 2rem;
+
+      @media (max-width: 768px) {
+        font-size: 2.2rem !important;
+      }
+    }
+  }
+
+  // Adjust arrow controls visibility/depth
+  .carousel-control-prev,
+  .carousel-control-next {
+    z-index: 3;
+  }
+
+  // Mobile View Adjustments - give it a proper height box instead of auto-collapsing
+  @media (max-width: 768px) {
+    min-height: 520px;
+    // padding-top: 5rem;
+
+    .carousel-caption {
+      bottom: 0;
+    }
+  }
+
+}
+
+// Keyframe for Pop-Up / Fade-Up Effect animation in hero ection
+@keyframes popUpFromBelow {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Apply animation to caption content when slide active
+.carousel-item.active .carousel-caption {
+  animation: popUpFromBelow 0.8s ease-out forwards;
+}
+
+// --- Feature Sections (Problem & Solution) ---
+.feature-section {
+  background-color: $white;
+}
+
+// Custom badges matching your color theme
+.bg-light-blue {
+  background-color: lighten($light-blue, 20%);
+  color: $dark-blue !important;
+}
+
+.bg-dark-blue {
+  background-color: $dark-blue;
+}
+
+.bg-light-section {
+  background-color: #f8fafc;
+}
+
+
+// --- FAQ Section Styling ---
+.faq-section {
+  background-color: #f8fafc;
+
+  .accordion-item {
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  }
+
+  .accordion-button {
+    color: $dark-blue;
+    background-color: $white;
+
+    &:not(.collapsed) {
+      color: $dark-blue;
+      background-color: lighten($light-blue, 25%);
+      box-shadow: none;
+    }
+
+    &:focus {
+      box-shadow: none;
+      border-color: rgba($dark-blue, 0.1);
+    }
+  }
+}
+
+// blog section
+.blog-section {
+  width: 100%;
+  overflow: hidden; // Prevents stray elements from bleeding past the viewport border
+
+  .blog-grid {
+    display: grid;
+    // Limits column minimum size to 100% of container width on screens narrower than 350px
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem; // Ensures cards don't touch screen edges on mobile
+    box-sizing: border-box;
+  }
+}
+
+.blog-card {
+  position: relative;
+  height: 450px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+  background-color: $white;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover {
+    // transform: translateY(-5px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+
+    // .blog-card__image {
+    //   transform: scale(1.08);
+    // }
+
+    .blog-card__content {
+      transform: translateY(0);
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    .blog-card__details {
+      opacity: 1;
+      visibility: visible;
+    }
+
+  }
+
+  // Cover Image Setup
+  &__image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.1) 0%,
+          rgba(0, 0, 0, 0.6) 100%);
+      z-index: 1;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    // transition: transform 0.5s ease;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    background-color: $red;
+    color: $white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    // Glassmorphism
+    background-color: rgba(108, 117, 125, 0.35) !important;
+
+    // Blur effect for whatever passes behind the badge
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); // Safari support
+
+    // Subtle frosted border and text styling
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    // Optional extra polish
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  // Expanding Bottom Content Box
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    padding: 1.5rem;
+    background: $white;
+
+    /* * Initial position pushes extra content down.
+     * On hover, transform becomes translateY(0) to expose everything smoothly.
+     */
+    transform: translateY(calc(100% - 200px));
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &__title {
+    margin: 0 0 0.5rem 0;
+    overflow: hidden;
+    // white-space: nowrap;
+    // text-overflow: ellipsis;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-evenly;
+    // gap: 2rem;
+    line-height: 2rem;
+    color: lighten($text-dark, 25%);
+    margin-bottom: 0.75rem;
+  }
+
+  &__details {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease 0.1s, visibility 0.3s ease 0.1s;
+  }
+
+  &__excerpt {
+    color: $text-dark;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    background-color: $red;
+    color: $white;
+    font-family: $font-playful;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: darken($red, 10%);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+
+
+// --- Newsletter Section ---
+.newsletter-section {
+  position: relative;
+  overflow: hidden;
+  // Slits an inward curve into the top of the element
+  // clip-path: ellipse(120% 100% at 50% 100%);
+
+  .form-control {
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    &:focus {
+      box-shadow: 0 0 0 0.25rem rgba($light-blue, 0.5);
+    }
+  }
+
+  // Leverages the massive donate button style from the navbar for consistency
+  .btn-donate {
+    font-family: $font-playful;
+    background-color: $red;
+    color: $white;
+    border: none;
+    transition: transform 0.2s ease, background-color 0.2s;
+
+    &:hover {
+      background-color: darken($red, 10%);
+      transform: translateY(-2px);
+      color: $white;
+    }
+  }
+}
+
