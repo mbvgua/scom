@@ -183,7 +183,9 @@
             <!-- header section -->
             <h2 class="text-center display-4 fw-bold text-dark mb-3">The Solution</h2>
 
-            <div class="row align-items-center g-5">
+            <!-- NOTE: the flex-column-reverse here switches the layout for mobile devices,
+            pushing the image behind the content -->
+            <div class="row align-items-center g-5 flex-column-reverse flex-lg-row">
                 <!-- text side -->
                 <div class="col-lg-6 order-2 order-lg-1">
                     <div class="ps-lg-3">
@@ -362,43 +364,43 @@
 
             <div class="blog-grid">
                 {% for blog in blogs %}
-                    <article class="blog-card">
-                        <div class="blog-card__image-wrapper">
-                            <span class="blog-card__badge bg-secondary">{{blog.tags}}</span>
-                            <img src="{{ blog.image }}" alt="{{ blog.title }}" class="blog-card__image" />
+                <article class="blog-card">
+                    <div class="blog-card__image-wrapper">
+                        <span class="blog-card__badge">{{blog.tags}}</span>
+                        <img src="{{ blog.image }}" alt="{{ blog.title }}" class="blog-card__image" />
+                    </div>
+
+                    <div class="blog-card__content">
+                        <h4 class="blog-card__title ">
+                            <a class="text-dark" href="{{ url_for('blog_post', slug=blog.slug) }}" style="text-decoration:none;">
+                                {{ blog.title }}
+                            </a>
+                        </h4>
+                        <div class="blog-card__meta">
+                            <span class="text-muted">
+                                <i class="bi bi-calendar-week"></i> {{ blog.last_modified.strftime("%B %d, %Y")}}
+                            </span>
+                            <span class="text-muted">
+                                <i class="bi bi-pen"></i> {{ blog.author }}
+                            </span>
                         </div>
 
-                        <div class="blog-card__content">
-                            <h4 class="blog-card__title ">
-                                <a class="text-dark"
-                                href="{{ url_for('blog_post', slug=blog.slug) }}"
-                                style="text-decoration:none;">{{ blog.title }}</a>
-                            </h4>
-                            <div class="blog-card__meta">
-                                <span class="text-muted">
-                                    <i class="bi bi-calendar-week"></i> {{ blog.last_modified.strftime("%B %d, %Y")}}
-                                </span>
-                                <span class="text-muted">
-                                    <i class="bi bi-pen"></i> {{ blog.author }}
-                                </span>
-                            </div>
-
-                            <div class="blog-card__details">
-                                <p class="blog-card__excerpt">
-                                {#
-                                    lower() - > makes everything lowercase
-                                    truncate - > ensures max text displayed in 200 chars long
-                                    markdown -> converts it to clean markdown
-                                    striptags -> removes html tags, e.g <img> <p> <h1>
-                                #}
-                                    {{ blog.content | lower() | truncate(length=200, killwords=False ) | markdown | striptags}}
-                                </p>
-                                <a href="{{ url_for('blog_post', slug=blog.slug) }}" class="blog-card__btn">
-                                    Read More <span>&rarr;</span>
-                                </a>
-                            </div>
+                        <div class="blog-card__details">
+                            <p class="blog-card__excerpt">
+                            {#
+                                lower() - > makes everything lowercase
+                                truncate - > ensures max text displayed in 200 chars long
+                                markdown -> converts it to clean markdown
+                                striptags -> removes html tags, e.g <img> <p> <h1>
+                            #}
+                                {{ blog.content | lower() | truncate(length=200, ) | markdown | striptags}}
+                            </p>
+                            <a href="{{ url_for('blog_post', slug=blog.slug) }}" class="blog-card__btn">
+                                Read More <span>&rarr;</span>
+                            </a>
                         </div>
-                    </article>
+                    </div>
+                </article>
 
                 {% endfor %}
                 </div>

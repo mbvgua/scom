@@ -435,22 +435,28 @@ body {
 
 // blog section
 .blog-section {
+  width: 100%;
+  overflow: hidden; // Prevents stray elements from bleeding past the viewport border
+
   .blog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    // Limits column minimum size to 100% of container width on screens narrower than 350px
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
     gap: 1.5rem;
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 1rem; // Ensures cards don't touch screen edges on mobile
+    box-sizing: border-box;
   }
 }
-
 
 .blog-card {
   position: relative;
   height: 450px;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
   background-color: $white;
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
     box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -745,21 +751,27 @@ body {
 */
 // Blog Listing Section below the Hero
 .blog-main {
-  background-color: #f8fafc;
-  padding: 3rem 1.5rem 5rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 1rem;
-  }
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
 
+    // Lock to exactly 3 columns once we're safely past tablet width
+    @media (min-width: 992px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 }
 
 .blog-hero {
-
   // Category Filter Pills
   &__categories {
     display: flex;
