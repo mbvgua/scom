@@ -37,11 +37,6 @@ body {
   height: 85px;
   width: auto;
 }
-@media (max-width: 768px) {
-  #mainNav .navbar-brand img {
-    height: 55px;
-  }
-}
 #mainNav .navbar-brand {
   /* Right-side text container */
 }
@@ -66,9 +61,26 @@ body {
   color: inherit;
 }
 @media (max-width: 768px) {
-  #mainNav .navbar-brand .navbar-logo .brand-title {
+  #mainNav .navbar-brand {
+    max-width: 14rem;
+  }
+  #mainNav img {
+    height: 55px;
+  }
+  #mainNav .brand-title {
     font-size: 1rem;
     width: 11rem;
+  }
+}
+@media (max-width: 567px) {
+  #mainNav .navbar-brand {
+    width: 12rem;
+  }
+  #mainNav img {
+    display: none;
+  }
+  #mainNav .brand-title {
+    width: 8rem;
   }
 }
 #mainNav .nav-link {

@@ -56,13 +56,6 @@ body {
       // transition: height 0.3s ease;
     }
 
-    // Dark on small screens
-    @media (max-width: 768px) {
-      img {
-        height: 55px;
-      }
-    }
-
     /* Right-side text container */
     .navbar-logo {
       display: flex;
@@ -88,14 +81,40 @@ body {
         }
       }
 
-      // Responsive scaling for the text
-      @media (max-width: 768px) {
-        .brand-title {
-          font-size: 1rem; // Scale down initials on mobile
-          width: 11rem; // Constrain width further on mobile
-        }
+    }
+  }
 
-      }
+  // Responsive scaling for the text
+  @media (max-width: 768px) {
+    .navbar-brand {
+      max-width: 14rem;
+      // border: 1px solid red;
+    }
+
+    img {
+      height: 55px;
+    }
+
+    .brand-title {
+      font-size: 1rem; // Scale down initials on mobile
+      width: 11rem; // Constrain width further on mobile
+    }
+
+  }
+
+  @media(max-width:567px) {
+
+    .navbar-brand {
+      width: 12rem;
+    }
+
+    img {
+      display: none;
+    }
+
+    .brand-title {
+      width: 8rem; // Constrain width further on mobile
+      // border: 1px solid red;
     }
   }
 
