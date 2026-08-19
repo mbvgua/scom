@@ -29,6 +29,18 @@ body {
   scroll-margin-top: 5rem;
 }
 
+.page-header {
+  height: 60vh;
+  min-height: 380px;
+  width: 100%;
+  position: relative;
+  background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), var(--bg-image, url("/static/images/slide4.jpg")) center/cover no-repeat;
+}
+.page-header .hero-content {
+  z-index: 2;
+  margin-top: 40px;
+}
+
 /* NAVBAR */
 @keyframes fadeIn {
   from {
@@ -770,6 +782,18 @@ body {
   scroll-margin-top: 5rem;
 }
 
+.page-header {
+  height: 60vh;
+  min-height: 380px;
+  width: 100%;
+  position: relative;
+  background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), var(--bg-image, url("/static/images/slide4.jpg")) center/cover no-repeat;
+}
+.page-header .hero-content {
+  z-index: 2;
+  margin-top: 40px;
+}
+
 /*
  ***************************
  * CONTACT-US.HTML PAGE
@@ -992,7 +1016,7 @@ body {
   width: 100%;
   position: relative;
   overflow: hidden;
-  max-height: 100vh;
+  height: 100vh;
 }
 .hero-section .carousel-inner {
   height: 100%;
@@ -1018,8 +1042,7 @@ body {
 }
 .hero-section .carousel-caption {
   opacity: 0;
-  top: 0;
-  bottom: 20%;
+  top: 20%;
   left: 5%;
   right: 5%;
   padding: 0 5%;
@@ -1030,6 +1053,12 @@ body {
     left: 10%;
     right: 10%;
     padding: 0 10%;
+  }
+}
+@media (max-width: 567px) {
+  .hero-section .carousel-caption {
+    padding: 2rem 0;
+    top: 10%;
   }
 }
 @media (max-width: 768px) {
@@ -1079,6 +1108,38 @@ body {
 
 .bg-light-section {
   background-color: #f8fafc;
+}
+
+.mission-section {
+  background-color: #f8f9fa;
+}
+.mission-section .mission-card {
+  border-radius: 16px;
+  background-color: #ffffff;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.mission-section .mission-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08) !important;
+}
+.mission-section .mission-card:hover .icon-box {
+  transform: scale(1.1);
+}
+.mission-section .mission-card .icon-box {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  transition: transform 0.3s ease;
+}
+.mission-section .mission-card h3 {
+  letter-spacing: -0.2px;
+}
+.mission-section .mission-card p {
+  line-height: 1.6;
 }
 
 .faq-section {
@@ -1369,23 +1430,6 @@ body {
   margin: 0;
   font-size: 0.95rem;
   color: #2d3748;
-}
-
-/*
- ***************************
- * PROGRAMS.HTML PAGE
- ***************************
-*/
-.page-header {
-  height: 60vh;
-  min-height: 380px;
-  width: 100%;
-  position: relative;
-  background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), var(--bg-image, url("/static/images/slide4.jpg")) center/cover no-repeat;
-}
-.page-header .hero-content {
-  z-index: 2;
-  margin-top: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */

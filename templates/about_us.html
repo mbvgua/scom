@@ -22,26 +22,32 @@
       <section id="our-history" class="py-5 feature-section">
         <div class="container py-lg-4">
           <div class="row justify-content-center text-center">
-            <div class="col-lg-10 col-xl-8">
-              <h2 class="display-5 fw-bold text-dark mb-4">Our History</h2>
-              <p class="lead text-muted mb-4 text-start">
-                Every child deserves a champion who sees their potential. For
-                children living with special needs, having compassionate support
-                tailored to their unique strengths changes everything.
-                <br />
-                <br />
-                Whether you have a single afternoon to spend playing, a skill to
-                share, or a long-term dedication to give, your presence creates
-                a world of difference in their daily care and growth.
-                <br />
-                <br />
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum
+            <div class="col-lg-11 col-xl-8">
+            <div class="text-center mb-3">
+                <h2 class="display-4 fw-semibold text-dark mb-3">Our History</h2>
+                <p class="lead text-secondary">
+                    A history of love, dedication, and building brighter futures.
+                </p>
+            </div>
+              <p class="fs-4 fs-md-5 text-dark mb-4 text-start">
+                Service for Christ Outreach Ministry (SCOM) began its grassroots operations
+                in 2023 under the vision of founder Meshack Okoth, who brought over two decades
+                of ministry experience to address the urgent needs of vulnerable children living
+                with disabilities in Kenyan slum communities. Driven by a faith-based mandate
+                to serve "the least of these," SCOM established a dedicated care and training 
+                center to offer shelter, specialized education, physical therapy, and daily 
+                nutrition to orphaned and differently-abled children facing extreme poverty 
+                and severe societal isolation.
+             </p>
+             <p class="fs-4 fs-md-5 text-dark mb-4 text-start">
+                In 2025, SCOM achieved a pivotal milestone when it was officially registered
+                as a faith-based non-profit organization under the Societies Act in Kenya.
+                Operating out of a rented facility, SCOM currently provides round-the-clock
+                full-boarding care and holistic development to 25 resident children while 
+                actively building toward permanent expansion. With government-approved architectural
+                plans already in place to construct a custom-built facility accommodating up to 100
+                children on newly acquired land, SCOM continues to expand its reach, restoring
+                dignity, health, and spiritual hope to marginalized families across the region.
               </p>
             </div>
           </div>
@@ -50,251 +56,72 @@
       <!-- END HISTORY SECTION -->
 
       <!-- START TIMELINE -->
-      <section
-        id="our-journey"
-        class="py-5 timeline-section overflow-hidden bg-light"
-      >
+      <section id="our-journey" class="py-5 timeline-section overflow-hidden bg-light" >
         <div class="container">
-          <div class="row justify-content-center text-center mb-5">
-            <div class="col-lg-8">
-              <h2 class="display-5 fw-bold text-dark mb-3">Our Journey</h2>
-              <p class="lead text-muted">
-                A history of love, dedication, and building brighter futures.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline position-relative">
-            <div class="timeline-item row align-items-center mb-5 fade-in-left">
-              <div
-                class="col-md-6 timeline-text text-start text-md-end pe-md-5 mb-4 mb-md-0"
-              >
-                <h2><span class="badge bg-danger">2026</span></h2>
-                <h3 class="fw-semibold text-dark">A New Beginning</h3>
-                <p class="text-muted">
-                  Expanded our facilities to accommodate 50 more children with
-                  specialized sensory care units and accessible playgrounds.
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                <h2 class="display-4 fw-semibold text-dark mb-3">Milestones of Hope</h2>
+                <p class="lead text-muted">
+                    Our journey so far...
                 </p>
-              </div>
-              <div class="col-md-6 timeline-image ps-md-5">
-                <img
-                  src="./static/images/slide1.jpg"
-                  class="img-fluid rounded-4 shadow-sm w-100 object-fit-cover"
-                  style="height: 300px"
-                  alt="2026 Expansion"
-                />
-              </div>
+                </div>
             </div>
 
-            <div
-              class="timeline-item row align-items-center mb-5 flex-md-row-reverse fade-in-right"
-            >
-              <div
-                class="col-md-6 timeline-text text-start ps-md-5 mb-4 mb-md-0"
-              >
-                <h2><span class="badge bg-danger">2020</span></h2>
-                <h3 class="fw-semibold text-dark">Community Integration</h3>
-                <p class="text-muted">
-                  Launched the community volunteer program, bridging the gap
-                  between our extraordinary kids and local mentors.
-                </p>
-              </div>
-              <div class="col-md-6 timeline-image pe-md-5">
-                <img
-                  src="./static/images/solution.jpg"
-                  class="img-fluid rounded-4 shadow-sm w-100 object-fit-cover"
-                  style="height: 300px"
-                  alt="2020 Program"
-                />
-              </div>
+            <div class="timeline position-relative">
+                {% for item in timeline %}
+                    {% set is_even = loop.index0 is even %}
+                    <div class="timeline-item row align-items-center {% if not loop.last %}mb-5{% endif %} {{ 'flex-md-row-reverse' if not is_even }} {{ 'fade-in-left' if is_even else 'fade-in-right' }}">
+                    <div class="col-md-6 timeline-text {{ 'text-start text-md-end pe-md-5' if is_even else 'text-start ps-md-5' }} mb-4 mb-md-0">
+                        <h2><span class="badge bg-danger">{{ item.year }}</span></h2>
+                        <h3 class="fw-semibold text-dark">{{ item.title | capitalize }}</h3>
+                        <p class="text-muted fs-5 fs-md-6"> {{ item.description }} </p>
+                    </div>
+                    <div class="col-md-6 timeline-image {{ 'ps-md-5' if is_even else 'pe-md-5' }}">
+                        <img
+                        src="./static/images/{{ item.image.src }}"
+                        class="img-fluid rounded-4 shadow-sm w-100 object-fit-cover"
+                        style="height: 350px"
+                        alt="{{ item.image.alt }}"
+                        />
+                    </div>
+                    </div>
+                {% endfor %}
             </div>
-
-            <div class="timeline-item row align-items-center fade-in-left">
-              <div
-                class="col-md-6 timeline-text text-start text-md-end pe-md-5 mb-4 mb-md-0"
-              >
-                <h2><span class="badge bg-danger">2015</span></h2>
-                <h3 class="fw-semibold text-dark">Our Founding</h3>
-                <p class="text-muted">
-                  Opened our doors with a mission to provide a safe, loving, and
-                  supportive home for vulnerable children in our region.
-                </p>
-              </div>
-              <div class="col-md-6 timeline-image ps-md-5">
-                <img
-                  src="./static/images/problem.jpg"
-                  class="img-fluid rounded-4 shadow-sm w-100 object-fit-cover"
-                  style="height: 300px"
-                  alt="2015 Founding"
-                />
-              </div>
-            </div>
-          </div>
         </div>
       </section>
       <!-- END TIMELINE SECTION -->
 
       <!-- START TEAM SECTION -->
-      <section id="team" class="py-5 board-section">
+      <section id="our-team" class="py-5 board-section">
         <div class="container py-lg-5">
           <div class="row justify-content-center text-center mb-5">
             <div class="col-lg-8">
-              <h2 class="display-5 fw-bold text-dark mb-3">
-                Our Team
-              </h2>
-              <p class="lead text-muted">
-                Meet the dedicated leaders guiding our mission, governance, and
-                long-term vision for the children.
-              </p>
+              <h2 class="display-4 fw-semibold text-dark mb-3"> Our Team </h2>
+              <p class="lead text-muted"> Meet the individuals guiding our mission </p>
             </div>
           </div>
 
           <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-              <div
-                class="card h-100 shadow border-0 rounded-4 overflow-hidden bg-white team-card position-relative"
-              >
-                <div
-                  class="card-img-wrapper position-relative"
-                  style="height: 380px"
-                >
-                  <img
-                    src="./static/images/problem.jpg"
-                    class="w-100 h-100 object-fit-cover"
-                    alt="Dr. Sarah Jenkins"
-                  />
-                  <div
-                    class="card-img-overlay d-flex flex-column justify-content-end p-4 team-overlay"
-                  >
-                    <h4 class="fw-semibold text-white mb-1">
-                      Dr. Sarah Jenkins
-                    </h4>
-                    <span class="text-danger fw-medium small">Chairperson</span>
-                  </div>
+              {% for member in team %}
+                <div class="col-lg-4 col-md-6">
+                <div class="card h-100 shadow border-0 rounded-4 overflow-hidden bg-white team-card position-relative" >
+                    <div class="card-img-wrapper position-relative" style="height: 380px" >
+                    <img
+                        src="./static/images/team/{{member.image.src}}"
+                        class="w-100 h-100 object-fit-cover"
+                        alt="{{member.image.alt}}"
+                    />
+                    <div class="card-img-overlay d-flex flex-column justify-content-end p-4 team-overlay" >
+                        <h4 class="fw-semibold text-white mb-1">
+                            {{member.name}}
+                        </h4>
+                        <span class="text-danger fw-medium">{{member.title}}</span>
+                    </div>
+                    </div>
                 </div>
-              </div>
-            </div>
+                </div>
+              {% endfor %}
 
-            <div class="col-lg-4 col-md-6">
-              <div
-                class="card h-100 shadow border-0 rounded-4 overflow-hidden bg-white team-card position-relative"
-              >
-                <div
-                  class="card-img-wrapper position-relative"
-                  style="height: 380px"
-                >
-                  <img
-                    src="./static/images/problem.jpg"
-                    class="w-100 h-100 object-fit-cover"
-                    alt="Michael Chang"
-                  />
-                  <div
-                    class="card-img-overlay d-flex flex-column justify-content-end p-4 team-overlay"
-                  >
-                    <h4 class="fw-semibold text-white mb-1">Michael Chang</h4>
-                    <span class="text-danger fw-medium small">Treasurer</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-              <div
-                class="card h-100 shadow border-0 rounded-4 overflow-hidden bg-white team-card position-relative"
-              >
-                <div
-                  class="card-img-wrapper position-relative"
-                  style="height: 380px"
-                >
-                  <img
-                    src="./static/images/problem.jpg"
-                    class="w-100 h-100 object-fit-cover"
-                    alt="Amina Bello"
-                  />
-                  <div
-                    class="card-img-overlay d-flex flex-column justify-content-end p-4 team-overlay"
-                  >
-                    <h4 class="fw-semibold text-white mb-1">Amina Bello</h4>
-                    <span class="text-danger fw-medium small">Secretary</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-              <div
-                class="card h-100 shadow border-0 rounded-4 overflow-hidden bg-white team-card position-relative"
-              >
-                <div
-                  class="card-img-wrapper position-relative"
-                  style="height: 380px"
-                >
-                  <img
-                    src="./static/images/problem.jpg"
-                    class="w-100 h-100 object-fit-cover"
-                    alt="David Ochieng"
-                  />
-                  <div
-                    class="card-img-overlay d-flex flex-column justify-content-end p-4 team-overlay"
-                  >
-                    <h4 class="fw-semibold text-white mb-1">David Ochieng</h4>
-                    <span class="text-danger fw-medium small"
-                      >Legal Advisor</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-              <div
-                class="card h-100 shadow border-0 rounded-4 overflow-hidden bg-white team-card position-relative"
-              >
-                <div
-                  class="card-img-wrapper position-relative"
-                  style="height: 380px"
-                >
-                  <img
-                    src="./static/images/slide1.jpg"
-                    class="w-100 h-100 object-fit-cover"
-                    alt="Elena Rostova"
-                  />
-                  <div
-                    class="card-img-overlay d-flex flex-column justify-content-end p-4 team-overlay"
-                  >
-                    <h4 class="fw-semibold text-white mb-1">Elena Rostova</h4>
-                    <span class="text-danger fw-medium small"
-                      >Head of Therapy & Care</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-              <div
-                class="card h-100 shadow border-0 rounded-4 overflow-hidden bg-white team-card position-relative"
-              >
-                <div
-                  class="card-img-wrapper position-relative"
-                  style="height: 380px"
-                >
-                  <img
-                    src="./static/images/footer-overlay.jpg"
-                    class="w-100 h-100 object-fit-cover"
-                    alt="James Wilson"
-                  />
-                  <div
-                    class="card-img-overlay d-flex flex-column justify-content-end p-4 team-overlay"
-                  >
-                    <h4 class="fw-semibold text-white mb-1">James Wilson</h4>
-                    <span class="text-danger fw-medium small"
-                      >Operations Director</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

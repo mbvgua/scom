@@ -9,7 +9,7 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-  max-height: 100vh;
+  height: 100vh;
 
   // Fix inner container height so images and background boxes expand properly
   .carousel-inner {
@@ -42,8 +42,8 @@
   // Carousel Item Overlay & Content Styling
   .carousel-caption {
     opacity: 0;
-    top: 0;
-    bottom: 20%;
+    top: 20%;
+    // bottom: 20%;
 
     // Wider text bounds on mobile so it doesn't get squished into a narrow column
     left: 5%;
@@ -57,6 +57,11 @@
       left: 10%;
       right: 10%;
       padding: 0 10%;
+    }
+
+    @media (max-width:567px) {
+      padding: 2rem 0;
+      top: 10%;
     }
 
     // Optional: make the mobile heading size scale down slightly so it fits nicely
@@ -122,6 +127,48 @@
 
 .bg-light-section {
   background-color: #f8fafc;
+}
+
+.mission-section {
+  background-color: #f8f9fa; // Soft light background to make white cards pop
+
+  .mission-card {
+    border-radius: 16px;
+    background-color: #ffffff;
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+      box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    // Hover effect: subtle lift & elevation shadow
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08) !important;
+
+      .icon-box {
+        transform: scale(1.1);
+      }
+    }
+
+    // Circular icon container
+    .icon-box {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      transition: transform 0.3s ease;
+    }
+
+    h3 {
+      // font-size: 1.15rem;
+      letter-spacing: -0.2px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+  }
 }
 
 
@@ -361,4 +408,3 @@
     }
   }
 }
-
