@@ -17,26 +17,44 @@
     <!-- END MINI HEADER SECTION -->
 
       <!-- desc of whyto get involved -->
-      <section class="py-5 feature-section">
+    <section id="vision" class="py-5 feature-section">
         <div class="container py-lg-4">
-          <div class="row justify-content-center text-center">
-            <div class="col-lg-10 col-xl-8">
-              <h2 class="display-5 fw-bold text-dark mb-4">
-                Stand Beside an Extraordinary Child
-              </h2>
-              <p class="lead text-muted mb-4 text-start">
-                Every child deserves a champion who sees their potential. For
-                children living with special needs, having compassionate support
-                tailored to their unique strengths changes everything.
-                <br/>
-                Whether you have a single afternoon to spend playing, a skill to
-                share, or a long-term dedication to give, your presence creates
-                a world of difference in their daily care and growth.
-              </p>
+
+            <div class="row align-items-center g-5 flex-lg-row flex-column-reverse">
+                <!-- image side -->
+                <div class="col-lg-6">
+                    <div class="img-wrapper shadow rounded-4 overflow-hidden">
+                    <img
+                        src=" {{url_for('static', path='images/image-10.webp')}} "
+                        class="img-fluid w-100 h-100"
+                        alt="The Challenge Placeholder"
+                    />
+                    </div>
+                </div>
+
+                <!-- text side -->
+                <div class="col-lg-6">
+                    <div class="pe-lg-3">
+                    <p class="fs-4 fs-md-5 text-dark mb-3">
+                        Your support matters because it directly restores health, dignity,
+                        and a bright future to children who would otherwise be hidden away or
+                        forgotten. Rooted in Scripture—where Jesus calls us to serve
+                        "the least of these" (Matthew 25:40)—we invite you to partner with
+                        us through financial donations, gifts of food, diapers, and mobility aids,
+                        or by contributing toward our €98,000 (KES 15,000,000) building project to
+                        construct a permanent home for 100 children.
+                    </p>
+                    <p class="fs-4 fs-md-5 text-dark mb-3">
+                        Whether you volunteer your time, share your resources, or keep our
+                        home in your prayers, your partnership ensures every child experiences love,
+                        grows in confidence, and fulfills their God-given potential.
+                    </p>
+                    </div>
+                </div>
+
             </div>
-          </div>
         </div>
-      </section>
+    </section>
 
       <!-- section specific -->
       <!-- volunteering -->
@@ -51,150 +69,48 @@
             <!-- text section -->
             <div class="col-lg-6">
               <div class="pe-lg-3">
-                <p class="lead text-muted mb-3">
-                  As a volunteer, you offer more than just your time—you provide
-                  a trusted sounding board, encouragement, and real-world
-                  guidance to help a child navigate life’s opportunities.
-                  <br />
-                  Our volunteering program pairs dedicated adults with youth to
-                  build confidence, support academic and career goals, and
-                  foster long-term emotional resilience.
+                <p class="fs-4 fs-md-5 text-dark mb-3">
+                    Offer your time, professional skills, or compassionate presence
+                    to directly support our teachers, therapists, and caregiving staff
+                    in nurturing children with disabilities.
                 </p>
 
-                <h5 class="fw-semibold text-dark mb-3">
-                  Frequently Asked Questions
-                </h5>
+                <h4 class="fw-semibold text-dark mb-3"> Frequently Asked Questions </h4>
                 <div class="accordion" id="volunteeringFaqAccordion">
-                  <div
-                    class="accordion-item mb-2 border rounded-3 overflow-hidden"
-                  >
-                    <h6 class="accordion-header" id="mentHeadingOne">
-                      <button
-                        class="accordion-button fw-semibold py-2 px-3 fs-6"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mentCollapseOne"
-                        aria-expanded="true"
-                        aria-controls="mentCollapseOne"
-                      >
-                        What is the time commitment required?
-                      </button>
-                    </h6>
-                    <div
-                      id="mentCollapseOne"
-                      class="accordion-collapse collapse show"
-                      aria-labelledby="mentHeadingOne"
-                      data-bs-parent="#volunteeringFaqAccordion"
-                    >
-                      <div
-                        class="accordion-body text-secondary small py-2 px-3"
-                      >
-                        volunteers typically commit 2 to 4 hours per month for a
-                        minimum of 1 year to build a meaningful, consistent
-                        bond.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="accordion-item mb-2 border rounded-3 overflow-hidden"
-                  >
-                    <h6 class="accordion-header" id="mentHeadingTwo">
-                      <button
-                        class="accordion-button collapsed fw-semibold py-2 px-3 fs-6"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mentCollapseTwo"
-                        aria-expanded="false"
-                        aria-controls="mentCollapseTwo"
-                      >
-                        Is background checking or training provided?
-                      </button>
-                    </h6>
-                    <div
-                      id="mentCollapseTwo"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="mentHeadingTwo"
-                      data-bs-parent="#volunteeringFaqAccordion"
-                    >
-                      <div
-                        class="accordion-body text-secondary small py-2 px-3"
-                      >
-                        Yes! All prospective volunteers complete a background
-                        screening and a brief orientation program before being
-                        paired.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="accordion-item mb-2 border rounded-3 overflow-hidden"
-                  >
-                    <h6 class="accordion-header" id="mentHeadingThree">
-                      <button
-                        class="accordion-button collapsed fw-semibold py-2 px-3 fs-6"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mentCollapseThree"
-                        aria-expanded="false"
-                        aria-controls="mentCollapseThree"
-                      >
-                        How are volunteers matched with children?
-                      </button>
-                    </h6>
-                    <div
-                      id="mentCollapseThree"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="mentHeadingThree"
-                      data-bs-parent="#volunteeringFaqAccordion"
-                    >
-                      <div
-                        class="accordion-body text-secondary small py-2 px-3"
-                      >
-                        We match based on shared interests, career aspirations,
-                        personality traits, and geographic location for best
-                        compatibility.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="accordion-item mb-2 border rounded-3 overflow-hidden"
-                  >
-                    <h6 class="accordion-header" id="mentHeadingFour">
-                      <button
-                        class="accordion-button collapsed fw-semibold py-2 px-3 fs-6"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mentCollapseFour"
-                        aria-expanded="false"
-                        aria-controls="mentCollapseFour"
-                      >
-                        Can I volunteer remotely or virtually?
-                      </button>
-                    </h6>
-                    <div
-                      id="mentCollapseFour"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="mentHeadingFour"
-                      data-bs-parent="#volunteeringFaqAccordion"
-                    >
-                      <div
-                        class="accordion-body text-secondary small py-2 px-3"
-                      >
-                        We offer both in-person and hybrid virtual volunteering
-                        options, depending on your availability and the youth's
-                        age group.
-                      </div>
-                    </div>
-                  </div>
+                    {% for faq in volunteering_faqs %}
+                    {% set uid="volunteer-" ~ faq.id %}
+                        <div class="accordion-item mb-2 border rounded-3 overflow-hidden">
+                        <h6 class="accordion-header" id="heading-{{ uid }}">
+                            <button
+                            class="accordion-button fs-5 fs-md-6 {% if not loop.first %}collapsed{% endif %} fw-semibold"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse-{{ uid }}"
+                            aria-expanded="{{ 'true' if loop.first else 'false' }}"
+                            aria-controls="collapse-{{ uid }}"
+                            >
+                            {{ faq.question }}
+                            </button>
+                        </h6>
+                        <div
+                            id="collapse-{{ uid }}"
+                            class="accordion-collapse collapse {% if loop.first %}show{% endif %}"
+                            aria-labelledby="heading-{{ uid }}"
+                            data-bs-parent="#volunteeringFaqAccordion"
+                        >
+                            <div class="accordion-body text-muted fs-5 fs-md-6 py-2 px-3">
+                            {{ faq.answer }}
+                            </div>
+                        </div>
+                        </div>
+                    {% endfor %}
                 </div>
 
                 <div class="mt-4">
                   <a
                     href="{{url_for('get_involved')}}#get-involved-form-section"
                     class="btn btn-donate px-4 py-2 align-self-center"
-                    >Learn More & Apply &rarr;
+                    >Learn More <i class="bi bi-arrow-right"></i>
                   </a>
                 </div>
               </div>
@@ -204,7 +120,7 @@
             <div class="col-lg-6">
               <div class="img-wrapper shadow rounded-4 overflow-hidden">
                 <img
-                  src="./static/images/slide1.jpg"
+                  src=" {{url_for('static', path='images/image-8.webp')}} "
                   class="img-fluid w-100"
                   alt="volunteering Program Placeholder"
                 />
@@ -230,7 +146,7 @@
             <div class="col-lg-6">
               <div class="img-wrapper shadow rounded-4 overflow-hidden">
                 <img
-                  src="./static/images/slide4.jpg"
+                  src=" {{url_for('static', path='images/image-9.webp')}} "
                   class="img-fluid w-100"
                   alt="wishlist Program Placeholder"
                 />
@@ -240,150 +156,50 @@
             <!-- content section -->
             <div class="col-lg-6">
               <div class="pe-lg-3">
-                <p class="lead text-muted mb-3">
-                  As a wishlist, you offer more than just your time—you provide
-                  a trusted sounding board, encouragement, and real-world
-                  guidance to help a child navigate life’s opportunities.
-                  <br />
-                  Our wishlisting program pairs dedicated adults with youth to
-                  build confidence, support academic and career goals, and
-                  foster long-term emotional resilience.
+                <p class="fs-4 fs-md-5 text-dark mb-3">
+                    Provide essential non-monetary gifts—such as food supplies, diapers,
+                    mobility aids, and educational materials—that sustain our 25 resident 
+                    children. In-kind donations ensure our home remains well-stocked
+                    with vital hygiene, therapy, and nutritional resources every month.
                 </p>
 
-                <h5 class="fw-semibold text-dark mb-3">
-                  Frequently Asked Questions
-                </h5>
-                <div class="accordion" id="wishlistingFaqAccordion">
-                  <div
-                    class="accordion-item mb-2 border rounded-3 overflow-hidden"
-                  >
-                    <h6 class="accordion-header" id="mentHeadingOne">
-                      <button
-                        class="accordion-button fw-semibold py-2 px-3 fs-6"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mentCollapseOne"
-                        aria-expanded="true"
-                        aria-controls="mentCollapseOne"
-                      >
-                        What is the time commitment required?
-                      </button>
-                    </h6>
-                    <div
-                      id="mentCollapseOne"
-                      class="accordion-collapse collapse show"
-                      aria-labelledby="mentHeadingOne"
-                      data-bs-parent="#wishlistingFaqAccordion"
-                    >
-                      <div
-                        class="accordion-body text-secondary small py-2 px-3"
-                      >
-                        wishlists typically commit 2 to 4 hours per month for a
-                        minimum of 1 year to build a meaningful, consistent
-                        bond.
-                      </div>
-                    </div>
-                  </div>
+                <h4 class="fw-semibold text-dark mb-3"> Frequently Asked Questions </h4>
+                <div class="accordion" id="wishlistingFaqAccordion"> 
+                    {% for faq in wishlist_faqs %}
+                    {% set uid="wishlist-" ~ faq.id %}
+                        <div class="accordion-item mb-2 border rounded-3 overflow-hidden">
+                        <h6 class="accordion-header" id="heading-{{ uid }}">
+                            <button
+                            class="accordion-button fs-5 fs-md-6 {% if not loop.first %}collapsed{% endif %} fw-semibold"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse-{{ uid }}"
+                            aria-expanded="{{ 'true' if loop.first else 'false' }}"
+                            aria-controls="collapse-{{ uid }}"
+                            >
+                            {{ faq.question }}
+                            </button>
+                        </h6>
+                        <div
+                            id="collapse-{{ uid }}"
+                            class="accordion-collapse collapse {% if loop.first %}show{% endif %}"
+                            aria-labelledby="heading-{{ uid }}"
+                            data-bs-parent="#wishlistingFaqAccordion"
+                        >
+                            <div class="accordion-body text-muted fs-5 fs-md-6 py-2 px-3">
+                            {{ faq.answer }}
+                            </div>
+                        </div>
+                        </div>
+                    {% endfor %}
 
-                  <div
-                    class="accordion-item mb-2 border rounded-3 overflow-hidden"
-                  >
-                    <h6 class="accordion-header" id="mentHeadingTwo">
-                      <button
-                        class="accordion-button collapsed fw-semibold py-2 px-3 fs-6"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mentCollapseTwo"
-                        aria-expanded="false"
-                        aria-controls="mentCollapseTwo"
-                      >
-                        Is background checking or training provided?
-                      </button>
-                    </h6>
-                    <div
-                      id="mentCollapseTwo"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="mentHeadingTwo"
-                      data-bs-parent="#wishlistingFaqAccordion"
-                    >
-                      <div
-                        class="accordion-body text-secondary small py-2 px-3"
-                      >
-                        Yes! All prospective wishlists complete a background
-                        screening and a brief orientation program before being
-                        paired.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="accordion-item mb-2 border rounded-3 overflow-hidden"
-                  >
-                    <h6 class="accordion-header" id="mentHeadingThree">
-                      <button
-                        class="accordion-button collapsed fw-semibold py-2 px-3 fs-6"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mentCollapseThree"
-                        aria-expanded="false"
-                        aria-controls="mentCollapseThree"
-                      >
-                        How are wishlists matched with children?
-                      </button>
-                    </h6>
-                    <div
-                      id="mentCollapseThree"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="mentHeadingThree"
-                      data-bs-parent="#wishlistingFaqAccordion"
-                    >
-                      <div
-                        class="accordion-body text-secondary small py-2 px-3"
-                      >
-                        We match based on shared interests, career aspirations,
-                        personality traits, and geographic location for best
-                        compatibility.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="accordion-item mb-2 border rounded-3 overflow-hidden"
-                  >
-                    <h6 class="accordion-header" id="mentHeadingFour">
-                      <button
-                        class="accordion-button collapsed fw-semibold py-2 px-3 fs-6"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mentCollapseFour"
-                        aria-expanded="false"
-                        aria-controls="mentCollapseFour"
-                      >
-                        Can I wishlist remotely or virtually?
-                      </button>
-                    </h6>
-                    <div
-                      id="mentCollapseFour"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="mentHeadingFour"
-                      data-bs-parent="#wishlistingFaqAccordion"
-                    >
-                      <div
-                        class="accordion-body text-secondary small py-2 px-3"
-                      >
-                        We offer both in-person and hybrid virtual wishlisting
-                        options, depending on your availability and the youth's
-                        age group.
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
                 <div class="mt-4">
                   <a
                     href="{{url_for('get_involved')}}#get-involved-form-section"
                     class="btn btn-donate px-4 py-2 align-self-center"
-                    >Learn More & Apply &rarr;
+                    >Learn More <i class="bi bi-arrow-right"></i>
                   </a>
                 </div>
               </div>
@@ -394,216 +210,112 @@
       </section>
 
       <!-- sponsoring -->
-      <section id="volunteering" class="py-5 feature-section bg-light">
+      <section id="sponsoring" class="py-5 feature-section bg-light">
         <div class="container py-lg-4">
         <!-- header section -->
-        <h2 class=" text-center display-4 fw-semibold text-dark mb-2">
-            Sponsoring
-        </h2>
+        <h2 class="text-center fw-semibold display-4 text-dark mb-2"> Sponsoring </h2>
 
           <div class="row align-items-center g-5">
-            <!-- text section -->
+            <!-- image section -->
+            <div class="col-lg-6">
+              <div class="img-wrapper shadow rounded-4 overflow-hidden">
+                <img
+                  src=" {{url_for('static', path='images/image-7.webp')}} "
+                  class="img-fluid w-100"
+                  alt="Sponsoring Program Placeholder"
+                />
+              </div>
+            </div>
+
+            <!-- content section -->
             <div class="col-lg-6">
               <div class="pe-lg-3">
-                <p class="lead text-muted mb-3">
-                  As a sponsor, you offer more than just your time—you provide a
-                  trusted sounding board, encouragement, and real-world guidance
-                  to help a child navigate life’s opportunities.
-                  <br />
-                  Our sponsoring program pairs dedicated adults with youth to
-                  build confidence, support academic and career goals, and
-                  foster long-term emotional resilience.
+                <p class="fs-4 fs-md-5 text-dark mb-3">
+                    Partner with us financially to cover child feeding costs, daily operations,
+                    or our permanent facility building fund. With parental fees covering
+                    only 40% of operational costs, monthly sponsorships bridge the critical 60%
+                    gap needed to sustain our care center.
                 </p>
 
-                <h5 class="fw-semibold text-dark mb-3">
-                  Frequently Asked Questions
-                </h5>
-                <div class="accordion" id="volunteeringFaqAccordion">
-                  <div
-                    class="accordion-item mb-2 border rounded-3 overflow-hidden"
-                  >
-                    <h6 class="accordion-header" id="mentHeadingOne">
-                      <button
-                        class="accordion-button fw-semibold py-2 px-3 fs-6"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mentCollapseOne"
-                        aria-expanded="true"
-                        aria-controls="mentCollapseOne"
-                      >
-                        What is the time commitment required?
-                      </button>
-                    </h6>
-                    <div
-                      id="mentCollapseOne"
-                      class="accordion-collapse collapse show"
-                      aria-labelledby="mentHeadingOne"
-                      data-bs-parent="#volunteeringFaqAccordion"
-                    >
-                      <div
-                        class="accordion-body text-secondary small py-2 px-3"
-                      >
-                        volunteers typically commit 2 to 4 hours per month for a
-                        minimum of 1 year to build a meaningful, consistent
-                        bond.
-                      </div>
-                    </div>
-                  </div>
+                <h4 class="fw-semibold text-dark mb-3"> Frequently Asked Questions </h4>
+                <div class="accordion" id="sponsoringFaqAccordion"> 
+                    {% for faq in sponsoring_faqs %}
+                    {% set uid="sponsoring-" ~ faq.id %}
+                        <div class="accordion-item mb-2 border rounded-3 overflow-hidden">
+                        <h6 class="accordion-header" id="heading-{{ uid }}">
+                            <button
+                            class="accordion-button fs-5 fs-md-6 {% if not loop.first %}collapsed{% endif %} fw-semibold"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse-{{ uid }}"
+                            aria-expanded="{{ 'true' if loop.first else 'false' }}"
+                            aria-controls="collapse-{{ uid }}"
+                            >
+                            {{ faq.question }}
+                            </button>
+                        </h6>
+                        <div
+                            id="collapse-{{ uid }}"
+                            class="accordion-collapse collapse {% if loop.first %}show{% endif %}"
+                            aria-labelledby="heading-{{ uid }}"
+                            data-bs-parent="#sponsoringFaqAccordion"
+                        >
+                            <div class="accordion-body text-muted fs-5 fs-md-6 py-2 px-3">
+                            {{ faq.answer }}
+                            </div>
+                        </div>
+                        </div>
+                    {% endfor %}
 
-                  <div
-                    class="accordion-item mb-2 border rounded-3 overflow-hidden"
-                  >
-                    <h6 class="accordion-header" id="mentHeadingTwo">
-                      <button
-                        class="accordion-button collapsed fw-semibold py-2 px-3 fs-6"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mentCollapseTwo"
-                        aria-expanded="false"
-                        aria-controls="mentCollapseTwo"
-                      >
-                        Is background checking or training provided?
-                      </button>
-                    </h6>
-                    <div
-                      id="mentCollapseTwo"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="mentHeadingTwo"
-                      data-bs-parent="#volunteeringFaqAccordion"
-                    >
-                      <div
-                        class="accordion-body text-secondary small py-2 px-3"
-                      >
-                        Yes! All prospective volunteers complete a background
-                        screening and a brief orientation program before being
-                        paired.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="accordion-item mb-2 border rounded-3 overflow-hidden"
-                  >
-                    <h6 class="accordion-header" id="mentHeadingThree">
-                      <button
-                        class="accordion-button collapsed fw-semibold py-2 px-3 fs-6"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mentCollapseThree"
-                        aria-expanded="false"
-                        aria-controls="mentCollapseThree"
-                      >
-                        How are volunteers matched with children?
-                      </button>
-                    </h6>
-                    <div
-                      id="mentCollapseThree"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="mentHeadingThree"
-                      data-bs-parent="#volunteeringFaqAccordion"
-                    >
-                      <div
-                        class="accordion-body text-secondary small py-2 px-3"
-                      >
-                        We match based on shared interests, career aspirations,
-                        personality traits, and geographic location for best
-                        compatibility.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="accordion-item mb-2 border rounded-3 overflow-hidden"
-                  >
-                    <h6 class="accordion-header" id="mentHeadingFour">
-                      <button
-                        class="accordion-button collapsed fw-semibold py-2 px-3 fs-6"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mentCollapseFour"
-                        aria-expanded="false"
-                        aria-controls="mentCollapseFour"
-                      >
-                        Can I volunteer remotely or virtually?
-                      </button>
-                    </h6>
-                    <div
-                      id="mentCollapseFour"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="mentHeadingFour"
-                      data-bs-parent="#volunteeringFaqAccordion"
-                    >
-                      <div
-                        class="accordion-body text-secondary small py-2 px-3"
-                      >
-                        We offer both in-person and hybrid virtual volunteering
-                        options, depending on your availability and the youth's
-                        age group.
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
                 <div class="mt-4">
                   <a
                     href="{{url_for('get_involved')}}#get-involved-form-section"
                     class="btn btn-donate px-4 py-2 align-self-center"
-                    >Learn More & Apply &rarr;
+                    >Learn More <i class="bi bi-arrow-right"></i>
                   </a>
                 </div>
               </div>
             </div>
-
-            <!-- image section -->
-            <div class="col-lg-6">
-              <div class="img-wrapper shadow rounded-4 overflow-hidden">
-                <img
-                  src="./static/images/slide1.jpg"
-                  class="img-fluid w-100"
-                  alt="sponsoring Program Placeholder"
-                />
-              </div>
-            </div>
-
           </div>
+
         </div>
       </section>
 
       <!-- get involved form -->
-      <section
-        id="get-involved-form-section"
-        class="py-5 get-involved-section position-relative"
-      >
+      <section id="get-involved-form-section" class="py-5 get-involved-section position-relative" >
         <div class="container py-lg-4 position-relative z-2">
           <div class="text-center mb-5">
-            <h2 class="display-5 fw-semibold">Get Involved</h2>
-            <p class="opacity-90 max-w-600 mx-auto">
+            <h2 class="display-4 fw-semibold text-dark">Get Involved</h2>
+            <p class="lead text-secondary">
               Fill out the form below to let us know how you would like to
               support our children and community.
             </p>
+
           </div>
 
           <div class="row justify-content-center">
-            <div class="col-lg-8 col-xl-7">
+            <div class="col-lg-10 col-xl-8">
               <div class="card shadow-lg border-0 rounded-4 p-4 p-md-5">
                 <form id="getInvolvedForm">
-                  <div class="row g-3">
+                  <div class="row g-3 fs-5">
 
-                  <div class="col-12">
-                    <label
-                      for="username"
-                      class="form-label fw-semibold text-dark"
-                      >Name <span class="text-danger">*</span></label
-                    >
-                    <input
-                      type="text"
-                      class="form-control form-control-lg rounded-3"
-                      id="username"
-                      name="username"
-                      placeholder="Jane Doe"
-                      required
-                    />
-                  </div>
+                    <div class="col-12">
+                        <label
+                        for="username"
+                        class="form-label fw-semibold text-dark"
+                        >Name <span class="text-danger">*</span></label
+                        >
+                        <input
+                        type="text"
+                        class="form-control form-control-lg rounded-3 fs-5"
+                        id="username"
+                        name="username"
+                        placeholder="Jane Doe"
+                        required
+                        />
+                    </div>
 
                     <div class="col-md-6">
                       <label
@@ -613,7 +325,7 @@
                       >
                       <input
                         type="from_email"
-                        class="form-control form-control-lg rounded-3"
+                        class="form-control form-control-lg rounded-3 fs-5"
                         id="from_email"
                         name="from_email"
                         placeholder="john.doe@example.com"
@@ -629,7 +341,7 @@
                       >
                       <input
                         type="tel"
-                        class="form-control form-control-lg rounded-3"
+                        class="form-control form-control-lg rounded-3 fs-5"
                         id="phone_number"
                         name="phone_number"
                         placeholder="+1 (555) 000-0000"
@@ -644,7 +356,7 @@
                         <span class="text-danger">*</span></label
                       >
                       <select
-                        class="form-select form-select-lg rounded-3"
+                        class="form-select form-select-lg rounded-3 fs-5"
                         id="interest"
                         name="interest"
                         required
@@ -667,7 +379,7 @@
                         >Message <span class="text-danger">*</span></label
                       >
                       <textarea
-                        class="form-control rounded-3"
+                        class="form-control rounded-3 fs-5"
                         id="message"
                         name="message"
                         rows="3"
@@ -675,7 +387,7 @@
                       ></textarea>
                     </div>
 
-                    <div class="col-12 mt-4 text-center">
+                    <div class="col-12 mt-4 text-center pt-3">
                       <button
                         type="submit"
                         class="btn btn-donate btn-lg w-100 fw-semibold rounded-pill py-3"
@@ -688,6 +400,7 @@
               </div>
             </div>
           </div>
+
         </div>
       </section>
 

@@ -15,218 +15,57 @@
         data-bs-interval="10000"
     >
     <div class="carousel-indicators">
-        <button
-            type="button"
-            data-bs-target="#heroCarousel"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-        ></button>
-        <button
-            type="button"
-            data-bs-target="#heroCarousel"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-        ></button>
-        <button
-            type="button"
-            data-bs-target="#heroCarousel"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-        ></button>
-        <button
-            type="button"
-            data-bs-target="#heroCarousel"
-            data-bs-slide-to="3"
-            aria-label="Slide 4"
+        {% for item in carousel_items %}
+            <button
+                type="button"
+                data-bs-target="#heroCarousel"
+                data-bs-slide-to="{{ loop.index0 }}"
+                class="{% if loop.first %} active {% endif %}"
+                aria-current="true"
+                aria-label="Slide {{ item.id }}"
             ></button>
+        {% endfor %}
     </div>
 
     <div class="carousel-inner h-80">
-        <div class="carousel-item active h-100">
-        <img
-            src="./static/images/slide1.jpg"
-            class="d-block w-100 h-100 hero-img"
-            alt="Slide 1 Placeholder"
-        />
-        <div
-            class="carousel-caption d-flex flex-column justify-content-center align-items-center"
-        >
-            <h1 class="display-2 fw-bold text-white mb-3">Welcome to SCOM</h1>
-            <p class="lead text-white">
-            Providing a safe, loving, and supportive home for children in need.
-            </p>
-        </div>
-        </div>
-
-        <div class="carousel-item h-100">
-        <img
-            src="./static/images/slide2.jpg"
-            class="d-block w-100 h-100 hero-img"
-            alt="Slide 2 Placeholder"
-        />
-        <div
-            class="carousel-caption d-flex flex-column justify-content-center align-items-center"
-        >
-            <h1 class="display-2 fw-bold text-white mb-3">
-            Empowering Young Minds
-            </h1>
-            <p class="lead text-white">
-            Ensuring quality education, healthcare, and lifelong support.
-            </p>
-        </div>
-        </div>
-
-        <div class="carousel-item h-100">
-        <img
-            src="./static/images/slide3.jpg"
-            class="d-block w-100 h-100 hero-img"
-            alt="Slide 3 Placeholder"
-        />
-        <div
-            class="carousel-caption d-flex flex-column justify-content-center align-items-center"
-        >
-            <h1 class="display-2 fw-bold text-white mb-3">A Place Called Home</h1>
-            <p class="lead text-white">
-            Creating strong bonds and a nurturing family environment.
-            </p>
-        </div>
-        </div>
-
-        <div class="carousel-item h-100">
-        <img
-            src="./static/images/slide4.jpg"
-            class="d-block w-100 h-100 hero-img"
-            alt="Slide 4 Placeholder"
-        />
-        <div
-            class="carousel-caption d-flex flex-column justify-content-center align-items-center"
-        >
-            <h1 class="display-2 fw-bold text-white mb-3">Join Our Cause</h1>
-            <p class="lead text-white">
-            Your contributions help us build brighter futures every day.
-            </p>
-        </div>
-        </div>
+        {% for item in carousel_items %}
+        <div class="carousel-item h-100 {% if loop.first  %} active {% endif %}">
+                <img src="{{ url_for('static', path=item.image.src) }}" class="d-block w-100 h-100 hero-img" alt="{{ item.image.alt }}" />
+                <div class="carousel-caption d-flex flex-column justify-content-center align-items-center" >
+                    <h1 class="display-2 fw-bold text-white mb-3">{{ item.title }}</h1>
+                    <p class="lead text-white fs-4"> {{ item.content }} </p>
+                    {% if item.btn_url %}
+                        <a href="{{ item.btn_url }}">
+                            <button class="btn btn-donate fs-4">{{ item.btn_text }} <i class="bi bi-arrow-right"></i></button>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
     </div>
 
     <!-- prev/next carousel image buttons -->
-    <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#heroCarousel"
-        data-bs-slide="prev"
-    >
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" >
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
-    <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#heroCarousel"
-        data-bs-slide="next"
-    >
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
     </header>
     <!-- END HERO SECTION -->
 
-    {#
-    <!-- PROBLEM STATEMENT BEGIN -->
-    <section id="problem" class="py-5 feature-section bg-light">
-        <div class="container py-lg-4">
-
-            <!-- header section -->
-            <h2 class="text-center display-4 fw-bold text-dark mb-3">The Challenge</h2>
-
-            <!-- NOTE: the flex-column-reverse here switches the layout for mobile devices,
-            pushing the image behind the content -->
-            <div class="row align-items-center g-5 flex-column-reverse flex-lg-row">
-                <!-- image side -->
-                <div class="col-lg-6">
-                    <div class="img-wrapper shadow rounded-4 overflow-hidden">
-                    <img
-                        src="./static/images/problem.jpg"
-                        class="img-fluid w-100 h-100"
-                        alt="The Challenge Placeholder"
-                    />
-                    </div>
-                </div>
-
-                <!-- text side -->
-                <div class="col-lg-6">
-                    <div class="pe-lg-3">
-                    <p class="lead text-muted mb-3">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident. Ut enim ad
-                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident.
-                    </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- PROBLEM STATEMENT END -->
-
-    <!-- SOLUTION SECTION START -->
-    <section id="solution" class="py-5 feature-section">
-        <div class="container py-lg-4">
-
-            <!-- header section -->
-            <h2 class="text-center display-4 fw-bold text-dark mb-3">The Solution</h2>
-
-            <!-- NOTE: the flex-column-reverse here switches the layout for mobile devices,
-            pushing the image behind the content -->
-            <div class="row align-items-center g-5 flex-column-reverse flex-lg-row">
-                <!-- text side -->
-                <div class="col-lg-6 order-2 order-lg-1">
-                    <div class="ps-lg-3">
-                    <p class="lead text-muted mb-3">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed ut
-                        perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-                        inventore veritatis et quasi architecto beatae vitae dicta sunt
-                        explicabo. Nemo enim ipsam voluptatem. Sed ut perspiciatis unde
-                        omnis iste natus error sit voluptatem accusantium doloremque
-                        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                        veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                        Nemo enim ipsam voluptatem.
-                    </p>
-                    </div>
-                </div>
-
-                <!-- image side -->
-                <div class="col-lg-6 order-1 order-lg-2">
-                    <div class="img-wrapper shadow rounded-4 overflow-hidden">
-                    <img
-                        src="./static/images/problem.jpg"
-                        class="img-fluid w-100"
-                        alt="The Solution Placeholder"
-                    />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- solution section end -->
-    #}
 
     <!-- start our mission section -->
     <section id="mission" class="py-5 feature-section bg-light">
         <div class="container py-lg-4">
 
             <!-- header section -->
-            <h2 class="text-center display-4 fw-bold text-dark mb-3">Our Mission</h2>
+            <div class="text-center mb-3">
+            <h2 class="display-4 fw-semibold text-dark">Our Mission</h2>
+            <p class="lead text-secondary">Driven By Purpose</p>
+            </div>
 
             <!-- NOTE: the flex-column-reverse here switches the layout for mobile devices,
             pushing the image behind the content -->
@@ -235,9 +74,9 @@
                 <div class="col-lg-6">
                     <div class="img-wrapper shadow rounded-4 overflow-hidden">
                     <img
-                        src="./static/images/problem.jpg"
+                        src="{{ url_for('static', path='images/image-3.webp') }}" 
                         class="img-fluid w-100 h-100"
-                        alt="The Challenge Placeholder"
+                        alt="Our Mission"
                     />
                     </div>
                 </div>
@@ -245,19 +84,87 @@
                 <!-- text side -->
                 <div class="col-lg-6">
                     <div class="pe-lg-3">
-                    <p class="lead text-muted mb-3">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident. Ut enim ad
-                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident.
+                    <p class="fs-4 fs-md-5 text-dark mb-3">
+                        At Service for Christ Outreach Ministry (SCOM), our mission
+                        is rooted in reaching out to the most vulnerable disabled 
+                        children and orphans with an open heart and a compassionate
+                        helping hand. Founded as a faith-based non-profit organization,
+                        we are dedicated to empowering children living with physical,
+                        intellectual, and developmental challenges—such as Autism and 
+                        Down syndrome—who come from impoverished backgrounds and informal
+                        settlements. Through specialized education, comprehensive caregiving,
+                        therapeutic support, and essential daily nourishment, we strive to break
+                        down societal barriers, eliminate stigma, and provide a safe sanctuary 
+                        where every child can experience love and realize their God-given potential.
                     </p>
                     </div>
+                </div>
+
+                <!-- the cards -->
+                <div class=" mission-section row g-4 py-5 py-lg-4">
+
+                    <!-- Card 1: Social Transformation -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card mission-card h-100 border-0 shadow-sm p-4 text-center">
+                        <div class="icon-box mx-auto mb-4 bg-primary-subtle text-primary">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h4 class="fw-medium text-dark mb-3">Social Transformation</h4>
+                        <p class="fs-5 text-muted mb-0">
+                            We break down societal stigma and isolation by creating
+                            an inclusive, safe home environment where special needs
+                            children are treated with dignity, loved for who they are,
+                            and integrated into active community life. 
+                        </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Physical Transformation -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card mission-card h-100 border-0 shadow-sm p-4 text-center">
+                        <div class="icon-box mx-auto mb-4 bg-info-subtle text-info">
+                            <i class="bi bi-heart-pulse-fill"></i>
+                        </div>
+                        <h4 class="fw-medium text-dark mb-3">Physical Transformation</h4>
+                        <p class="fs-5 text-muted mb-0">
+                            Through dedicated occupational and physical therapies,
+                            well-balanced daily nutrition, and specialized caregiving,
+                            we work to enhance each child's mobility, immunity, and 
+                            overall health. 
+                        </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Economic Transformation -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card mission-card h-100 border-0 shadow-sm p-4 text-center">
+                        <div class="icon-box mx-auto mb-4 bg-danger-subtle text-danger">
+                            <i class="bi bi-wallet2"></i>
+                        </div>
+                        <h4 class="fw-medium text-dark mb-3">Economic Transformation</h4>
+                        <p class="fs-5 text-muted mb-0">
+                            We equip children with practical life skills and vocational
+                            training tailored to their unique capabilities, laying the 
+                            foundation for self-reliance and future independence. 
+                        </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Spiritual Transformation -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card mission-card h-100 border-0 shadow-sm p-4 text-center">
+                        <div class="icon-box mx-auto mb-4 bg-success-subtle text-success">
+                            <i class="bi bi-brightness-high-fill"></i>
+                        </div>
+                        <h4 class="fw-medium text-dark mb-3">Spiritual Transformation</h4>
+                        <p class="fs-5 text-muted mb-0">
+                            Anchored in Christian values and the teachings of Jesus Christ,
+                            we nurture each child’s spiritual well-being through faith, worship,
+                            and compassionate love. 
+                        </p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -269,23 +176,26 @@
         <div class="container py-lg-4">
 
             <!-- header section -->
-            <h2 class="text-center display-4 fw-bold text-dark mb-3">Our Vision</h2>
+            <div class="text-center mb-3">
+            <h2 class="display-4 fw-semibold text-dark">Our Vision</h2>
+            <p class=" lead text-secondary">The world we see</p>
+            </div>
 
             <div class="row align-items-center g-5">
                 <!-- text side -->
                 <div class="col-lg-6">
                     <div class="pe-lg-3">
-                    <p class="lead text-muted mb-3">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident. Ut enim ad
-                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident.
+                    <p class="fs-4 fs-md-5 text-dark mb-3">
+                        We are anchored in providing a compassionate, Christ-centered care to 
+                        vulnerable disabled children and orphans in our society. We
+                        foresee a transformed future across Kenya where children living
+                        with Autism, Down syndrome, physical impairments, and developmental
+                        challenges are no longer hidden away or marginalized, but fully embraced,
+                        protected, and loved. Driven by faith, we foresee a future 
+                        where poverty and disability no longer define a child's destiny,
+                        and where every family in underserved rural areas and informal 
+                        settlements receives the support, resources, and spiritual hope 
+                        needed for their children to flourish into independent, fulfilled individuals.
                     </p>
                     </div>
                 </div>
@@ -294,9 +204,9 @@
                 <div class="col-lg-6">
                     <div class="img-wrapper shadow rounded-4 overflow-hidden">
                     <img
-                        src="./static/images/problem.jpg"
+                        src="{{ url_for('static', path='images/image-4.webp') }}" 
                         class="img-fluid w-100 h-100"
-                        alt="The Challenge Placeholder"
+                        alt="Our Vision"
                     />
                     </div>
                 </div>
@@ -311,123 +221,42 @@
     <section id="faq" class="py-5 faq-section bg-light">
         <div class="container py-lg-4">
             <div class="text-center mb-3">
-            <h2 class="display-4 fw-semibold text-dark">FAQ</h2>
-            <p class="text-secondary">
-                Learn more about our approach and why our care model stands out.
-            </p>
+                <h2 class="display-4 fw-semibold text-dark">FAQ</h2>
+                <p class="lead text-secondary">
+                    Learn more about our approach and why our care model stands out.
+                </p>
             </div>
 
             <div class="row justify-content-center">
             <div class="col-lg-9">
-                <div class="accordion" id="faqAccordion">
-                <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
-                    <h2 class="accordion-header" id="headingOne">
-                    <button
-                        class="accordion-button fw-semibold"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne"
-                        aria-expanded="true"
-                        aria-controls="collapseOne"
-                    >
-                        How do we provide family-style care?
-                    </button>
-                    </h2>
-                    <div
-                    id="collapseOne"
-                    class="accordion-collapse collapse show"
-                    aria-labelledby="headingOne"
-                    data-bs-parent="#faqAccordion"
-                    >
-                    <div class="accordion-body text-secondary">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                        enim ad minim veniam, quis nostrud exercitation.
+                {% for item in faqs %}
+                    <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
+                        <h2 class="accordion-header" id="heading{{item.id}}">
+                        <button
+                            class="accordion-button fs-5 fs-md-6 {% if not loop.first %} collapsed {% endif %} fw-semibold"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse{{item.id}}"
+                            aria-expanded="{% if loop.first %} true {% else %} false {% endif %}"
+                            aria-controls="collapse{{item.id}}"
+                        >
+                            {{item.question}}
+                        </button>
+                        </h2>
+                        <div
+                        id="collapse{{item.id}}"
+                        class="accordion-collapse collapse {% if loop.first %} show {% endif %}"
+                        aria-labelledby="heading{{item.id}}"
+                        data-bs-parent="#faqAccordion"
+                        >
+                        <div class="accordion-body fs-5 fs-md-6 text-secondary">
+                            {{item.answer}}
+                        </div>
+                        </div>
                     </div>
-                    </div>
-                </div>
+                {% endfor %}
 
-                <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
-                    <h2 class="accordion-header" id="headingTwo">
-                    <button
-                        class="accordion-button collapsed fw-semibold"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo"
-                        aria-expanded="false"
-                        aria-controls="collapseTwo"
-                    >
-                        Where does my donation go?
-                    </button>
-                    </h2>
-                    <div
-                    id="collapseTwo"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="headingTwo"
-                    data-bs-parent="#faqAccordion"
-                    >
-                    <div class="accordion-body text-secondary">
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia.
-                    </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
-                    <h2 class="accordion-header" id="headingThree">
-                    <button
-                        class="accordion-button collapsed fw-semibold"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree"
-                        aria-expanded="false"
-                        aria-controls="collapseThree"
-                    >
-                        Can I visit or volunteer in person?
-                    </button>
-                    </h2>
-                    <div
-                    id="collapseThree"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="headingThree"
-                    data-bs-parent="#faqAccordion"
-                    >
-                    <div class="accordion-body text-secondary">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                        quae ab illo inventore veritatis.
-                    </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
-                    <h2 class="accordion-header" id="headingFour">
-                    <button
-                        class="accordion-button collapsed fw-semibold"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseFour"
-                        aria-expanded="false"
-                        aria-controls="collapseFour"
-                    >
-                        What long-term support do we offer to aging-out youth?
-                    </button>
-                    </h2>
-                    <div
-                    id="collapseFour"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="headingFour"
-                    data-bs-parent="#faqAccordion"
-                    >
-                    <div class="accordion-body text-secondary">
-                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                        aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                        voluptatem sequi nesciunt.
-                    </div>
-                    </div>
-                </div>
-                </div>
             </div>
             </div>
         </div>
@@ -508,7 +337,7 @@
             <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-6">
                 <h2 class="display-6 fw-bold mb-3">Subscribe to Our Newsletter</h2>
-                <p class="lead opacity-75 mb-4">
+                <p class="lead text-secondary mb-4">
                 Join our community to receive updates on our children, upcoming
                 events, and stories of impact.
                 </p>

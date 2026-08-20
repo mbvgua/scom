@@ -1,0 +1,119 @@
+/*
+ ***************************
+ * DONATE PAGE
+ ***************************
+ */
+
+.donate-image-section {
+  .donate-link {
+    color: $red;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: darken($red, 10%);
+      text-decoration: underline;
+    }
+  }
+}
+
+.account-card {
+  border: 1px solid rgba(black, 0.08);
+  transition: box-shadow 0.25s ease;
+}
+
+.account-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 0;
+  border-bottom: 1px dashed rgba(black, 0.12);
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.account-label {
+  font-family: $font-text;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: lighten($text-dark, 30%);
+}
+
+.account-value-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.account-value {
+  word-break: break-word;
+
+  &--code {
+    font-family: $font-code, monospace;
+    letter-spacing: 0.5px;
+  }
+}
+
+.copy-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  height: 38px;
+  padding: 0 0.65rem;
+  border: 1px solid rgba(black, 0.12);
+  border-radius: 8px;
+  background-color: white;
+  color: lighten($text-dark, 20%);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  i {
+    font-size: 0.95rem;
+    pointer-events: none;
+  }
+
+  // Hidden label element
+  .copy-text {
+    display: none;
+    font-family: font-text;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1;
+  }
+
+  &:hover {
+    background-color: rgba($red, 0.08);
+    border-color: rgba($red, 0.3);
+    color: $red;
+  }
+
+  &:active {
+    transform: scale(0.94);
+  }
+
+  // Toggled via JS upon successful copy
+  &.copied {
+    font-family: $font-text;
+    background-color: $red;
+    border-color: $red;
+    color: $white;
+
+    .copy-text {
+      display: inline-block;
+    }
+  }
+}

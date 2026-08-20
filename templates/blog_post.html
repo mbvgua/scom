@@ -31,42 +31,42 @@
                     <div class="row justify-content-center">
 
                         <!-- AUTHOR & SHARE BAR -->
-<div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-3 pb-3 border-bottom">
-    <div class="d-flex align-items-center">
-        <img src="{{ blog.avatar }}" class="rounded-circle me-3" width="60" height="60" alt="Author avatar">
-        <div class="blog-meta">
-            <h5 class="mb-0 fw-semibold text-dark">{{ blog.author }}</h5>
-            <label class="text-muted fw-normal">
-                {{ blog.last_modified.strftime("%A, %d %B %Y") }} <i class="bi bi-dot"></i> {{ reading_time }} min read
-            </label>
-        </div>
-    </div>
-    
-    <!-- Social Share Links -->
-    <div class="share-buttons text-muted">
-        <label class="me-2 text-uppercase text-dark fw-semibold">Share: </label>
-        {% set article_quote="This is an amazing article. You should defintely give it a read" %}
-        
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url_for('blog_post', slug=blog.slug) }}&q={{ article_quote }}&display=page"
-           class="post-icon-link post-icon-link--facebook"
-           aria-label="Facebook">
-            <i class="bi bi-facebook"></i>
-        </a>
+                        <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-3 pb-3 border-bottom">
+                            <div class="d-flex align-items-center">
+                                <img src="{{ blog.avatar }}" class="rounded-circle me-3" width="60" height="60" alt="Author avatar">
+                                <div class="blog-meta">
+                                    <h5 class="mb-0 fw-semibold text-dark">{{ blog.author }}</h5>
+                                    <label class="text-muted fw-normal">
+                                        {{ blog.last_modified.strftime("%A, %d %B %Y") }} <i class="bi bi-dot"></i> {{ reading_time }} min read
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Social Share Links -->
+                            <div class="share-buttons text-muted">
+                                <label class="me-2 text-uppercase text-dark fw-semibold">Share: </label>
+                                {% set article_quote="This is an amazing article. You should defintely give it a read" %}
+                                
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url_for('blog_post', slug=blog.slug) }}&q={{ article_quote }}&display=page"
+                                class="post-icon-link post-icon-link--facebook"
+                                aria-label="Facebook">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
 
-        <a href="https://twitter.com/intent/tweet?url={{ request.url_for('blog_post', slug=blog.slug) }}&text={{ article_quote }}&hashtags=KE" 
-           class="post-icon-link post-icon-link--twitter" 
-           aria-label="Twitter">
-            <i class="bi bi-twitter"></i>
-        </a>
+                                <a href="https://twitter.com/intent/tweet?url={{ request.url_for('blog_post', slug=blog.slug) }}&text={{ article_quote }}&hashtags=KE" 
+                                class="post-icon-link post-icon-link--twitter" 
+                                aria-label="Twitter">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
 
-        <a href="https://wa.me/?text={{ (article_quote ~ ' ' ~ request.url_for('blog_post', slug=blog.slug)) | urlencode }}" 
-           class="post-icon-link post-icon-link--whatsapp" 
-           aria-label="WhatsApp" 
-           target="_blank">
-            <i class="bi bi-whatsapp"></i>
-        </a>
-    </div>
-</div>
+                                <a href="https://wa.me/?text={{ (article_quote ~ ' ' ~ request.url_for('blog_post', slug=blog.slug)) | urlencode }}" 
+                                class="post-icon-link post-icon-link--whatsapp" 
+                                aria-label="WhatsApp" 
+                                target="_blank">
+                                    <i class="bi bi-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
 
                         <!-- POST BODY -->
                         <article class="blog-post-body fs-4 fs-md-5 text-dark lh-lg">

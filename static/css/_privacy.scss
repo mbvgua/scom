@@ -3,25 +3,6 @@
  * PRIVACY_POLICY.HTML PAGE
  ***************************
 */
-// --- Subpage Header ---
-.page-header {
-  // background: linear-gradient(135deg, $dark-blue, darken($dark-blue, 10%));
-  color: $white;
-  margin-bottom: 2.5rem;
-
-  h1 {
-    font-family: $font-text;
-    // font-size: 2.75rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    font-size: 1.4rem;
-    margin: 0;
-  }
-}
-
 // --- Layout & Content ---
 .privacy-content {
   padding-bottom: 4rem;
@@ -29,7 +10,7 @@
   // Sticky Navigation Card
   .privacy-nav-card {
     position: sticky;
-    top: 2rem;
+    top: 7rem; // leave space for navbar
     border: 2px solid $red;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -39,7 +20,6 @@
       color: $white;
       font-family: $font-text;
       font-weight: 600;
-      font-size: 1.1rem;
       padding: 1rem 1.25rem;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
@@ -67,7 +47,7 @@
     background: $white;
     padding: 2.5rem;
     border-radius: 12px;
-    border: 1px solid rgba($light-blue, 0.4);
+    border: 1px solid rgba($red, 0.4);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 
     section {
@@ -82,7 +62,7 @@
       font-family: $font-text;
       margin-bottom: 1rem;
       padding-bottom: 0.5rem;
-      border-bottom: 2px solid rgba($light-blue, 0.4);
+      border-bottom: 2px solid rgba($red, 0.4);
 
       i {
         color: $red;
@@ -93,7 +73,6 @@
     li {
       line-height: 1.7;
       color: $text-dark;
-      font-size: 1rem;
     }
 
     ul {
@@ -116,7 +95,6 @@
       h4 {
         font-family: $font-text;
         color: $red;
-        font-size: 1.15rem;
         margin-bottom: 0.5rem;
         display: flex;
         align-items: center;
@@ -125,11 +103,9 @@
 
       p {
         margin: 0;
-        font-size: 0.95rem;
         // font-weight: 500;
         color: $text-dark;
       }
     }
   }
 }
-

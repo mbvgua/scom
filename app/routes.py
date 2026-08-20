@@ -2,6 +2,16 @@ from typing import Optional
 
 from fastapi.responses import RedirectResponse
 
+from app.data import (
+    CAROUSEL_ITEMS,
+    FAQS,
+    PROGRAMS,
+    SPONSORING_FAQS,
+    TEAM,
+    TIMELINE,
+    VOLUNTEERING_FAQS,
+    WISHLIST_FAQS,
+)
 from app.utils.jinja2 import calculate_reading_time
 from fastapi import APIRouter, HTTPException, Request, status
 
@@ -25,7 +35,15 @@ def home(request: Request):
     blogs = get_all_blogs()
 
     return templates.TemplateResponse(
-        request, "home.html", {"title": title, "blogs": blogs[:3]}, status.HTTP_200_OK
+        request,
+        "home.html",
+        {
+            "title": title,
+            "carousel_items": CAROUSEL_ITEMS,
+            "faqs": FAQS,
+            "blogs": blogs[:3],
+        },
+        status.HTTP_200_OK,
     )
 
 
@@ -36,7 +54,10 @@ def about_us(request: Request):
     """
     title: str = "About Us"
     return templates.TemplateResponse(
-        request, "about_us.html", {"title": title}, status.HTTP_200_OK
+        request,
+        "about_us.html",
+        {"title": title, "timeline": TIMELINE, "team": TEAM},
+        status.HTTP_200_OK,
     )
 
 
@@ -47,7 +68,10 @@ def programs(request: Request):
     """
     title: str = "Programs"
     return templates.TemplateResponse(
-        request, "programs.html", {"title": title}, status.HTTP_200_OK
+        request,
+        "programs.html",
+        {"title": title, "programs": PROGRAMS},
+        status.HTTP_200_OK,
     )
 
 
@@ -58,7 +82,15 @@ def get_involved(request: Request):
     """
     title: str = "Get Involved"
     return templates.TemplateResponse(
-        request, "get_involved.html", {"title": title}, status.HTTP_200_OK
+        request,
+        "get_involved.html",
+        {
+            "title": title,
+            "volunteering_faqs": VOLUNTEERING_FAQS,
+            "wishlist_faqs": WISHLIST_FAQS,
+            "sponsoring_faqs": SPONSORING_FAQS,
+        },
+        status.HTTP_200_OK,
     )
 
 

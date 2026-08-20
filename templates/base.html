@@ -26,7 +26,7 @@
 
         <!-- entire left section for branding -->
         <div class="navbar-brand d-flex align-items-center gap-3">
-            <img src="{{ url_for('static', path='images/logo-bg.png') }}" alt="SCOM Logo">
+            <img src="{{ url_for('static', path='images/logo/logo-bg.png') }}" alt="SCOM Logo">
 
             <div class="navbar-logo d-flex flex-column justify-content-center">
                 <a class="brand-title fw-bold" href="{{url_for('home')}}"> Service for Christ Outreach Ministry </a>
@@ -79,21 +79,7 @@
                 <li>
                   <a
                     class="dropdown-item py-2 fw-medium"
-                    href="{{url_for('about_us')}}#mission"
-                    >Our Misison</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item py-2 fw-medium"
-                    href="{{url_for('about_us')}}#vision"
-                    >Our Vision</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item py-2 fw-medium"
-                    href="{{url_for('about_us')}}#team"
+                    href="{{url_for('about_us')}}#our-team"
                     >Our Team</a
                   >
                 </li>
@@ -101,7 +87,7 @@
                   <a
                     class="dropdown-item py-2 fw-medium"
                     href="{{url_for('blog_list')}}"
-                    >Blog</a
+                    >Our Blog</a
                   >
                 </li>
               </ul>
