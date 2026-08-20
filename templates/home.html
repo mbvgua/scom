@@ -30,7 +30,7 @@
     <div class="carousel-inner h-80">
         {% for item in carousel_items %}
         <div class="carousel-item h-100 {% if loop.first  %} active {% endif %}">
-                <img src="{{ item.image }}" class="d-block w-100 h-100 hero-img" alt="{{ item.placeholder }}" />
+                <img src="{{ url_for('static', path=item.image.src) }}" class="d-block w-100 h-100 hero-img" alt="{{ item.image.alt }}" />
                 <div class="carousel-caption d-flex flex-column justify-content-center align-items-center" >
                     <h1 class="display-2 fw-bold text-white mb-3">{{ item.title }}</h1>
                     <p class="lead text-white fs-4"> {{ item.content }} </p>
@@ -74,9 +74,9 @@
                 <div class="col-lg-6">
                     <div class="img-wrapper shadow rounded-4 overflow-hidden">
                     <img
-                        src="./static/images/problem.jpg"
+                        src="{{ url_for('static', path='images/image-3.webp') }}" 
                         class="img-fluid w-100 h-100"
-                        alt="The Challenge Placeholder"
+                        alt="Our Mission"
                     />
                     </div>
                 </div>
@@ -204,9 +204,9 @@
                 <div class="col-lg-6">
                     <div class="img-wrapper shadow rounded-4 overflow-hidden">
                     <img
-                        src="./static/images/problem.jpg"
+                        src="{{ url_for('static', path='images/image-4.webp') }}" 
                         class="img-fluid w-100 h-100"
-                        alt="The Challenge Placeholder"
+                        alt="Our Vision"
                     />
                     </div>
                 </div>

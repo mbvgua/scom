@@ -1,0 +1,19 @@
+.donate-image-section {
+
+  .donate-card-wrapper {
+    max-width: 850px; // Ensures the image stays large, readable, and well-proportioned
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.12) !important;
+    }
+
+    .donate-img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}

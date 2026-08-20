@@ -11,6 +11,7 @@
     <!-- START MINI HEADER SECTION -->
     <header
       class="page-header d-flex align-items-center justify-content-center text-center"
+     style="--bg-image: url('{{ url_for('static', path='images/image-1.webp') }}')"
     >
       <div class="container hero-content">
         <h1 class="display-1 fw-bold text-white">About Us</h1>
@@ -26,7 +27,7 @@
             <div class="text-center mb-3">
                 <h2 class="display-4 fw-semibold text-dark mb-3">Our History</h2>
                 <p class="lead text-secondary">
-                    A history of love, dedication, and building brighter futures.
+                    Where we came from
                 </p>
             </div>
               <p class="fs-4 fs-md-5 text-dark mb-4 text-start">
@@ -62,7 +63,7 @@
                 <div class="col-lg-8">
                 <h2 class="display-4 fw-semibold text-dark mb-3">Milestones of Hope</h2>
                 <p class="lead text-muted">
-                    Our journey so far...
+                    Our journey so far
                 </p>
                 </div>
             </div>
@@ -78,7 +79,7 @@
                     </div>
                     <div class="col-md-6 timeline-image {{ 'ps-md-5' if is_even else 'pe-md-5' }}">
                         <img
-                        src="./static/images/{{ item.image.src }}"
+                        src="{{ url_for('static', path=item.image.src) }}"
                         class="img-fluid rounded-4 shadow-sm w-100 object-fit-cover"
                         style="height: 350px"
                         alt="{{ item.image.alt }}"
@@ -107,9 +108,9 @@
                 <div class="card h-100 shadow border-0 rounded-4 overflow-hidden bg-white team-card position-relative" >
                     <div class="card-img-wrapper position-relative" style="height: 380px" >
                     <img
-                        src="./static/images/team/{{member.image.src}}"
+                        src="{{ url_for('static', path=member.image.src) }}"
                         class="w-100 h-100 object-fit-cover"
-                        alt="{{member.image.alt}}"
+                        alt="{{ member.image.alt }}"
                     />
                     <div class="card-img-overlay d-flex flex-column justify-content-end p-4 team-overlay" >
                         <h4 class="fw-semibold text-white mb-1">

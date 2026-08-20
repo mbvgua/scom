@@ -17,41 +17,43 @@
     <!-- END MINI HEADER SECTION -->
 
     <!-- INTRO TO WHY TO DONATE SECTION -->
-    <section class="py-5 bg-light">
+    <section class="py-5">
     <div class="container">
         <div class="row justify-content-center text-center mb-5">
         <div class="col-lg-9">
-            <h2 class="display-6 fw-bold text-dark mt-2 mb-3">Your Support Transforms Lives</h2>
-            <p class="lead text-secondary">
-            Every shilling and every act of kindness given to SCOM Children’s Home directly strengthens our community. Together, we provide a safe refuge, quality education, and nutritious meals, creating moments of hope that redefine what is possible for our children and families. Choose the way you would like to stand with us today.
+            <p class="fs-4 fs-md-5 text-dark mb-3">
+                Every shilling and every act of kindness given to SCOM Children’s Home directly
+                strengthens our community. Together, we provide a safe refuge, quality education,
+                and nutritious meals, creating moments of hope that redefine what is possible for
+                our children and families. Choose the way you would like to stand with us today.
             </p>
         </div>
         </div>
 
         <div class="row g-4 justify-content-center">
             <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 p-4" style="background-color:#f9f9f9;">
+                <div class="card h-100 border-2 border-rounded p-4" style="background-color:#f9f9f9;">
                 <div class="card-body d-flex flex-column p-0">
                     <div class="mb-3">
-                    <span class="fs-2">💵</span>
+                        <span class="fs-1">💵</span>
                     </div>
-                    <h5 class="fw-semibold text-dark mb-2">Cash & M-Pesa Giving</h5>
-                    <p class="text-muted flex-grow-1">
+                    <h5 class="fw-semibold fs-4 text-dark mb-2">Cash & M-Pesa Giving</h5>
+                    <p class="text-muted fs-5 fs-md-6 flex-grow-1">
                     A one-time or monthly recurring financial contribution to provide immediate support for food, shelter, and school fees. Kindly fill out the donation form below to proceed.
                     </p>
-                    <a href="{{url_for('donate')}}#donate-form" class="rounded-4 fw-semibold text-decoration-none text-danger mt-2">Donate Below &rarr;</a>
+                    <a href="{{url_for('donate')}}#donate-section" class="rounded-4 fw-semibold text-decoration-none text-danger mt-2">Donate Below &rarr;</a>
                 </div>
                 </div>
             </div>
 
             <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 p-4" style="background-color:#f9f9f9;">
+                <div class="card h-100 border-2 border-rounded p-4" style="background-color:#f9f9f9;">
                 <div class="card-body d-flex flex-column p-0">
                     <div class="mb-3">
-                    <span class="fs-2">📦</span>
+                        <span class="fs-1">📦</span>
                     </div>
-                    <h5 class="fw-semibold text-dark mb-2">In-Kind & Material Goods</h5>
-                    <p class="text-muted flex-grow-1">
+                    <h5 class="fw-semibold fs-4 text-dark mb-2">In-Kind & Material Goods</h5>
+                    <p class="text-muted fs-5 fs-md-6 flex-grow-1">
                     Donate foodstuffs (dry grains, milk), clothing, stationery, or household supplies that directly support our home. Please reach out to us first to confirm our current pressing needs.
                     </p>
                     <a href="{{url_for('contact_us')}}#contact-form" class="fw-semibold text-decoration-none text-danger mt-2">Learn More &rarr;</a>
@@ -60,13 +62,13 @@
             </div>
 
             <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 p-4" style="background-color:#f9f9f9;">
+                <div class="card h-100 border-2 border-rounded p-4" style="background-color:#f9f9f9;">
                 <div class="card-body d-flex flex-column p-0">
                     <div class="mb-3">
-                    <span class="fs-2">🏛️</span>
+                        <span class="fs-1">🏛️</span>
                     </div>
-                    <h5 class="fw-semibold text-dark mb-2">Endowment Fund</h5>
-                    <p class="text-muted flex-grow-1">
+                    <h5 class="fw-semibold fs-4 text-dark mb-2">Endowment Fund</h5>
+                    <p class="text-muted fs-5 fs-md-6 flex-grow-1">
                     Invest in our long-term sustainability. Gifts to our endowment fund ensure SCOM remains a stable sanctuary for generations of children to come.
                     </p>
                     <a href="{{url_for('contact_us')}}#contact-form" class="fw-semibold text-decoration-none text-danger mt-2">Learn More &rarr;</a>
@@ -79,150 +81,24 @@
     </section>
         <!-- END INTRO SECTION -->
 
-        <!-- START DONATION FORM -->
-        <section id="donate-form" class="py-5 bg-white">
-        <div class="container">
-            <div class="row justify-content-center">
-            <div class="col-lg-8">
-                
-                <div class="card border-0 shadow-lg p-4 p-md-5">
-                <h3 class="fw-bold text-dark mb-1">Make Your Gift</h3>
-                <p class="text-muted mb-4">Choose your preferred payment method below to complete your support.</p>
+        <!-- donation account image -->
+        <section id="donate-section" class="donate-image-section py-5 bg-light">
+        <div class="container py-md-4 flex col-11">
 
-                <form id="scomDonationForm">
-
-                    <div class="row g-3 mb-4">
-                    <div class="col-md-4">
-                        <label for="currencySelect" class="form-label fw-semibold">Currency</label>
-                        <select class="form-select" id="currencySelect">
-                        <option value="KES" selected>KES (KSh)</option>
-                        <option value="USD">USD ($)</option>
-                        </select>
-                    </div>
-                    <div class="col-md-8">
-                        <label for="donationAmount" class="form-label fw-semibold">Amount</label>
-                        <input type="number" class="form-control" id="donationAmount" placeholder="e.g. 1000" min="100" required>
-                    </div>
-                    </div>
-
-                    <hr class="my-4">
-
-                    <h5 class="fw-bold text-dark mb-3">Donor Details</h5>
-                    <div class="row g-3 mb-4">
-                    <div class="col-md-6">
-                        <label for="fullName" class="form-label small fw-semibold">Full Name *</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="John Doe" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="emailAddress" class="form-label small fw-semibold">Email Address *</label>
-                        <input type="email" class="form-control" id="emailAddress" placeholder="john@example.com" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="phoneNumber" class="form-label small fw-semibold">Phone Number *</label>
-                        <input type="tel" class="form-control" id="phoneNumber" placeholder="0712345678" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="donationPurpose" class="form-label small fw-semibold">Direct Gift To (Optional)</label>
-                        <select class="form-select" id="donationPurpose">
-                        <option value="general" selected>General Operations & Feeding</option>
-                        <option value="education">School Fees & Supplies</option>
-                        <option value="medical">Healthcare & Wellbeing</option>
-                        </select>
-                    </div>
-                    </div>
-
-                    <hr class="my-4">
-
-                    <h5 class="fw-bold text-dark mb-3">Payment Method</h5>
-                    <div class="mb-4">
-                    <label for="paymentMethod" class="form-label small fw-semibold">Select Method *</label>
-                    <select class="form-select form-select-lg" id="paymentMethod">
-                        <option value="mpesa" selected>M-Pesa (Express / Till)</option>
-                        <option value="card">Credit / Debit Card</option>
-                        <option value="bank">Direct Bank Transfer</option>
-                    </select>
-                    </div>
-
-                    <div id="mpesaFields" class="payment-group p-3 bg-light rounded border mb-4">
-                    <div class="d-flex align-items-center mb-2">
-                        <span class="badge bg-success me-2">M-PESA</span>
-                        <p class="mb-0 fw-semibold text-dark small">Express Prompt or Manual Paybill</p>
-                    </div>
-                    <p class="text-muted small mb-3">Enter your M-Pesa registered number below. You will receive an STK prompt on your phone to complete the transaction.</p>
-                    <div class="mb-2">
-                        <label for="mpesaPhone" class="form-label small fw-semibold">M-Pesa Mobile Number</label>
-                        <input type="tel" class="form-control" id="mpesaPhone" placeholder="07XXXXXXXX or 2547XXXXXXXX">
-                    </div>
-                    </div>
-
-                    <div id="cardFields" class="payment-group p-3 bg-light rounded border mb-4 d-none">
-                    <div class="row g-3">
-                        <div class="col-12">
-                        <label for="cardName" class="form-label small fw-semibold">Name on Card</label>
-                        <input type="text" class="form-control" id="cardName" placeholder="John Doe">
-                        </div>
-                        <div class="col-12">
-                        <label for="cardNumber" class="form-label small fw-semibold">Card Number</label>
-                        <input type="text" class="form-control" id="cardNumber" placeholder="4532 •••• •••• 8900">
-                        </div>
-                        <div class="col-md-6">
-                        <label for="cardExpiry" class="form-label small fw-semibold">Expiry Date</label>
-                        <input type="text" class="form-control" id="cardExpiry" placeholder="MM/YY">
-                        </div>
-                        <div class="col-md-6">
-                        <label for="cardCvc" class="form-label small fw-semibold">CVC / CVV</label>
-                        <input type="password" class="form-control" id="cardCvc" placeholder="123" maxlength="4">
-                        </div>
-                    </div>
-                    </div>
-
-                    <div id="bankFields" class="payment-group p-3 bg-light rounded border mb-4 d-none">
-                    <p class="fw-semibold text-dark mb-2">SCOM Children's Home Bank Details</p>
-                    <div class="table-responsive">
-                        <table class="table table-sm table-borderless text-muted small mb-0">
-                        <tr>
-                            <td class="fw-bold text-dark">Bank Name:</td>
-                            <td>KCB Bank Kenya</td>
-                        </tr>
-                        <tr>
-                            <td class="fw-bold text-dark">Account Name:</td>
-                            <td>SCOM Childrens Home Sanctuary</td>
-                        </tr>
-                        <tr>
-                            <td class="fw-bold text-dark">Account Number:</td>
-                            <td>1234567890</td>
-                        </tr>
-                        <tr>
-                            <td class="fw-bold text-dark">Branch:</td>
-                            <td>Nairobi Central Branch</td>
-                        </tr>
-                        <tr>
-                            <td class="fw-bold text-dark">Swift Code:</td>
-                            <td>KCBLKENX</td>
-                        </tr>
-                        </table>
-                    </div>
-                    <div class="mt-3">
-                        <label for="bankRef" class="form-label small fw-semibold">Transaction Reference Number (After Transfer)</label>
-                        <input type="text" class="form-control" id="bankRef" placeholder="e.g. REF12345678">
-                    </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-danger btn-lg w-100 fw-bold shadow-sm">
-                    Complete Donation
-                    </button>
-
-                </form>
-                </div>
-
+            <!-- Centered Donation Details Image -->
+            <div class="d-flex justify-content-center align-items-center">
+            <div class="donate-card-wrapper shadow-lg rounded-4 overflow-hidden bg-white p-3 p-md-4 border">
+                <img 
+                src="{{ url_for('static', path='images/slide3.jpg') }}" 
+                alt="SCOM Bank and Mobile Payment Details" 
+                class="img-fluid rounded-3 donate-img d-block mx-auto"
+                />
             </div>
             </div>
+
         </div>
         </section>
-        <!-- END DONATION FORM -->
-
-        <!-- script for donation form -->
-        <script src="{{url_for('static', path='js/donation_form_utils.js')}}"></script>
+        <!-- end donation section image -->
 
 {% endblock content %}
 

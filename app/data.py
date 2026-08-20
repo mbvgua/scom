@@ -1,18 +1,25 @@
-# HOME PAGE
+# ------------------------------
+# HOMEPAGE
+# ------------------------------
+
 CAROUSEL_ITEMS = [
     {
         "id": 1,
         "title": "A Beacon of Hope, Faith & Unconditional Love",
         "content": "Welcome to SCOM Disabled Children's Home and Training Centre. Grounded in faith, we are dedicated to uplifting differently abled children from underprivileged communities across Kenya. Together, we share the love of God, restore human dignity, and empower every child with special needs to thrive.",
-        "image": "/static/images/slide1.jpg",
-        "placeholder": "for main landing page",
+        "image": {
+            "src": "images/image-1.webp",
+            "alt": "for main landing page",
+        },
     },
     {
         "id": 2,
         "title": "Therapy, Learning, & Empowered Futures",
         "content": "From specialized therapy and adaptive education to essential life-skills training, our holistic programs are thoughtfully designed to nurture each child’s unique abilities, build self-reliance, and unlock a brighter, more independent tomorrow.",
-        "image": "/static/images/slide2.jpg",
-        "placeholder": "for programs page",
+        "image": {
+            "src": "images/image-3.webp",
+            "alt": "for programs page",
+        },
         "btn_text": "View all Programs",
         "btn_url": "/programs",
     },
@@ -20,8 +27,10 @@ CAROUSEL_ITEMS = [
         "id": 3,
         "title": "Your Generosity Can Change a Child’s World",
         "content": "As a non-profit reliant on compassionate well-wishers, your donations, volunteer time, and prayers directly provide nutritious meals, therapy, and loving care to special needs children in Kenya. Partner with us today and help turn hope into reality.",
-        "image": "/static/images/slide3.jpg",
-        "placeholder": "for the donate page",
+        "image": {
+            "src": "images/image-2.webp",
+            "alt": "for the donate page",
+        },
         "btn_text": "Donate Today",
         "btn_url": "/donate",
     },
@@ -29,8 +38,10 @@ CAROUSEL_ITEMS = [
         "id": 4,
         "title": "Meet the Hearts Behind SCOM",
         "content": "Behind every milestone and smiling face is a dedicated family of caregivers, educators, and volunteers serving with unconditional patience, expertise, and faith. Discover the passionate team walking hand-in-hand with our children every step of the way.",
-        "image": "/static/images/slide4.jpg",
-        "placeholder": "to the about us page",
+        "image": {
+            "src": "images/image-4.webp",
+            "alt": "to the about us page",
+        },
         "btn_text": "Meet the Team",
         "btn_url": "/about-us#our-team",
     },
@@ -62,15 +73,15 @@ FAQS = [
         "question": "What specific services and care programs do you provide?",
         "answer": (
             "We offer specialized special education, physiotherapy and occupational therapy, vocational training,"
-            "life skills development, round-the-clock caregiving, nutritious daily meals, and spiritual care grounded in the love of God."
+            "life skills development, round-the-clock caregiving and spiritual care grounded in the love of God."
         ),
     },
     {
         "id": 4,
         "question": "How is SCOM funded and how can I donate?",
         "answer": (
-            "Our small parental fee covers roughly 40% of monthly operational expenses, while the remaining 60% relies entirely on"
-            "well-wishers, local churches, and partner organizations. Direct financial contributions can be made to our Co-operative Bank of Kenya"
+            "Our small parental fee covers roughly 40% of monthly operational expenses, while the remaining 60% relies entirely on "
+            "well-wishers, local churches, and partner organizations. Direct financial contributions can be made to our , Co-operative Bank of Kenya "
             "account (Acc: 01102477309001). We also accept donations of food, diapers, mobility aids, educational materials and or keeping our home in your prayers."
         ),
     },
@@ -92,13 +103,16 @@ FAQS = [
         "id": 7,
         "question": "Who manages the organization and ensures transparency?",
         "answer": (
-            "SCOM is led by a Founder & Executive Director Meshack Okoth, alongside a Board of Management including Secretary General and Treasurer/Matron."
+            "SCOM is led by a Founder & Executive Director Meshack Okoth, alongside a Board of Management including Secretary General and Treasurer."
             " Accounts are subjected to internal and external audit reviews to maintain financial integrity."
         ),
     },
 ]
-# ABOUT US PAGE
-# timeline
+
+
+# ------------------------------
+# ABOUTUS PAGE
+# ------------------------------
 TIMELINE = [
     {
         "id": 1,
@@ -106,7 +120,7 @@ TIMELINE = [
         "title": "Permanent Center Construction",
         "description": "Secured land and obtained government architectural approval to raise €98,000 for a permanent facility designed to house and empower 100 children.",
         "image": {
-            "src": "problem.jpg",
+            "src": "images/image-4.webp",
             "alt": "Proposed Permanent SCOM Building Model",
         },
     },
@@ -116,7 +130,7 @@ TIMELINE = [
         "title": "Official NPO Registration",
         "description": "Officially registered under the Societies Act in Kenya as a faith-based non-profit, establishing an executive Board of Management and auditing structure.",
         "image": {
-            "src": "problem.jpg",
+            "src": "images/image-1.webp",
             "alt": "SCOM Official Registration and Team",
         },
     },
@@ -126,7 +140,7 @@ TIMELINE = [
         "title": "Operational Launch",
         "description": "Founded by Meshack Okoth, SCOM opened its doors to provide shelter, daily nutrition, therapy, and special education to vulnerable disabled children in local slums.",
         "image": {
-            "src": "problem.jpg",
+            "src": "images/image-2.webp",
             "alt": "Early SCOM Outreach and Care Center",
         },
     },
@@ -135,53 +149,37 @@ TIMELINE = [
 TEAM = [
     {
         "id": 1,
-        "name": "Mr.Meshack Okoth",
+        "name": "Mr. Meshack Okoth",
         "title": "Director",
         "image": {
-            "src": "Meshack-Okoth.jpeg",
+            "src": "images/team/Meshack-Okoth.webp",
             "alt": "The Director",
         },
     },
     {
         "id": 2,
-        "name": "Mrs.Lilian Awuor",
+        "name": "Mrs. Lilian Awuor",
         "title": "Treasurer/Matron",
         "image": {
-            "src": "Lilian-Awuor.png",
+            "src": "images/team/Lilian-Awuor.webp",
             "alt": "The Treasurer",
         },
     },
     {
         "id": 3,
-        "name": "Mr.Washington Oluoch",
+        "name": "Mr. Washington Oluoch",
         "title": "Secretary General",
         "image": {
-            "src": "Washington-Oluoch.jpeg",
+            "src": "images/team/Washington-Oluoch.webp",
             "alt": "The Secretary General",
         },
     },
-    # {
-    #     "id": 4,
-    #     "name": "radaa",
-    #     "title": "Chairpaerson",
-    #     "image": {
-    #         "src": "Admin.png",
-    #         "alt": "Mr.rada",
-    #     },
-    # },
-    # {
-    #     "id": 5,
-    #     "name": "radaa",
-    #     "title": "Chairpaerson",
-    #     "image": {
-    #         "src": "Admin.png",
-    #         "alt": "Mr.rada",
-    #     },
-    # },
 ]
 
 
+# ------------------------------
 # PROGRAMS PAGE
+# ------------------------------
 PROGRAMS = [
     {
         "id": 1,
@@ -206,7 +204,7 @@ PROGRAMS = [
     {
         "id": 5,
         "title": "Full-Boarding Shelter & Caregiving",
-        "description": "A safe, loving home environment offering 24/7 compassionate care, shelter, and protective supervision for 25 full-boarding resident children.",
+        "description": "A safe, loving home environment offering 24/7 compassionate care, shelter, and protective supervision for full-boarding resident children.",
     },
     {
         "id": 6,
@@ -235,7 +233,7 @@ VOLUNTEERING_FAQS = [
     {
         "id": 4,
         "question": "How do I schedule a volunteer visit or stay?",
-        "answer": "Contact our management team via email (serviceforchristoutreachminist@gmail.com) or phone in advance so we can align your availability with our daily program schedule.",
+        "answer": "Contact our management team via email(scom@gmail.com) or phone in advance so we can align your availability with our daily program schedule.",
     },
 ]
 
@@ -243,22 +241,22 @@ WISHLIST_FAQS = [
     {
         "id": 1,
         "question": "What are SCOM's most urgently needed wishlist items?",
-        "answer": "Our highest priority items are food supplies for daily meals, diapers for daily hygiene care, mobility equipment (wheelchairs, walking aids), and classroom learning manipulatives[cite: 1].",
+        "answer": "Our highest priority items are food supplies for daily meals, diapers for daily hygiene care, mobility equipment (wheelchairs, walking aids), and classroom learning manipulatives.",
     },
     {
         "id": 2,
         "question": "Do you accept pre-owned or used equipment and materials?",
-        "answer": "Yes, we gratefully accept gently used wheelchairs, walking aids, beds, mattresses, and educational textbooks as long as they are clean and in safe working condition[cite: 1].",
+        "answer": "Yes, we gratefully accept gently used wheelchairs, walking aids, beds, mattresses, and educational textbooks as long as they are clean and in safe working condition.",
     },
     {
         "id": 3,
         "question": "Where can physical donations be dropped off or delivered?",
-        "answer": "Items can be delivered directly to our center in Nairobi, Kenya (P.O. Box 9277 - 00200). Please contact our matron or director to arrange drop-off times[cite: 1].",
+        "answer": "Items can be delivered directly to our center in Ongata Rongai, Nairobi, Kenya (P.O. Box 9277 - 00200). Please contact our matron or director to arrange drop-off times.",
     },
     {
         "id": 4,
         "question": "Can I organize a supply drive at my local church or school?",
-        "answer": "Absolutely! Organizing food, diaper, or stationery drives within your local community is one of the most effective ways to support our monthly care operations[cite: 1].",
+        "answer": "Absolutely! Organizing food, diaper, or stationery drives within your local community is one of the most effective ways to support our monthly care operations.",
     },
 ]
 
@@ -266,21 +264,21 @@ SPONSORING_FAQS = [
     {
         "id": 1,
         "question": "How much does it cost to sponsor a child's monthly care and nutrition?",
-        "answer": "Feeding one child 3 meals daily costs approximately €2 per day (€60 per month or €720 annually)[cite: 1]. Full sponsorship helps cover nutrition, therapy, and boarding care[cite: 1].",
+        "answer": "Feeding one child 3 meals daily costs approximately €2 per day (€60 per month or €720 annually). Full sponsorship helps cover nutrition, therapy, and boarding care.",
     },
     {
         "id": 2,
         "question": "How can I contribute to the permanent center building project?",
-        "answer": "We are actively raising €98,000 (KES 15,000,000) to construct a custom permanent facility for 100 children on our owned land; financial gifts can be designated directly to this fund[cite: 1].",
+        "answer": "We are actively raising €98,000 (KES 15,000,000) to construct a custom permanent facility for 100 children on our owned land; financial gifts can be designated directly to this fund.",
     },
     {
         "id": 3,
         "question": "What official banking details should I use for direct wire transfers?",
-        "answer": "Transfers can be made to Co-operative Bank of Kenya (Account Name: Service for Christ Outreach Ministry, Account No: 01102477309001, SWIFT Code: KCOOKENA)[cite: 1].",
+        "answer": "Transfers can be made to Co-operative Bank of Kenya (Account Name: Service for Christ Outreach Ministry, Account No: 01102477309001, BANK BRANCH CODE: 11123, SWIFT Code: KCOOKENA).",
     },
     {
         "id": 4,
         "question": "How are SCOM’s finances managed and audited?",
-        "answer": "All funds are managed by our Board of Management (Executive Director, Secretary General, and Treasurer) and undergo both internal and external financial audits[cite: 1].",
+        "answer": "All funds are managed by our Board of Management (Executive Director, Secretary General, and Treasurer) and undergo both internal and external financial audits.",
     },
 ]
