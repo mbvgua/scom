@@ -1328,26 +1328,12 @@ body {
  * PRIVACY_POLICY.HTML PAGE
  ***************************
 */
-.page-header {
-  color: #ffffff;
-  margin-bottom: 2.5rem;
-}
-.page-header h1 {
-  font-family: "Fredoka", sans-serif;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-.page-header p {
-  font-size: 1.4rem;
-  margin: 0;
-}
-
 .privacy-content {
   padding-bottom: 4rem;
 }
 .privacy-content .privacy-nav-card {
   position: sticky;
-  top: 2rem;
+  top: 7rem;
   border: 2px solid #e53e3e;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -1357,7 +1343,6 @@ body {
   color: #ffffff;
   font-family: "Fredoka", sans-serif;
   font-weight: 600;
-  font-size: 1.1rem;
   padding: 1rem 1.25rem;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -1379,7 +1364,7 @@ body {
   background: #ffffff;
   padding: 2.5rem;
   border-radius: 12px;
-  border: 1px solid rgba(136, 192, 208, 0.4);
+  border: 1px solid rgba(229, 62, 62, 0.4);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 .privacy-content .privacy-body section {
@@ -1392,7 +1377,7 @@ body {
   font-family: "Fredoka", sans-serif;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid rgba(136, 192, 208, 0.4);
+  border-bottom: 2px solid rgba(229, 62, 62, 0.4);
 }
 .privacy-content .privacy-body h2 i {
   color: #e53e3e;
@@ -1401,7 +1386,6 @@ body {
 .privacy-content .privacy-body li {
   line-height: 1.7;
   color: #2d3748;
-  font-size: 1rem;
 }
 .privacy-content .privacy-body ul {
   padding-left: 1.25rem;
@@ -1420,7 +1404,6 @@ body {
 .privacy-content .privacy-body .warning-box h4 {
   font-family: "Fredoka", sans-serif;
   color: #e53e3e;
-  font-size: 1.15rem;
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
@@ -1428,23 +1411,112 @@ body {
 }
 .privacy-content .privacy-body .warning-box p {
   margin: 0;
-  font-size: 0.95rem;
   color: #2d3748;
 }
 
-.donate-image-section .donate-card-wrapper {
-  max-width: 850px;
-  width: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/*
+ ***************************
+ * DONATE PAGE
+ ***************************
+ */
+.donate-image-section .donate-link {
+  color: #e53e3e;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
-.donate-image-section .donate-card-wrapper:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.12) !important;
+.donate-image-section .donate-link:hover {
+  color: rgb(82.9438624765%, 11.1737845823%, 11.1737845823%);
+  text-decoration: underline;
 }
-.donate-image-section .donate-card-wrapper .donate-img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+
+.account-card {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.25s ease;
+}
+
+.account-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.12);
+}
+.account-row:first-child {
+  padding-top: 0;
+}
+.account-row:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.account-label {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgb(42.0814479638%, 50.1256913022%, 63.8009049774%);
+}
+
+.account-value-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.account-value {
+  word-break: break-word;
+}
+.account-value--code {
+  font-family: "JetBrains Mono", monospace, monospace;
+  letter-spacing: 0.5px;
+}
+
+.copy-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  height: 38px;
+  padding: 0 0.65rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  background-color: white;
+  color: rgb(33.0316742081%, 40.3720462544%, 52.850678733%);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.copy-btn i {
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+.copy-btn .copy-text {
+  display: none;
+  font-family: font-text;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+.copy-btn:hover {
+  background-color: rgba(229, 62, 62, 0.08);
+  border-color: rgba(229, 62, 62, 0.3);
+  color: #e53e3e;
+}
+.copy-btn:active {
+  transform: scale(0.94);
+}
+.copy-btn.copied {
+  font-family: "Fredoka", sans-serif;
+  background-color: #e53e3e;
+  border-color: #e53e3e;
+  color: #ffffff;
+}
+.copy-btn.copied .copy-text {
+  display: inline-block;
 }
 
 /*# sourceMappingURL=style.css.map */
