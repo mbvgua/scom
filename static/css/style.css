@@ -34,6 +34,8 @@ body {
   min-height: 380px;
   width: 100%;
   position: relative;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
   background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), var(--bg-image, url("/static/images/image-1.webp")) center/cover no-repeat;
 }
 .page-header .hero-content {
@@ -68,6 +70,7 @@ body {
 #mainNav .navbar-brand img {
   height: 85px;
   width: auto;
+  transition: height 0.3s ease;
 }
 #mainNav .navbar-brand {
   /* Right-side text container */
@@ -104,15 +107,19 @@ body {
     width: 11rem;
   }
 }
-@media (max-width: 567px) {
+@media (max-width: 576px) {
   #mainNav .navbar-brand {
-    max-width: 12rem;
+    width: 8rem;
   }
   #mainNav img {
-    display: none;
+    height: 20px;
+    display: block;
   }
   #mainNav .brand-title {
-    width: 8rem;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    width: auto;
   }
 }
 #mainNav .nav-link {
@@ -787,6 +794,8 @@ body {
   min-height: 380px;
   width: 100%;
   position: relative;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
   background: linear-gradient(rgba(30, 35, 45, 0.65), rgba(30, 35, 45, 0.65)), var(--bg-image, url("/static/images/image-1.webp")) center/cover no-repeat;
 }
 .page-header .hero-content {

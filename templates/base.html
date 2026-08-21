@@ -1,16 +1,52 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {% if title %}
-            <title>{{ title }}</title>
-        {% else %}
-            <title>SCOM Children's Home</title>
-        {% endif %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Service For Christ Outreach Ministry">
+    <meta name="author" content="mbvgua">
+
+    <!-- Site Info -->
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>SCOM Children's Home</title>
+    {% endif %}
+
+    <!-- Open Graph Tags: The title of the page for social media sharing. It can match the title tag or be more descriptive. -->
+    <meta property="og:title" content="SCOM Children's Home">
+
+    <!-- Open Graph Tags: Typically set to "website" for static sites or "article" for content-heavy pages. -->
+    <meta property="og:type" content="website">
+
+    <!-- Open Graph Tags: The URL of the page, used to ensure link previews resolve to the correct page. -->
+    <meta property="og:url" content="">
+
+    <!-- Open Graph Tags: URL of an image that represents the page. Useful for link previews. -->
+    <meta property="og:image" content="">
+
+    <!-- Open Graph Tags: Provides an alternative text for the image to improve accessibility. -->
+    <meta property="og:image:alt" content="">
+
+    <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{url_for('static', path='css/style.css')}}" />
+
+    <!-- stylesheet. load after bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', path='css/style.css')}} ">
+
+    <!-- Favicon for all browsers -->
+    <link rel="icon" href=" {{url_for('static', path='icons/favicon.ico')}}" sizes="any">
+    <link rel="icon" href=" {{url_for('static', path='icons/icon.svg')}}" type="image/svg+xml">
+
+    <!-- Apple touch icon for iOS devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href=" {{url_for('static', path='icons/apple-touch-icon.png')}}">
+
+    <!-- Web app manifest for Progressive Web Apps -->
+    <link rel="manifest" href=" {{url_for('static', path='site.webmanifest')}}">
+
+    <!-- Content Security Policy: Uncomment to enhance security by restricting where content can be loaded from (useful for preventing certain attacks like XSS). Update if adding external sources (e.g., Google Fonts, Bootstrap CDN, analytics, etc). -->
+    <!-- <meta http-equiv="Content-Security-Policy" content=" default-src 'self'; script-src 'self' code.jquery.com; style-src 'self' fonts.googleapis.com; font-src fonts.gstatic.com; img-src 'self' images.examplecdn.com; "> -->
   </head>
 
   <body>
@@ -18,7 +54,8 @@
     {% set email="scom@gmail.com" %}
     {% set location="Ongata Rongai, Nairobi" %}
     {% set maps_location="https://maps.app.goo.gl/VpdNfowsWtWMGhCF6" %}
-    {% set phone_number="0712345678" %}
+    {% set phone_number="0718961956" %}
+    {% set alt_phone_number="0705422059" %}
 
     <!-- START NAVBAR -->
     <nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
@@ -29,7 +66,10 @@
             <img src="{{ url_for('static', path='images/logo/logo-bg.png') }}" alt="SCOM Logo">
 
             <div class="navbar-logo d-flex flex-column justify-content-center">
-                <a class="brand-title fw-bold" href="{{url_for('home')}}"> Service for Christ Outreach Ministry </a>
+                <a class="brand-title fw-bold" href="{{ url_for('home') }}">
+                    <span class="d-none d-sm-inline">Service for Christ Outreach Ministry</span>
+                    <span class="d-inline d-sm-none">SCOM</span>
+                </a>
             </div>
         </div>
 
@@ -361,8 +401,13 @@
 
               <!-- social icons -->
               <div class="d-flex gap-2 flex-wrap pt-1">
-                <a href="#" class="footer-icon-link footer-icon-link--facebook" _target="blank"  aria-label="Facebook" >
+                <a href="https://www.facebook.com/p/SCOM-Disabled-Childrens-Home-and-Training-Centre-Rongai-100077439403079/" class="footer-icon-link footer-icon-link--facebook" _target="blank"  aria-label="Facebook" >
                     <i class="bi bi-facebook"></i>
+                </a>
+
+                {# slice the phone_number's "0"since whatsapp only accepts international codes#}
+                <a href="https://wa.me/254{{phone_number[1:]}}" class="footer-icon-link footer-icon-link--whatsapp" _target="blank" aria-label="WhatsApp" target="_blank" >
+                    <i class="bi bi-whatsapp"></i>
                 </a>
 
                 <a href="#" class="footer-icon-link footer-icon-link--instagram" _target="blank" aria-label="Instagram" >
@@ -371,10 +416,6 @@
 
                 <a href="#" class="footer-icon-link footer-icon-link--twitter" aria-label="Twitter" >
                     <i class="bi bi-twitter"></i>
-                </a>
-
-                <a href="https://wa.me/254712345678" class="footer-icon-link footer-icon-link--whatsapp" _target="blank" aria-label="WhatsApp" target="_blank" >
-                    <i class="bi bi-whatsapp"></i>
                 </a>
 
               </div>
@@ -414,7 +455,8 @@
                     </li>
                     <li class="d-flex align-items-center gap-2">
                       <i class="bi bi-telephone-fill"></i>
-                      <a href="tel:{{phone_number}}">{{ phone_number }}</a>
+                      <a href="tel:{{phone_number}}">{{ phone_number }}</a> |
+                      <a href="tel:{{alt_phone_number}}">{{ alt_phone_number }}</a>
                     </li>
                     <li class="d-flex align-items-center gap-2">
                       <i class="bi bi-envelope-fill"></i>

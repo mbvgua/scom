@@ -38,6 +38,8 @@ body {
   min-height: 380px;
   width: 100%;
   position: relative;
+  color: $white;
+  margin-bottom: 1.5rem;
 
   // Background Image + Overlay matching your screenshot layout
   // Uses --bg-image if provided in HTML, otherwise defaults to slide4.jpg

@@ -6,7 +6,7 @@ CAROUSEL_ITEMS = [
     {
         "id": 1,
         "title": "A Beacon of Hope, Faith & Unconditional Love",
-        "content": "Welcome to SCOM Disabled Children's Home and Training Centre. Grounded in faith, we are dedicated to uplifting differently abled children from underprivileged communities across Kenya. Together, we share the love of God, restore human dignity, and empower every child with special needs to thrive.",
+        "content": "Welcome to SCOM Children's Home and Training Centre. Grounded in faith, we are dedicated to uplifting differently abled children from underprivileged communities across Kenya. Together, we share the love of God, restore human dignity, and empower every child with special needs to thrive.",
         "image": {
             "src": "images/image-1.webp",
             "alt": "for main landing page",
@@ -158,6 +158,15 @@ TEAM = [
     },
     {
         "id": 2,
+        "name": "Mr. Washington Oluoch",
+        "title": "Secretary General",
+        "image": {
+            "src": "images/team/Washington-Oluoch.webp",
+            "alt": "The Secretary General",
+        },
+    },
+    {
+        "id": 3,
         "name": "Mrs. Lilian Awuor",
         "title": "Treasurer/Matron",
         "image": {
@@ -166,12 +175,21 @@ TEAM = [
         },
     },
     {
-        "id": 3,
-        "name": "Mr. Washington Oluoch",
-        "title": "Secretary General",
+        "id": 4,
+        "name": "Miss. ",
+        "title": "Admin",
         "image": {
-            "src": "images/team/Washington-Oluoch.webp",
-            "alt": "The Secretary General",
+            "src": "images/team/Admin.webp",
+            "alt": "The Admin",
+        },
+    },
+    {
+        "id": 5,
+        "name": "Mr. Don",
+        "title": "International Coordinator",
+        "image": {
+            "src": "images/team/Don.webp",
+            "alt": "The International Coordinator",
         },
     },
 ]

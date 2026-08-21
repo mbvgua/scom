@@ -28,7 +28,7 @@
     img {
       height: 85px;
       width: auto;
-      // transition: height 0.3s ease;
+      transition: height 0.3s ease;
     }
 
     /* Right-side text container */
@@ -63,7 +63,6 @@
   @media (max-width: 768px) {
     .navbar-brand {
       max-width: 14rem;
-      // border: 1px solid red;
     }
 
     img {
@@ -77,20 +76,24 @@
 
   }
 
-  @media(max-width:567px) {
+  // small phone screens
+  @media(max-width:576px) {
 
     .navbar-brand {
-      max-width: 12rem;
-      // border: 1px solid red;
+      width: 8rem;
     }
 
     img {
-      // height: 20px;
-      display: none; // remove image in phone screens. illegible anyways
+      height: 20px;
+      display: block;
+      // border: 1px solid red;
     }
 
     .brand-title {
-      width: 8rem; // Constrain width further on mobile
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      width: auto; // Constrain width further on mobile
       // border: 1px solid yellow;
     }
   }
