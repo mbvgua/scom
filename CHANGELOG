@@ -1,0 +1,572 @@
+commit ba933d5a3b354fd01aead33f576adaace7b0ccc6 (HEAD -> dev, tag: v1.0.0)
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Fri Aug 21 12:38:17 2026 +0300
+
+    feat: made app be a PWA on mobile
+    
+    CHANGES:
+    - made the website be a progresive webapp on mobile
+    - added some new images,
+    - ensures there is a logo for the icon.
+
+commit 0dcb6bdfc9fb4a3c6a5c8ff6472c09569322a945 (origin/dev)
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Aug 20 12:15:40 2026 +0300
+
+    fix: reinvent the donate page
+
+commit 7d613707a6fa86acd214b2e081be8808bfd52f41
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Aug 20 08:49:45 2026 +0300
+
+    feat: ready for deployment?
+    
+    CHANGES:
+    - removed placeholder images on website, placed actual ones from the
+      home.
+    - added actual data from the home, no placeholder
+    - improved the styling of various pages, and added better responsiveness
+    - greatly reduced sized of .htmlfiles, by incorporating for loops from
+      jinja2. this was really nice, since now with a data.py file, most
+      variables data is placed here and I can easily edit it as plain text
+      instead of skimming through lines of html
+
+commit fb6db91e103e53affdee387d762b160435bccbfc
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Wed Aug 19 15:38:20 2026 +0300
+
+    feat: added site content
+    
+    CHANGES:
+    - got a file pdf, added a bunch of content in relation to that
+    - also added the images for the team section
+
+commit 79cca4481e6fb2115e2b2be21f5b8be81e363a38
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Mon Aug 17 14:45:00 2026 +0300
+
+    feat: make .scss files modular
+    
+    CHANGES:
+    - break down the single large .scss file, that had crossed over 1k+
+      lines into smaller more manageable files. really nice imo
+    - added our mission and our vision segemnets
+
+commit ede515cd1a4a494a32b9b2ad50565b6bc329f7a8
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Mon Aug 17 12:39:42 2026 +0300
+
+    feat: made blog listing sections responsive
+    
+    CHANGES:
+    - made the bloglisting section preoperly responsive on mobile devices.
+      it no longer crosses the viewport diagonally
+
+commit 2618cb05f5793eb7b643168004fc04da3edabc2c
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Mon Aug 17 08:13:10 2026 +0300
+
+    refactor: UI mods
+    
+    CHANGES:
+    - align titles in Get involved section
+    - reduce margins in conatact us section
+    - better styling for the blog posts page. they were previously alittle
+      bittoosquezzed
+
+commit 23f9060eae57110a2822894a1643a012bae89579
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Mon Aug 17 06:43:07 2026 +0300
+
+    feat: optimize map load times
+
+commit a25496bb6f8d70b6e39f6c64d705de68b20b41e7 (tag: v0.2.0, origin/main, origin/HEAD, main)
+Author: Mbugua <mbvgua@gmail.com>
+Date:   Sun Aug 16 08:20:19 2026 +0300
+
+    feat(update): update content/learn-coding-in-12-years.md
+
+commit 90da71fa8231c46e0e1a7e3c6b42f415f4896243
+Author: Mbugua <mbvgua@gmail.com>
+Date:   Sun Aug 16 08:17:00 2026 +0300
+
+    feat(create): add content/learn-coding-in-12-years.md
+
+commit 21467822d92f7433118a8c26a89beb417dc590bd
+Author: Mbugua <mbvgua@gmail.com>
+Date:   Sun Aug 16 08:15:54 2026 +0300
+
+    feat(create): add static/images/blogs/screenshot2026-08-1020-29-30.png
+
+commit 66a929d73ec4f4209e4b7d13becb1b7b39e2cbc7
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Sat Aug 15 21:49:51 2026 +0300
+
+    feat: improve component styling
+    
+    CHANGES:
+    - added SCOM custom logo in the navbar, also spelled out SCOM in full
+      not just the intiials
+    - fixed issue with navbar on smaller screens. had been colliding with
+      the hero sections and text within it.
+    - add more blogs, I want to use these mostly for my pagination styling,
+      seems adding them all from my page works as needed. Ineed to add and
+      edit a couple fromthe pagesCMS
+    - added a bunch of profile pics for the other blog editors
+
+commit e7788dabd1a1623649501a6b91a73a2c98b500cc
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Sat Aug 15 12:34:57 2026 +0300
+
+    feat: minor mods
+    
+    CHANGES:
+    - update blog posts, more data, better flavour ofmarkdownto disaplay
+      variety
+    - added jinja2 util function for counting how long it approximately
+      takes to read a blog. had earlier on placed this in the template
+      itself, but here it provides better separation ofconcerns
+    - added a replace tag for the markdown, my tables were being eddited
+      poorly, this fixed that nicely
+    - in the blog post util, i made date_posted to be permanent:), one only
+      edits the last_modified key value. unsure how this will work in the
+      pagesCMS, but looking forward to that.
+    - made social sharing contact link on a specific blog work. also fix
+      other social links onthe website.
+    - changed abit of styling in the css,moreso by removing the SVG Icons
+      and in its stead placing bootstrap icons. less code, cleaner and easier
+      to modify
+
+commit b51c2f9f5fc20851696ac885e8ee9d7a882326e8
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Fri Aug 14 12:02:27 2026 +0300
+
+    feat: finalize on pagesCMS fucntionality
+    
+    CHANGES:
+    - ensure pagesCMS works as needed, now I can cleanly displaythe header
+      is cover image with no issue
+    - change the blog-post url and templates assocaiatedwith it to use a
+      slug in the URL instead of an id. this is much cleaner imo
+    - add clean blog posts, in the content file. this have all been uploaded
+      with git though, yetto test whathappens when I upload thingswith
+      pagesCMS :)
+
+commit 080b6f426ef9b992f97ea910f51389f44bd9e8d6
+Author: Mbugua <mbvgua@gmail.com>
+Date:   Fri Aug 14 11:08:43 2026 +0300
+
+    feat(update): update content/the-one-with-a-simple-markdown-overview.md
+
+commit 2ccc8f61ffcd67301077f5e6d0e336df1084176e
+Author: Mbugua <mbvgua@gmail.com>
+Date:   Fri Aug 14 11:08:32 2026 +0300
+
+    feat(create): add static/images/blogs/2026-06-0815-44.png
+
+commit 6c3a99fcad9e62ce953b49927aadbe392cb0f9c9
+Author: Mbugua <mbvgua@gmail.com>
+Date:   Fri Aug 14 11:07:07 2026 +0300
+
+    feat(update): update .pages.yml
+
+commit da6b82eaec7e19836df5275ae52dedd71afe36b8
+Author: Mbugua <mbvgua@gmail.com>
+Date:   Fri Aug 14 10:29:05 2026 +0300
+
+    feat(create): add content/scuba-diving.md
+
+commit fee580edbb485faaf2fd848b9c338b4e5b50bb73
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Fri Aug 14 10:19:04 2026 +0300
+
+    fix: fix bug in pagesCMS
+    
+    CHANGES:
+    - ensure image in frontmatter is linked correctly
+    - fix issue wtih uuid string comaprison
+
+commit 6217b1468ef563fa20cfedd6a6d4756a25def6a1
+Author: Mbugua <mbvgua@gmail.com>
+Date:   Thu Aug 13 23:11:30 2026 +0300
+
+    feat(create): add content/the-one-with-a-simple-markdown-overview.md
+
+commit 674baef0eb38143aee7aaaeb18e45fd920867368
+Author: Mbugua <mbvgua@gmail.com>
+Date:   Thu Aug 13 23:11:22 2026 +0300
+
+    feat(create): add static/images/blogs/2026-08-13_11-42.png
+
+commit 3cf90eebb47ea5a5d39687e6af9f3af7205fb944
+Merge: b048c76 d64a5e9
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Aug 13 22:43:06 2026 +0300
+
+    Merge branch 'dev'
+    
+    - fix pageCMS bug. hoepfully!
+
+commit d64a5e9e64f30351cd8c1b4d597bdde12ae1e6cf
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Aug 13 22:42:17 2026 +0300
+
+    fix: make pageCMS work
+
+commit 35231e188dc5b260245e73b8d29cf11bbb488179
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Aug 13 19:30:45 2026 +0300
+
+    fix: still trying to fix bug in pagesCMS
+    
+    CHANGES:
+    - removed the database folder entirely, had forgotten to clean that up
+    - remove the routes.py file, its a single file hence no need of it being
+      in a directory on it own :)
+
+commit b048c765d6df845a81288a3bec5aee83dc4c84d3
+Merge: a8618b5 2126d5f
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Aug 13 19:10:13 2026 +0300
+
+    Merge branch 'dev'
+
+commit 2126d5ff5382b4a65f924fb547001c46120c0880
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Aug 13 19:09:10 2026 +0300
+
+    update the requirements.txt file
+
+commit a8618b5989e4ce39ff15f7da7ca18fff6fb43dcb
+Merge: c5eefdf ae757f8
+Author: Mbugua <105845499+mbvgua@users.noreply.github.com>
+Date:   Thu Aug 13 18:40:26 2026 +0300
+
+    Merge pull request #1 from mbvgua/dev
+
+commit ae757f818a8ff2b19676fabcfe10f9bcc51061c2
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Aug 13 18:35:58 2026 +0300
+
+    bug: trying to fox the image issue
+    
+    CHANGES:
+    - in pagesCMS, when I try to upload an image in my rich-text editor, or
+      ad one for the heading of a blog, I get an error. trying to fix the
+      relative URl path in pagesCMS to see if that is the issue
+
+commit 9b04c34cc5b68b77c58f6125d4535972fc8c3356
+Author: daagi210@gmail.com <daagi210@gmail.com>
+Date:   Thu Aug 13 15:19:28 2026 +0000
+
+    feat(content): add content/2026-08-13-lorem-ipsum.md CHANGES: - Created new content file at content/2026-08-13-lorem-ipsum.md CONTEXT: - Created by {author.name} (@{author.username}) <{author.email}>
+
+commit 455170ef5fb83ed0d944400a1f3b1d7583db5c71
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Aug 13 18:13:06 2026 +0300
+
+    feat: added PagesCMS yaml file
+    
+    CHANGES:
+    - trying to make the move to pagesCMS, created a simple config file to
+      allow its online use, see how it goes
+
+commit 71be860d763ff998bcdbbd3f36233193c486ed83
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Aug 13 16:57:04 2026 +0300
+
+    feat: using an SSG for blog functionality
+    
+    CHANGES:
+    - adding a db and auth and an admin panel and session management and
+      moving to s3 buckets all to ensure that I have a blog page proves to
+      be a hassle. trying to move to  a git-based CMS, which seems much
+      easier in this scenario.
+    - removed the db and the admin panel too
+
+commit 308add1cf79c809f777740c8872b609ada18ae8c (tag: v0.1.0)
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Aug 13 13:31:57 2026 +0300
+
+    feat: flashpoint
+    
+    CONSIDERATIONS:
+    - adding an admin panel and a db and integration authentication,all for
+      a simple site, so as to facilitate blog posts seems like overkill; it
+      would benice as a personal learning bender, but being a website to
+      beused in prod is overkill. Will mark this point, incase I need to
+      circle back and make any edits to it.
+    - Heard of git-based CMS's and they seem nice and easy to integrate.
+      will try that out and see how it goes:)
+
+commit f82088f359e77180b283a9124d55586c9a5752a3
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Sun Aug 2 16:17:40 2026 +0300
+
+    chore: modularize app layout
+
+commit c34cf2ce78ef9cc44bab78f566c34798478f3d47
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Sun Aug 2 12:32:35 2026 +0300
+
+    feat: allow markup in sqladmin
+    
+    CHANGES:
+    - allows for making markup formatting when editing the blog.content
+      section in the admin dashboard. this was pretty nice, now there is no
+      need to look into exterior apps and CMS's tosolve this, everything
+      happens inhouse!
+    - added a custom jinja2 filter that allows for fomratting of the
+      markdown files saved in the datbase, nicely to sth that can be
+      rendered on a page. also updated both the blog_list and blog_post
+      section to accomadate for the changes, adding needed filters
+
+commit c5eefdfbeea81de3cea6cda9c06de9ded3c640be
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Sat Aug 1 19:17:43 2026 +0300
+
+    feat: add simple admin dashboard
+    
+    CHANGES:
+    - still working throught the problem of how ill efficiently hand it over
+      to the enduser. created a simple admin dashboard, that allows one to
+      edit blogs and users alike. pretty rudimentary at the time of writing
+      this, but it works!
+    
+    CONSIDERATIONS:
+    - there some values, moreso the ones with relationships that are just
+      simple renderd as their memory addresses in the dashboard, say
+      Blog.author and such. tried fixing this but its just adamant
+    - also, inputting text into the blog.content section renders it with
+      no markup at all.
+    - when creating a user, youre supposed to create a password hash, not
+      the password itself?! and i dont want to perform this in the db table
+      due to validation and stuff, so this is just not going to work
+
+commit 193f632821ba3714726d74882dbe4f57fa3b50c1
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Fri Jul 31 16:19:55 2026 +0300
+
+    fix: trying to fix vercel deployment
+
+commit 9afa02f127a3ec999a20e913799cd46baaf781d2
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Jul 30 23:39:45 2026 +0300
+
+    feat: made blog work dynamically
+    
+    CHANGES:
+    - made blog function while fetching dynamically from a database, this is
+      amazing, and pretty much means I can create an account on a
+      BaaS(backend as a service) platform and host my data there, then fetch
+      it from there and render it on my pages. just nice
+    
+    CONSIDERATIONS:
+    - the nextpart involves building the admin dashboard, Ineed to display
+      it such that I can input data formatted as markdown for propper
+      rendering in the pages. this is untreaded grounds...
+    - also do note that i have commited my blog.db file, no worries, this is
+      all auto generated data that has no significant value, im doing so
+      inorder notto break the frontend UI
+
+commit b0bfb74d265261da3317774db8a6812520d9cca1
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Jul 30 19:02:57 2026 +0300
+
+    feat: make the blog list dynamic
+    
+    CHANGES:
+    - added a simple sqlite database, creating the needed models and
+      configurations tomake this possible. thisis nice incase scaling
+      isneeded everything isina simple blog.db file
+    - made the blog list page dynamic, being able to filter existing blogs
+      instantly on demand, it also gfetches things from the database now,
+      which is nice
+    - since things are now dynamic, reduced sizeofthe "blog_list.html" page
+      significantly, using placeholders instead
+
+commit ae36dd67970713acdb4e757820e3eb636b9222f9
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Jul 30 11:56:07 2026 +0300
+
+    refactor: catch 5xx errors
+
+commit 7e77aa5373f652d5cbcb09ac29226f93273c0431
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Jul 30 11:39:55 2026 +0300
+
+    feat: improve layout of error page
+    
+    CHANGES:
+    - improve layoutof the error page, making the navbar visible
+
+commit c935bbfb653946842b5d5ad137c2ad56eb58e6f2
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Jul 30 09:33:54 2026 +0300
+
+    refactor: add app documentation
+    
+    CHANGES:
+    - add proper docstrings throughout the application, which helps ensure
+      better memorabilityfor things as i go over them eventually
+    - changed naming of files in-app following the statndard snake_case
+      python convention for files
+    - added a blog section, still needs a bit of work, but well getto that
+      gradually
+    - improved emails look.made them less shiny, which helpers quick
+      scanning of viatl info fast
+    - changed variables in .env file and updated them accordingly in vercel,
+      this is moreso for the emails part
+
+commit f6b6c894b9f49e6efb2cf76ad0eb0e70081b91dd
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Wed Jul 29 15:45:30 2026 +0300
+
+    feat: add the blogs functionality
+    
+    CHANGES:
+    - added the blog-list, and blog-post pages
+    - not yet made these two pages dynamic, in thatthey are currently
+      working with static, hardcoded data, but will rectify that in a
+      minute.
+    
+    CONSIDERATIONS:
+    - figure out how to deploy and connect a headless CMS to the app
+
+commit 0d20b8ec49a08be74fc481394ad913c79dae3239
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Tue Jul 28 16:26:03 2026 +0300
+
+    feat: add the 404 page
+
+commit 5653f652f607f0b4b84520da7f6ae8f3d079b727
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Sun Jul 26 21:41:31 2026 +0300
+
+    feat: add privacy policy
+    
+    CHANGES:
+    - added a privacy policyfor website
+    - made email templates better
+    - update the requirements.txt file
+
+commit 6be54e713d40315bf45203362e5edd4b329f2f36
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Sun Jul 26 17:44:25 2026 +0300
+
+    feat: make forms work
+    
+    CHANGES:
+    - made the contact form &the get involved form work as needed. really
+      happy about thismahn. took me a good loooong minute, but now they
+      work. will make them pretty later on
+    - divided up the js scripts into neat modular fucntionalities, that way
+      i know what needs working on easily
+    - added schemas, email-utils, and the config file to my fastapi backend.
+    - created an .env-example for possible newcomers to the project
+    - also added a license :)
+
+commit 259bf59da52c8dad43de7087b154f888b433cdf2
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Sat Jul 25 00:26:07 2026 +0300
+
+    chore: update donation form
+
+commit c095aa2db2f7ea11bd1caac8d8af8e7f69c4c34d
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Fri Jul 24 11:58:25 2026 +0300
+
+    feat: modify repo for vercel deployment
+    
+    CHANGES:
+    - modify the directory files and  structure, creating space to allow for
+      vercel deployment using serverless fucntions. this was pretty nice
+      imo, and much simpler than I had initially though. it works perfectly
+      for small apps. Might just subscribe to that vercel paid plan!
+
+commit 18b7ac9b995a9e2913cda3c1715b3cc97ca2fee4
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Fri Jul 24 11:19:56 2026 +0300
+
+    refactor: use fastAPI
+    
+    CHANGES:
+    - move off of plain html, css pages into using FastAPI as  a framework.
+      this gives me better controll interms of backend fucntionality that
+      might need to be added later on:
+        - user logins
+        - donation page
+        - contact form
+
+commit 9add90c4ee8e3e5f7a2ee8b868c57cc95b6d4f86
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Jul 23 15:26:49 2026 +0300
+
+    feat: update the footer
+    
+    CHANGES:
+    - made the footer in the index.html page have the background Id like,
+      it looks really nice imo!
+
+commit 293ff50afdfb9f2705bbb438d9114b09f8fb59fd
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Jul 23 11:02:59 2026 +0300
+
+    feat: improve mobile responsiveness
+
+commit 0f4ba6b0b5607a58d554c76fda1113fe62fb1ca0
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Jul 23 07:46:42 2026 +0300
+
+    chore: add some images
+
+commit c4855c8822c7fef18e3de647bb54c49057bcc59a
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Wed Jul 22 23:15:25 2026 +0300
+
+    feat: revamped the about-us.html page
+    
+    CHANGES:
+    - most of the pages have now been revamped and look better than before
+    - styling is better, and content look nice. next step will be to make
+      some final touches throughout the website, adding and removing section
+      details that need changing.
+    - also since its just plain html, css, deployment could be nice, on a
+      platform that will eventually allow me to move to fastAPI gracefully
+
+commit 3473f8a99c2c22062783feea7b20f2258af50044
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Wed Jul 22 17:49:24 2026 +0300
+
+    feat: revamp the programs page
+
+commit 56811958e87058cc75a592d92e1099463027222a
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Wed Jul 22 17:41:10 2026 +0300
+
+    feat: revamp the get-involved page
+
+commit 51407548478198aa62ae31ad3159e85191f9c054
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Wed Jul 22 15:53:50 2026 +0300
+
+    feat: review the contact-us page
+
+commit a32087b27418435c258b1280006815d277acc081
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Wed Jul 22 12:17:13 2026 +0300
+
+    feat: complete revamp of index.html page
+
+commit bce5f118c5afb30c82e72e88118e1d0e60aeee96
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Tue Jul 21 14:33:48 2026 +0300
+
+    feat: intial commit
+    
+    CHANGES:
+    - create the base project, very plain file setting, only working with
+      plain html, css and javascript. making it minimal as possible to allow
+      for buildingmore features without much hiccup. would also like to move
+      to using a backend framework, hence templates being displayed in plain
+      html and css is soooo conveneient.

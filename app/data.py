@@ -176,10 +176,10 @@ TEAM = [
     },
     {
         "id": 4,
-        "name": "Miss. ",
+        "name": "Miss. Eliver Joy Atieno",
         "title": "Admin",
         "image": {
-            "src": "images/team/Admin.webp",
+            "src": "images/team/Eliver-Joy.webp",
             "alt": "The Admin",
         },
     },
