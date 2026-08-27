@@ -150,7 +150,7 @@ TEAM = [
     {
         "id": 1,
         "name": "Mr. Meshack Okoth",
-        "title": "Director",
+        "title": "Director/Founder",
         "image": {
             "src": "images/team/Meshack-Okoth.webp",
             "alt": "The Director",
