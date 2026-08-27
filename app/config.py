@@ -28,10 +28,10 @@ class Settings(BaseSettings):
     )
 
     # emails
-    mail_server: str = "smtp.gmail.com"
-    mail_port: int = 587
+    mail_server: str
+    mail_port: int
     mail_username: str
-    mail_password: SecretStr
+    mail_password: SecretStr = SecretStr("")
     mail_from: str
     mail_use_tls: bool
     official_home_mail: str
