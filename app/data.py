@@ -150,7 +150,7 @@ TEAM = [
     {
         "id": 1,
         "name": "Mr. Meshack Okoth",
-        "title": "Director",
+        "title": "Director/Founder",
         "image": {
             "src": "images/team/Meshack-Okoth.webp",
             "alt": "The Director",
@@ -183,15 +183,15 @@ TEAM = [
             "alt": "The Admin",
         },
     },
-    {
-        "id": 5,
-        "name": "Mr. Don",
-        "title": "International Coordinator",
-        "image": {
-            "src": "images/team/Don.webp",
-            "alt": "The International Coordinator",
-        },
-    },
+    # {
+    #     "id": 5,
+    #     "name": "Mr. Don",
+    #     "title": "International Coordinator",
+    #     "image": {
+    #         "src": "images/team/Don.webp",
+    #         "alt": "The International Coordinator",
+    #     },
+    # },
 ]
 
 
