@@ -1,4 +1,26 @@
-commit ba933d5a3b354fd01aead33f576adaace7b0ccc6 (HEAD -> dev, tag: v1.0.0)
+commit ac303e30cf0c63d1eb2276cf6dee21d64adb7cc4 (HEAD -> dev, origin/dev)
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Aug 27 12:05:21 2026 +0300
+
+    feat: add admin image
+
+commit 50dd54ba697ed131be06fba6e2539e76c529de55 (tag: v1.1.0)
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Mon Aug 24 15:11:48 2026 +0300
+
+    feat: using resend
+    
+    CHANGES:
+    - changed the email sending workflow, where I no longer user my personal
+      gamil account and instead use Resend. This is nice since when I do add
+      a custom domain, Ill be able to both send and receive emails being
+      sent to that specific email address. with my own goggle gmail & app
+      password combo, I could only make it look like Im the one sending it
+      with "<name> email"
+    - also updated the email templates making them better and more
+      responsive on both mobile & desktop
+
+commit ba933d5a3b354fd01aead33f576adaace7b0ccc6 (tag: v1.0.0)
 Author: mbvgua <mbvgua+dev@gmail.com>
 Date:   Fri Aug 21 12:38:17 2026 +0300
 
@@ -9,7 +31,7 @@ Date:   Fri Aug 21 12:38:17 2026 +0300
     - added some new images,
     - ensures there is a logo for the icon.
 
-commit 0dcb6bdfc9fb4a3c6a5c8ff6472c09569322a945 (origin/dev)
+commit 0dcb6bdfc9fb4a3c6a5c8ff6472c09569322a945
 Author: mbvgua <mbvgua+dev@gmail.com>
 Date:   Thu Aug 20 12:15:40 2026 +0300
 
