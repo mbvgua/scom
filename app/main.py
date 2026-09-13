@@ -11,6 +11,7 @@ NOTE:
 from contextlib import asynccontextmanager
 from pathlib import Path
 import logging
+import os
 
 from fastapi import FastAPI, Request, status
 from fastapi.staticfiles import StaticFiles
@@ -60,17 +61,18 @@ formatter = logging.Formatter(
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.WARNING)
 console_handler.setFormatter(formatter)
-
-file_handler = logging.FileHandler(
-    filename="app.log",
-    mode="a",  # append, dont overwrite
-    encoding="utf-8",
-)
-file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(formatter)
-
-logger.addHandler(file_handler)
 logger.addHandler(console_handler)
+
+if not os.getenv("VERCEL"):
+    file_handler = logging.FileHandler(
+        filename="app.log",
+        mode="a",  # append, dont overwrite
+        encoding="utf-8",
+    )
+    file_handler.setLevel(logging.INFO)
+    file_handler.setFormatter(formatter)
+
+    logger.addHandler(file_handler)
 
 logger.info("app started...")
 
