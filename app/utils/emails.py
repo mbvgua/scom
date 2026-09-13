@@ -12,8 +12,10 @@ from email.message import EmailMessage
 
 import aiosmtplib
 
-from app.config import settings
+from app.config import get_settings
 from app.main import templates
+
+settings = get_settings()
 
 
 async def send_email(

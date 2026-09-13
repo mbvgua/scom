@@ -38,4 +38,9 @@ class Settings(BaseSettings):
 
 
 # instantiate the settings object
-settings = Settings()
+def get_settings() -> Settings:
+    """
+    this function is cleaner than just instantiating it directly, since that
+    also worked but it also brought about an error from my LSP.
+    """
+    return Settings()
