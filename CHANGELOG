@@ -1,4 +1,58 @@
-commit ac303e30cf0c63d1eb2276cf6dee21d64adb7cc4 (HEAD -> dev, origin/dev)
+commit d826f18880a182916de6a8147318ceb11a7614e4 (HEAD -> dev, origin/dev)
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Sun Sep 13 14:33:26 2026 +0300
+
+    fix: cant write to files in vercel
+    
+    CHANGES:
+    - vercel serverless fucntions are ephemeral and i cant write to them.
+      this removes that inthe logging functionality, if on a local machine,
+      One can write to it, but on vercel, I cannot do that, only the stdout
+      logs works :)
+
+commit 563175de1220d9b5a9bcefb860064a12a0a6e1db
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Sun Sep 13 13:40:16 2026 +0300
+
+    feat: add basic logging
+    
+    CHANGES:
+    - incorporate some basic loggin into the application, not so much things
+      to log here, but emails being sent seemed important, hence added some
+      logging for that.
+    - also chnaged up the settings modules, exporting it as a function
+      definition instead, which helps remove the error caused my LSP
+
+commit d50d67aaa81cd5c766b7f0e7335999e50fd6a176
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Sat Sep 12 11:44:50 2026 +0300
+
+    refactor: moved back to google app passwords
+    
+    CHANGES:
+    - moved away from resend, and back to the good old app passwords.
+    - also made email templates alittle bit better, by adding the actual
+      website_url that they are goingto bedisplayed on :)
+    
+    CONSIDERATIONS:
+    - resend was nice, but after doing considerable research, there is no
+      need for 3rd party apps for this particular small org. costs wil grow
+      overtime and that is unpleasant. also they already use gmail so adding
+      app passwords from there will be just as good.
+    - also its worth noting that resend is a relatively new company from Y
+      combinator, meaning its Vc backed. in an year or 2 this might not be
+      the case, and might lead to its eventual collapse. Its competitors are
+      so much more expensive, and rightfully so. they sweet VC funds dried
+      up years ago. when the same happens to resend, their costs
+      might(*will*) also escalate
+
+commit 0f2a3e76996e306f999a6a95451583952105d59b
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Mon Aug 31 07:56:43 2026 +0300
+
+    feat: enable vercel web analytics
+
+commit ac303e30cf0c63d1eb2276cf6dee21d64adb7cc4
 Author: mbvgua <mbvgua+dev@gmail.com>
 Date:   Thu Aug 27 12:05:21 2026 +0300
 
