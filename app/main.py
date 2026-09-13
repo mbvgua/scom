@@ -1,9 +1,16 @@
 """
 main application entrypoint
+
+NOTE:
+    - Utilizing the logging module for basic logging in the app. setup
+      getLogger() with the "__name__" parameter, which resolves to a modules
+      absolute name, say app.routers.users, and this makes debugging
+      significantly easier
 """
 
 from contextlib import asynccontextmanager
 from pathlib import Path
+import logging
 
 from fastapi import FastAPI, Request, status
 from fastapi.staticfiles import StaticFiles
@@ -21,8 +28,7 @@ app: FastAPI = FastAPI(
     title="scom",
     description="main scom website",
     version="0.0.1",
-    # enable this once the project goes live, to disable the api docs
-    # openapi_url=None,
+    # openapi_url=None,  # enable this once the project goes live, to disable the api docs
 )
 
 # ensure paths are absolute for vercel
@@ -41,6 +47,32 @@ from app.api import router as api_router
 
 app.include_router(app_router)
 app.include_router(api_router)
+
+# setup logging: https://realpython.com/python-logging/
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+formatter = logging.Formatter(
+    "{levelname}:{asctime} - [{name}]:{message}",
+    datefmt="%Y-%m-%d %H:%M",
+    style="{",
+)
+
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.WARNING)
+console_handler.setFormatter(formatter)
+
+file_handler = logging.FileHandler(
+    filename="app.log",
+    mode="a",  # append, dont overwrite
+    encoding="utf-8",
+)
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+logger.addHandler(console_handler)
+
+logger.info("app started...")
 
 
 # error handling

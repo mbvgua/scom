@@ -12,8 +12,10 @@ from email.message import EmailMessage
 
 import aiosmtplib
 
-from app.config import settings
+from app.config import get_settings
 from app.main import templates
+
+settings = get_settings()
 
 
 async def send_email(
@@ -30,8 +32,7 @@ async def send_email(
     performs this async
     """
     message = EmailMessage()
-    message["From"] = settings.mail_from
-    # message["From"] = f"{settings.mail_from} <{settings.mail_username}>"
+    message["From"] = f"{settings.mail_from} <{settings.mail_username}>"
     message["To"] = settings.official_home_mail
     message["Reply-To"] = reply_to
     message["Subject"] = subject

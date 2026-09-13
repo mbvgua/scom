@@ -30,6 +30,7 @@ def contact_us_form(
     the ".env"file. form data is validated via the "ContactForm" schema.
     appropriate success/error messages and codes are returned as JSON
     """
+    from app.main import logger
 
     try:
         background_tasks.add_task(
@@ -42,6 +43,7 @@ def contact_us_form(
         )
 
         # if sent email successfully
+        logger.info(f"{form.username} sent a contact-us email")
         return JSONResponse(
             content={
                 "status": "success",
@@ -51,6 +53,9 @@ def contact_us_form(
         )
     except Exception as e:
         # if sth went wrong whilst sending email
+        logger.exception(
+            f"{form.username} tried sending a contact-us email unsuccessfully",
+        )
         return JSONResponse(
             content={
                 "status": "error",
@@ -72,6 +77,7 @@ def get_involved_form(
     file. form data is validated in the "GetInvolvedForm" schema.
     appropriate success/error messages and codes are returned as JSON
     """
+    from app.main import logger
 
     try:
         background_tasks.add_task(
@@ -85,6 +91,7 @@ def get_involved_form(
         )
 
         # if sent email successfully
+        logger.info(f"{form.username} sent a get-involved email")
         return JSONResponse(
             content={
                 "status": "success",
@@ -94,6 +101,9 @@ def get_involved_form(
         )
     except Exception as e:
         # if sth went wrong whilst sending email
+        logger.exception(
+            f"{form.username} tried sending a get-involved email unsuccessfully",
+        )
         return JSONResponse(
             content={
                 "status": "error",

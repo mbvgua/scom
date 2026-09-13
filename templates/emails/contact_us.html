@@ -78,6 +78,8 @@
     </style>
   </head>
   <body style="margin: 0; padding: 0; background-color: #f4f4f5">
+    {# set variables #} {% set website_url="https://scomhome.vercel.app/" %}
+
     <div style="display: none; max-height: 0; overflow: hidden; mso-hide: all">
       New contact form message from {{ username }}.
     </div>
@@ -218,7 +220,10 @@
                               color: #52525b;
                             "
                           >
-                            <span style="color: #e53e3e; font-weight: 600">Name: </span> {{ username }}
+                            <span style="color: #e53e3e; font-weight: 600"
+                              >Name:
+                            </span>
+                            {{ username }}
                           </td>
                         </tr>
                         <tr>
@@ -230,7 +235,9 @@
                               color: #52525b;
                             "
                           >
-                            <span style="color: #e53e3e; font-weight: 600" >Email: </span>
+                            <span style="color: #e53e3e; font-weight: 600"
+                              >Email:
+                            </span>
                             <a
                               href="mailto:{{ reply_to }}"
                               style="color: #3f3f46; text-decoration: none"
@@ -247,9 +254,11 @@
                               color: #52525b;
                             "
                           >
-                            <span style="color: #e53e3e; font-weight: 600">Phone</span>
-                            {% if phone_number %}{{ phone_number }}{% else %}<span
-                              style="color: #a1a1aa; font-weight: 700;"
+                            <span style="color: #e53e3e; font-weight: 600"
+                              >Phone</span
+                            >
+                            {% if phone_number %}{{ phone_number }}{% else
+                            %}<span style="color: #a1a1aa; font-weight: 700"
                               >Not provided</span
                             >{% endif %}
                           </td>
@@ -406,8 +415,8 @@
                         "
                       >
                         This notification was generated automatically from the
-                        Contact Us form on scom.org. Submitted on {{
-                        submitted_at }}.
+                        Contact Us form on
+                        <a href="{{ website_url }}"> scom.org </a>.
                       </p>
                     </td>
                   </tr>
