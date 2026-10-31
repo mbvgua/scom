@@ -41,12 +41,12 @@
         text-decoration: none;
         color: inherit;
         outline: none;
-        font-weight: 1000;
+        font-weight: 700;
         text-transform: uppercase;
         width: 14rem; // Constrains the width so it wraps below SCOM
         word-wrap: break-word;
         white-space: normal;
-        line-height: 1.2;
+        line-height: $lh-tight;
         margin-top: 2px; // Gives a tiny bit of breathing room from the initials
 
         &:hover,
@@ -70,7 +70,7 @@
     }
 
     .brand-title {
-      font-size: 1rem; // Scale down initials on mobile
+      font-size: $fs-base; // Scale down initials on mobile
       width: 11rem; // Constrain width further on mobile
     }
 
@@ -90,9 +90,9 @@
     }
 
     .brand-title {
-      font-size: 2rem;
-      font-weight: 900;
-      letter-spacing: 1px;
+      font-size: $fs-xl;
+      font-weight: 700;
+      letter-spacing: 0.02em;
       width: auto; // Constrain width further on mobile
       // border: 1px solid yellow;
     }
@@ -172,7 +172,7 @@
   color: $white;
   padding: 0.8rem 2rem;
   font-family: $font-playful;
-  font-size: 1.2rem;
+  font-size: $fs-lg;
   border-radius: 50px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, background-color 0.2s;

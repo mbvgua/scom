@@ -1,9 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Patrick+Hand+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=JetBrains+Mono:wght@400;600&family=Patrick+Hand+SC&display=swap');
 
 // --- Variables ---
 $font-playful: 'Patrick Hand SC', cursive, sans-serif;
 $font-text: 'Fredoka', sans-serif;
 $font-code: 'JetBrains Mono', monospace;
+
+// --- Typography scale ---
+// Every font size in the project should come from this list so headings,
+// body copy and UI labels stay on the same stepped scale.
+$fs-xs: 0.75rem; // 12px - fine print, labels
+$fs-sm: 0.875rem; // 14px - captions, footers, pills
+$fs-base: 1rem; // 16px - body copy, nav links, form inputs
+$fs-lg: 1.125rem; // 18px - lead paragraphs, buttons, article body
+$fs-xl: 1.25rem; // 20px - card titles, h5
+$fs-2xl: 1.5rem; // 24px - h3, secondary headings
+$fs-3xl: 1.875rem; // 30px - icons in feature cards
+
+$lh-tight: 1.15; // large display headings
+$lh-heading: 1.3; // h1-h6
+$lh-body: 1.6; // paragraphs, lists, UI copy
+$lh-relaxed: 1.75; // long-form reading (blog articles, privacy policy)
 $bg-secondary: #3e3d32;
 /* For code blocks, blockquotes, or card backgrounds */
 $fg-colour: #f8f8f2;

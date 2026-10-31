@@ -13,7 +13,11 @@ from fastapi import APIRouter, Form, Request, BackgroundTasks, status
 from fastapi.responses import JSONResponse
 
 from app.schemas.forms import ContactForm, GetInvolvedForm
-from app.utils.emails import send_contact_us_email, send_get_involved_email
+from app.utils.emails import (
+    send_contact_us_email,
+    send_get_involved_email,
+    send_in_background,
+)
 
 router = APIRouter(prefix="/api", tags=["api"])
 
@@ -34,7 +38,12 @@ def contact_us_form(
 
     try:
         background_tasks.add_task(
+            send_in_background,
             send_contact_us_email,
+            success_message=f"{form.username} sent a contact-us email",
+            failure_message=(
+                f"{form.username} tried sending a contact-us email unsuccessfully"
+            ),
             reply_to=form.from_email,
             subject=f"Contact Form Inquisition by {form.username}",
             username=form.username,
@@ -42,8 +51,6 @@ def contact_us_form(
             message=form.message,
         )
 
-        # if sent email successfully
-        logger.info(f"{form.username} sent a contact-us email")
         return JSONResponse(
             content={
                 "status": "success",
@@ -81,7 +88,12 @@ def get_involved_form(
 
     try:
         background_tasks.add_task(
+            send_in_background,
             send_get_involved_email,
+            success_message=f"{form.username} sent a get-involved email",
+            failure_message=(
+                f"{form.username} tried sending a get-involved email unsuccessfully"
+            ),
             reply_to=form.from_email,
             subject=f"Get Involved Form Inquisition by {form.username}",
             username=form.username,
@@ -90,8 +102,6 @@ def get_involved_form(
             message=form.message,
         )
 
-        # if sent email successfully
-        logger.info(f"{form.username} sent a get-involved email")
         return JSONResponse(
             content={
                 "status": "success",

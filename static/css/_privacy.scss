@@ -27,7 +27,7 @@
 
     .nav-link {
       color: $text-dark;
-      font-size: 0.95rem;
+      font-size: $fs-sm;
       padding: 0.60rem 1.25rem;
       border-left: 3px solid transparent;
       transition: all 0.2s ease-in-out;
@@ -71,7 +71,7 @@
 
     p,
     li {
-      line-height: 1.7;
+      line-height: $lh-relaxed;
       color: $text-dark;
     }
 

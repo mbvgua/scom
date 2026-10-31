@@ -2,6 +2,8 @@
 configure essential variables and configurations tobe used within the app
 """
 
+from functools import lru_cache
+
 from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -37,7 +39,7 @@ class Settings(BaseSettings):
     official_home_mail: str
 
 
-# instantiate the settings object
+@lru_cache()
 def get_settings() -> Settings:
     """
     this function is cleaner than just instantiating it directly, since that

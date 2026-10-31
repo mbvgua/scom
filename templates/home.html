@@ -32,7 +32,7 @@
         <div class="carousel-item h-100 {% if loop.first  %} active {% endif %}">
                 <img src="{{ url_for('static', path=item.image.src) }}" class="d-block w-100 h-100 hero-img" alt="{{ item.image.alt }}" />
                 <div class="carousel-caption d-flex flex-column justify-content-center align-items-center" >
-                    <h1 class="display-2 fw-bold text-white mb-3">{{ item.title }}</h1>
+                    <h1 class="display-1 fw-bold text-white mb-3">{{ item.title }}</h1>
                     <p class="lead text-white fs-4"> {{ item.content }} </p>
                     {% if item.btn_url %}
                         <a href="{{ item.btn_url }}">
@@ -84,7 +84,7 @@
                 <!-- text side -->
                 <div class="col-lg-6">
                     <div class="pe-lg-3">
-                    <p class="fs-4 fs-md-5 text-dark mb-3">
+                    <p class="fs-5 text-dark mb-3">
                         At Service for Christ Outreach Ministry (SCOM), our mission
                         is rooted in reaching out to the most vulnerable disabled 
                         children and orphans with an open heart and a compassionate
@@ -110,7 +110,7 @@
                             <i class="bi bi-people-fill"></i>
                         </div>
                         <h4 class="fw-medium text-dark mb-3">Social Transformation</h4>
-                        <p class="fs-5 text-muted mb-0">
+                        <p class="fs-6 text-muted mb-0">
                             We break down societal stigma and isolation by creating
                             an inclusive, safe home environment where special needs
                             children are treated with dignity, loved for who they are,
@@ -126,7 +126,7 @@
                             <i class="bi bi-heart-pulse-fill"></i>
                         </div>
                         <h4 class="fw-medium text-dark mb-3">Physical Transformation</h4>
-                        <p class="fs-5 text-muted mb-0">
+                        <p class="fs-6 text-muted mb-0">
                             Through dedicated occupational and physical therapies,
                             well-balanced daily nutrition, and specialized caregiving,
                             we work to enhance each child's mobility, immunity, and 
@@ -142,7 +142,7 @@
                             <i class="bi bi-wallet2"></i>
                         </div>
                         <h4 class="fw-medium text-dark mb-3">Economic Transformation</h4>
-                        <p class="fs-5 text-muted mb-0">
+                        <p class="fs-6 text-muted mb-0">
                             We equip children with practical life skills and vocational
                             training tailored to their unique capabilities, laying the 
                             foundation for self-reliance and future independence. 
@@ -157,7 +157,7 @@
                             <i class="bi bi-brightness-high-fill"></i>
                         </div>
                         <h4 class="fw-medium text-dark mb-3">Spiritual Transformation</h4>
-                        <p class="fs-5 text-muted mb-0">
+                        <p class="fs-6 text-muted mb-0">
                             Anchored in Christian values and the teachings of Jesus Christ,
                             we nurture each child’s spiritual well-being through faith, worship,
                             and compassionate love. 
@@ -185,7 +185,7 @@
                 <!-- text side -->
                 <div class="col-lg-6">
                     <div class="pe-lg-3">
-                    <p class="fs-4 fs-md-5 text-dark mb-3">
+                    <p class="fs-5 text-dark mb-3">
                         We are anchored in providing a compassionate, Christ-centered care to 
                         vulnerable disabled children and orphans in our society. We
                         foresee a transformed future across Kenya where children living
@@ -234,7 +234,7 @@
                     <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
                         <h2 class="accordion-header" id="heading{{item.id}}">
                         <button
-                            class="accordion-button fs-5 fs-md-6 {% if not loop.first %} collapsed {% endif %} fw-semibold"
+                            class="accordion-button fs-6 {% if not loop.first %} collapsed {% endif %} fw-semibold"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#collapse{{item.id}}"
@@ -250,7 +250,7 @@
                         aria-labelledby="heading{{item.id}}"
                         data-bs-parent="#faqAccordion"
                         >
-                        <div class="accordion-body fs-5 fs-md-6 text-secondary">
+                        <div class="accordion-body fs-6 text-secondary">
                             {{item.answer}}
                         </div>
                         </div>

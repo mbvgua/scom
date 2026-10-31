@@ -3,8 +3,105 @@
  * GENERAL CONTENT SECTION
  ***************************
 */
+html {
+  font-size: 100%; // keep the browser's base size so rem values stay predictable
+}
+
 body {
   font-family: $font-text;
+  font-size: $fs-base;
+  line-height: $lh-body;
+}
+
+// One heading scale for the whole site. Bootstrap's defaults are overridden
+// here so every page uses the same sizes and line-height.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: $font-text;
+  line-height: $lh-heading;
+}
+
+h1,
+.h1 {
+  font-size: clamp(2rem, 2.5vw + 1rem, 2.5rem);
+}
+
+h2,
+.h2 {
+  font-size: clamp(1.6rem, 2vw + 1rem, 2rem);
+}
+
+h3,
+.h3 {
+  font-size: $fs-2xl;
+}
+
+h4,
+.h4 {
+  font-size: $fs-xl;
+}
+
+h5,
+.h5 {
+  font-size: $fs-lg;
+}
+
+h6,
+.h6 {
+  font-size: $fs-base;
+}
+
+// Bootstrap's display-* classes start at 5rem, which is far too large for
+// this layout. Keep the hierarchy, but on a restrained fluid scale.
+.display-1 {
+  font-size: clamp(2.5rem, 4vw + 1rem, 3.5rem);
+  line-height: $lh-tight;
+}
+
+.display-2 {
+  font-size: clamp(2.25rem, 3.5vw + 1rem, 3rem);
+  line-height: $lh-tight;
+}
+
+.display-3 {
+  font-size: clamp(2rem, 3vw + 1rem, 2.75rem);
+  line-height: $lh-tight;
+}
+
+.display-4 {
+  font-size: clamp(1.75rem, 2.5vw + 1rem, 2.25rem);
+  line-height: $lh-heading;
+}
+
+.display-5 {
+  font-size: clamp(1.6rem, 2vw + 1rem, 2rem);
+  line-height: $lh-heading;
+}
+
+.display-6 {
+  font-size: clamp(1.5rem, 1.5vw + 1rem, 1.75rem);
+  line-height: $lh-heading;
+}
+
+.lead {
+  font-size: $fs-lg;
+  font-weight: 400;
+  line-height: $lh-body;
+}
+
+small,
+.small {
+  font-size: $fs-sm;
 }
 
 

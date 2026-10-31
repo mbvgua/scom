@@ -42,6 +42,7 @@
 
 .account-label {
   font-family: $font-text;
+  font-size: $fs-sm;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -56,6 +57,7 @@
 }
 
 .account-value {
+  font-size: $fs-xl;
   word-break: break-word;
 
   &--code {
@@ -80,15 +82,15 @@
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 
   i {
-    font-size: 0.95rem;
+    font-size: $fs-base;
     pointer-events: none;
   }
 
   // Hidden label element
   .copy-text {
     display: none;
-    font-family: font-text;
-    font-size: 0.75rem;
+    font-family: $font-text;
+    font-size: $fs-xs;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;

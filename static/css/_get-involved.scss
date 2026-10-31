@@ -14,7 +14,7 @@
   .form-control,
   .form-select {
     border: 1px solid #cbd5e1;
-    font-size: 1rem;
+    font-size: $fs-base;
 
     &:focus {
       border-color: $light-blue;

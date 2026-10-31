@@ -182,16 +182,27 @@ $link-color: #c8f5a0;
 }
 
 .footer-logo-text {
-  font-size: 1.4rem;
+  font-size: $fs-xl;
   font-weight: 700;
   letter-spacing: 0.03em;
   color: #fff;
 }
 
 .footer-tagline {
-  font-size: 0.9rem;
+  font-size: $fs-sm;
   color: $text-muted;
   font-style: italic;
+}
+
+.footer-heading {
+  font-size: $fs-sm;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.footer-blurb {
+  color: $text-muted;
+  line-height: $lh-body;
 }
 
 .footer-divider {
@@ -199,7 +210,7 @@ $link-color: #c8f5a0;
 }
 
 .footer-bottom {
-  font-size: 0.82rem;
+  font-size: $fs-sm;
   color: $text-bottom;
 }
 
@@ -241,7 +252,7 @@ $link-color: #c8f5a0;
 
 /* Little house icon in footer */
 .footer-house {
-  font-size: 2rem;
+  font-size: $fs-2xl;
   color: $sun-outer;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.18));
 }

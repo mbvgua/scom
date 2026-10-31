@@ -2,12 +2,15 @@
 utility functions used for sending emails from the application to the admins
 inbox. currently only two forms in the application, which warrant two main
 functions for each of those, alongside one main send_email function that both
-will ineherit from. Hence has 3 functions:
+will ineherit from. plus a wrapper that runs a send as a background task
+and logs its outcome. Hence has 4 functions:
     - send_email
+    - send_in_background
     - send_contact_us_email
     - send_get_involved_email
 """
 
+from collections.abc import Awaitable, Callable
 from email.message import EmailMessage
 
 import aiosmtplib
@@ -50,6 +53,28 @@ async def send_email(
         password=settings.mail_password.get_secret_value() or None,
         start_tls=settings.mail_use_tls,
     )
+
+
+async def send_in_background(
+    send_fn: Callable[..., Awaitable[None]],
+    success_message: str,
+    failure_message: str,
+    **kwargs,
+) -> None:
+    """
+    run an email send as a background task without losing errors.
+
+    background tasks run after the response has been sent, so exceptions
+    they raise never reach the route handler's try/except. catching and
+    logging them here is the only way to know a send failed.
+    """
+    from app.main import logger  # lazy import avoids a circular import
+
+    try:
+        await send_fn(**kwargs)
+        logger.info(success_message)
+    except Exception:
+        logger.exception(failure_message)
 
 
 async def send_contact_us_email(
