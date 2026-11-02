@@ -12,8 +12,8 @@ from typing import Annotated
 from fastapi import APIRouter, Form, Request, BackgroundTasks, status
 from fastapi.responses import JSONResponse
 
-from app.schemas.forms import ContactForm, GetInvolvedForm
-from app.utils.emails import (
+from src.schemas.forms import ContactForm, GetInvolvedForm
+from src.utils.emails import (
     send_contact_us_email,
     send_get_involved_email,
     send_in_background,

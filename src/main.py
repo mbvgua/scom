@@ -23,7 +23,7 @@ from fastapi.exception_handlers import (
     request_validation_exception_handler,
 )
 
-from app.utils.jinja2 import format_markdown_to_html
+from src.utils.jinja2 import format_markdown_to_html
 
 app: FastAPI = FastAPI(
     title="scom",
@@ -43,8 +43,8 @@ templates.env.filters["markdown"] = (
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 
 # import and register the routes
-from app.routes import router as app_router
-from app.api import router as api_router
+from src.routes import router as app_router
+from src.api import router as api_router
 
 app.include_router(app_router)
 app.include_router(api_router)

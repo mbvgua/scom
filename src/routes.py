@@ -2,7 +2,7 @@ from typing import Optional
 
 from fastapi.responses import RedirectResponse
 
-from app.data import (
+from src.data import (
     CAROUSEL_ITEMS,
     FAQS,
     PROGRAMS,
@@ -12,12 +12,12 @@ from app.data import (
     VOLUNTEERING_FAQS,
     WISHLIST_FAQS,
 )
-from app.utils.jinja2 import calculate_reading_time
+from src.utils.jinja2 import calculate_reading_time
 from fastapi import APIRouter, HTTPException, Request, status
 
-from app.main import templates
-from app.schemas.posts import PostCategory
-from app.utils.blogs import get_all_blogs, get_blog_by_slug
+from src.main import templates
+from src.schemas.posts import PostCategory
+from src.utils.blogs import get_all_blogs, get_blog_by_slug
 
 router = APIRouter(tags=["views"])
 

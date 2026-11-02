@@ -15,8 +15,8 @@ from email.message import EmailMessage
 
 import aiosmtplib
 
-from app.config import get_settings
-from app.main import templates
+from src.config import get_settings
+from src.main import templates
 
 settings = get_settings()
 
