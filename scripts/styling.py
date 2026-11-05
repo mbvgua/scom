@@ -12,6 +12,11 @@ runs without needing this script at all.
 its best run as a module with:
     $ python -m scripts.styling                     # compile once
     $ python -m scripts.styling --watch             # recompile on change
+
+NOTE:
+    - if this fails, use node sass module like so:
+        $ npm install sass
+        $ sass watch scss/main.scss css/main.css
 """
 
 import argparse

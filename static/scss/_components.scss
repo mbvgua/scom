@@ -33,12 +33,12 @@ h6,
 
 h1,
 .h1 {
-  font-size: clamp(2rem, 2.5vw + 1rem, 2.5rem);
+  font-size: clamp(2rem, calc(2.5vw + 1rem), 2.5rem);
 }
 
 h2,
 .h2 {
-  font-size: clamp(1.6rem, 2vw + 1rem, 2rem);
+  font-size: clamp(1.6rem, calc(2vw + 1rem), 2rem);
 }
 
 h3,
@@ -64,32 +64,32 @@ h6,
 // Bootstrap's display-* classes start at 5rem, which is far too large for
 // this layout. Keep the hierarchy, but on a restrained fluid scale.
 .display-1 {
-  font-size: clamp(2.5rem, 4vw + 1rem, 3.5rem);
+  font-size: clamp(2.5rem, calc(4vw + 1rem), 3.5rem);
   line-height: $lh-tight;
 }
 
 .display-2 {
-  font-size: clamp(2.25rem, 3.5vw + 1rem, 3rem);
+  font-size: clamp(2.25rem, calc(3.5vw + 1rem), 3rem);
   line-height: $lh-tight;
 }
 
 .display-3 {
-  font-size: clamp(2rem, 3vw + 1rem, 2.75rem);
+  font-size: clamp(2rem, calc(3vw + 1rem), 2.75rem);
   line-height: $lh-tight;
 }
 
 .display-4 {
-  font-size: clamp(1.75rem, 2.5vw + 1rem, 2.25rem);
+  font-size: clamp(1.75rem, calc(2.5vw + 1rem), 2.25rem);
   line-height: $lh-heading;
 }
 
 .display-5 {
-  font-size: clamp(1.6rem, 2vw + 1rem, 2rem);
+  font-size: clamp(1.6rem, calc(2vw + 1rem), 2rem);
   line-height: $lh-heading;
 }
 
 .display-6 {
-  font-size: clamp(1.5rem, 1.5vw + 1rem, 1.75rem);
+  font-size: clamp(1.5rem, calc(1.5vw + 1rem), 1.75rem);
   line-height: $lh-heading;
 }
 

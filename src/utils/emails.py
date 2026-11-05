@@ -68,7 +68,7 @@ async def send_in_background(
     they raise never reach the route handler's try/except. catching and
     logging them here is the only way to know a send failed.
     """
-    from app.main import logger  # lazy import avoids a circular import
+    from src.main import logger  # lazy import avoids a circular import
 
     try:
         await send_fn(**kwargs)

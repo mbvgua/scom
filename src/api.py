@@ -34,7 +34,7 @@ def contact_us_form(
     the ".env"file. form data is validated via the "ContactForm" schema.
     appropriate success/error messages and codes are returned as JSON
     """
-    from app.main import logger
+    from src.main import logger
 
     try:
         background_tasks.add_task(
@@ -84,7 +84,7 @@ def get_involved_form(
     file. form data is validated in the "GetInvolvedForm" schema.
     appropriate success/error messages and codes are returned as JSON
     """
-    from app.main import logger
+    from src.main import logger
 
     try:
         background_tasks.add_task(
