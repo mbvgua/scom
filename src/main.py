@@ -9,7 +9,6 @@ NOTE:
 """
 
 from contextlib import asynccontextmanager
-from pathlib import Path
 import logging
 import os
 
@@ -23,7 +22,10 @@ from fastapi.exception_handlers import (
     request_validation_exception_handler,
 )
 
+from src.config import get_settings
 from src.utils.jinja2 import format_markdown_to_html
+
+settings = get_settings()
 
 app: FastAPI = FastAPI(
     title="scom",
@@ -32,15 +34,17 @@ app: FastAPI = FastAPI(
     # openapi_url=None,  # enable this once the project goes live, to disable the api docs
 )
 
-# ensure paths are absolute for vercel
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 # define styling and templates to use
-templates: Jinja2Templates = Jinja2Templates(directory=BASE_DIR / "templates")
+templates: Jinja2Templates = Jinja2Templates(directory=settings.templates_dir)
 templates.env.filters["markdown"] = (
     format_markdown_to_html  # custom jinja2 filter to format .md to .html
 )
-app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
+app.mount(
+    "/static",
+    StaticFiles(directory=settings.static_dir),
+    name="static",
+)
 
 # import and register the routes
 from src.routes import router as app_router
@@ -63,7 +67,12 @@ console_handler.setLevel(logging.WARNING)
 console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
-if not os.getenv("VERCEL"):
+if not settings.is_production:
+    """
+    Currently hosting on Vercel, and I cant write to files there. Hence if in a
+    prod ennvironement, no logging for now. I can see the irony inthat, but
+    it is what it is.
+    """
     file_handler = logging.FileHandler(
         filename="app.log",
         mode="a",  # append, dont overwrite

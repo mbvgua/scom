@@ -1,7 +1,5 @@
 from typing import Optional
 
-from fastapi.responses import RedirectResponse
-
 from src.data import (
     CAROUSEL_ITEMS,
     FAQS,

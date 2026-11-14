@@ -1,11 +1,15 @@
 """
-configure essential variables and configurations tobe used within the app
+configure essential variables and configurations to be used within the app
 """
 
 from functools import lru_cache
+from pathlib import Path
 
 from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+# ensure paths are absolute
+BASE_DIR = Path(__file__).resolve().parent
 
 
 class Settings(BaseSettings):
@@ -29,7 +33,13 @@ class Settings(BaseSettings):
         extra="ignore",  # ignore extra vars not defined here
     )
 
-    # emails
+    environment: str
+
+    # --- filesystems
+    static_dir: Path = BASE_DIR / "static"
+    templates_dir: Path = BASE_DIR / "templates"
+
+    # --- emails
     mail_server: str
     mail_port: int
     mail_username: str
@@ -37,6 +47,10 @@ class Settings(BaseSettings):
     mail_from: str
     mail_use_tls: bool
     official_home_mail: str
+
+    @property
+    def is_production(self) -> bool:
+        return self.environment.lower() == "production"
 
 
 @lru_cache()
