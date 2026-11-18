@@ -1,4 +1,77 @@
-commit d826f18880a182916de6a8147318ceb11a7614e4 (HEAD -> dev, origin/dev)
+commit 0f3c3cec41c4f9c053fa304ae5557164ef5f0c64 (HEAD -> main, origin/main, origin/HEAD)
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Sat Nov 14 20:27:27 2026 +0300
+
+    refactor: move templates & static directory
+    
+    CHANGES:
+    - updated the project wise README.md and added a TODO.md file, this
+      makes things neater
+    - moved the templates/ and static/ directories into the src/ directory.
+      This makes things much simpler and neater, since on conatierizating
+      the application, I simply copy the contents of the src/ directory,
+      andnot the entire project directory. This makes things much easier to
+      work with imo.
+    - added a bunch of env variables to the src/config.py file, making it
+      work better as a modular structure where yousimply import filepaths
+      from it instead of defining them in the main.py file
+
+commit 2afd76b3035750a29aefa7047c0228500f1fdac7
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Nov 5 18:44:23 2026 +0300
+
+    fix: configure email sending
+    
+    CHANGES:
+    - inthe email logging config, I was still importing things from 'app.'
+      and notthe newly updated 'src.', this makes things not work and hence
+      whythe emails were not goingthrough, updated this accordingly
+
+commit 9cc2da97f2e15576cf60662ac79c4617f08607a7
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Nov 5 18:17:57 2026 +0300
+
+    fix: ensure vercel discoverability
+    
+    CHANGES:
+    - had added a pyproject.toml file tomake running the app easier with
+      fastapi dev. However, this makes the default package manage onvercel,
+      which is uv, run instead of pip. removed it, allowing it to run
+      with the requirements.txt file
+
+commit 65dcf574feb382953c9f5f42c755a57e8bf79f58
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Mon Nov 2 21:33:40 2026 +0300
+
+    style: make text smaller
+    
+    CHANGES:
+    - the text onmostof the pages was really enormous, made it smaller
+      and uniform. now I can selectively make text inany given area bugger
+      if need be.
+
+commit 49dfae22eaa3eb7e8163ba2745a536659efd9184
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Sat Oct 31 17:58:12 2026 +0300
+
+    refactor: Make emails work Again!
+    
+    CHANGES:
+    - had an issue with the email sending functionality, rotated my app
+      password to ensure it works as needed
+    - changed text font within the app, made it smaller and more uniform,
+      not popping out excessively in certain places only
+
+commit f3d951a6439b7467af8b82449efe3830bda8f97a
+Merge: 1c71390 d05cbef
+Author: Mbugua <105845499+mbvgua@users.noreply.github.com>
+Date:   Sun Sep 13 22:47:22 2026 +0300
+
+    Merge pull request #9 from mbvgua/dev
+    
+    fix: cant write to files in vercel
+
+commit d05cbef22948e631d9a66ab24221154ec156f779 (origin/dev)
 Author: mbvgua <mbvgua+dev@gmail.com>
 Date:   Sun Sep 13 14:33:26 2026 +0300
 
@@ -9,6 +82,15 @@ Date:   Sun Sep 13 14:33:26 2026 +0300
       this removes that inthe logging functionality, if on a local machine,
       One can write to it, but on vercel, I cannot do that, only the stdout
       logs works :)
+
+commit 1c7139050cb56d974964f6cc72949785a67e9b54
+Merge: 48f65ea 563175d
+Author: Mbugua <105845499+mbvgua@users.noreply.github.com>
+Date:   Sun Sep 13 14:24:22 2026 +0300
+
+    Merge pull request #8 from mbvgua/dev
+    
+    Dev
 
 commit 563175de1220d9b5a9bcefb860064a12a0a6e1db
 Author: mbvgua <mbvgua+dev@gmail.com>
@@ -46,13 +128,46 @@ Date:   Sat Sep 12 11:44:50 2026 +0300
       up years ago. when the same happens to resend, their costs
       might(*will*) also escalate
 
+commit 48f65ea37cc961066ae2f2c8d8d2561900d01ee7
+Merge: 3d74cb5 0f2a3e7
+Author: Mbugua <105845499+mbvgua@users.noreply.github.com>
+Date:   Mon Aug 31 08:04:16 2026 +0300
+
+    Merge pull request #7 from mbvgua/dev
+    
+    feat: enable vercel web analytics
+
 commit 0f2a3e76996e306f999a6a95451583952105d59b
 Author: mbvgua <mbvgua+dev@gmail.com>
 Date:   Mon Aug 31 07:56:43 2026 +0300
 
     feat: enable vercel web analytics
 
+commit 3d74cb575add59561bfee03ac15577a42476759e
+Merge: 25f90d7 ac303e3
+Author: Mbugua <105845499+mbvgua@users.noreply.github.com>
+Date:   Thu Aug 27 12:20:30 2026 +0300
+
+    Merge pull request #5 from mbvgua/dev
+    
+    feat: add admin image
+
 commit ac303e30cf0c63d1eb2276cf6dee21d64adb7cc4
+Author: mbvgua <mbvgua+dev@gmail.com>
+Date:   Thu Aug 27 12:05:21 2026 +0300
+
+    feat: add admin image
+
+commit 25f90d72b763c105da5d1ca7892d3de50ab53a09
+Merge: 8914674 fa75e57
+Author: Mbugua <105845499+mbvgua@users.noreply.github.com>
+Date:   Thu Aug 27 12:14:09 2026 +0300
+
+    Merge pull request #4 from mbvgua/dev
+    
+    Minor mods
+
+commit fa75e5739e21cd68ee8c524174a024a28dbfc5eb
 Author: mbvgua <mbvgua+dev@gmail.com>
 Date:   Thu Aug 27 12:05:21 2026 +0300
 
@@ -85,6 +200,15 @@ Date:   Fri Aug 21 12:38:17 2026 +0300
     - added some new images,
     - ensures there is a logo for the icon.
 
+commit 8914674b8c548e215c46c6c61960f0470444b5db
+Merge: dc3ee20 0dcb6bd
+Author: Mbugua <105845499+mbvgua@users.noreply.github.com>
+Date:   Thu Aug 20 12:19:26 2026 +0300
+
+    Merge pull request #3 from mbvgua/dev
+    
+    Adding Real Content
+
 commit 0dcb6bdfc9fb4a3c6a5c8ff6472c09569322a945
 Author: mbvgua <mbvgua+dev@gmail.com>
 Date:   Thu Aug 20 12:15:40 2026 +0300
@@ -116,6 +240,15 @@ Date:   Wed Aug 19 15:38:20 2026 +0300
     CHANGES:
     - got a file pdf, added a bunch of content in relation to that
     - also added the images for the team section
+
+commit dc3ee2087c6e3dec97b1165ce46f65880e2d6bb8
+Merge: a25496b 79cca44
+Author: Mbugua <105845499+mbvgua@users.noreply.github.com>
+Date:   Mon Aug 17 14:55:13 2026 +0300
+
+    Merge pull request #2 from mbvgua/dev
+    
+    Dev
 
 commit 79cca4481e6fb2115e2b2be21f5b8be81e363a38
 Author: mbvgua <mbvgua+dev@gmail.com>
@@ -156,7 +289,7 @@ Date:   Mon Aug 17 06:43:07 2026 +0300
 
     feat: optimize map load times
 
-commit a25496bb6f8d70b6e39f6c64d705de68b20b41e7 (tag: v0.2.0, origin/main, origin/HEAD, main)
+commit a25496bb6f8d70b6e39f6c64d705de68b20b41e7 (tag: v0.2.0)
 Author: Mbugua <mbvgua@gmail.com>
 Date:   Sun Aug 16 08:20:19 2026 +0300
 
